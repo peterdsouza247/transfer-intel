@@ -117,9 +117,9 @@ def main() -> int:
     ap.add_argument("--apply", action="store_true",
                     help="write the updated data.json and data.js")
     ap.add_argument("--no-notes", action="store_true", help="skip phase 4")
-    ap.add_argument("--max-notes", type=int, default=12)
-    ap.add_argument("--max-changes", type=int, default=15,
-                    help="abort if phase 3 wants more updates than this")
+    ap.add_argument("--max-notes", type=int, default=40)	//default 12
+    ap.add_argument("--max-changes", type=int, default=40,
+                    help="abort if phase 3 wants more updates than this")	//default 15
     args = ap.parse_args()
 
     today = date.fromisoformat(args.today) if args.today else date.today()
