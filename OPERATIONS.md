@@ -75,6 +75,28 @@ pass. That is the point: you are checking the plumbing, not the output.
 Then run it once with `--apply`, open the site again, and confirm it still
 loads. Commit `data.json`, the regenerated `data.js`, and the scripts.
 
+### 3b. Set the site origin
+
+Open `data.json` and set the one value the renderer cannot guess:
+
+```json
+"site": { "baseUrl": "https://<username>.github.io/<repo-name>" }
+```
+
+The path has to match the repository name exactly, hyphens included. Confirm
+with `python scripts/check_site.py`, which compares it against your git remote.
+
+Then render once and look at the result:
+
+```bash
+python scripts/render_site.py --data data.json --template index.html --out .
+```
+
+Open `index.html` in a browser: it should look exactly as it did, because your
+JavaScript overwrites the pre-rendered containers on load. Then view source and
+search for a player's name. If it is there, a crawler that runs no JavaScript
+can now see your content. Full detail in `DISCOVERABILITY.md`.
+
 ### 4. Repository settings
 
 Two settings, and the second one is the one everybody misses.
@@ -116,6 +138,9 @@ page order.
 **1. The gate section, if there is one.** Warnings ride along in the body.
 They never block, but they are the pipeline telling you it noticed something
 odd.
+
+**1b. New pages.** A new deal adds a `deals/<id>/` directory and an Open Graph
+card. That is expected and needs no review beyond the deal itself.
 
 **2. Any `status` change to `done`.** Click the link. Actually click it. This
 is the only genuinely irreversible thing in the run: once a deal is done it
@@ -244,6 +269,8 @@ to be stopped.
 | Notes stopped changing | Note budget hit, or nothing moved enough | Notes only regenerate on real movement. Check `--max-notes` |
 | Deals flagged stale two weeks in | Only phase 0 seed evidence, never mentioned since | Working as designed. Delete them |
 | Site shows old data after merge | Pages cache | Wait for the Pages deploy, then hard refresh |
+| Render step exits 2 | `config.site.baseUrl` is empty | Set it in `data.json`, see `DISCOVERABILITY.md` |
+| Link previews show a bare URL | Platform cached the old page | Re-scrape in the Facebook sharing debugger |
 
 ### Kill switch
 

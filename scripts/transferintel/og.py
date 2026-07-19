@@ -112,33 +112,31 @@ def _footer(d: ImageDraw.ImageDraw, updated: str) -> None:
                label, font=_font(20), fill=MUTED)
 
 
-def site_card(out: Path, window: str, updated: str, stats: dict) -> Path:
-    """The default card, used for the home page and anything without its own."""
+def site_card(out: Path, window: str, updated: str, sections: list[tuple[str, str]]) -> Path:
+    """The default card, used for the home page and anything without its own.
+
+    The three rows are the site's own sections, each carrying a real number.
+    Naming what the site does is more use to someone deciding whether to click
+    than three abstract statistics, and attaching a figure to each keeps the
+    reason-to-click that a bare navigation list would throw away.
+
+    Rows with nothing to report are dropped by the caller rather than rendered
+    as a zero. A share card advertising "0 completed" argues against itself.
+    """
     img, d = _base(window)
 
-    title = _font(58, True)
-    d.text((72, 210), "Premier League transfer", font=title, fill=TEXT)
-    d.text((72, 278), "rumours, scored 0 to 100", font=title, fill=TEXT)
+    title = _font(54, True)
+    d.text((72, 200), "Premier League transfer", font=title, fill=TEXT)
+    d.text((72, 262), "rumours, scored 0 to 100", font=title, fill=TEXT)
 
-    body = _wrap(
-        d,
-        "Every deal tracked from rumour to done, with a credibility score "
-        "derived from source tier and corroboration.",
-        _font(24),
-        1000,
-    )
-    y = 366
-    for line in body[:2]:
-        d.text((72, y), line, font=_font(24), fill=MUTED)
-        y += 34
-
-    # Three numbers, because a card with a number on it gets clicked.
-    x = 72
-    for label, value in list(stats.items())[:3]:
-        d.rounded_rectangle([x, 448, x + 320, 538], 12, fill=PANEL, outline=BORDER)
-        d.text((x + 22, 462), str(value), font=_font(36, True), fill=TEXT)
-        d.text((x + 22, 506), label, font=_font(18), fill=MUTED)
-        x += 344
+    y = 356
+    for label, value in sections[:3]:
+        d.rounded_rectangle([72, y, 1128, y + 62], 10, fill=PANEL, outline=BORDER)
+        d.text((96, y + 17), label, font=_font(26, True), fill=TEXT)
+        if value:
+            w = d.textlength(value, font=_font(24))
+            d.text((1104 - w, y + 19), value, font=_font(24), fill=ACCENT)
+        y += 74
 
     _footer(d, updated)
     out.parent.mkdir(parents=True, exist_ok=True)
@@ -191,8 +189,14 @@ def club_card(out: Path, club: str, summary: dict, updated: str) -> Path:
 
     d.text((72, 206), club, font=_font(72, True), fill=TEXT)
 
+    # Only rows that have something to say. A dashboard card showing four
+    # zeros reads as a broken page, not a quiet window.
+    rows = [(k, v) for k, v in summary.items() if v not in (0, "0", "£0m", "", None)]
+    if not rows:
+        rows = [("Tracked this window", summary.get("Tracked incoming", 0))]
+
     y = 320
-    for label, value in list(summary.items())[:4]:
+    for label, value in rows[:4]:
         d.text((72, y), label, font=_font(24), fill=MUTED)
         d.text((560, y), str(value), font=_font(24, True), fill=TEXT)
         d.rectangle([72, y + 40, 1128, y + 41], fill=BORDER)

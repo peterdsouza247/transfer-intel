@@ -5,11 +5,6 @@
     "deadline": "2026-09-01T17:00:00Z",
     "deadlineLabel": "Deadline day: Sep 1, 6pm BST",
     "updated": "Jul 18, 2026",
-    "site": {
-      "baseUrl": "https://peterdsouza247.github.io/transfer-intel",
-      "title": "TransferIntel",
-      "twitter": "@peterdwrites"
-    },
     "sourcesNote": "Tier 1 sources weighted heaviest.",
     "provenClubs": [
       "Ajax",
@@ -17,7 +12,12 @@
       "Sporting CP",
       "Eintracht Frankfurt",
       "Brighton"
-    ]
+    ],
+    "site": {
+      "baseUrl": "https://example.github.io/transferintel",
+      "title": "TransferIntel",
+      "twitter": "@peterdwrites"
+    }
   },
   "deals": [
     {

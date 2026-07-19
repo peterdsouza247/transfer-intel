@@ -77,7 +77,7 @@ def main() -> int:
             "  absolute origin, and a guessed one is worse than none: it tells\n"
             "  crawlers the real page lives somewhere else. Add this to the\n"
             "  config block in data.json:\n\n"
-            '      "site": { "baseUrl": "https://peterdsouza247.github.io/transfer-intel" }\n',
+            '      "site": { "baseUrl": "https://you.github.io/transferintel" }\n',
             file=sys.stderr,
         )
         return 2
@@ -94,11 +94,28 @@ def main() -> int:
     document = args.template.read_text(encoding="utf-8")
     document = strip_generated_head(document)
 
-    stats = {
-        "deals tracked": len(deals),
-        "completed": sum(1 for d in deals if str(getattr(d.status, "value", d.status)) == "done"),
-        "avg credibility": round(sum(d.cred for d in deals) / len(deals)) if deals else 0,
-    }
+    # The card lists the site's own sections with a real figure against each,
+    # and drops any whose figure would be zero. Early in a window there are no
+    # completed deals and no fees to assess, and a share card announcing "0"
+    # argues against clicking it.
+    done = [d for d in deals if str(getattr(d.status, "value", d.status)) == "done"]
+    assessed = sum(d.fee or 0 for d in done)
+    avg_cred = round(sum(d.cred for d in deals) / len(deals)) if deals else 0
+
+    sections: list[tuple[str, str]] = []
+    if deals:
+        sections.append(
+            ("Rumour Credibility", f"{len(deals)} deals scored, {avg_cred} average")
+        )
+    if assessed:
+        sections.append(("Value Analytics", f"£{assessed:g}m assessed"))
+    elif deals:
+        sections.append(("Value Analytics", "fees scored on completion"))
+    if clubs:
+        sections.append(("Club Dashboards", f"{len(clubs)} clubs"))
+    if not sections:
+        sections = [("Rumour Credibility", ""), ("Value Analytics", ""),
+                    ("Club Dashboards", "")]
 
     head = site.head_tags(
         cfg,
@@ -170,7 +187,7 @@ def main() -> int:
     if not args.skip_images:
         og_dir = out / "og"
         window = (raw.get("config") or {}).get("windowName", "")
-        og.site_card(og_dir / "default.png", window, updated, stats)
+        og.site_card(og_dir / "default.png", window, updated, sections)
         for deal in deals:
             og.deal_card(
                 og_dir / f"deal-{site.deal_slug(deal)}.png",
@@ -178,17 +195,28 @@ def main() -> int:
             )
         for club in clubs:
             incoming = [d for d in deals if d.to == club]
+            outgoing = [d for d in deals if d.from_club == club]
             done = [d for d in incoming if str(getattr(d.status, "value", d.status)) == "done"]
+            spend = sum(d.fee or 0 for d in done)
+
+            summary: dict[str, object] = {"Tracked incoming": len(incoming)}
+            if done:
+                summary["Completed"] = len(done)
+            if spend:
+                summary["Committed spend"] = f"£{spend:g}m"
+            if outgoing:
+                summary["Tracked outgoing"] = len(outgoing)
+
+            # Early in a window a club has no completed deals and no spend, so
+            # the financial rows are all zero and the card comes out mostly
+            # empty. Fill the space with the deals that do exist, ranked by
+            # credibility, which is the thing the site is actually for.
+            if len(summary) < 4:
+                for deal in sorted(incoming, key=lambda x: -x.cred)[: 4 - len(summary)]:
+                    summary[deal.p] = f"{deal.cred}/100"
+
             og.club_card(
-                og_dir / f"club-{site.slugify(club)}.png",
-                club,
-                {
-                    "Tracked incoming": len(incoming),
-                    "Completed": len(done),
-                    "Committed spend": f"£{sum(d.fee or 0 for d in done):g}m",
-                    "Tracked outgoing": len([d for d in deals if d.from_club == club]),
-                },
-                updated,
+                og_dir / f"club-{site.slugify(club)}.png", club, summary, updated,
             )
 
     print(

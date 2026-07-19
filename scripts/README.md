@@ -39,6 +39,8 @@ scripts/
   run_editorial.py   phases 3, 4 and 5
   run_evals.py       phase 6
   render_site.py     phase 7
+  check_site.py      phase 7 diagnostic, writes nothing
+  check_og.py        fetches a live URL and validates its card
   tests/             the rules, locked down
   requirements.txt
 evals/
