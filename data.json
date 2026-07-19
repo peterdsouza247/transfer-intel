@@ -5,6 +5,11 @@
     "deadline": "2026-09-01T22:00:00Z",
     "deadlineLabel": "Window closes 1 Sep, 23:00 BST",
     "updated": "Jul 19, 2026",
+    "site": {
+      "baseUrl": "https://peterdsouza247.github.io/transfer-intel",
+      "title": "TransferIntel",
+      "twitter": "@peterdwrites"
+    },
     "finNote": "Financial context 2026/27: PSR replaced by Squad Cost Ratio, so clubs may spend max 85% of revenue on wages, agent fees and amortised transfer fees.",
     "sourcesNote": "Data compiled from Sky Sports, ESPN, The Athletic (Ornstein), Fabrizio Romano, Football365, FootballTransfers & Squawka. Fees include reported add-ons; free transfers shown as £0. Value Scores and credibility ratings are TransferIntel editorial models, not market prices.",
     "provenClubs": [

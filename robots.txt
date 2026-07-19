@@ -1,0 +1,23 @@
+# TransferIntel
+User-agent: *
+Allow: /
+
+# Assistants and answer engines. Allowed deliberately: this site exists to be
+# cited. Change to Disallow if that stops being true.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# Build output and raw data have no reason to be indexed as pages.
+User-agent: *
+Disallow: /build/
+
+Sitemap: https://peterdsouza247.github.io/transfer-intel/sitemap.xml

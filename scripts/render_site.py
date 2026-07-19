@@ -77,7 +77,7 @@ def main() -> int:
             "  absolute origin, and a guessed one is worse than none: it tells\n"
             "  crawlers the real page lives somewhere else. Add this to the\n"
             "  config block in data.json:\n\n"
-            '      "site": { "baseUrl": "https://you.github.io/transferintel" }\n',
+            '      "site": { "baseUrl": "https://peterdsouza247.github.io/transfer-intel" }\n',
             file=sys.stderr,
         )
         return 2
