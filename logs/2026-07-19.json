@@ -1,0 +1,146 @@
+[
+  {
+    "op": "update",
+    "id": "toure-hoffenheim-newcastle",
+    "field": "cred",
+    "from": 90,
+    "to": 100,
+    "reason": "pinned to 100, deal is done",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "greenwood-marseille-fenerbahce",
+    "field": "cred",
+    "from": 85,
+    "to": 60,
+    "reason": "base +45, stage +25, decay -14 = 60, capped to a 25 point move",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "chavarria-rayo-vallecano-chelsea",
+    "field": "cred",
+    "from": 70,
+    "to": 45,
+    "reason": "base +45, stage +10, decay -14 = 45, capped to a 25 point move",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "savinho-man-city-tottenham",
+    "field": "cred",
+    "from": 68,
+    "to": 43,
+    "reason": "base +45, stage +10, decay -14 = 43, capped to a 25 point move",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "kroupi-bournemouth-tottenham",
+    "field": "cred",
+    "from": 62,
+    "to": 37,
+    "reason": "base +25, stage +10, decay -14 = 37, capped to a 25 point move",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "cred",
+    "from": 58,
+    "to": 33,
+    "reason": "base +25, stage +10, decay -18 = 33, capped to a 25 point move",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "rogers-aston-villa-arsenal",
+    "field": "cred",
+    "from": 55,
+    "to": 30,
+    "reason": "base +25, decay -14 = 30, capped to a 25 point move",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "alvarez-atletico-madrid-arsenal",
+    "field": "cred",
+    "from": 48,
+    "to": 23,
+    "reason": "base +25, decay -12 = 23, capped to a 25 point move",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "tzolis-club-brugge-arsenal",
+    "field": "cred",
+    "from": 48,
+    "to": 31,
+    "reason": "base +45, decay -14 = 31",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "cred",
+    "from": 45,
+    "to": 20,
+    "reason": "base +25, decay -14 = 20, capped to a 25 point move",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "gomes-wolves-man-utd",
+    "field": "cred",
+    "from": 42,
+    "to": 17,
+    "reason": "base +25, decay -16 = 17, capped to a 25 point move",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "barcola-psg-liverpool",
+    "field": "cred",
+    "from": 40,
+    "to": 15,
+    "reason": "base +25, decay -14 = 15, capped to a 25 point move",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "bouaddi-lille-man-city",
+    "field": "cred",
+    "from": 38,
+    "to": 13,
+    "reason": "base +25, decay -14 = 13, capped to a 25 point move",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "muani-psg-crystal-palace",
+    "field": "cred",
+    "from": 30,
+    "to": 5,
+    "reason": "base +5, decay -14 = 5, capped to a 25 point move",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "watkins-aston-villa-fenerbahce",
+    "field": "cred",
+    "from": 25,
+    "to": 0,
+    "reason": "base +5, decay -14 = 0",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "williams-nott-m-forest-man-utd",
+    "field": "cred",
+    "from": 15,
+    "to": 0,
+    "reason": "base +5, decay -14 = 0",
+    "evidence": []
+  }
+]

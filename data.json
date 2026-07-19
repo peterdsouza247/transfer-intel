@@ -4,7 +4,7 @@
     "tagline": "believe less, know more",
     "deadline": "2026-09-01T22:00:00Z",
     "deadlineLabel": "Window closes 1 Sep, 23:00 BST",
-    "updated": "18 July 2026",
+    "updated": "Jul 19, 2026",
     "finNote": "Financial context 2026/27: PSR replaced by Squad Cost Ratio, so clubs may spend max 85% of revenue on wages, agent fees and amortised transfer fees.",
     "sourcesNote": "Data compiled from Sky Sports, ESPN, The Athletic (Ornstein), Fabrizio Romano, Football365, FootballTransfers & Squawka. Fees include reported add-ons; free transfers shown as £0. Value Scores and credibility ratings are TransferIntel editorial models, not market prices.",
     "provenClubs": [
@@ -24,10 +24,11 @@
   },
   "deals": [
     {
+      "id": "anderson-nott-m-forest-man-city",
       "p": "Elliot Anderson",
       "from": "Nott'm Forest",
       "to": "Man City",
-      "fee": 116,
+      "fee": 116.0,
       "age": 23,
       "pos": "CM",
       "status": "done",
@@ -36,7 +37,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Club-record buy; medical done while at the World Cup with England.",
-      "id": "anderson-nott-m-forest-man-city",
       "evidence": [
         {
           "url": "urn:transferintel:seed:anderson-nott-m-forest-man-city",
@@ -49,6 +49,7 @@
       ]
     },
     {
+      "id": "tonali-newcastle-tottenham",
       "p": "Sandro Tonali",
       "from": "Newcastle",
       "to": "Tottenham",
@@ -61,7 +62,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Statement signing of the De Zerbi rebuild after two 17th-place finishes.",
-      "id": "tonali-newcastle-tottenham",
       "evidence": [
         {
           "url": "urn:transferintel:seed:tonali-newcastle-tottenham",
@@ -74,10 +74,11 @@
       ]
     },
     {
+      "id": "fernandes-west-ham-tottenham",
       "p": "Mateus Fernandes",
       "from": "West Ham",
       "to": "Tottenham",
-      "fee": 85,
+      "fee": 85.0,
       "age": 21,
       "pos": "CM",
       "status": "done",
@@ -86,7 +87,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Spurs beat Man Utd to the 21-year-old. Club-record fee.",
-      "id": "fernandes-west-ham-tottenham",
       "evidence": [
         {
           "url": "urn:transferintel:seed:fernandes-west-ham-tottenham",
@@ -99,6 +99,7 @@
       ]
     },
     {
+      "id": "gordon-newcastle-barcelona",
       "p": "Anthony Gordon",
       "from": "Newcastle",
       "to": "Barcelona",
@@ -111,7 +112,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Second big Newcastle sale of the window.",
-      "id": "gordon-newcastle-barcelona",
       "evidence": [
         {
           "url": "urn:transferintel:seed:gordon-newcastle-barcelona",
@@ -124,10 +124,11 @@
       ]
     },
     {
+      "id": "jacquet-rennes-liverpool",
       "p": "Jeremy Jacquet",
       "from": "Rennes",
       "to": "Liverpool",
-      "fee": 60,
+      "fee": 60.0,
       "age": 20,
       "pos": "CB",
       "status": "done",
@@ -136,7 +137,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Konaté's long-term replacement after his free move to Madrid.",
-      "id": "jacquet-rennes-liverpool",
       "evidence": [
         {
           "url": "urn:transferintel:seed:jacquet-rennes-liverpool",
@@ -149,10 +149,11 @@
       ]
     },
     {
+      "id": "hecke-brighton-tottenham",
       "p": "Jan Paul van Hecke",
       "from": "Brighton",
       "to": "Tottenham",
-      "fee": 52,
+      "fee": 52.0,
       "age": 26,
       "pos": "CB",
       "status": "done",
@@ -161,7 +162,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Third major Spurs buy.",
-      "id": "hecke-brighton-tottenham",
       "evidence": [
         {
           "url": "urn:transferintel:seed:hecke-brighton-tottenham",
@@ -174,6 +174,7 @@
       ]
     },
     {
+      "id": "cucurella-chelsea-real-madrid",
       "p": "Marc Cucurella",
       "from": "Chelsea",
       "to": "Real Madrid",
@@ -186,7 +187,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Chelsea now shopping for a left-back (see Chavarría).",
-      "id": "cucurella-chelsea-real-madrid",
       "evidence": [
         {
           "url": "urn:transferintel:seed:cucurella-chelsea-real-madrid",
@@ -199,10 +199,11 @@
       ]
     },
     {
+      "id": "santos-chelsea-man-utd",
       "p": "Andrey Santos",
       "from": "Chelsea",
       "to": "Man Utd",
-      "fee": 48,
+      "fee": 48.0,
       "age": 22,
       "pos": "CM",
       "status": "done",
@@ -211,7 +212,6 @@
       "src": "Ornstein",
       "cred": 100,
       "note": "Confirmed (auto-updated 2026-07-16). Medical completed Thursday; all done bar the unveiling.",
-      "id": "santos-chelsea-man-utd",
       "evidence": [
         {
           "url": "urn:transferintel:seed:santos-chelsea-man-utd",
@@ -224,10 +224,11 @@
       ]
     },
     {
+      "id": "quenda-sporting-cp-chelsea",
       "p": "Geovany Quenda",
       "from": "Sporting CP",
       "to": "Chelsea",
-      "fee": 44,
+      "fee": 44.0,
       "age": 19,
       "pos": "RW",
       "status": "done",
@@ -236,7 +237,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Pre-agreed 2025 deal now completed.",
-      "id": "quenda-sporting-cp-chelsea",
       "evidence": [
         {
           "url": "urn:transferintel:seed:quenda-sporting-cp-chelsea",
@@ -249,10 +249,11 @@
       ]
     },
     {
+      "id": "palestra-atalanta-chelsea",
       "p": "Marco Palestra",
       "from": "Atalanta",
       "to": "Chelsea",
-      "fee": 43,
+      "fee": 43.0,
       "age": 21,
       "pos": "RB",
       "status": "done",
@@ -261,7 +262,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Young full-back for the project.",
-      "id": "palestra-atalanta-chelsea",
       "evidence": [
         {
           "url": "urn:transferintel:seed:palestra-atalanta-chelsea",
@@ -274,19 +274,19 @@
       ]
     },
     {
+      "id": "toure-hoffenheim-newcastle",
       "p": "Bazoumana Touré",
       "from": "Hoffenheim",
       "to": "Newcastle",
-      "fee": 42,
+      "fee": 42.0,
       "age": 20,
       "pos": "LW",
       "status": "done",
       "date": "Jul 11",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 90,
+      "cred": 100,
       "note": "Gordon's replacement on the left.",
-      "id": "toure-hoffenheim-newcastle",
       "evidence": [
         {
           "url": "urn:transferintel:seed:toure-hoffenheim-newcastle",
@@ -299,10 +299,11 @@
       ]
     },
     {
+      "id": "hojlund-man-utd-napoli",
       "p": "Rasmus Højlund",
       "from": "Man Utd",
       "to": "Napoli",
-      "fee": 38,
+      "fee": 38.0,
       "age": 23,
       "pos": "ST",
       "status": "done",
@@ -311,7 +312,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "United recoup a chunk of the 2023 fee.",
-      "id": "hojlund-man-utd-napoli",
       "evidence": [
         {
           "url": "urn:transferintel:seed:hojlund-man-utd-napoli",
@@ -324,10 +324,11 @@
       ]
     },
     {
+      "id": "tielemans-aston-villa-man-utd",
       "p": "Youri Tielemans",
       "from": "Aston Villa",
       "to": "Man Utd",
-      "fee": 35,
+      "fee": 35.0,
       "age": 29,
       "pos": "CM",
       "status": "done",
@@ -336,7 +337,6 @@
       "src": "Romano + Ornstein",
       "cred": 100,
       "note": "Confirmed (auto-updated 2026-07-16). Release clause triggered (€41m). Villa didn't want to sell. Announcement expected this week.",
-      "id": "tielemans-aston-villa-man-utd",
       "evidence": [
         {
           "url": "urn:transferintel:seed:tielemans-aston-villa-man-utd",
@@ -349,6 +349,7 @@
       ]
     },
     {
+      "id": "hincapie-leverkusen-arsenal",
       "p": "Piero Hincapié",
       "from": "Leverkusen",
       "to": "Arsenal",
@@ -361,7 +362,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Kiwior sold to Porto to make room.",
-      "id": "hincapie-leverkusen-arsenal",
       "evidence": [
         {
           "url": "urn:transferintel:seed:hincapie-leverkusen-arsenal",
@@ -374,6 +374,7 @@
       ]
     },
     {
+      "id": "munoz-osasuna-liverpool",
       "p": "Victor Muñoz",
       "from": "Osasuna",
       "to": "Liverpool",
@@ -386,7 +387,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Wide depth after Salah's release.",
-      "id": "munoz-osasuna-liverpool",
       "evidence": [
         {
           "url": "urn:transferintel:seed:munoz-osasuna-liverpool",
@@ -399,10 +399,11 @@
       ]
     },
     {
+      "id": "hackney-middlesbrough-everton",
       "p": "Hayden Hackney",
       "from": "Middlesbrough",
       "to": "Everton",
-      "fee": 24,
+      "fee": 24.0,
       "age": 23,
       "pos": "CM",
       "status": "done",
@@ -411,7 +412,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Long-tracked; finally done.",
-      "id": "hackney-middlesbrough-everton",
       "evidence": [
         {
           "url": "urn:transferintel:seed:hackney-middlesbrough-everton",
@@ -424,6 +424,7 @@
       ]
     },
     {
+      "id": "rohl-freiburg-everton",
       "p": "Merlin Röhl",
       "from": "Freiburg",
       "to": "Everton",
@@ -436,7 +437,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Midfield rebuild continues.",
-      "id": "rohl-freiburg-everton",
       "evidence": [
         {
           "url": "urn:transferintel:seed:rohl-freiburg-everton",
@@ -449,6 +449,7 @@
       ]
     },
     {
+      "id": "yohanna-aik-brighton",
       "p": "Zadok Yohanna",
       "from": "AIK",
       "to": "Brighton",
@@ -461,7 +462,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Classic Brighton: buy them before you've heard of them.",
-      "id": "yohanna-aik-brighton",
       "evidence": [
         {
           "url": "urn:transferintel:seed:yohanna-aik-brighton",
@@ -474,6 +474,7 @@
       ]
     },
     {
+      "id": "malen-aston-villa-roma",
       "p": "Donyell Malen",
       "from": "Aston Villa",
       "to": "Roma",
@@ -486,7 +487,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Villa trim the wage bill.",
-      "id": "malen-aston-villa-roma",
       "evidence": [
         {
           "url": "urn:transferintel:seed:malen-aston-villa-roma",
@@ -499,6 +499,7 @@
       ]
     },
     {
+      "id": "jaouen-reims-newcastle",
       "p": "Ewen Jaouen",
       "from": "Reims",
       "to": "Newcastle",
@@ -511,7 +512,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Goalkeeper succession plan.",
-      "id": "jaouen-reims-newcastle",
       "evidence": [
         {
           "url": "urn:transferintel:seed:jaouen-reims-newcastle",
@@ -524,6 +524,7 @@
       ]
     },
     {
+      "id": "schuster-rb-salzburg-brentford",
       "p": "Jannik Schuster",
       "from": "RB Salzburg",
       "to": "Brentford",
@@ -536,7 +537,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "The Brentford model rolls on.",
-      "id": "schuster-rb-salzburg-brentford",
       "evidence": [
         {
           "url": "urn:transferintel:seed:schuster-rb-salzburg-brentford",
@@ -549,10 +549,11 @@
       ]
     },
     {
+      "id": "vuskovic-tottenham-brighton",
       "p": "Luka Vusković",
       "from": "Tottenham",
       "to": "Brighton",
-      "fee": 46,
+      "fee": 46.0,
       "age": 19,
       "pos": "CB",
       "status": "done",
@@ -561,7 +562,6 @@
       "src": "Football365",
       "cred": 100,
       "note": "Confirmed (auto-updated 2026-07-16). £46m + £4m agreed; Croatia defender's World Cup over, announcement imminent.",
-      "id": "vuskovic-tottenham-brighton",
       "evidence": [
         {
           "url": "urn:transferintel:seed:vuskovic-tottenham-brighton",
@@ -574,10 +574,11 @@
       ]
     },
     {
+      "id": "manzambi-freiburg-aston-villa",
       "p": "Johan Manzambi",
       "from": "Freiburg",
       "to": "Aston Villa",
-      "fee": 52,
+      "fee": 52.0,
       "age": 20,
       "pos": "AM",
       "status": "done",
@@ -586,7 +587,6 @@
       "src": "Romano",
       "cred": 100,
       "note": "Confirmed (auto-updated 2026-07-18). Villa hijacked Newcastle's agreed deal after his 3-goal World Cup for Switzerland. ~€60m.",
-      "id": "manzambi-freiburg-aston-villa",
       "evidence": [
         {
           "url": "urn:transferintel:seed:manzambi-freiburg-aston-villa",
@@ -599,19 +599,19 @@
       ]
     },
     {
+      "id": "greenwood-marseille-fenerbahce",
       "p": "Mason Greenwood",
       "from": "Marseille",
       "to": "Fenerbahçe",
-      "fee": 0,
+      "fee": 0.0,
       "age": 24,
       "pos": "RW",
       "status": "agreed",
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 85,
+      "cred": 60,
       "note": "Utd declined buy-back; get >£10m via sell-on clause.",
-      "id": "greenwood-marseille-fenerbahce",
       "evidence": [
         {
           "url": "urn:transferintel:seed:greenwood-marseille-fenerbahce",
@@ -624,6 +624,7 @@
       ]
     },
     {
+      "id": "trossard-arsenal-besiktas",
       "p": "Leandro Trossard",
       "from": "Arsenal",
       "to": "Beşiktaş",
@@ -636,7 +637,6 @@
       "src": "Football365 / Romano",
       "cred": 100,
       "note": "Confirmed (auto-updated 2026-07-16). Fee agreed (£17-20m reported); personal terms being discussed mid-World Cup.",
-      "id": "trossard-arsenal-besiktas",
       "evidence": [
         {
           "url": "urn:transferintel:seed:trossard-arsenal-besiktas",
@@ -649,19 +649,19 @@
       ]
     },
     {
+      "id": "chavarria-rayo-vallecano-chelsea",
       "p": "Pep Chavarría",
       "from": "Rayo Vallecano",
       "to": "Chelsea",
-      "fee": 15,
+      "fee": 15.0,
       "age": 28,
       "pos": "LB",
       "status": "talks",
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 70,
+      "cred": 45,
       "note": "Personal terms agreed; Rayo rejected first bid, second ~£15m in.",
-      "id": "chavarria-rayo-vallecano-chelsea",
       "evidence": [
         {
           "url": "urn:transferintel:seed:chavarria-rayo-vallecano-chelsea",
@@ -674,19 +674,19 @@
       ]
     },
     {
+      "id": "savinho-man-city-tottenham",
       "p": "Savinho",
       "from": "Man City",
       "to": "Tottenham",
-      "fee": 60,
+      "fee": 60.0,
       "age": 22,
       "pos": "RW",
       "status": "talks",
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 68,
+      "cred": 43,
       "note": "Third window Spurs have tried; Romano says he's their 'next big' signing if clubs agree.",
-      "id": "savinho-man-city-tottenham",
       "evidence": [
         {
           "url": "urn:transferintel:seed:savinho-man-city-tottenham",
@@ -699,19 +699,19 @@
       ]
     },
     {
+      "id": "kroupi-bournemouth-tottenham",
       "p": "Eli Junior Kroupi",
       "from": "Bournemouth",
       "to": "Tottenham",
-      "fee": 75,
+      "fee": 75.0,
       "age": 20,
       "pos": "ST",
       "status": "talks",
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 62,
+      "cred": 37,
       "note": "Spurs ready to offer £75m and reportedly willing to go higher.",
-      "id": "kroupi-bournemouth-tottenham",
       "evidence": [
         {
           "url": "urn:transferintel:seed:kroupi-bournemouth-tottenham",
@@ -724,19 +724,19 @@
       ]
     },
     {
+      "id": "lacroix-crystal-palace-chelsea",
       "p": "Maxence Lacroix",
       "from": "Crystal Palace",
       "to": "Chelsea",
-      "fee": 35,
+      "fee": 35.0,
       "age": 26,
       "pos": "CB",
       "status": "talks",
       "date": "Jul 10",
       "tier": 2,
       "src": "Football365",
-      "cred": 58,
+      "cred": 33,
       "note": "Talks smooth but on hold: Palace need a replacement, Lacroix wants his World Cup medal first.",
-      "id": "lacroix-crystal-palace-chelsea",
       "evidence": [
         {
           "url": "urn:transferintel:seed:lacroix-crystal-palace-chelsea",
@@ -749,19 +749,19 @@
       ]
     },
     {
+      "id": "rogers-aston-villa-arsenal",
       "p": "Morgan Rogers",
       "from": "Aston Villa",
       "to": "Arsenal",
-      "fee": 130,
+      "fee": 130.0,
       "age": 24,
       "pos": "AM",
       "status": "rumor",
       "date": "Jul 12",
       "tier": 2,
       "src": "Telegraph / F365",
-      "cred": 55,
+      "cred": 30,
       "note": "Personal terms reportedly agreed; Villa want £130m. Nothing moves while England are in the World Cup.",
-      "id": "rogers-aston-villa-arsenal",
       "evidence": [
         {
           "url": "urn:transferintel:seed:rogers-aston-villa-arsenal",
@@ -774,6 +774,7 @@
       ]
     },
     {
+      "id": "rodriguez-elche-bournemouth",
       "p": "Álvaro Rodríguez",
       "from": "Elche",
       "to": "Bournemouth",
@@ -786,7 +787,6 @@
       "src": "Spanish press",
       "cred": 100,
       "note": "Confirmed (auto-updated 2026-07-16). 'Deal agreed' a week ago, then silence. No collapse reported either.",
-      "id": "rodriguez-elche-bournemouth",
       "evidence": [
         {
           "url": "urn:transferintel:seed:rodriguez-elche-bournemouth",
@@ -799,19 +799,19 @@
       ]
     },
     {
+      "id": "alvarez-atletico-madrid-arsenal",
       "p": "Julián Álvarez",
       "from": "Atlético Madrid",
       "to": "Arsenal",
-      "fee": 100,
+      "fee": 100.0,
       "age": 26,
       "pos": "ST",
       "status": "rumor",
       "date": "Jul 13",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 48,
+      "cred": 23,
       "note": "Arsenal 'pushing' post-World Cup. Would be the striker upgrade, and the fee to match.",
-      "id": "alvarez-atletico-madrid-arsenal",
       "evidence": [
         {
           "url": "urn:transferintel:seed:alvarez-atletico-madrid-arsenal",
@@ -824,19 +824,19 @@
       ]
     },
     {
+      "id": "tzolis-club-brugge-arsenal",
       "p": "Christos Tzolis",
       "from": "Club Brugge",
       "to": "Arsenal",
-      "fee": 35,
+      "fee": 35.0,
       "age": 24,
       "pos": "LW",
       "status": "rumor",
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 48,
+      "cred": 31,
       "note": "Player 'wants' the move; depends on Trossard/Martinelli exits.",
-      "id": "tzolis-club-brugge-arsenal",
       "evidence": [
         {
           "url": "urn:transferintel:seed:tzolis-club-brugge-arsenal",
@@ -849,19 +849,19 @@
       ]
     },
     {
+      "id": "guimaraes-newcastle-arsenal",
       "p": "Bruno Guimarães",
       "from": "Newcastle",
       "to": "Arsenal",
-      "fee": 90,
+      "fee": 90.0,
       "age": 28,
       "pos": "CM",
       "status": "rumor",
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 45,
+      "cred": 20,
       "note": "Has told Newcastle he wants out but won't force it. No bid yet; it needs to start with an 8.",
-      "id": "guimaraes-newcastle-arsenal",
       "evidence": [
         {
           "url": "urn:transferintel:seed:guimaraes-newcastle-arsenal",
@@ -874,19 +874,19 @@
       ]
     },
     {
+      "id": "gomes-wolves-man-utd",
       "p": "João Gomes",
       "from": "Wolves",
       "to": "Man Utd",
-      "fee": 45,
+      "fee": 45.0,
       "age": 25,
       "pos": "CM",
       "status": "rumor",
       "date": "Jul 11",
       "tier": 2,
       "src": "Football365",
-      "cred": 42,
+      "cred": 17,
       "note": "Back on after Éderson's medical failed; Tielemans deal may kill it.",
-      "id": "gomes-wolves-man-utd",
       "evidence": [
         {
           "url": "urn:transferintel:seed:gomes-wolves-man-utd",
@@ -899,19 +899,19 @@
       ]
     },
     {
+      "id": "barcola-psg-liverpool",
       "p": "Bradley Barcola",
       "from": "PSG",
       "to": "Liverpool",
-      "fee": 80,
+      "fee": 80.0,
       "age": 23,
       "pos": "LW",
       "status": "rumor",
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 40,
+      "cred": 15,
       "note": "'Top of list' if Diomande→PSG happens. Reports say he prefers London; Arsenal lurking.",
-      "id": "barcola-psg-liverpool",
       "evidence": [
         {
           "url": "urn:transferintel:seed:barcola-psg-liverpool",
@@ -924,19 +924,19 @@
       ]
     },
     {
+      "id": "bouaddi-lille-man-city",
       "p": "Ayyoub Bouaddi",
       "from": "Lille",
       "to": "Man City",
-      "fee": 40,
+      "fee": 40.0,
       "age": 18,
       "pos": "CM",
       "status": "rumor",
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 38,
+      "cred": 13,
       "note": "World Cup breakout with Morocco; background talks only.",
-      "id": "bouaddi-lille-man-city",
       "evidence": [
         {
           "url": "urn:transferintel:seed:bouaddi-lille-man-city",
@@ -949,19 +949,19 @@
       ]
     },
     {
+      "id": "muani-psg-crystal-palace",
       "p": "Randal Kolo Muani",
       "from": "PSG",
       "to": "Crystal Palace",
-      "fee": 30,
+      "fee": 30.0,
       "age": 27,
       "pos": "ST",
       "status": "rumor",
       "date": "Jul 12",
       "tier": 3,
       "src": "French press",
-      "cred": 30,
+      "cred": 5,
       "note": "Palace 'strongly interested' after Juventus stalled. Spurs re-signing him also mooted, oddly.",
-      "id": "muani-psg-crystal-palace",
       "evidence": [
         {
           "url": "urn:transferintel:seed:muani-psg-crystal-palace",
@@ -974,19 +974,19 @@
       ]
     },
     {
+      "id": "watkins-aston-villa-fenerbahce",
       "p": "Ollie Watkins",
       "from": "Aston Villa",
       "to": "Fenerbahçe",
-      "fee": 35,
+      "fee": 35.0,
       "age": 30,
       "pos": "ST",
       "status": "rumor",
       "date": "Jul 12",
       "tier": 3,
       "src": "Turkish press",
-      "cred": 25,
+      "cred": 0,
       "note": "Personal terms 'agreed' per Turkey; if he were truly available at £35m there'd be a queue.",
-      "id": "watkins-aston-villa-fenerbahce",
       "evidence": [
         {
           "url": "urn:transferintel:seed:watkins-aston-villa-fenerbahce",
@@ -999,19 +999,19 @@
       ]
     },
     {
+      "id": "williams-nott-m-forest-man-utd",
       "p": "Neco Williams",
       "from": "Nott'm Forest",
       "to": "Man Utd",
-      "fee": 25,
+      "fee": 25.0,
       "age": 25,
       "pos": "RB",
       "status": "rumor",
       "date": "Jul 12",
       "tier": 3,
       "src": "Paper talk",
-      "cred": 15,
+      "cred": 0,
       "note": "He's mid-contract-renewal talks at Forest. Filed under 'agent noise'.",
-      "id": "williams-nott-m-forest-man-utd",
       "evidence": [
         {
           "url": "urn:transferintel:seed:williams-nott-m-forest-man-utd",
@@ -1024,6 +1024,7 @@
       ]
     },
     {
+      "id": "ederson-atalanta-man-utd",
       "p": "Éderson",
       "from": "Atalanta",
       "to": "Man Utd",
@@ -1036,7 +1037,6 @@
       "src": "Ornstein",
       "cred": 0,
       "note": "Deal OFF after the medical; United pivoted to Tielemans within 72 hours, as Ornstein first called.",
-      "id": "ederson-atalanta-man-utd",
       "evidence": [
         {
           "url": "urn:transferintel:seed:ederson-atalanta-man-utd",
@@ -1049,10 +1049,11 @@
       ]
     },
     {
+      "id": "robertson-liverpool-tottenham",
       "p": "Andy Robertson",
       "from": "Liverpool",
       "to": "Tottenham",
-      "fee": 0,
+      "fee": 0.0,
       "age": 32,
       "pos": "LB",
       "status": "done",
@@ -1061,7 +1062,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Free. Experience for De Zerbi.",
-      "id": "robertson-liverpool-tottenham",
       "evidence": [
         {
           "url": "urn:transferintel:seed:robertson-liverpool-tottenham",
@@ -1074,10 +1074,11 @@
       ]
     },
     {
+      "id": "senesi-bournemouth-tottenham",
       "p": "Marcos Senesi",
       "from": "Bournemouth",
       "to": "Tottenham",
-      "fee": 0,
+      "fee": 0.0,
       "age": 29,
       "pos": "CB",
       "status": "done",
@@ -1086,7 +1087,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Free transfer.",
-      "id": "senesi-bournemouth-tottenham",
       "evidence": [
         {
           "url": "urn:transferintel:seed:senesi-bournemouth-tottenham",
@@ -1099,10 +1099,11 @@
       ]
     },
     {
+      "id": "dubravka-burnley-tottenham",
       "p": "Martín Dúbravka",
       "from": "Burnley",
       "to": "Tottenham",
-      "fee": 0,
+      "fee": 0.0,
       "age": 37,
       "pos": "GK",
       "status": "done",
@@ -1111,7 +1112,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Free. Backup keeper.",
-      "id": "dubravka-burnley-tottenham",
       "evidence": [
         {
           "url": "urn:transferintel:seed:dubravka-burnley-tottenham",
@@ -1124,10 +1124,11 @@
       ]
     },
     {
+      "id": "konate-liverpool-real-madrid",
       "p": "Ibrahima Konaté",
       "from": "Liverpool",
       "to": "Real Madrid",
-      "fee": 0,
+      "fee": 0.0,
       "age": 27,
       "pos": "CB",
       "status": "done",
@@ -1136,7 +1137,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Free. The one Liverpool couldn't keep.",
-      "id": "konate-liverpool-real-madrid",
       "evidence": [
         {
           "url": "urn:transferintel:seed:konate-liverpool-real-madrid",
@@ -1149,10 +1149,11 @@
       ]
     },
     {
+      "id": "silva-man-city-real-madrid",
       "p": "Bernardo Silva",
       "from": "Man City",
       "to": "Real Madrid",
-      "fee": 0,
+      "fee": 0.0,
       "age": 31,
       "pos": "AM",
       "status": "done",
@@ -1161,7 +1162,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Free. The Mourinho-era Madrid rebuild continues.",
-      "id": "silva-man-city-real-madrid",
       "evidence": [
         {
           "url": "urn:transferintel:seed:silva-man-city-real-madrid",
@@ -1174,10 +1174,11 @@
       ]
     },
     {
+      "id": "trippier-newcastle-wolves",
       "p": "Kieran Trippier",
       "from": "Newcastle",
       "to": "Wolves",
-      "fee": 0,
+      "fee": 0.0,
       "age": 35,
       "pos": "RB",
       "status": "done",
@@ -1186,7 +1187,6 @@
       "src": "Sky Sports",
       "cred": 100,
       "note": "Free.",
-      "id": "trippier-newcastle-wolves",
       "evidence": [
         {
           "url": "urn:transferintel:seed:trippier-newcastle-wolves",
