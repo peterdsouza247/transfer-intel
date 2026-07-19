@@ -69,8 +69,8 @@ jobs:
             --data data.json \
             --evidence build/evidence.json \
             --out build \
-            --max-notes 40 \
-            --max-changes 40 \
+            --max-notes 12 \
+            --max-changes 15 \
             ${{ inputs.no_notes && '--no-notes' || '' }} \
             --apply
 
