@@ -1,3 +1,4 @@
 pydantic>=2.7
 anthropic>=0.40
 pytest>=8.0
+pillow>=10.0

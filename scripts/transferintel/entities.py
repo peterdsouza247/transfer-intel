@@ -176,3 +176,17 @@ def deal_id(player: str, from_club: str, to_club: str) -> str:
         fold(x).replace(" ", "-") for x in (surname(player) or player,
                                             from_club, to_club)
     )
+
+
+def fold_for_slug(value: str) -> str:
+    """Lowercase, accent-stripped, transliterated text for building slugs.
+
+    Shares `_TRANSLIT` with `fold` deliberately: the resolution layer and the
+    URL layer must agree on what a name looks like, or a deal resolves under
+    one spelling and publishes under another.
+    """
+    # _TRANSLIT is a str.maketrans table keyed by codepoint, so it must be
+    # applied with .translate(); .get(char) silently does nothing.
+    out = value.translate(_TRANSLIT)
+    out = unicodedata.normalize("NFKD", out)
+    return "".join(c for c in out if not unicodedata.combining(c)).lower()

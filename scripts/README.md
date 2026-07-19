@@ -13,8 +13,10 @@ made in Python.
 | 4 | The one-sentence `note` | Sonnet, one call per changed deal |
 | 5 | The gate: abort, or annotate the PR | none |
 | 6 | Evals against a golden set | Haiku, extraction suite only |
+| 7 | Render the discoverable site | none |
 
 Deployment and the daily routine are in [OPERATIONS.md](../OPERATIONS.md).
+SEO and pre-rendering are in [DISCOVERABILITY.md](../DISCOVERABILITY.md).
 
 ## Layout
 
@@ -30,10 +32,13 @@ scripts/
     notes.py      phase 4, model plus validator
     validate.py   phase 5, the gate
     evals.py      phase 6, golden set harness
+    site.py       phase 7, static rendering and structured data
+    og.py         phase 7, Open Graph card images
   migrate_data.py    phase 0, one time
   run_ingest.py      phases 1 and 2
   run_editorial.py   phases 3, 4 and 5
   run_evals.py       phase 6
+  render_site.py     phase 7
   tests/             the rules, locked down
   requirements.txt
 evals/

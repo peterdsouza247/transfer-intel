@@ -31,10 +31,6 @@ import sys
 from datetime import date, datetime
 from pathlib import Path
 
-if hasattr(sys.stdout, "reconfigure"):
-    sys.stdout.reconfigure(encoding="utf-8")
-    sys.stderr.reconfigure(encoding="utf-8")
-
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from transferintel.entities import deal_id  # noqa: E402
@@ -51,7 +47,7 @@ def parse_with_node(js: str) -> dict | None:
     )
     try:
         out = subprocess.run(
-            ["node", "-e", script], capture_output=True, text=True, encoding="utf-8", timeout=30
+            ["node", "-e", script], capture_output=True, text=True, timeout=30
         )
     except (FileNotFoundError, subprocess.TimeoutExpired):
         return None
@@ -252,6 +248,21 @@ def main() -> int:
     deals = data.get("deals", [])
     print(f"Parsed {len(deals)} deals with {how}.")
     print(f"Ids assigned, evidence seeded for {len(deals)} deals.")
+
+    # The one value the renderer cannot guess. Canonical tags, Open Graph
+    # URLs and the sitemap all need an absolute origin, and a wrong one is
+    # worse than none: it tells crawlers the real page is somewhere else.
+    config = data.setdefault("config", {})
+    site_cfg = config.setdefault("site", {})
+    if not site_cfg.get("baseUrl"):
+        site_cfg.setdefault("baseUrl", "")
+        site_cfg.setdefault("title", "TransferIntel")
+        site_cfg.setdefault("twitter", "")
+        problems.append(
+            "config.site.baseUrl is empty. Set it to the live origin, for "
+            "example https://<username>.github.io/transferintel, before "
+            "running render_site.py."
+        )
 
     if problems:
         print(f"\n{len(problems)} things to look at before you commit:")
