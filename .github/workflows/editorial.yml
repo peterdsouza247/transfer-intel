@@ -69,10 +69,18 @@ jobs:
             --data data.json \
             --evidence build/evidence.json \
             --out build \
-            --max-notes 40 \
-            --max-changes 40 \
+            --max-notes 12 \
+            --max-changes 15 \
             ${{ inputs.no_notes && '--no-notes' || '' }} \
             --apply
+
+      # Rendering is a build step, not an editorial decision, so it runs
+      # after the gate has already approved the content. It regenerates the
+      # pre-rendered index, every deal and club page, the sitemap, the feed
+      # and the Open Graph cards from the same data.json the gate just
+      # checked, which is why they can never disagree with it.
+      - name: Render the site
+        run: python scripts/render_site.py --data data.json --template index.html --out .
 
       # Candidates are deals we do not track. They ride along in the PR body
       # so you can accept one in the same review, but they never touch

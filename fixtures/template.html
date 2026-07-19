@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Transfer Intel: Premier League Window</title>
+<style>
+  :root{
+    --bg:#0b0e14; --panel:#131824; --panel2:#1a2132; --border:#232c42;
+    --text:#e8ecf4; --muted:#8a94ab; --accent:#4f9cff; --green:#3ddc84;
+    --amber:#ffb454; --red:#ff5d5d; --purple:#b98aff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.5}
+  a{color:var(--accent)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+  header{background:linear-gradient(135deg,#101527 0%,#0b0e14 60%);border-bottom:1px solid var(--border);padding:28px 0 0}
+  .brand{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .brand h1{font-size:26px;letter-spacing:-.5px}
+  .brand h1 span{color:var(--accent)}
+  .brand .tag{color:var(--muted);font-size:13px}
+  .headbar{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;padding-bottom:16px}
+  .countdown{text-align:right}
+  .countdown .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+  .countdown .clock{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--amber)}
+
+  nav{display:flex;gap:4px;overflow-x:auto}
+  nav button{background:none;border:none;color:var(--muted);font-size:14px;font-weight:600;padding:12px 18px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap}
+  nav button.active{color:var(--text);border-bottom-color:var(--accent)}
+  nav button:hover{color:var(--text)}
+
+  main{padding:24px 0 60px}
+  .tab{display:none}
+  .tab.active{display:block}
+  h2{font-size:19px;margin-bottom:4px}
+  .sub{color:var(--muted);font-size:13px;margin-bottom:18px}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:24px}
+  .kpi{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px}
+  .kpi .v{font-size:24px;font-weight:800}
+  .kpi .l{font-size:12px;color:var(--muted)}
+
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:20px}
+
+  .funnel{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+  .stagechip{flex:1;min-width:120px;background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;text-align:center}
+  .stagechip .n{font-size:20px;font-weight:800}
+  .feed .item{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--border)}
+  .feed .item:last-child{border-bottom:none}
+  .dot{width:10px;height:10px;border-radius:50%;margin-top:7px;flex-shrink:0}
+  .feed .when{color:var(--muted);font-size:12px;width:64px;flex-shrink:0;padding-top:3px}
+  .feed .what b{font-size:14.5px}
+  .feed .what .meta{font-size:12.5px;color:var(--muted)}
+  .pill{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px;margin-left:6px;vertical-align:1px}
+
+  .controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+  select,input[type=text]{background:var(--panel2);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px;font-size:13px}
+  .rumor{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:12px;display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:center}
+  .cred{width:64px;height:64px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;font-size:18px;border:4px solid}
+  .cred small{font-size:9px;font-weight:600;color:var(--muted)}
+  .rumor h3{font-size:15.5px}
+  .rumor .why{font-size:13px;color:var(--muted);margin-top:4px}
+  .srcline{font-size:12px;margin-top:6px}
+  .tier{font-weight:700;padding:1px 7px;border-radius:5px;font-size:10.5px;margin-right:6px}
+  .t1{background:rgba(61,220,132,.15);color:var(--green)}
+  .t2{background:rgba(255,180,84,.15);color:var(--amber)}
+  .t3{background:rgba(255,93,93,.15);color:var(--red)}
+
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:10px 0}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th{text-align:left;color:var(--muted);font-size:11.5px;text-transform:uppercase;letter-spacing:.6px;padding:8px 10px;border-bottom:1px solid var(--border)}
+  td{padding:9px 10px;border-bottom:1px solid var(--border)}
+  tr:last-child td{border-bottom:none}
+  tr.clickable{cursor:pointer}
+  tr.clickable:hover{background:var(--panel2)}
+  .verdict{font-weight:700;font-size:12px;padding:2px 9px;border-radius:20px}
+  .v-bargain{background:rgba(61,220,132,.15);color:var(--green)}
+  .v-fair{background:rgba(79,156,255,.15);color:var(--accent)}
+  .v-premium{background:rgba(255,180,84,.15);color:var(--amber)}
+  .v-overpay{background:rgba(255,93,93,.15);color:var(--red)}
+  #scatter{width:100%;height:auto}
+
+  .clubgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+  .club{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;cursor:pointer;transition:border-color .15s}
+  .club:hover{border-color:var(--accent)}
+  .club h3{font-size:15px;display:flex;justify-content:space-between;align-items:center}
+  .net{font-size:13px;font-weight:700}
+  .club .row{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);margin-top:6px}
+  .club .row b{color:var(--text)}
+  #clubdetail{display:none}
+  .back{background:none;border:1px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:8px;cursor:pointer;font-size:13px;margin-bottom:14px}
+  .back:hover{color:var(--text)}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:720px){.twocol{grid-template-columns:1fr}.rumor{grid-template-columns:52px 1fr}.cred{width:52px;height:52px;font-size:15px}}
+  ul.deal-list{list-style:none}
+  ul.deal-list li{padding:7px 0;border-bottom:1px solid var(--border);font-size:13.5px;display:flex;justify-content:space-between;gap:10px}
+  ul.deal-list li:last-child{border-bottom:none}
+  ul.deal-list .fee{color:var(--muted);white-space:nowrap}
+  .needbox{background:var(--panel2);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:12px 14px;font-size:13.5px;margin-top:12px}
+
+  footer{border-top:1px solid var(--border);padding:20px 0;color:var(--muted);font-size:12px}
+  .note{font-size:12px;color:var(--muted);margin-top:10px}
+</style>
+</head>
+<body>
+<div style="background:#131824;border-bottom:1px solid #232c42;font-size:12.5px;
+  color:#8a94ab;text-align:center;padding:7px 14px">
+  <b style="color:#4f9cff">TransferIntel</b> · Premier League window analytics with
+  credibility scoring and value verdicts · part of
+  <a href="https://peterdsouza247.github.io/pocs/" style="color:#e8ecf4">Peter's POCs</a>,
+  · © 2026 Peter Brendan
+</div>
+<header>
+  <div class="wrap">
+    <div class="headbar">
+      <div class="brand">
+        <h1>Transfer<span>Intel</span></h1>
+        <span class="tag" id="window-tag"></span>
+      </div>
+      <div class="countdown">
+        <div class="lbl" id="deadline-lbl"></div>
+        <div class="clock" id="clock">...</div>
+      </div>
+    </div>
+    <nav>
+      <button class="active" data-tab="pulse">⚡ Window Pulse</button>
+      <button data-tab="rumors">🔍 Rumor Credibility</button>
+      <button data-tab="value">💰 Value Analytics</button>
+      <button data-tab="clubs">🏟 Club Dashboards</button>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="pulse" class="tab active">
+    <h2>Window Pulse</h2>
+    <p class="sub">Every deal tracked through its lifecycle: rumor → talks → agreed → medical → done. <span id="updated-pulse"></span></p>
+    <div class="cards" id="pulse-kpis"></div>
+    <div class="funnel" id="funnel"></div>
+    <div class="panel feed" id="feed"></div>
+  </section>
+
+  <section id="rumors" class="tab">
+    <h2>Rumor Credibility Index</h2>
+    <p class="sub">Each rumor scored 0-100 from source reliability (Tier 1 = Romano, Ornstein, Sky Sports · Tier 2 = established outlets · Tier 3 = tabloid/foreign paper talk), deal stage, and corroboration across outlets. Stop wasting emotion on 20-point rumors.</p>
+    <div class="controls">
+      <select id="f-club"><option value="">All clubs</option></select>
+      <select id="f-sort">
+        <option value="cred">Sort: credibility ↓</option>
+        <option value="fee">Sort: fee ↓</option>
+      </select>
+      <input type="text" id="f-search" placeholder="Search player…">
+    </div>
+    <div id="rumorlist"></div>
+  </section>
+
+  <section id="value" class="tab">
+    <h2>Value-for-Money Analytics</h2>
+    <p class="sub">Confirmed fees vs. our transparent Value Score (age curve + position premium + league-proven minutes + resale horizon). Not a black box: click any deal for the breakdown.</p>
+    <div class="panel">
+      <strong style="font-size:14px">Fee vs. Value Score: this window's paid deals</strong>
+      <div class="legend">
+        <span><i style="background:var(--green)"></i>Bargain</span>
+        <span><i style="background:var(--accent)"></i>Fair</span>
+        <span><i style="background:var(--amber)"></i>Premium</span>
+        <span><i style="background:var(--red)"></i>Overpay risk</span>
+      </div>
+      <svg id="scatter" viewBox="0 0 760 400"></svg>
+      <div class="note">Value Score (0-100): 25 y/o peak-age curve, +premium for MF/attackers under 24, +league-proven bonus, -decline discount past 28. Verdict = fee percentile vs. score.</div>
+    </div>
+    <div class="panel">
+      <strong style="font-size:14px">Deal-by-deal verdicts</strong>
+      <div style="overflow-x:auto;margin-top:8px">
+      <table id="valtable">
+        <thead><tr><th>Player</th><th>Move</th><th>Age</th><th>Fee</th><th>Value score</th><th>Verdict</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      </div>
+      <div id="valdetail" class="needbox" style="display:none"></div>
+    </div>
+  </section>
+
+  <section id="clubs" class="tab">
+    <h2>Club Dashboards</h2>
+    <p class="sub">Spend, sales, net position, squad needs, and the current financial rules context.</p>
+    <div class="clubgrid" id="clubgrid"></div>
+    <div id="clubdetail"></div>
+  </section>
+
+  <footer id="footer"></footer>
+</main>
+
+<script src="data.js"></script>
+<script>
+const DATA = window.TRANSFER_DATA;
+const CFG = DATA.config, DEALS = DATA.deals, CLUBS = DATA.clubs;
+
+const STAGES = {rumor:{l:"Rumor",c:"#8a94ab"},talks:{l:"Talks",c:"#ffb454"},agreed:{l:"Agreed",c:"#b98aff"},medical:{l:"Medical",c:"#4f9cff"},done:{l:"Done",c:"#3ddc84"},collapsed:{l:"Collapsed",c:"#ff5d5d"}};
+const fmt = n => n===0 ? "Free" : "£"+(n%1?n.toFixed(1):n)+"m";
+const $ = s => document.querySelector(s);
+
+/* config-driven chrome */
+$("#window-tag").textContent = CFG.windowName + " · " + CFG.tagline;
+$("#deadline-lbl").textContent = CFG.deadlineLabel;
+$("#updated-pulse").textContent = "Updated to " + CFG.updated + ".";
+$("#footer").textContent = "Data compiled " + CFG.updated + ". " + CFG.sourcesNote;
+
+/* Value model: transparent, deterministic */
+function valueScore(d){
+  let s = 50;
+  const peak = 25, dist = Math.abs(d.age-peak);
+  s += d.age<=24 ? (24-d.age)*2.2 : -(dist*3.2);
+  if(["AM","ST","LW","RW"].includes(d.pos)) s += 6;
+  if(d.pos==="CM") s += 4;
+  if(CFG.provenClubs.includes(d.from)) s += 8;
+  if(d.age>=30) s -= 8;
+  return Math.max(5,Math.min(98,Math.round(s)));
+}
+function verdict(d){
+  if(d.fee===0) return {t:"Bargain",cls:"v-bargain"};
+  const s = valueScore(d);
+  const ratio = d.fee / s;
+  if(ratio < 0.55) return {t:"Bargain",cls:"v-bargain"};
+  if(ratio < 0.95) return {t:"Fair",cls:"v-fair"};
+  if(ratio < 1.35) return {t:"Premium",cls:"v-premium"};
+  return {t:"Overpay risk",cls:"v-overpay"};
+}
+function verdictColor(cls){return {"v-bargain":"#3ddc84","v-fair":"#4f9cff","v-premium":"#ffb454","v-overpay":"#ff5d5d"}[cls];}
+
+/* tabs */
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("nav button").forEach(x=>x.classList.remove("active"));
+  document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+  b.classList.add("active"); $("#"+b.dataset.tab).classList.add("active");
+});
+
+/* countdown */
+const DEADLINE = new Date(CFG.deadline);
+setInterval(()=>{
+  let ms = DEADLINE - new Date();
+  if(ms<0){$("#clock").textContent="WINDOW CLOSED";return;}
+  const d=Math.floor(ms/864e5), h=Math.floor(ms%864e5/36e5), m=Math.floor(ms%36e5/6e4), s=Math.floor(ms%6e4/1e3);
+  $("#clock").textContent=`${d}d ${h}h ${m}m ${s}s`;
+},1000);
+
+/* pulse */
+(function(){
+  const paid = DEALS.filter(d=>d.status==="done"&&d.fee>0);
+  const spend = paid.reduce((a,d)=>a+d.fee,0);
+  const live = DEALS.filter(d=>["talks","agreed","medical"].includes(d.status)).length;
+  const biggest = paid.reduce((a,d)=>d.fee>a.fee?d:a,{fee:0,p:"",to:""});
+  $("#pulse-kpis").innerHTML = [
+    ["£"+Math.round(spend)+"m+","PL-involved confirmed fees"],
+    [DEALS.filter(d=>d.status==="done").length,"Deals completed"],
+    [live,"Deals in motion right now"],
+    ["£"+biggest.fee+"m",`Biggest deal (${biggest.p.split(" ").pop()} → ${biggest.to})`],
+  ].map(([v,l])=>`<div class="kpi"><div class="v">${v}</div><div class="l">${l}</div></div>`).join("");
+
+  const order=["rumor","talks","agreed","medical","done","collapsed"];
+  $("#funnel").innerHTML = order.map(st=>{
+    const n = DEALS.filter(d=>d.status===st).length;
+    return `<div class="stagechip"><div class="n" style="color:${STAGES[st].c}">${n}</div><div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px">${STAGES[st].l}</div></div>`;
+  }).join("");
+
+  const rank={collapsed:0,medical:1,agreed:2,talks:3,done:4,rumor:5};
+  const feed=[...DEALS].sort((a,b)=>rank[a.status]-rank[b.status]||b.fee-a.fee);
+  $("#feed").innerHTML = feed.map(d=>`
+    <div class="item">
+      <span class="dot" style="background:${STAGES[d.status].c}"></span>
+      <span class="when">${d.date}</span>
+      <div class="what">
+        <b>${d.p}</b> · ${d.from} → ${d.to} · ${fmt(d.fee)}
+        <span class="pill" style="background:${STAGES[d.status].c}22;color:${STAGES[d.status].c}">${STAGES[d.status].l}</span>
+        <div class="meta">${d.note}</div>
+      </div>
+    </div>`).join("");
+})();
+
+/* rumors */
+(function(){
+  const rumors = DEALS.filter(d=>["rumor","talks","agreed","medical","collapsed"].includes(d.status));
+  const clubs=[...new Set(rumors.flatMap(d=>[d.from,d.to]))].sort();
+  $("#f-club").innerHTML += clubs.map(c=>`<option>${c}</option>`).join("");
+  function credColor(c){return c>=75?"#3ddc84":c>=50?"#ffb454":"#ff5d5d";}
+  function render(){
+    const club=$("#f-club").value, q=$("#f-search").value.toLowerCase(), sort=$("#f-sort").value;
+    let list=rumors.filter(d=>(!club||d.from===club||d.to===club)&&(!q||d.p.toLowerCase().includes(q)));
+    list.sort((a,b)=>sort==="fee"?b.fee-a.fee:b.cred-a.cred);
+    $("#rumorlist").innerHTML = list.map(d=>`
+      <div class="rumor">
+        <div class="cred" style="border-color:${credColor(d.cred)};color:${credColor(d.cred)}">${d.cred}<small>/100</small></div>
+        <div>
+          <h3>${d.p} · ${d.from} → ${d.to} <span style="color:var(--muted);font-weight:400">· ${fmt(d.fee)}${d.status==="rumor"?" (reported)":""}</span>
+            <span class="pill" style="background:${STAGES[d.status].c}22;color:${STAGES[d.status].c}">${STAGES[d.status].l}</span></h3>
+          <div class="why">${d.note}</div>
+          <div class="srcline"><span class="tier t${d.tier}">TIER ${d.tier}</span><span style="color:var(--muted)">Primary source: ${d.src}</span></div>
+        </div>
+      </div>`).join("") || `<div class="panel">No rumors match.</div>`;
+  }
+  ["f-club","f-sort","f-search"].forEach(id=>$("#"+id).addEventListener("input",render));
+  render();
+})();
+
+/* value */
+(function(){
+  const paid = DEALS.filter(d=>d.fee>0&&["done","medical","agreed"].includes(d.status));
+  const W=760,H=400,P={l:52,r:16,t:16,b:40};
+  const maxF=Math.max(130,Math.ceil(Math.max(...paid.map(d=>d.fee))/10)*10);
+  const x=s=>P.l+(s/100)*(W-P.l-P.r);
+  const y=f=>H-P.b-(f/maxF)*(H-P.t-P.b);
+  let svg="";
+  const step=Math.ceil(maxF/4/10)*10;
+  for(let f=0;f<=maxF-step/2;f+=step) svg+=`<line x1="${P.l}" y1="${y(f)}" x2="${W-P.r}" y2="${y(f)}" style="stroke:var(--border)"/><text x="${P.l-8}" y="${y(f)+4}" style="fill:var(--muted)" font-size="11" text-anchor="end">£${f}m</text>`;
+  for(let s=0;s<=100;s+=25) svg+=`<text x="${x(s)}" y="${H-P.b+18}" style="fill:var(--muted)" font-size="11" text-anchor="middle">${s}</text>`;
+  svg+=`<text x="${(P.l+W-P.r)/2}" y="${H-6}" style="fill:var(--muted)" font-size="11" text-anchor="middle">Value Score →</text>`;
+  paid.forEach(d=>{
+    const v=verdict(d), s=valueScore(d);
+    svg+=`<circle cx="${x(s)}" cy="${y(d.fee)}" r="7" style="fill:${verdictColor(v.cls)}" opacity=".85"><title>${d.p} (${d.from} → ${d.to}): ${fmt(d.fee)}, score ${s}, ${v.t}</title></circle>`;
+    if(d.fee>=42) svg+=`<text x="${x(s)}" y="${y(d.fee)-11}" style="fill:var(--text)" font-size="10.5" text-anchor="middle">${d.p.split(" ").pop()}</text>`;
+  });
+  $("#scatter").innerHTML=svg;
+
+  const tb=$("#valtable tbody");
+  const rows=[...paid].sort((a,b)=>b.fee-a.fee);
+  tb.innerHTML=rows.map((d,i)=>{
+    const v=verdict(d);
+    return `<tr class="clickable" data-i="${i}"><td><b>${d.p}</b></td><td style="color:var(--muted)">${d.from} → ${d.to}</td><td>${d.age}</td><td>${fmt(d.fee)}</td><td>${valueScore(d)}</td><td><span class="verdict ${v.cls}">${v.t}</span></td></tr>`;
+  }).join("");
+  tb.onclick=e=>{
+    const tr=e.target.closest("tr"); if(!tr)return;
+    const d=rows[+tr.dataset.i], s=valueScore(d), r=(d.fee/s).toFixed(2);
+    $("#valdetail").style.display="block";
+    $("#valdetail").innerHTML=`<b>${d.p}</b>, score breakdown: base 50, age ${d.age} ${d.age<=24?`(+${((24-d.age)*2.2).toFixed(1)} youth/resale)`:`(-${(Math.abs(d.age-25)*3.2).toFixed(1)} age curve)`}${["AM","ST","LW","RW"].includes(d.pos)?", +6 attacking premium":d.pos==="CM"?", +4 midfield premium":""}${d.age>=30?", -8 aged-30+ discount":""}. <b>Score ${s}</b> at ${fmt(d.fee)} = £${r}m per value point → <b>${verdict(d).t}</b>. ${d.note}`;
+  };
+})();
+
+/* clubs */
+(function(){
+  const agg={};
+  DEALS.filter(d=>["done","medical","agreed"].includes(d.status)).forEach(d=>{
+    if(CLUBS[d.to]){agg[d.to]=agg[d.to]||{in:[],out:[]};agg[d.to].in.push(d);}
+    if(CLUBS[d.from]){agg[d.from]=agg[d.from]||{in:[],out:[]};agg[d.from].out.push(d);}
+  });
+  const names=Object.keys(CLUBS).sort((a,b)=>{
+    const n=c=>((agg[c]?.in||[]).reduce((x,d)=>x+d.fee,0)-((agg[c]?.out||[]).reduce((x,d)=>x+d.fee,0)));
+    return n(b)-n(a);
+  });
+  $("#clubgrid").innerHTML=names.map(c=>{
+    const a=agg[c]||{in:[],out:[]};
+    const sp=a.in.reduce((x,d)=>x+d.fee,0), sl=a.out.reduce((x,d)=>x+d.fee,0), net=sp-sl;
+    return `<div class="club" data-c="${c}">
+      <h3>${c} <span class="net" style="color:${net>0?"var(--red)":"var(--green)"}">${net>0?"−":"+"}£${Math.abs(net).toFixed(0)}m</span></h3>
+      <div class="row"><span>Spent</span><b>£${sp.toFixed(0)}m</b></div>
+      <div class="row"><span>Sold</span><b>£${sl.toFixed(0)}m</b></div>
+      <div class="row"><span>In / Out</span><b>${a.in.length} / ${a.out.length}</b></div>
+    </div>`;
+  }).join("");
+  $("#clubgrid").onclick=e=>{
+    const card=e.target.closest(".club"); if(!card)return;
+    const c=card.dataset.c, a=agg[c]||{in:[],out:[]}, info=CLUBS[c];
+    const li=d=>`<li><span>${d.p} <span style="color:var(--muted)">(${d.pos}${["medical","agreed"].includes(d.status)?" · "+STAGES[d.status].l.toLowerCase():""})</span></span><span class="fee">${fmt(d.fee)}</span></li>`;
+    $("#clubgrid").style.display="none";
+    $("#clubdetail").style.display="block";
+    $("#clubdetail").innerHTML=`
+      <button class="back">← All clubs</button>
+      <div class="panel">
+        <h2>${c}</h2>
+        <p style="font-size:13.5px;color:var(--muted);margin:6px 0 14px">${info.ctx}</p>
+        <div class="twocol">
+          <div><strong style="font-size:13px;color:var(--green)">IN (${a.in.length})</strong><ul class="deal-list">${a.in.map(li).join("")||"<li>None yet</li>"}</ul></div>
+          <div><strong style="font-size:13px;color:var(--red)">OUT (${a.out.length})</strong><ul class="deal-list">${a.out.map(li).join("")||"<li>None yet</li>"}</ul></div>
+        </div>
+        <div class="needbox"><b>What they still need:</b> ${info.needs}</div>
+        <div class="note">${CFG.finNote}</div>
+      </div>`;
+    $("#clubdetail .back").onclick=()=>{$("#clubdetail").style.display="none";$("#clubgrid").style.display="grid";};
+  };
+})();
+</script>
+</body>
+</html>
