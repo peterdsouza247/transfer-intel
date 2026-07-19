@@ -1,0 +1,20 @@
+{"text": "Arsenal complete signing of Ellis Hartley from Brighton for £42m", "expected": {"is_transfer_claim": true, "player": "Ellis Hartley", "from_club": "Brighton", "to_club": "Arsenal", "reported_stage": "completed", "fee_amount": 42}}
+{"text": "Rafael Moreno to undergo Newcastle medical on Monday", "expected": {"is_transfer_claim": true, "player": "Rafael Moreno", "to_club": "Newcastle", "reported_stage": "medical"}}
+{"text": "Chelsea open talks with Sporting CP over €70m Nuno Vidal", "expected": {"is_transfer_claim": true, "player": "Nuno Vidal", "from_club": "Sporting CP", "to_club": "Chelsea", "reported_stage": "talks", "fee_amount": 70}}
+{"text": "Everton agree fee with Ajax for Tunde Okafor", "expected": {"is_transfer_claim": true, "player": "Tunde Okafor", "from_club": "Ajax", "to_club": "Everton", "reported_stage": "agreed"}}
+{"text": "Liverpool monitoring Marc Guehi situation ahead of the summer", "expected": {"is_transfer_claim": true, "player": "Marc Guehi", "to_club": "Liverpool", "reported_stage": "interest"}}
+{"text": "Danny Keane's proposed West Ham move collapses over medical concerns", "expected": {"is_transfer_claim": true, "player": "Danny Keane", "to_club": "West Ham", "reported_stage": "collapsed"}}
+{"text": "Sancho to stay at Manchester United after Roma talks break down", "expected": {"is_transfer_claim": true, "player": "Sancho", "reported_stage": "collapsed"}}
+{"text": "Transfer rumour round-up: ten deals that could happen this week", "expected": {"is_transfer_claim": false}}
+{"text": "Gossip column: Arsenal, Chelsea and Spurs all chasing midfielders", "expected": {"is_transfer_claim": false}}
+{"text": "Premier League fixtures: every opening weekend tie confirmed", "expected": {"is_transfer_claim": false}}
+{"text": "Bukayo Saka signs new five-year contract at Arsenal", "expected": {"is_transfer_claim": false}}
+{"text": "Newcastle confirm Sven Botman will miss six weeks with knee injury", "expected": {"is_transfer_claim": false}}
+{"text": "Brighton appoint new head coach on three-year deal", "expected": {"is_transfer_claim": false}}
+{"text": "Martin Ødegaard returns to Real Madrid in £45m deal", "expected": {"is_transfer_claim": true, "player": "Martin Ødegaard", "to_club": "Real Madrid", "reported_stage": "completed", "fee_amount": 45}}
+{"text": "Man Utd eye shock move for Everton target Tunde Okafor", "expected": {"is_transfer_claim": true, "player": "Tunde Okafor", "to_club": "Man Utd", "reported_stage": "interest"}}
+{"text": "Spurs table opening bid for Brighton's Ellis Hartley", "expected": {"is_transfer_claim": true, "player": "Ellis Hartley", "from_club": "Brighton", "to_club": "Spurs", "reported_stage": "talks"}}
+{"text": "Wolves striker joins Championship side on season-long loan", "expected": {"is_transfer_claim": false}}
+{"text": "Personal terms agreed as Rafael Moreno edges closer to St James' Park", "expected": {"is_transfer_claim": true, "player": "Rafael Moreno", "reported_stage": "agreed"}}
+{"text": "Arsenal unveil Ellis Hartley at the Emirates", "expected": {"is_transfer_claim": true, "player": "Ellis Hartley", "to_club": "Arsenal", "reported_stage": "completed"}}
+{"text": "Report: Everton have made no formal approach for Okafor despite links", "expected": {"is_transfer_claim": true, "player": "Okafor", "to_club": "Everton", "reported_stage": "interest"}}

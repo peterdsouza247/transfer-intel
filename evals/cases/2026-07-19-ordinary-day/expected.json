@@ -1,0 +1,32 @@
+{
+  "must": [
+    {
+      "id": "hartley-brighton-arsenal",
+      "field": "status",
+      "to": "medical"
+    },
+    {
+      "id": "moreno-benfica-newcastle",
+      "field": "status",
+      "to": "done"
+    }
+  ],
+  "must_not": [
+    {
+      "id": "vidal-sporting-cp-chelsea",
+      "field": "status",
+      "to": "talks"
+    }
+  ],
+  "cred": {
+    "hartley-brighton-arsenal": 95,
+    "moreno-benfica-newcastle": 100
+  },
+  "cred_tolerance": 5,
+  "resolved_evidence": {
+    "hartley-brighton-arsenal": 2,
+    "moreno-benfica-newcastle": 1
+  },
+  "candidates": [],
+  "gate_must_pass": true
+}

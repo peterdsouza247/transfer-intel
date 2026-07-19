@@ -1,0 +1,22 @@
+[
+  {
+    "is_transfer_claim": true,
+    "player": "Nuno Vidal",
+    "from_club": "Sporting CP",
+    "to_club": "Chelsea",
+    "reported_stage": "completed",
+    "fee_amount": 95,
+    "fee_currency": "GBP",
+    "article_url": "https://www.thesun.co.uk/n/vidal"
+  },
+  {
+    "is_transfer_claim": true,
+    "player": "Nuno Vidal",
+    "from_club": "Sporting CP",
+    "to_club": "Chelsea",
+    "reported_stage": "completed",
+    "fee_amount": 95,
+    "fee_currency": "GBP",
+    "article_url": "https://www.express.co.uk/n/vidal"
+  }
+]

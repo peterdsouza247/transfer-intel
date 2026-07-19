@@ -1,0 +1,17 @@
+{
+  "hartley-brighton-arsenal": [
+    {"url": "https://example.com/sky/hartley-medical", "source": "Sky Sports", "tier": 1, "date": "2026-07-19", "claim": "medical", "fee_gbp_m": 42},
+    {"url": "https://example.com/athletic/hartley-medical", "source": "The Athletic", "tier": 1, "date": "2026-07-19", "claim": "medical"}
+  ],
+  "moreno-benfica-newcastle": [
+    {"url": "https://example.com/athletic/moreno-done", "source": "The Athletic", "tier": 1, "date": "2026-07-19", "claim": "completed", "fee_gbp_m": 58},
+    {"url": "https://example.com/sky/moreno-done", "source": "Sky Sports", "tier": 1, "date": "2026-07-19", "claim": "completed"}
+  ],
+  "okafor-ajax-everton": [],
+  "vidal-sporting-cp-chelsea": [
+    {"url": "https://example.com/rag/vidal-done-shock", "source": "Daily Rag", "tier": 3, "date": "2026-07-19", "claim": "completed", "fee_gbp_m": 95}
+  ],
+  "keane-leeds-westham": [
+    {"url": "https://example.com/f365/keane-off", "source": "Football365", "tier": 2, "date": "2026-07-18", "claim": "collapsed"}
+  ]
+}

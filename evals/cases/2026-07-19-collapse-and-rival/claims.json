@@ -1,0 +1,22 @@
+[
+  {
+    "is_transfer_claim": true,
+    "player": "Danny Keane",
+    "from_club": "Leeds",
+    "to_club": "West Ham",
+    "reported_stage": "collapsed",
+    "fee_amount": null,
+    "fee_currency": null,
+    "article_url": "https://www.bbc.co.uk/n/keane"
+  },
+  {
+    "is_transfer_claim": true,
+    "player": "Tunde Okafor",
+    "from_club": "Ajax",
+    "to_club": "Man Utd",
+    "reported_stage": "interest",
+    "fee_amount": 70,
+    "fee_currency": "EUR",
+    "article_url": "https://www.football365.com/n/okafor"
+  }
+]

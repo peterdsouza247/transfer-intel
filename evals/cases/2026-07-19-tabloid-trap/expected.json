@@ -1,0 +1,26 @@
+{
+  "must": [],
+  "must_not": [
+    {
+      "id": "vidal-sporting-cp-chelsea",
+      "field": "status",
+      "to": "done"
+    },
+    {
+      "id": "vidal-sporting-cp-chelsea",
+      "field": "status",
+      "to": "talks"
+    },
+    {
+      "id": "vidal-sporting-cp-chelsea",
+      "field": "fee",
+      "to": 95.0
+    }
+  ],
+  "cred": {
+    "vidal-sporting-cp-chelsea": 15
+  },
+  "cred_tolerance": 6,
+  "candidates": [],
+  "gate_must_pass": true
+}

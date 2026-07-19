@@ -1,0 +1,32 @@
+[
+  {
+    "is_transfer_claim": true,
+    "player": "Ellis Hartley",
+    "from_club": "Brighton",
+    "to_club": "Arsenal",
+    "reported_stage": "medical",
+    "fee_amount": 42,
+    "fee_currency": "GBP",
+    "article_url": "https://www.skysports.com/n/hartley"
+  },
+  {
+    "is_transfer_claim": true,
+    "player": "Ellis Hartley",
+    "from_club": "Brighton",
+    "to_club": "Arsenal",
+    "reported_stage": "medical",
+    "fee_amount": null,
+    "fee_currency": null,
+    "article_url": "https://www.theathletic.com/n/hartley"
+  },
+  {
+    "is_transfer_claim": true,
+    "player": "Rafael Moreno",
+    "from_club": "Benfica",
+    "to_club": "Newcastle United",
+    "reported_stage": "completed",
+    "fee_amount": 58,
+    "fee_currency": "GBP",
+    "article_url": "https://www.skysports.com/n/moreno"
+  }
+]

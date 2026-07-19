@@ -1,0 +1,165 @@
+{
+  "config": {
+    "windowName": "Summer 2026",
+    "tagline": "credibility, not clickbait",
+    "deadline": "2026-09-01T17:00:00Z",
+    "deadlineLabel": "Deadline day: Sep 1, 6pm BST",
+    "updated": "Jul 18, 2026",
+    "sourcesNote": "Tier 1 sources weighted heaviest.",
+    "provenClubs": [
+      "Ajax",
+      "Benfica",
+      "Sporting CP",
+      "Eintracht Frankfurt",
+      "Brighton"
+    ]
+  },
+  "deals": [
+    {
+      "id": "hartley-brighton-arsenal",
+      "p": "Ellis Hartley",
+      "from": "Brighton",
+      "to": "Arsenal",
+      "fee": 42,
+      "age": 22,
+      "pos": "AM",
+      "status": "agreed",
+      "date": "Jul 16",
+      "tier": 1,
+      "src": "Sky Sports",
+      "cred": 74,
+      "note": "Arsenal moving early for a profile they have chased for two windows.",
+      "evidence": [
+        {
+          "url": "https://example.com/sky/hartley-agreed",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-07-16",
+          "claim": "agreed",
+          "fee_gbp_m": 42
+        }
+      ]
+    },
+    {
+      "id": "moreno-benfica-newcastle",
+      "p": "Rafael Moreno",
+      "from": "Benfica",
+      "to": "Newcastle",
+      "fee": 55,
+      "age": 26,
+      "pos": "ST",
+      "status": "medical",
+      "date": "Jul 17",
+      "tier": 1,
+      "src": "The Athletic",
+      "cred": 88,
+      "note": "Newcastle's answer to the striker question, settled before the window got loud.",
+      "evidence": [
+        {
+          "url": "https://example.com/athletic/moreno-medical",
+          "source": "The Athletic",
+          "tier": 1,
+          "date": "2026-07-17",
+          "claim": "medical",
+          "fee_gbp_m": 55
+        }
+      ]
+    },
+    {
+      "id": "okafor-ajax-everton",
+      "p": "Tunde Okafor",
+      "from": "Ajax",
+      "to": "Everton",
+      "fee": 18,
+      "age": 24,
+      "pos": "CM",
+      "status": "talks",
+      "date": "Jul 10",
+      "tier": 2,
+      "src": "Telegraph",
+      "cred": 55,
+      "note": "Everton's only realistic midfield upgrade at this price point.",
+      "evidence": [
+        {
+          "url": "https://example.com/telegraph/okafor-talks",
+          "source": "Telegraph",
+          "tier": 2,
+          "date": "2026-07-10",
+          "claim": "talks",
+          "fee_gbp_m": 18
+        }
+      ]
+    },
+    {
+      "id": "vidal-sporting-cp-chelsea",
+      "p": "Nuno Vidal",
+      "from": "Sporting CP",
+      "to": "Chelsea",
+      "fee": 60,
+      "age": 21,
+      "pos": "LW",
+      "status": "rumor",
+      "date": "Jun 28",
+      "tier": 3,
+      "src": "A Bola",
+      "cred": 34,
+      "note": "Recycled since January with no movement on either side.",
+      "evidence": [
+        {
+          "url": "https://example.com/abola/vidal",
+          "source": "A Bola",
+          "tier": 3,
+          "date": "2026-06-28",
+          "claim": "interest"
+        }
+      ]
+    },
+    {
+      "id": "keane-leeds-westham",
+      "p": "Danny Keane",
+      "from": "Leeds",
+      "to": "West Ham",
+      "fee": 0,
+      "age": 31,
+      "pos": "CB",
+      "status": "talks",
+      "date": "Jul 14",
+      "tier": 2,
+      "src": "Football365",
+      "cred": 48,
+      "note": "Free transfer cover for a defence that conceded most in the league.",
+      "evidence": [
+        {
+          "url": "https://example.com/f365/keane",
+          "source": "Football365",
+          "tier": 2,
+          "date": "2026-07-14",
+          "claim": "talks",
+          "fee_gbp_m": 0
+        }
+      ]
+    }
+  ],
+  "clubs": {
+    "Arsenal": {
+      "needs": "Left centre back, backup nine",
+      "ctx": "Front-loading the window while the rivals negotiate."
+    },
+    "Newcastle": {
+      "needs": "Right wing",
+      "ctx": "One marquee striker, then done."
+    },
+    "Everton": {
+      "needs": "Central midfield, goalkeeper",
+      "ctx": "Budget rebuilt around the stadium debt."
+    },
+    "Chelsea": {
+      "needs": "Nothing structural",
+      "ctx": "Selling before buying, as ever."
+    },
+    "West Ham": {
+      "needs": "Centre back, holding midfield",
+      "ctx": "Frees and loans only."
+    }
+  }
+}

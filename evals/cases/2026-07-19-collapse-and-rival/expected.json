@@ -1,0 +1,25 @@
+{
+  "must": [
+    {
+      "id": "keane-leeds-westham",
+      "field": "status",
+      "to": "collapsed"
+    }
+  ],
+  "must_not": [
+    {
+      "id": "okafor-ajax-everton",
+      "field": "status",
+      "to": "agreed"
+    }
+  ],
+  "cred": {
+    "keane-leeds-westham": 0
+  },
+  "cred_tolerance": 0,
+  "resolved_evidence": {},
+  "candidates": [
+    "okafor-ajax-manchester-united"
+  ],
+  "gate_must_pass": true
+}
