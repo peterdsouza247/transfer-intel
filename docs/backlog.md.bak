@@ -1,12 +1,5 @@
 # TransferIntel: Engineering Backlog
 
-> **Delivery status, 20 July 2026.** TI-001, TI-002, TI-003, TI-010, TI-011,
-> TI-012, TI-013 and TI-020 are implemented, tested and merged on
-> `feat/backlog-00-24`. TI-021 through TI-024 remain open; TI-025 onward were
-> always out of scope for this pass. Two tickets were rediagnosed during
-> implementation and the corrected causes are recorded inline below. See
-> `docs/DELIVERY.md` for what changed, what was rejected, and why.
-
 Prepared 20 July 2026. Target: Premier League summer window closes 1 September 2026.
 Site: https://peterdsouza247.github.io/transfer-intel/
 Stack assumptions: Python content pipeline generating a static site, deployed to GitHub Pages. Where a ticket assumes something about the codebase it is flagged as an assumption for the engineer to verify.
@@ -30,8 +23,11 @@ Global constraint: the site is static and hosted on GitHub Pages. No server-side
 
 ## TI-001: Deals are being falsely promoted to Completed with credibility 100
 
+<<<<<<< HEAD
 **Status: DONE.** Root cause confirmed as stated. Fixed structurally with a new `confirmed` status, mandatory completion markers, and a consistency gate. Backfill demoted 7 records, including all six named below.
 
+=======
+>>>>>>> 89a01e34cea4f55b921185b1724842de9e89b3be
 **Priority:** P0, highest. This is the single most damaging defect on the site.
 
 **Problem.** Multiple deals display status `Completed` and credibility `100 / 100` while their own summary text contradicts that status. Confirmed examples on the live homepage as of 19 July 2026:
@@ -80,8 +76,11 @@ All six carry the marker "Confirmed (auto-updated 2026-07-16)" or a similar auto
 
 ## TI-002: Value-for-Money analytics table renders with no rows
 
+<<<<<<< HEAD
 **Status: DONE, cause differed.** The named causes were not reproducible against committed data: the table renders 25 rows in a headless browser. The real mechanism was that all four render blocks shared one script scope, so a throw in any of them killed the rest and left the build's pre-rendered output in place. Sections are now isolated and both consumers read one collection.
 
+=======
+>>>>>>> 89a01e34cea4f55b921185b1724842de9e89b3be
 **Priority:** P0.
 
 **Problem.** The "Deal-by-deal verdicts" table on the homepage renders its header row (Player, Move, Age, Fee, Value score, Verdict) and no data rows. The scatter chart above it appears to render, so the underlying value scores are likely being computed and the failure is in the table rendering or in the filter that selects rows for it.
@@ -107,8 +106,11 @@ All six carry the marker "Confirmed (auto-updated 2026-07-16)" or a similar auto
 
 ## TI-003: Vertical scroll is not discoverable in mobile view
 
+<<<<<<< HEAD
 **Status: DONE, cause differed.** Not an overflow or touch-action problem. `.tab{display:none}` meant the four tabs swapped panels in place, so on mobile there was genuinely nothing below the fold. Scroll affordances would have treated a symptom. Sections now stack below 860px with anchor-scrolling sticky nav.
 
+=======
+>>>>>>> 89a01e34cea4f55b921185b1724842de9e89b3be
 **Priority:** P0. Reported by the site owner.
 
 **Problem.** On mobile, users do not perceive that page sections continue below the fold, or vertical scroll gestures are being captured by inner scroll containers.
@@ -141,8 +143,11 @@ All six carry the marker "Confirmed (auto-updated 2026-07-16)" or a similar auto
 
 ## TI-010: Email capture and daily digest
 
+<<<<<<< HEAD
 **Status: DONE.** Three placements, `/thanks/` page, digest generator, quiet-day edition, sent-date marker, daily workflow. Provider not yet configured: set `config.newsletter.action`. See `docs/NEWSLETTER.md`.
 
+=======
+>>>>>>> 89a01e34cea4f55b921185b1724842de9e89b3be
 **Priority:** P1, ship within the first week. Every day the window is open without a capture form is subscribers permanently lost.
 
 **Problem.** The site has no mechanism to convert a visitor into a returning reader. Traffic during a transfer window is spiky and almost entirely non-returning without an email hook.
@@ -182,8 +187,11 @@ Recommendation: Kit for the subscriber ceiling, given a window that could spike 
 
 ## TI-011: Subscriber notification filters
 
+<<<<<<< HEAD
 **Status: DONE.** Preference fields, generated segments rather than the 100-edition product, instant alerts capped at two per day.
 
+=======
+>>>>>>> 89a01e34cea4f55b921185b1724842de9e89b3be
 **Priority:** P1, after TI-010 is live and stable.
 
 **Problem.** A Newcastle supporter does not want Chelsea rumours. A serious reader does not want anything scoring below 60. Undifferentiated sends cause unsubscribes.
@@ -207,8 +215,11 @@ Recommendation: Kit for the subscriber ceiling, given a window that could spike 
 
 ## TI-012: Analytics instrumentation
 
+<<<<<<< HEAD
 **Status: DONE.** Cloudflare Web Analytics plus GoatCounter, six events, under 5KB, no consent banner. Token not yet configured. See `docs/ANALYTICS.md`.
 
+=======
+>>>>>>> 89a01e34cea4f55b921185b1724842de9e89b3be
 **Priority:** P1.
 
 **Problem.** There is no measurement, and the site owner needs evidence of value for external audiences.
@@ -256,8 +267,11 @@ Recommendation: Cloudflare Web Analytics as the base layer. Add GoatCounter only
 
 ## TI-013: Club dashboard sorting
 
+<<<<<<< HEAD
 **Status: DONE.** Activity default, three sort options, sessionStorage that degrades gracefully, collapsed zero-activity group, in/out/net on every card.
 
+=======
+>>>>>>> 89a01e34cea4f55b921185b1724842de9e89b3be
 **Priority:** P1, small.
 
 **Problem.** Clubs are currently listed alphabetically. Alphabetical is the least informative default here: Nott'm Forest and West Ham both show zero tracked deals and sit in the middle of the list, while the most active clubs are scattered.
@@ -285,8 +299,11 @@ Build in the order listed. Each is independently shippable.
 
 ## TI-020: Rumour decay
 
+<<<<<<< HEAD
 **Status: DONE.** Delivered early because it shares `last_verified_at` with TI-001. Curve is one config constant, both numbers display, Stale badge and "Gone quiet" filter shipped.
 
+=======
+>>>>>>> 89a01e34cea4f55b921185b1724842de9e89b3be
 **Priority:** P2, first. Highest ratio of credibility gained to effort spent.
 
 **Problem.** A rumour last reported nine days ago is presented identically to one reported this morning. In a transfer window, silence is information.
@@ -313,8 +330,11 @@ Build in the order listed. Each is independently shippable.
 
 ## TI-021: Source accuracy leaderboard
 
+<<<<<<< HEAD
 **Status: OPEN.** The scoring hook exists: `scoring.reliability_term` reads a measured hit rate per source and is wired through `score_all`. What remains is computing those rates from outcomes and building `/sources/`.
 
+=======
+>>>>>>> 89a01e34cea4f55b921185b1724842de9e89b3be
 **Priority:** P2. The most defensible asset on this list and the one that survives past 1 September.
 
 **Problem.** Credibility scores are currently asserted from an editorial tier list. They should be derived from measured outcomes.
@@ -340,8 +360,11 @@ Build in the order listed. Each is independently shippable.
 
 ## TI-022: Contested targets
 
+<<<<<<< HEAD
 **Status: OPEN.**
 
+=======
+>>>>>>> 89a01e34cea4f55b921185b1724842de9e89b3be
 **Priority:** P2.
 
 **Problem.** Multiple clubs chasing one player is the most dramatic and least well-covered structure in a transfer window. The Manzambi hijack and the Barcola situation are both already in the dataset but invisible as such.
@@ -365,8 +388,11 @@ Build in the order listed. Each is independently shippable.
 
 ## TI-023: Collapse post-mortems
 
+<<<<<<< HEAD
 **Status: PARTIAL.** The data model landed with TI-001: `collapse_reason` enum, `collapse_narrative`, `pivot_from`/`pivot_to`, rule-based reason classification in `markers.collapse_reason`, and pivot pressure feeding the credibility model. The `/collapsed/` view and pivot chain rendering remain.
 
+=======
+>>>>>>> 89a01e34cea4f55b921185b1724842de9e89b3be
 **Priority:** P2.
 
 **Problem.** The site tracks collapses (Éderson to Man Utd) but does not analyse them. Collapse causes are patterned and the patterns are interesting.
@@ -390,8 +416,11 @@ Build in the order listed. Each is independently shippable.
 
 ## TI-024: Squad gap map
 
+<<<<<<< HEAD
 **Status: OPEN.** Blocked on network access to the FPL API from the build sandbox. Runs fine from GitHub Actions.
 
+=======
+>>>>>>> 89a01e34cea4f55b921185b1724842de9e89b3be
 **Priority:** P2.
 
 **Problem.** Club dashboards report spend without context. Tottenham at eight deals and £229.5m reads as chaos until the reader sees what was missing.
@@ -497,6 +526,77 @@ Build in the order listed. Each is independently shippable.
 
 # P3: Deferred
 
+<<<<<<< HEAD
+## TI-028: Deal structure extraction
+
+**Status: OPEN.**
+
+**Priority:** P2. High reader value, and the highest risk on this list of undermining the site's central claim if built carelessly. Do not start it before TI-021 is delivering measured source accuracy, because that is what makes the confidence scoring here meaningful rather than asserted.
+
+**Problem.** A headline fee is the least interesting true thing about a transfer. "Fifty five million" conceals whether that is guaranteed or forty million with fifteen in appearance add-ons, whether the selling club kept a sell-on percentage, whether a loan carries an obligation to buy or merely an option, and how long the player is actually tied to the club. Every competitor publishes the headline number. Almost nobody structures what sits underneath it, and the structure is where the analysis is.
+
+**Why this ticket needs handling no other extraction ticket needs.**
+
+The architecture rests on one division: a model reports what an article claimed, and code decides everything numeric. This feature asks a model to surface numbers that will be displayed to readers, which is the closest the project has come to crossing that line. It does not have to cross it, but the default implementation would.
+
+Two specific traps.
+
+First, **the gross and net trap.** English reporting quotes wages gross. Serie A and La Liga reporting quotes them net. The difference is roughly a factor of two. A wage figure published without knowing which convention its source used is not approximately right, it is wrong by one hundred percent, on the site whose entire promise is that its numbers can be trusted.
+
+Second, **these fields are not equally knowable.** Contract length appears in official club announcements. Weekly wage appears in agent briefings and almost never anywhere official. Treating them as one feature called "deal specifics" would apply the reliability of the worst field to all of them.
+
+**Field tiers.** Build them in this order. Each tier has a different display bar.
+
+| Tier | Fields | Typical source | Display bar |
+|---|---|---|---|
+| A, verifiable | contract length, contract expiry year, shirt number | official club announcement | one tier 1 source, or any official domain |
+| B, well reported | guaranteed fee vs add-ons split, loan fee, obligation vs option to buy, buy-back clause existence | tier 1 reporting, reasonably consistent | one tier 1 source |
+| C, weakly sourced | sell-on percentage, release clause value, agent fee | "understood to include" | two independent outlets, at least one tier 1 |
+| D, least reliable | weekly wage, signing bonus, performance bonus detail | agent briefing, rarely confirmed | two independent outlets, at least one tier 1, and a determinable gross or net marker |
+
+**Implementation.**
+
+1. Extend the phase 2 extraction schema with a `terms` object. The model populates only fields the article states, and must return null rather than infer. The existing extraction prompt discipline applies: it reports what was claimed, it does not estimate, and it never converts currencies or conventions.
+
+2. Add a `DealTerms` model with one `TermComponent` per field, each carrying `value`, `unit`, `source`, `tier`, `url`, `date`, and `basis` where relevant. Terms are evidence-bearing records, exactly like status claims, not scalar fields on the deal.
+
+3. `basis` is mandatory on any wage or salary component and takes `gross`, `net`, or `unknown`. Derive it from the outlet's home market and from explicit language in the article. **A component with `basis: unknown` never renders.** Withholding a number is free; publishing one that is wrong by a factor of two is not.
+
+4. Score each component independently using the existing tier and corroboration machinery in `scoring.py`. Reuse `reliability_term` once TI-021 is measuring source accuracy, so a sell-on figure from an outlet with a poor record scores below the same figure from one with a good record.
+
+5. Components below their tier's display bar are stored but not rendered. They stay in the record so that a second outlet reporting the same number later can promote them, and so the eval suite can measure how often withheld terms turn out to have been right.
+
+6. Render on the deal page under a "Reported terms" heading, never in the header alongside the computed credibility score. Every component displays its source and date inline. Anything below tier A is prefixed "Reported:". Wages additionally display "gross" or "net" as part of the value, not as a footnote.
+
+7. Add a `structure` line to the deal page where a fee split exists: "£40m guaranteed, up to £15m in add-ons" is more useful than "£55m" and is the single highest-value output of this ticket.
+
+8. Surface the obligation versus option distinction prominently on loan deals. It is materially important, it is routinely conflated in mainstream reporting, and getting it right consistently is a defensible reason to prefer this site.
+
+9. Extend the gate: a component whose evidence list is empty fails the build, wage components with `basis: unknown` that reached a rendered state fail the build, and any component claiming a fee split whose parts do not sum to the headline fee within one million raises a soft warning.
+
+10. Add golden eval cases covering a gross and net collision, a sell-on reported by one outlet only, an official announcement stating contract length, and a loan where one source says option and another says obligation.
+
+**Acceptance criteria.**
+
+- No wage figure renders anywhere without a gross or net marker attached to the value itself.
+- No component renders without a named source and a date.
+- Deliberately corrupting a component's evidence list fails the build.
+- A term reported by a single tier 3 outlet is stored and does not render.
+- Contract length extracted from an official club announcement renders without qualification.
+- Loan deals distinguish obligation from option, and disagreement between sources is displayed as disagreement rather than resolved silently.
+- Fee splits that do not reconcile with the headline fee raise a warning in the patch.
+- The eval suite reports a false terms rate alongside the existing false completions metric, and it is zero.
+
+**Explicitly out of scope, and this is not negotiable.**
+
+None of these values may feed the value model, the credibility score, PSR estimates in TI-026, or any other computed number. They are reported claims displayed as reported claims. The moment an agent-briefed wage figure influences a score, every score on the site inherits its reliability, which is the failure this architecture was built to prevent and the one TI-001 already had to undo once.
+
+Currency conversion is also out of scope. Report the figure in the currency the source used. The existing FX helper exists for fees, where a canonical sterling figure is expected; wages quoted in euros should stay in euros rather than acquiring false precision through a conversion at today's rate.
+
+---
+
+=======
+>>>>>>> 89a01e34cea4f55b921185b1724842de9e89b3be
 ## TI-030: Theoretical transfer sandbox
 
 **Priority:** P3. Do not attempt before the window closes. Recommended target: January 2027 window.
@@ -535,4 +635,8 @@ Working to roughly 20 hours per week with the window closing 1 September.
 | Post-window | TI-025, TI-026, TI-027 |
 | Next window | TI-030 |
 
+<<<<<<< HEAD
 The rationale for this ordering: nothing else matters until the data is trustworthy, so week one is bug fixes. Email capture comes next because every day of the open window is subscribers that cannot be recovered later. The source accuracy leaderboard is scheduled early enough that it has data to work with at window close, which is when it becomes a shareable asset. The contract expiry board is deliberately placed after the window because that is exactly when the site needs a reason to exist.
+=======
+The rationale for this ordering: nothing else matters until the data is trustworthy, so week one is bug fixes. Email capture comes next because every day of the open window is subscribers that cannot be recovered later. The source accuracy leaderboard is scheduled early enough that it has data to work with at window close, which is when it becomes a shareable asset. The contract expiry board is deliberately placed after the window because that is exactly when the site needs a reason to exist.
+>>>>>>> 89a01e34cea4f55b921185b1724842de9e89b3be
