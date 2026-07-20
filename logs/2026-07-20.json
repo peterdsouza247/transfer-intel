@@ -1,0 +1,119 @@
+[
+  {
+    "op": "update",
+    "id": "greenwood-marseille-fenerbahce",
+    "field": "cred",
+    "from": 60,
+    "to": 54,
+    "reason": "base +45, stage +25, decay -16 = 54",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "chavarria-rayo-vallecano-chelsea",
+    "field": "cred",
+    "from": 45,
+    "to": 39,
+    "reason": "base +45, stage +10, decay -16 = 39",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "savinho-man-city-tottenham",
+    "field": "cred",
+    "from": 43,
+    "to": 39,
+    "reason": "base +45, stage +10, decay -16 = 39",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "kroupi-bournemouth-tottenham",
+    "field": "cred",
+    "from": 37,
+    "to": 19,
+    "reason": "base +25, stage +10, decay -16 = 19",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "cred",
+    "from": 33,
+    "to": 15,
+    "reason": "base +25, stage +10, decay -20 = 15",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "rogers-aston-villa-arsenal",
+    "field": "cred",
+    "from": 30,
+    "to": 9,
+    "reason": "base +25, decay -16 = 9",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "alvarez-atletico-madrid-arsenal",
+    "field": "cred",
+    "from": 23,
+    "to": 11,
+    "reason": "base +25, decay -14 = 11",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "tzolis-club-brugge-arsenal",
+    "field": "cred",
+    "from": 31,
+    "to": 29,
+    "reason": "base +45, decay -16 = 29",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "cred",
+    "from": 20,
+    "to": 9,
+    "reason": "base +25, decay -16 = 9",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "gomes-wolves-man-utd",
+    "field": "cred",
+    "from": 17,
+    "to": 7,
+    "reason": "base +25, decay -18 = 7",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "barcola-psg-liverpool",
+    "field": "cred",
+    "from": 15,
+    "to": 9,
+    "reason": "base +25, decay -16 = 9",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "bouaddi-lille-man-city",
+    "field": "cred",
+    "from": 13,
+    "to": 9,
+    "reason": "base +25, decay -16 = 9",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "id": "muani-psg-crystal-palace",
+    "field": "cred",
+    "from": 5,
+    "to": 0,
+    "reason": "base +5, decay -16 = 0",
+    "evidence": []
+  }
+]
