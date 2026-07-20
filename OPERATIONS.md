@@ -306,3 +306,45 @@ in the workflow.
    days and accept them
 4. Keep the eval cases. They are about the rules, not the window, and a case
    from last summer still catches a broken tier gate perfectly well
+
+---
+
+## The daily digest job (added with TI-010)
+
+A second scheduled workflow, `.github/workflows/digest.yml`, runs at 06:00 UTC
+and emails the day's changes. It is independent of the editorial refresh: if
+the refresh fails, the digest still describes the site as it stands.
+
+Before it can send you need `config.newsletter.action` in `data.json` and a
+`NEWSLETTER_API_KEY` repository secret. Full setup in `docs/NEWSLETTER.md`.
+
+Read an edition without sending it:
+
+```bash
+python scripts/run_digest.py --data data.json --out build/digest --segments
+```
+
+Do this for the first week. A digest that goes out wrong cannot be recalled.
+
+Two state files live in `logs/` and are committed directly by the job:
+`digest-state.json` is yesterday's snapshot, which the next run diffs against,
+and `digest-sent.json` records which dates have already been sent. The job
+refuses to send twice for one date unless you pass `--force`.
+
+## The completion audit (added with TI-001)
+
+One-off, but rerunnable any time you suspect the data has drifted:
+
+```bash
+python scripts/backfill_completions.py --data data.json          # report
+python scripts/backfill_completions.py --data data.json --apply  # write
+```
+
+It demotes any record marked `done` that either contradicts itself in its own
+note, sits on a source below tier 1, or has no completion marker on any
+evidence. Demotion target is `confirmed`, credibility capped at 90.
+
+Run the report form after any manual edit to `data.json`. It costs two seconds
+and it is the same check the build gate applies, so a clean report means the
+next run will not abort.
+

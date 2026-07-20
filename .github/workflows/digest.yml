@@ -1,0 +1,85 @@
+name: Daily digest
+
+# TI-010, step 6. Runs after the editorial refresh has landed, so the digest
+# describes the site as it currently stands rather than as it stood before the
+# morning's patch. 06:00 UTC is early morning UK time, which is when a
+# transfer reader checks their phone.
+#
+# Free for public repositories. The only secret required is the newsletter
+# provider key.
+
+on:
+  schedule:
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+    inputs:
+      send:
+        description: "Actually send. Unticked builds the editions and stops."
+        type: boolean
+        default: false
+      force:
+        description: "Send even if today is already in the sent log"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+# A second run must never overlap the first: the sent-date marker is the only
+# thing standing between a retry and a duplicate send, and it is written at
+# the end.
+concurrency:
+  group: digest
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r scripts/requirements.txt
+
+      - name: Build the editions
+        env:
+          NEWSLETTER_API_KEY: ${{ secrets.NEWSLETTER_API_KEY }}
+        run: |
+          python scripts/run_digest.py \
+            --data data.json \
+            --out build/digest \
+            --state logs/digest-state.json \
+            --sent-log logs/digest-sent.json \
+            --segments \
+            ${{ (github.event_name == 'schedule' || inputs.send) && '--send' || '' }} \
+            ${{ inputs.force && '--force' || '' }}
+
+      # The editions are kept as an artifact whether or not they were sent, so
+      # a bad send can be read back and diagnosed rather than reconstructed.
+      - name: Keep the editions
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: digest-${{ github.run_id }}
+          path: build/digest
+          retention-days: 30
+
+      # The snapshot and the sent log are state, not content. They are
+      # committed directly rather than opened as a pull request: a digest that
+      # waits for review is a digest that sends yesterday's news tomorrow, and
+      # neither file affects what the site displays.
+      - name: Commit the send state
+        run: |
+          git config user.name "transferintel-bot"
+          git config user.email "actions@github.com"
+          git add logs/digest-state.json logs/digest-sent.json || true
+          if git diff --cached --quiet; then
+            echo "No state change."
+          else
+            git commit -m "chore: digest state $(date -u +%F)"
+            git push
+          fi

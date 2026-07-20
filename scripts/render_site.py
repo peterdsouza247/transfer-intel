@@ -52,6 +52,20 @@ def strip_generated_head(document: str) -> str:
     return document[:start] + document[end:]
 
 
+def _replace_block(document: str, start: str, end: str, content: str) -> str:
+    """Swap the contents of a delimited block, or leave the document alone.
+
+    Same reasoning as the head tags: delimiting at both ends means a rerun
+    removes exactly what the previous run added and never eats a hand-written
+    tag that happens to sit nearby.
+    """
+    a = document.find(start)
+    b = document.find(end, a + 1) if a != -1 else -1
+    if a == -1 or b == -1:
+        return document
+    return document[:a + len(start)] + "\n" + content + "\n" + document[b:]
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--data", type=Path, default=Path("data.json"))
@@ -138,11 +152,36 @@ def main() -> int:
     document = site.inject_into(document, "rumorlist", site.render_deal_list(deals, cfg))
     document = site.inject_into(document, "clubgrid", site.render_club_grid(clubs, deals, cfg))
     document = site.inject_into(document, "funnel", site.render_funnel(deals))
+    # TI-002. The verdicts table is pre-rendered from the same collection the
+    # scatter chart uses, so a crawler sees the rows and, more usefully, the
+    # build can count them. A table that silently renders zero rows is the
+    # bug this ticket exists for; it is now impossible to ship one unnoticed.
+    proven = (raw.get("config") or {}).get("provenClubs", [])
+    document = site.inject_into(
+        document, "valtable-body", site.render_value_rows(deals, proven)
+    )
+    # TI-010. Rendered server-side so the form works with JavaScript disabled
+    # and so a crawler sees the offer. The page's own script re-renders these
+    # on load; both produce the same markup.
+    document = site.inject_into(
+        document, "capture-hero", site.render_capture_form(cfg, clubs, "hero"))
+    document = site.inject_into(
+        document, "capture-index",
+        site.render_capture_form(cfg, clubs, "index", with_preferences=True))
+    document = site.inject_into(
+        document, "capture-footer", site.render_capture_form(cfg, clubs, "footer"))
     document = site.inject_into(document, "feed", site.render_feed_items(deals))
     document = site.inject_into(
         document, "footer",
         f'<p>{site.e(cfg.title)} · updated {site.e(updated)} · '
         f'<a href="{site.e(cfg.href("feed.xml"))}">RSS</a></p>',
+    )
+
+    # TI-012. One generated analytics block, delimited like the head tags so a
+    # rerun replaces exactly what the last one wrote.
+    document = _replace_block(
+        document, "<!-- ti:analytics -->", "<!-- /ti:analytics -->",
+        site.render_analytics(cfg),
     )
 
     (out / "index.html").write_text(document, encoding="utf-8")
@@ -170,6 +209,15 @@ def main() -> int:
         )
         written.append(page_dir / "index.html")
         entries.append((path, updated_iso, "daily"))
+
+    # -- 3b. the subscribe confirmation page (TI-010) ----------------------
+    if cfg.newsletter_action:
+        thanks = out / "thanks"
+        thanks.mkdir(parents=True, exist_ok=True)
+        (thanks / "index.html").write_text(
+            site.render_thanks_page(cfg, updated_iso), encoding="utf-8")
+        written.append(thanks / "index.html")
+        entries.append(("thanks/", updated_iso, "monthly"))
 
     # -- 4. plumbing -------------------------------------------------------
     (out / "sitemap.xml").write_text(site.render_sitemap(cfg, entries), encoding="utf-8")

@@ -48,11 +48,38 @@ STATUS_LABEL = {
     "talks": "In talks",
     "agreed": "Fee agreed",
     "medical": "Medical booked",
+    "confirmed": "Confirmed pending announcement",
     "done": "Completed",
     "collapsed": "Collapsed",
 }
 
-STATUS_ORDER = ["rumor", "talks", "agreed", "medical", "done", "collapsed"]
+#: Short form for places where the full label will not fit, e.g. a table cell
+#: or the funnel chips.
+STATUS_SHORT = dict(STATUS_LABEL, confirmed="Confirmed")
+
+STATUS_ORDER = ["rumor", "talks", "agreed", "medical", "confirmed", "done",
+                "collapsed"]
+
+#: TI-002. The one definition of which deals the value section assesses.
+#: The scatter chart and the verdicts table both read this, which is the
+#: whole point: they used to filter separately, and a table that disagreed
+#: with the chart above it was indistinguishable from a table that was broken.
+VALUE_STATUSES = frozenset({"agreed", "medical", "confirmed", "done"})
+
+
+def value_eligible(deals: Iterable[Deal]) -> list[Deal]:
+    """Deals with a confirmed fee worth assessing, best first.
+
+    Free transfers are excluded deliberately rather than incidentally. A value
+    score divides a fee by a rating, and a fee of zero makes every free signing
+    an infinitely good deal, which is true in a sense that helps nobody.
+    """
+    rows = [
+        d for d in deals
+        if (d.fee or 0) > 0
+        and str(getattr(d.status, "value", d.status)) in VALUE_STATUSES
+    ]
+    return sorted(rows, key=lambda d: (-(d.fee or 0), d.p))
 
 
 # ---------------------------------------------------------------- config
@@ -77,9 +104,23 @@ class SiteConfig:
     twitter: str = ""
     locale: str = "en_GB"
 
+    #: TI-010. The provider's hosted form endpoint. Empty means no capture
+    #: form is rendered at all, which is the right default: a form that posts
+    #: nowhere collects addresses into a void and burns the one chance you get
+    #: to ask a visitor for their email.
+    newsletter_action: str = ""
+    newsletter_provider: str = ""
+
+    #: TI-012. Cloudflare Web Analytics token. Empty means no snippet.
+    analytics_token: str = ""
+    goatcounter: str = ""
+
     @classmethod
     def from_data(cls, raw: dict) -> "SiteConfig":
-        site = (raw.get("config") or {}).get("site") or {}
+        config = raw.get("config") or {}
+        site = config.get("site") or {}
+        news = config.get("newsletter") or {}
+        stats = config.get("analytics") or {}
         return cls(
             base_url=str(site.get("baseUrl", "")).rstrip("/"),
             title=site.get("title", cls.title),
@@ -87,6 +128,10 @@ class SiteConfig:
             author=site.get("author", cls.author),
             twitter=site.get("twitter", ""),
             locale=site.get("locale", cls.locale),
+            newsletter_action=str(news.get("action", "")),
+            newsletter_provider=str(news.get("provider", "")),
+            analytics_token=str(stats.get("cloudflareToken", "")),
+            goatcounter=str(stats.get("goatcounter", "")),
         )
 
     @property
@@ -237,6 +282,236 @@ def deal_sentence(deal: Deal) -> str:
         f"Status: {status}. Credibility {deal.cred} out of 100, "
         f"based on {deal.src or 'reported sources'}."
     )
+
+
+# ------------------------------------------------------------- value model
+
+
+def value_score(deal: Deal, proven_clubs: Iterable[str] = ()) -> int:
+    """The site's transparent value rating, 5 to 98.
+
+    This is a deliberate second implementation of the model in index.html.
+    Duplication is normally a smell; here it is the test. The browser copy is
+    what a reader sees and the Python copy is what the build can assert
+    against, and `test_site.py` checks that both produce the same numbers for
+    every deal in the dataset. If someone edits one and not the other, the
+    build says so.
+    """
+    score = 50.0
+    peak = 25
+    if deal.age <= 24:
+        score += (24 - deal.age) * 2.2
+    else:
+        score -= abs(deal.age - peak) * 3.2
+    if deal.pos in {"AM", "ST", "LW", "RW"}:
+        score += 6
+    if deal.pos == "CM":
+        score += 4
+    if deal.from_club in set(proven_clubs):
+        score += 8
+    if deal.age >= 30:
+        score -= 8
+    return max(5, min(98, round(score)))
+
+
+#: Fee per value point, and what that ratio is called. Ordered ascending.
+VERDICT_BANDS: tuple[tuple[float, str, str], ...] = (
+    (0.55, "Bargain", "v-bargain"),
+    (0.95, "Fair", "v-fair"),
+    (1.35, "Premium", "v-premium"),
+    (float("inf"), "Overpay risk", "v-overpay"),
+)
+
+
+def verdict(deal: Deal, proven_clubs: Iterable[str] = ()) -> tuple[str, str]:
+    if not deal.fee:
+        return "Bargain", "v-bargain"
+    ratio = deal.fee / value_score(deal, proven_clubs)
+    for limit, label, css in VERDICT_BANDS:
+        if ratio < limit:
+            return label, css
+    return "Overpay risk", "v-overpay"
+
+
+#: TI-002. Never render bare headers. A table with a header row and no body
+#: is indistinguishable from a broken page, and it was one.
+VALUE_EMPTY_ROW = (
+    '<tr class="empty"><td colspan="6">No confirmed fees yet this window. '
+    "Free transfers are excluded from value scoring.</td></tr>"
+)
+
+
+def render_value_rows(deals: list[Deal], proven_clubs: Iterable[str] = ()) -> str:
+    """The verdicts table body, pre-rendered from the same collection the
+    scatter chart uses."""
+    rows = value_eligible(deals)
+    if not rows:
+        return VALUE_EMPTY_ROW
+    out = []
+    for i, d in enumerate(rows):
+        label, css = verdict(d, proven_clubs)
+        out.append(
+            f'<tr class="clickable" data-i="{i}">'
+            f"<td><b>{e(d.p)}</b></td>"
+            f'<td class="move">{e(d.from_club)} to {e(d.to)}</td>'
+            f"<td>{d.age}</td>"
+            f"<td>£{d.fee:g}m</td>"
+            f"<td>{value_score(d, proven_clubs)}</td>"
+            f'<td><span class="verdict {css}">{e(label)}</span></td></tr>'
+        )
+    return "\n".join(out)
+
+
+# ---------------------------------------------------------- email capture
+
+#: TI-010. The promise, not the ask. "Subscribe to updates" describes what the
+#: reader does for you; this describes what they get, how often, and when it
+#: stops, which is the part that makes an unsubscribe unnecessary later.
+CAPTURE_COPY = (
+    "Every morning: what actually moved, and what was noise. "
+    "One email a day while the window is open, and it stops when it closes."
+)
+
+
+def render_capture_form(
+    cfg: SiteConfig, clubs: Iterable[str], placement: str,
+    with_preferences: bool = False,
+) -> str:
+    """The signup form, posting straight to the provider's hosted endpoint.
+
+    No backend, because there is no backend. The form is real HTML that works
+    without JavaScript, and the redirect target is a page the analytics
+    provider can count as a conversion (TI-012).
+    """
+    if not cfg.newsletter_action:
+        return ""
+
+    prefs = ""
+    if with_preferences:
+        # TI-011. Two fields, both optional, both defaulted to "everything".
+        # A signup form that demands decisions before it will take an address
+        # is a signup form people close.
+        options = "".join(
+            f'<option value="{e(c)}">{e(c)}</option>' for c in sorted(clubs)
+        )
+        prefs = f"""
+      <div class="capture-prefs">
+        <label>Clubs
+          <select name="fields[clubs]" multiple size="4"
+                  aria-label="Clubs to follow, leave unset for all">
+            <option value="all" selected>All clubs</option>
+            {options}
+          </select>
+        </label>
+        <label>Minimum credibility
+          <select name="fields[threshold]">
+            <option value="0" selected>Anything tracked</option>
+            <option value="40">40 and above</option>
+            <option value="60">60 and above</option>
+            <option value="80">80 and above</option>
+            <option value="confirmed">Confirmed only</option>
+          </select>
+        </label>
+      </div>"""
+
+    return f"""<form class="capture" method="post"
+      action="{e(cfg.newsletter_action)}"
+      data-placement="{e(placement)}" data-ti-event="newsletter_submit">
+  <h3>The daily transfer digest</h3>
+  <p>{e(CAPTURE_COPY)}</p>
+  <div class="capture-row">
+    <label class="visually-hidden" for="email-{e(placement)}">Email address</label>
+    <input id="email-{e(placement)}" type="email" name="email_address" required
+           autocomplete="email" placeholder="you@example.com">
+    <button type="submit">Get the digest</button>
+  </div>{prefs}
+  <input type="hidden" name="redirect" value="{e(cfg.url('thanks/'))}">
+  <p class="capture-small">Double opt-in. One click to unsubscribe. No ads,
+  no list sharing.</p>
+</form>"""
+
+
+def render_thanks_page(cfg: SiteConfig, updated_iso: str) -> str:
+    """The post-submit landing page, and the analytics conversion goal."""
+    body = """
+<h1>Check your inbox</h1>
+<p class="lede">One more click and you are in. We have sent a confirmation
+email; the digest will not start until you open it.</p>
+<div class="panel">
+<p><strong>What arrives, and when.</strong> One email each morning while the
+window is open. New deals tracked, status changes, credibility movements of 15
+points or more, and collapses. On a quiet day it says so in two lines rather
+than padding.</p>
+</div>
+<p>Nothing in the inbox after a few minutes? Check spam, and look for the
+sender you approved at signup.</p>
+"""
+    body += f'<p><a href="{e(cfg.href("/"))}">Back to the window index</a></p>'
+    return standalone_page(
+        cfg, title=f"You are almost subscribed | {cfg.title}",
+        description="Confirm your subscription to the TransferIntel daily digest.",
+        path="thanks/", og_image="og/default.png", updated_iso=updated_iso,
+        breadcrumb=f'<a href="{e(cfg.href("/"))}">TransferIntel</a> / subscribe',
+        body=body, ld="",
+    )
+
+
+# -------------------------------------------------------------- analytics
+
+
+def render_analytics(cfg: SiteConfig) -> str:
+    """TI-012. Pageviews plus six named events, under 5KB, no cookies.
+
+    Cloudflare Web Analytics is cookieless and needs no consent banner, which
+    is why it is the base layer rather than the more familiar alternative. The
+    event helper is deliberately provider-agnostic: it pushes to whichever of
+    the two scripts is present and does nothing at all if neither is, so
+    removing a provider never leaves a page throwing on every click.
+    """
+    parts = []
+    if cfg.analytics_token:
+        parts.append(
+            '<script defer src="https://static.cloudflareinsights.com/beacon.min.js" '
+            f"data-cf-beacon='{{\"token\": \"{e(cfg.analytics_token)}\"}}'></script>"
+        )
+    if cfg.goatcounter:
+        parts.append(
+            f'<script data-goatcounter="{e(cfg.goatcounter)}" '
+            'async src="//gc.zgo.at/count.js"></script>'
+        )
+    parts.append("""<script>
+/* TI-012. Six events, one helper, no library. */
+(function(){
+  function send(name, detail){
+    try{
+      if(window.goatcounter && window.goatcounter.count){
+        window.goatcounter.count({path:name+(detail?":"+detail:""),
+                                  title:name, event:true});
+      }
+      if(window.__cfBeacon){ /* Cloudflare records pageviews only */ }
+      window.dispatchEvent(new CustomEvent("ti:event",
+        {detail:{name:name, detail:detail}}));
+    }catch(err){ /* analytics must never break the page */ }
+  }
+  window.tiTrack = send;
+  document.addEventListener("click", function(ev){
+    var form = ev.target.closest && ev.target.closest("form.capture");
+    if(form){ send("newsletter_submit", form.dataset.placement); return; }
+    var link = ev.target.closest && ev.target.closest("a");
+    if(!link) return;
+    var href = link.getAttribute("href") || "";
+    if(/^https?:\\/\\//.test(href) && link.hostname !== location.hostname){
+      send("outbound_source", link.hostname);
+    }else if(href.indexOf("/deals/") !== -1){
+      send("deal_opened", href.split("/deals/")[1].replace(/\\/$/,""));
+    }else if(href.indexOf("/clubs/") !== -1){
+      send("club_opened", href.split("/clubs/")[1].replace(/\\/$/,""));
+    }
+  }, true);
+  if(location.pathname.indexOf("/thanks") !== -1){ send("newsletter_confirmed"); }
+})();
+</script>""")
+    return "\n".join(parts)
 
 
 def render_deal_list(deals: Iterable[Deal], cfg: SiteConfig) -> str:
@@ -615,7 +890,7 @@ def render_club_page(
         cells = "".join(
             f"<tr><td><a href=\"{e(cfg.href(deal_path(d)))}\">{e(d.p)}</a></td>"
             f"<td>{e(d.from_club if other == 'from' else d.to)}</td>"
-            f"<td>{f'£{d.fee:g}m' if d.fee else '—'}</td>"
+            f"<td>{f'£{d.fee:g}m' if d.fee else 'Free'}</td>"
             f"<td>{e(STATUS_LABEL.get(str(getattr(d.status,'value',d.status)), ''))}</td>"
             f"<td>{d.cred}</td></tr>"
             for d in sorted(rows, key=lambda x: -x.cred)

@@ -1,91 +1,231 @@
 # TransferIntel
 
-A Premier League transfer window site that goes beyond fee lists: rumor credibility scoring, value-for-money analytics, club dashboards, and a deal-lifecycle pulse (rumor → talks → agreed → medical → done).
+A Premier League transfer window site that does one thing no fee list does:
+it tells you how much to believe each rumour, and shows its working.
+
+Every tracked deal carries a credibility score from 0 to 100 that is
+**computed, never written**. It rises with the tier of the outlets reporting
+it and with independent corroboration, and it decays when a deal goes quiet.
+A transfer is only marked completed when a tier 1 source uses language that
+only applies after the fact, or the club announces it itself.
+
+Live: https://peterdsouza247.github.io/transfer-intel/
+
+---
+
+## How it actually works
+
+The site is static and hosted on GitHub Pages. There is no server. Everything
+dynamic is generated at build time by a Python pipeline that runs on GitHub
+Actions and opens a pull request you approve in one click.
+
+```
+                  RSS feeds (BBC, Guardian, Sky, F365, Telegraph)
+                                    |
+   phase 1  ingest.py --------------+  stdlib only, fails soft
+                                    |
+   phase 2  extract.py -------------+  LLM reads headlines, reports claims
+                                    |  and nothing else
+   phase 3  scoring.py -------------+  pure code, no model, deterministic
+                                    |
+   phase 4  notes.py ---------------+  LLM writes one sentence per changed deal
+                                    |
+   phase 5  validate.py ------------+  THE GATE. Assumes everything above
+                                    |  is wrong and looks for the ways that
+                                    |  would matter
+   phase 6  data.json / data.js ----+  the source of truth
+                                    |
+   phase 7  render_site.py ---------+  index, deal pages, club pages,
+                                       sitemap, feed, OG cards, llms.txt
+```
+
+The division that matters: **a model never decides anything numeric.** It
+reads an article and reports what the article claimed. Every score, status
+and threshold is arithmetic in `scoring.py`, which is why a credibility of 78
+can always be explained by pointing at a breakdown, and why replaying
+yesterday's evidence produces byte-identical output.
+
+### The gate
+
+`validate.py` is the reason this can run unattended. It re-derives its own
+view of the world, applies the patch to a copy, and checks invariants against
+the result. Two severities:
+
+- **Hard** failures abort the run. Nothing is written, the patch is saved for
+  inspection, the job exits non-zero. A day with no update is always
+  acceptable. A day with a fabricated completed transfer is not.
+- **Soft** failures ride along in the pull request as things to look at. They
+  never block, because a gate that cries wolf is a gate you stop reading.
+
+---
+
+## The deal lifecycle
+
+```
+rumor -> talks -> agreed -> medical -> confirmed -> done
+                                          |
+                                     collapsed   (only ever explicit)
+```
+
+`confirmed` means **confirmed pending announcement**: a tier 1 source says the
+deal is finished but nobody has announced it. It is capped at credibility 90.
+
+`done` requires all three of:
+
+1. A tier 1 source, and
+2. a recorded **completion marker**, and
+3. a non-null `completed_date`.
+
+A completion marker is a phrase that only makes sense once a transfer has
+happened, matched with hedge detection so that "completes his move" counts and
+"set to complete his move" does not. Fabrizio Romano's "here we go" is scoped
+to Romano specifically, because aggregators borrow it to mean "we think this
+will happen". A URL on a club's own domain is the strongest marker available
+and is flagged separately as `official`.
+
+**Credibility 100 is only ever possible on a `done` record.** The gate fails
+the build otherwise.
+
+### Why this is spelled out at such length
+
+Because the alternative was shipped and it was bad. An earlier version of the
+pipeline treated any deal it re-encountered in a feed, or simply had not heard
+had collapsed, as confirmation. Six deals sat on the live homepage marked
+Completed at credibility 100 while their own summary text said "announcement
+imminent" and, in one case, "then silence". Absence of contradicting news was
+being read as positive proof.
+
+A visitor who knows Trossard has not signed for Besiktas will not trust any
+other number on the page. That is the whole product, so the completion rule is
+the load-bearing wall.
+
+---
 
 ## Repository layout
 
 ```
-transferintel/
-├── index.html                    # the site (design + logic, rarely changes)
-├── data.js                       # ALL content lives here (edit this)
-├── scripts/
-│   └── update_data.py            # mechanical auto-refresher for GitHub Actions
-├── .github/
-│   └── workflows/
-│       └── refresh.yml           # daily schedule for the script
-└── README.md
+transfer-intel/
+  index.html              the app. Design and browser logic
+  data.json               source of truth, maintained by the pipeline
+  data.js                 generated from data.json, what the browser loads
+  deals/ clubs/ thanks/   generated pages, one per URL
+  og/                     generated Open Graph cards
+  scripts/
+    transferintel/        the pipeline package
+      ingest.py           phase 1, RSS
+      extract.py          phase 2, claims
+      markers.py          what counts as proof a transfer happened
+      scoring.py          phase 3, all the arithmetic
+      notes.py            phase 4, one sentence per deal
+      validate.py         phase 5, the gate
+      digest.py           the daily email
+      site.py             phase 7, rendering
+      entities.py         name resolution
+      sources.py          outlet tiers and FX
+      og.py               share cards
+    run_ingest.py         phases 1 and 2
+    run_editorial.py      phases 3 to 6
+    run_digest.py         the daily email
+    render_site.py        phase 7
+    backfill_completions.py   one-off completion audit
+    run_evals.py          golden set
+    tests/                145 tests, all offline
+  evals/                  recorded days, replayed on every run
+  fixtures/               offline feeds and data
+  .github/workflows/      editorial refresh, digest, extraction evals
 ```
 
-Note: the files were delivered flat. When you create the repo, place `update_data.py` in `scripts/` and `refresh.yml` in `.github/workflows/` exactly as shown above.
+---
 
-## Setup (one time, ~10 minutes)
+## Running it locally
 
-1. Create a free account at github.com if you don't have one.
-2. Click **New repository**, name it (e.g. `transferintel`), set it to **Public** (required for free Pages and Actions), and create it.
-3. Upload the files: on the repo page choose **Add file → Upload files**. Drag in `index.html`, `data.js`, `README.md`. Then use **Add file → Create new file**, type `scripts/update_data.py` as the name (the slash creates the folder), and paste in the script. Do the same for `.github/workflows/refresh.yml`.
-4. Enable the website: **Settings → Pages → Source: Deploy from a branch → Branch: main / (root) → Save**. After a minute your site is live at `https://<your-username>.github.io/transferintel/`.
-5. Enable the daily refresh: go to the **Actions** tab, click **"I understand my workflows, enable them"** if prompted. The workflow runs daily at 06:00 UTC; you can also trigger it any time with the **Run workflow** button.
+```bash
+pip install -r scripts/requirements.txt
+python -m pytest scripts/tests -q              # expect 145 passed
+python scripts/run_evals.py --suite pipeline   # expect 3/3, 0 false completions
+```
 
-That's it. Every push to `main` redeploys the site automatically.
+Both run offline with no API key. If either fails, stop there.
 
-## How updates work
+To rebuild the site from the current data:
 
-There are two layers, and it pays to keep them separate in your head.
+```bash
+python scripts/render_site.py --data data.json --template index.html --out .
+```
 
-### The mechanical layer (automated)
+This rewrites `index.html` in place. It is idempotent: generated head tags are
+delimited at both ends and rebuilt, container contents are replaced rather
+than appended, and running it twice produces a byte-identical file.
 
-`scripts/update_data.py` runs daily via GitHub Actions. For every deal not yet done, it checks Wikipedia's "List of English football transfers summer 2026" page (via the Wikimedia REST API) and, if the player's move to the expected club appears there, promotes the deal to "done" and updates the fee (Wikipedia lists fees in GBP directly). It commits the change, and Pages redeploys. Zero human input.
+To see what the pipeline would change without changing anything:
 
-Why Wikipedia as the primary source: it is updated within hours by editors, every entry carries a citation, the API is built for automated access, and it works from GitHub's runners. The unofficial Transfermarkt API (`transfermarkt-api.fly.dev`) is kept as a fallback, but Transfermarkt blocks datacenter IPs, so expect it to fail from Actions more often than not; that is fine, the script fails soft (logs and skips), so the worst case is "no update today", never a broken site.
+```bash
+python scripts/run_editorial.py --data data.json --out build --no-notes
+cat build/patch.md
+```
 
-Caveats: Wikipedia can lag a day or two behind Sky's ticker, and fees listed as "Undisclosed" won't update the number. Hand-correct in `data.js` when better figures land. When a new window starts, change the `WIKI_PAGE` constant at the top of the script (one line, e.g. `List_of_English_football_transfers_winter_2026-27`).
+To read tomorrow's email today:
 
-### The editorial layer (the actual value of the site)
+```bash
+python scripts/run_digest.py --data data.json --out build/digest --segments
+```
 
-Everything that makes this site better than a fee list is editorial, and no API provides it:
+---
 
-- **`cred` (0-100)** rumor credibility: your judgment of how likely a move is, anchored by source tier. Suggested calibration: 85+ = fee agreed per a Tier 1 source; 60-84 = active talks confirmed by Tier 1/2; 40-59 = credible interest, no agreement; under 40 = paper talk. Done = 100, collapsed = 0.
-- **`tier` (1-3)** source quality: 1 = Romano, Ornstein, Sky Sports, The Athletic; 2 = established outlets (Football365, FootballTransfers, Telegraph); 3 = tabloids and unsourced foreign press.
-- **`note`** one sharp sentence of context per deal. This is the personality of the site.
-- **`clubs`** the `needs` and `ctx` text per club: what they still need, and the story of their window.
+## Configuration
 
-Maintaining it is a 5-10 minute daily edit of `data.js`, doable straight in the GitHub web editor (open the file, click the pencil, commit). Skim Sky Sports' transfer centre and Football365's daily rumour ranking, then adjust scores, add new rumors, and delete stale ones (a rumor with no movement for two weeks is dead; remove it or drop its score).
+Everything window-specific lives in `data.json` under `config`, so a new
+window is a data change rather than a code change.
 
-House style: never use em dashes or en dashes anywhere in the content. Use commas, colons, semicolons, periods, or the "·" separator.
+| Key | Meaning |
+|---|---|
+| `windowName`, `tagline`, `deadline`, `deadlineLabel` | header and countdown |
+| `site.baseUrl` | **required.** Canonical tags, OG URLs and the sitemap all need an absolute origin. The renderer refuses to run without it rather than guessing |
+| `provenClubs` | selling clubs the value model treats as league-proven |
+| `newsletter.provider` | `kit` or `buttondown` |
+| `newsletter.action` | the provider's hosted form endpoint. **Empty means no capture form renders at all**, which is deliberate: a form posting nowhere collects addresses into a void |
+| `analytics.cloudflareToken` | Cloudflare Web Analytics. Cookieless, no consent banner needed |
+| `analytics.goatcounter` | optional second opinion on the numbers |
 
-### Automating the editorial layer later
+See `docs/NEWSLETTER.md` for provider setup and `docs/ANALYTICS.md` for what
+to measure.
 
-If the daily edit gets old, realistic paths in increasing order of effort:
-
-1. **LLM-assisted drafting (recommended first step).** Extend the GitHub Action with a step that calls an LLM API (e.g. Anthropic's) with your own API key stored as a repo secret (**Settings → Secrets and variables → Actions**). Feed it the current `data.js` plus the day's headlines (fetched via an RSS feed or news API) and a strict prompt: return the updated deals array only, follow the credibility calibration above, never invent deals, no em dashes. Have the Action write the result to a **pull request instead of committing directly**, so you approve each day's edit in one click. Cost is pennies per day; the review step protects you from hallucinated transfers.
-2. **Rules on top of signals.** Cheaper but cruder: auto-decay `cred` by a few points for every day a rumor goes unmentioned, auto-bump when a Tier 1 journalist's RSS feed mentions the player. This automates score drift but still can't write notes.
-3. **Full autopilot.** Same as option 1 but committing directly without review. Only do this after weeks of PR-reviewed runs have proven the prompt reliable; an invented "done deal" on a live site is worse than a stale one.
-
-## Future transfer windows
-
-All window-specific content lives in `data.js`, so a new window is a data change, not a code change:
-
-1. Archive the old window: rename `data.js` to `data-2026-summer.js` and keep it in the repo.
-2. Create a fresh `data.js`: update `config` (`windowName`, `deadline` as an ISO UTC timestamp, `deadlineLabel`, `updated`), empty the `deals` array, rewrite the `clubs` entries for the new season's 20 clubs (relegations/promotions), and refresh `provenClubs` (the list of leagues-proven selling clubs used by the value model).
-3. Seed it with the first confirmed deals and rumors, commit, done.
-
-The countdown clock, KPIs, funnel, charts and dashboards all rebuild themselves from whatever is in `data.js`. If you later want a window-picker dropdown to browse archives, that's a small `index.html` change; any LLM coding tool can add it, since the data files are already versioned by name.
-
-## Editing data.js: field reference
-
-Each deal object:
+### Deal fields
 
 | Field | Meaning |
 |---|---|
-| `p` | Player name |
-| `from`, `to` | Clubs (use consistent short names; club dashboards match on exact name) |
-| `fee` | £ millions, `0` for free transfers |
-| `age`, `pos` | Age and position (`GK CB LB RB CM AM LW RW ST`); both feed the value model |
-| `status` | `rumor`, `talks`, `agreed`, `medical`, `done`, `collapsed` |
-| `date` | Display date, e.g. `"Jul 15"` |
-| `tier` | Source tier 1-3 (see editorial layer) |
-| `src` | Primary source name shown on the card |
-| `cred` | 0-100 credibility (see calibration above) |
-| `note` | One sentence of context |
+| `id` | stable slug, also the deal page URL |
+| `p`, `from`, `to` | player and clubs. Club names must match `clubs` keys exactly |
+| `fee` | GBP millions, `0` for a free transfer |
+| `age`, `pos` | both feed the value model. `pos` is one of `GK CB LB RB CM AM LW RW ST` |
+| `status` | `rumor` `talks` `agreed` `medical` `confirmed` `done` `collapsed` |
+| `tier` | 1 to 3, the best source carrying it |
+| `cred` | 0 to 100, computed |
+| `base_cred` | credibility before silence decay, so the site can show both |
+| `last_verified_at` | moves **only** when a source reasserts the deal |
+| `completion_marker`, `completion_source`, `completed_date` | the receipt for a `done` status |
+| `collapse_reason`, `collapse_narrative` | why a deal died |
+| `evidence[]` | every article that carried it, with tier, date, claim and marker |
 
-Deals appear automatically in every tab: the pulse feed, the rumor index (any non-done status), value analytics (paid deals at agreed/medical/done), and both clubs' dashboards.
+`last_verified_at` is separate from anything the pipeline touches on a normal
+run. That separation is what makes silence measurable, and it is what the
+decay curve reads.
+
+---
+
+## House style
+
+- **No em dashes or en dashes anywhere**, in code comments, copy, docs or
+  generated content. Use commas, colons, semicolons, or the middot separator.
+  The gate fails the build on a banned dash in a note.
+- Notes are one sentence, 6 to 30 words.
+- British spellings in reader-facing copy: rumour, not rumor. The status enum
+  uses `rumor` for historical reasons and is not reader-facing.
+
+---
+
+## Licence
+
+Code under the terms in `LICENSE`. The dataset is published under CC BY 4.0,
+declared in the page's structured data. Scores are an assessment of how well
+supported a claim is. They are not predictions and not betting advice.

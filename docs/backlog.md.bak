@@ -1,0 +1,538 @@
+# TransferIntel: Engineering Backlog
+
+> **Delivery status, 20 July 2026.** TI-001, TI-002, TI-003, TI-010, TI-011,
+> TI-012, TI-013 and TI-020 are implemented, tested and merged on
+> `feat/backlog-00-24`. TI-021 through TI-024 remain open; TI-025 onward were
+> always out of scope for this pass. Two tickets were rediagnosed during
+> implementation and the corrected causes are recorded inline below. See
+> `docs/DELIVERY.md` for what changed, what was rejected, and why.
+
+Prepared 20 July 2026. Target: Premier League summer window closes 1 September 2026.
+Site: https://peterdsouza247.github.io/transfer-intel/
+Stack assumptions: Python content pipeline generating a static site, deployed to GitHub Pages. Where a ticket assumes something about the codebase it is flagged as an assumption for the engineer to verify.
+
+## How to read this document
+
+Every ticket has: a problem statement, implementation notes, named free services where third parties are needed, and acceptance criteria. Acceptance criteria are the contract. A ticket is not done until every criterion passes.
+
+Priorities:
+
+- **P0**: blocks credibility of the product or breaks the page. Ship before anything else.
+- **P1**: revenue and audience infrastructure. Every day of delay during an open window is permanently lost signups.
+- **P2**: differentiating features. Build in listed order.
+- **P3**: deferred to the January 2027 window or later.
+
+Global constraint: the site is static and hosted on GitHub Pages. No server-side runtime is available. Anything dynamic must be either build-time generated, a third party embed, or a client-side call to an external API.
+
+---
+
+# P0: Bugs
+
+## TI-001: Deals are being falsely promoted to Completed with credibility 100
+
+**Status: DONE.** Root cause confirmed as stated. Fixed structurally with a new `confirmed` status, mandatory completion markers, and a consistency gate. Backfill demoted 7 records, including all six named below.
+
+**Priority:** P0, highest. This is the single most damaging defect on the site.
+
+**Problem.** Multiple deals display status `Completed` and credibility `100 / 100` while their own summary text contradicts that status. Confirmed examples on the live homepage as of 19 July 2026:
+
+| Player | Displayed status | Summary text says |
+| --- | --- | --- |
+| Leandro Trossard (Arsenal to Beşiktaş) | Completed, 100 | "Fee agreed (£17-20m reported); personal terms being discussed" |
+| Luka Vusković (Tottenham to Brighton) | Completed, 100 | "announcement imminent" |
+| Álvaro Rodríguez (Elche to Bournemouth) | Completed, 100 | "'Deal agreed' a week ago, then silence. No collapse reported either." |
+| Andrey Santos (Chelsea to Man Utd) | Completed, 100 | "all done bar the unveiling" |
+| Youri Tielemans (Aston Villa to Man Utd) | Completed, 100 | "Announcement expected this week" |
+| Johan Manzambi (Freiburg to Aston Villa) | Completed, 100 | "Villa hijacked Newcastle's agreed deal" |
+
+All six carry the marker "Confirmed (auto-updated 2026-07-16)" or a similar auto-update stamp, which points at a single defect in the pipeline rather than six separate data entry errors.
+
+**Root cause hypothesis.** The auto-update pass appears to treat any deal it re-encounters in the feed, or any deal that has not been reported as collapsed, as confirmation, and writes `status = completed` and `credibility = 100`. Absence of contradicting news is being read as positive confirmation.
+
+**Why it matters.** The site's entire value proposition is that it distinguishes real deals from noise. A visitor who knows Trossard has not signed for Beşiktaş will not trust any other number on the page. This defect is more costly than every missing feature in this document combined.
+
+**Implementation.**
+
+1. Locate the auto-update stage in the pipeline. Assumption: a function that reruns over existing deal records with fresh feed items.
+2. Remove any code path that can set `status = completed` without an explicit completion signal.
+3. Define an explicit completion signal set. A deal may only be promoted to `Completed` when the source text contains a confirmed-signing marker. Suggested marker list, to be tuned:
+   - "here we go" from Romano specifically
+   - "has signed", "completes move", "officially joined", "unveiled", "announced"
+   - Presence of the club's own domain in the source URL, which is the strongest possible signal
+4. Introduce a distinct status `Confirmed pending announcement` for the genuine case where a Tier 1 source reports a completed medical and all terms agreed but no official announcement exists. Cap credibility for this status at 90, not 100. Reserve 100 exclusively for club-announced deals.
+5. Add a hard consistency gate that runs after every build and fails the build on violation:
+   - `status == completed` requires `source_tier == 1` AND a completion marker recorded on the record AND a non-null `completed_date`
+   - `credibility == 100` requires `status == completed`
+   - `status == completed` requires the deal is not also present in the collapsed set
+6. Add a `last_verified_at` timestamp to every record, distinct from `updated_at`. `updated_at` changes when the pipeline touches the record. `last_verified_at` changes only when a source actually reasserts the deal.
+7. Backfill: manually audit all 31 records currently marked Completed. Demote every one that lacks an official club announcement. Expect roughly 6 to 10 demotions.
+
+**Acceptance criteria.**
+
+- No record on the site displays `Completed` without a recorded completion marker and a source tier of 1.
+- No record displays credibility 100 unless its status is `Completed`.
+- A new status value `Confirmed pending announcement` renders correctly in the Window Pulse counters, the credibility index list, and the deal detail pages.
+- The consistency gate runs in CI and fails the build on any violation. Deliberately corrupt one record in a test fixture and confirm the build fails.
+- The six deals listed in the table above display statuses consistent with their summary text.
+- Re-running the pipeline twice over an unchanged feed produces zero status changes on the second run. This is the regression test for the whole class of bug.
+
+---
+
+## TI-002: Value-for-Money analytics table renders with no rows
+
+**Status: DONE, cause differed.** The named causes were not reproducible against committed data: the table renders 25 rows in a headless browser. The real mechanism was that all four render blocks shared one script scope, so a throw in any of them killed the rest and left the build's pre-rendered output in place. Sections are now isolated and both consumers read one collection.
+
+**Priority:** P0.
+
+**Problem.** The "Deal-by-deal verdicts" table on the homepage renders its header row (Player, Move, Age, Fee, Value score, Verdict) and no data rows. The scatter chart above it appears to render, so the underlying value scores are likely being computed and the failure is in the table rendering or in the filter that selects rows for it.
+
+**Implementation.**
+
+1. Confirm whether value scores exist in the build output for deals with a confirmed fee. Log the record count that passes the table's filter.
+2. Likely candidates, in order of probability:
+   - The filter requires a field that the pipeline renamed or now leaves null, for example requiring `fee_confirmed == true` where the pipeline writes `fee_status`
+   - The template loop iterates the wrong collection
+   - Free transfers with a null fee throw during sort and silently kill the loop
+3. Whatever the cause, add a defensive empty state. The table must never render bare headers. If zero rows qualify, render a single row reading "No confirmed fees yet this window."
+
+**Acceptance criteria.**
+
+- Every deal with a confirmed fee and a computed value score appears as a row.
+- Rows are sorted by fee descending by default.
+- Free transfers are excluded from the table cleanly, without error, and this exclusion is stated in the section note.
+- With an empty dataset the section renders the empty state message rather than a headerless or bare-header table.
+- The scatter chart and the table are driven by the same underlying collection, verified by asserting equal record counts in a build-time test.
+
+---
+
+## TI-003: Vertical scroll is not discoverable in mobile view
+
+**Status: DONE, cause differed.** Not an overflow or touch-action problem. `.tab{display:none}` meant the four tabs swapped panels in place, so on mobile there was genuinely nothing below the fold. Scroll affordances would have treated a symptom. Sections now stack below 860px with anchor-scrolling sticky nav.
+
+**Priority:** P0. Reported by the site owner.
+
+**Problem.** On mobile, users do not perceive that page sections continue below the fold, or vertical scroll gestures are being captured by inner scroll containers.
+
+**Implementation.**
+
+1. Reproduce on a real device and in Chrome DevTools device emulation at 390x844 and 360x740.
+2. Check for the common causes in this order:
+   - `overflow: hidden` on `html` or `body`
+   - Fixed or `100vh` height on section wrappers, which clips content and creates a nested scroll region. Use `100dvh` or drop the height constraint entirely
+   - Horizontal card rails inside sections. A horizontally scrolling child with `touch-action` set restrictively can swallow the vertical gesture. Set `touch-action: pan-x pan-y` on those rails
+   - Sticky headers overlaying the scroll cue
+3. Add scroll affordances:
+   - A CSS gradient fade mask at the bottom edge of any section whose content is clipped, using `mask-image: linear-gradient(to bottom, black 85%, transparent)`
+   - A visible partial row: ensure the section boundary falls mid-card rather than exactly at a card edge, so the next card is visibly cut off
+   - `scroll-behavior: smooth` on the root and anchored section navigation from the four top tabs
+4. Verify the four top tabs (Window Pulse, Rumor Credibility, Value Analytics, Club Dashboards) scroll to their targets on mobile rather than swapping panels in a fixed viewport, which is a likely contributor to the reported symptom.
+
+**Acceptance criteria.**
+
+- A single vertical swipe anywhere on the page scrolls the page on iOS Safari and Android Chrome.
+- No section relies on a fixed viewport height.
+- Every clipped section shows a bottom fade or a partially visible next item.
+- Tested at 360px, 390px, and 430px widths, portrait and landscape.
+- Lighthouse mobile score does not regress.
+
+---
+
+# P1: Audience and measurement infrastructure
+
+## TI-010: Email capture and daily digest
+
+**Status: DONE.** Three placements, `/thanks/` page, digest generator, quiet-day edition, sent-date marker, daily workflow. Provider not yet configured: set `config.newsletter.action`. See `docs/NEWSLETTER.md`.
+
+**Priority:** P1, ship within the first week. Every day the window is open without a capture form is subscribers permanently lost.
+
+**Problem.** The site has no mechanism to convert a visitor into a returning reader. Traffic during a transfer window is spiky and almost entirely non-returning without an email hook.
+
+**Scope for v1.** Capture plus one unsegmented daily digest. Filtering is TI-011 and must not delay this ticket.
+
+**Free service options.**
+
+| Service | Free tier | Notes |
+| --- | --- | --- |
+| Buttondown | 100 subscribers free, then paid | Excellent API, markdown-native, ideal for programmatic sends from a Python pipeline. Recommended for the API quality. |
+| Kit (formerly ConvertKit) | 10,000 subscribers free | Far more generous free tier, weaker API ergonomics, heavier branding. Recommended if subscriber growth is the priority. |
+| MailerLite | 1,000 subscribers, 12,000 sends per month free | Middle ground, good automation builder. |
+
+Recommendation: Kit for the subscriber ceiling, given a window that could spike hard. Revisit if the API friction slows the digest work.
+
+**Implementation.**
+
+1. Add a capture form in three placements: below the hero, at the end of the credibility index section, and in the site footer. Do not use a modal or interstitial.
+2. Copy should promise something specific. Not "subscribe to updates" but "Every morning: what actually moved, and what was noise." State the send frequency and that it stops when the window closes.
+3. Form posts directly to the provider's hosted endpoint. No backend required.
+4. Add a `/thanks/` confirmation page for the post-submit redirect. Use it as the analytics conversion goal.
+5. Digest generation: extend the Python pipeline with a `digest` command that produces the day's edition from records where `last_verified_at` falls within the last 24 hours. Sections: new deals tracked, status changes, credibility movements of 15 points or more, collapses.
+6. Scheduling: GitHub Actions cron. Free for public repositories. Suggested schedule `0 6 * * *` UTC, which lands early morning UK time. Store the provider API key as a repository secret.
+7. Every digest must link back to the relevant deal pages. The digest drives traffic, it does not replace the site.
+
+**Acceptance criteria.**
+
+- A visitor can subscribe from mobile in under 10 seconds without leaving the page.
+- Double opt-in is enabled and the confirmation email is branded.
+- Unsubscribe link is present and functional.
+- The digest job runs on schedule and produces a correctly formatted email with zero manual steps.
+- A digest with no qualifying updates sends a short "quiet day" edition rather than an empty or broken one.
+- The pipeline never sends twice for the same day, enforced by a sent-date marker.
+
+---
+
+## TI-011: Subscriber notification filters
+
+**Status: DONE.** Preference fields, generated segments rather than the 100-edition product, instant alerts capped at two per day.
+
+**Priority:** P1, after TI-010 is live and stable.
+
+**Problem.** A Newcastle supporter does not want Chelsea rumours. A serious reader does not want anything scoring below 60. Undifferentiated sends cause unsubscribes.
+
+**Implementation.**
+
+1. Add preference fields at signup: club selection (multi-select across 20 clubs, plus "all"), and a minimum credibility threshold (options: any, 40+, 60+, 80+, confirmed only).
+2. Both Kit and Buttondown support subscriber tags and custom fields. Store club selections as tags, threshold as a custom field.
+3. The digest generator produces one edition per distinct segment rather than one edition per subscriber. With 20 clubs and 5 thresholds the naive product is 100 editions, which is unnecessary. Generate per-club editions filtered at the lowest threshold and let the send-time filter handle the rest, or cap segments to the combinations actually in use.
+4. Add an instant alert tier for high-value events only: a deal crossing 80 credibility, or a completed deal above £40m. Cap at a maximum of two instant alerts per day per subscriber.
+5. Add a preferences link in every email footer so subscribers can retune rather than unsubscribe.
+
+**Acceptance criteria.**
+
+- A subscriber selecting only Newcastle and threshold 60+ receives exactly the deals matching both conditions.
+- Segment generation completes within the GitHub Actions job time limit.
+- Instant alerts respect the daily cap.
+- Preference changes take effect on the next send without manual intervention.
+
+---
+
+## TI-012: Analytics instrumentation
+
+**Status: DONE.** Cloudflare Web Analytics plus GoatCounter, six events, under 5KB, no consent banner. Token not yet configured. See `docs/ANALYTICS.md`.
+
+**Priority:** P1.
+
+**Problem.** There is no measurement, and the site owner needs evidence of value for external audiences.
+
+**Free service options.**
+
+| Service | Free tier | Notes |
+| --- | --- | --- |
+| Cloudflare Web Analytics | Free, unlimited | No cookies, no consent banner required, privacy-first, trivial to add. Recommended. |
+| GoatCounter | Free for non-commercial use | Open source, very lightweight, good for a solo project. |
+| Umami Cloud | Free tier available | Nicer dashboards, event tracking included. |
+
+Recommendation: Cloudflare Web Analytics as the base layer. Add GoatCounter only if you want a second opinion on numbers.
+
+**Implementation.**
+
+1. Add the tracking snippet to the base template so it covers all generated pages.
+2. Instrument custom events beyond pageviews:
+   - Newsletter signup completed (the `/thanks/` page load)
+   - Deal detail page opened, with the deal slug
+   - Club dashboard opened, with the club slug
+   - Sort or filter interaction on the credibility index
+   - Outbound click to a source
+   - RSS feed fetch, measurable server-side only, so approximate via feed reader user agents if the host exposes logs, otherwise skip
+3. Build a private metrics page or a simple monthly export the owner can screenshot.
+
+**Metrics that actually demonstrate value.** Raw pageviews persuade nobody. Track and report:
+
+- Email subscribers, total and weekly growth rate. This is the headline number.
+- Returning visitor percentage. Above 25 percent during a window is a genuinely strong signal.
+- Median time on deal detail pages. Depth of engagement beats breadth of traffic.
+- Referral sources, especially any organic inbound from forums, Reddit, or journalists.
+- Pages per session.
+- Digest open rate and click-through rate, available from the email provider.
+
+**Acceptance criteria.**
+
+- All pages report pageviews.
+- All six custom events fire correctly, verified in the provider dashboard.
+- No cookie consent banner is required, confirmed against the chosen provider's documentation.
+- Page weight increase is under 5KB.
+- The owner can produce the six metrics above without engineering assistance.
+
+---
+
+## TI-013: Club dashboard sorting
+
+**Status: DONE.** Activity default, three sort options, sessionStorage that degrades gracefully, collapsed zero-activity group, in/out/net on every card.
+
+**Priority:** P1, small.
+
+**Problem.** Clubs are currently listed alphabetically. Alphabetical is the least informative default here: Nott'm Forest and West Ham both show zero tracked deals and sit in the middle of the list, while the most active clubs are scattered.
+
+**Implementation.**
+
+1. Change the default sort to committed spend descending, with tracked deal count as the tiebreaker.
+2. Add a visible sort control with three options: Most active (default), Highest spend, A to Z.
+3. Persist the choice in `sessionStorage`. Do not use `localStorage`, and do not require it: the control must work without any storage.
+4. Clubs with zero tracked deals move to a collapsed "No tracked activity" group at the bottom rather than being interleaved.
+5. Show net spend, not only committed spend. A club that spent £229.5m and sold £150m is telling a different story than one that spent £229.5m and sold nothing. This requires the pipeline to attribute outgoing deals to the selling club, which it already has the data for.
+
+**Acceptance criteria.**
+
+- Default view surfaces the most active clubs first.
+- All three sort options work on mobile and desktop.
+- Zero-activity clubs are grouped separately and the group is collapsible.
+- Each club card shows spend in, spend out, and net.
+
+---
+
+# P2: Differentiating features
+
+Build in the order listed. Each is independently shippable.
+
+## TI-020: Rumour decay
+
+**Status: DONE.** Delivered early because it shares `last_verified_at` with TI-001. Curve is one config constant, both numbers display, Stale badge and "Gone quiet" filter shipped.
+
+**Priority:** P2, first. Highest ratio of credibility gained to effort spent.
+
+**Problem.** A rumour last reported nine days ago is presented identically to one reported this morning. In a transfer window, silence is information.
+
+**Implementation.**
+
+1. Requires `last_verified_at` from TI-001.
+2. Apply a decay function to the credibility score of any deal not in a terminal state (`Completed`, `Collapsed`). Proposed model, to be tuned against real outcomes:
+   - Days 0 to 3: no decay
+   - Days 4 to 14: linear decay to 60 percent of the base score
+   - Days 15 and beyond: floor at 40 percent of base, and add a `Stale` badge
+3. Display both numbers on the deal page: "Base 45, currently 31 after 11 days without movement." Showing the working is the brand.
+4. Any fresh corroboration resets the clock and recomputes the base score.
+5. Add a "Gone quiet" filter to the credibility index.
+
+**Acceptance criteria.**
+
+- Every non-terminal deal displays days since last verification.
+- Decay is visible in the score and explained on the deal page.
+- New corroboration resets decay, verified by test.
+- The decay curve is defined in one configuration constant, not scattered through the code.
+
+---
+
+## TI-021: Source accuracy leaderboard
+
+**Status: OPEN.** The scoring hook exists: `scoring.reliability_term` reads a measured hit rate per source and is wired through `score_all`. What remains is computing those rates from outcomes and building `/sources/`.
+
+**Priority:** P2. The most defensible asset on this list and the one that survives past 1 September.
+
+**Problem.** Credibility scores are currently asserted from an editorial tier list. They should be derived from measured outcomes.
+
+**Implementation.**
+
+1. Add outcome tracking to every deal: for each source that reported it, record whether the deal ultimately completed, collapsed, or expired unresolved at window close.
+2. Compute per source: total claims, completed, collapsed, unresolved, hit rate, and median days from first report to completion. That last metric is valuable in its own right, since it measures who breaks news early versus who reports it after the fact.
+3. Weight by claim confidence where extractable. A source saying "talks ongoing" is not making the same claim as one saying "done deal", and should not be scored identically.
+4. Publish at `/sources/` with a per-source detail page listing that source's tracked claims and outcomes.
+5. Feed the measured hit rates back into the credibility model as the source-reliability term, replacing the hardcoded tier list. Retain a manual override for sources with too few claims to be statistically meaningful, and display a minimum sample size threshold, suggested at 10 claims.
+6. Handle small samples honestly. Do not publish "Turkish press: 0 percent" from three claims. Show the sample size next to every rate and grey out sources below the threshold.
+
+**Acceptance criteria.**
+
+- Every deal record links to every source that reported it, with a first-reported date per source.
+- The leaderboard computes at build time with no manual input.
+- Sources below the sample threshold are visually distinguished and excluded from ranking.
+- The credibility model reads its source term from measured data.
+- The page is share-ready: it has its own Open Graph image and a clear headline stat.
+
+---
+
+## TI-022: Contested targets
+
+**Status: OPEN.**
+
+**Priority:** P2.
+
+**Problem.** Multiple clubs chasing one player is the most dramatic and least well-covered structure in a transfer window. The Manzambi hijack and the Barcola situation are both already in the dataset but invisible as such.
+
+**Implementation.**
+
+1. Group deal records by player. Any player with two or more distinct destination clubs is contested.
+2. Build a `/contested/` view showing each contested player with all suitors, each suitor's credibility score for that link, and the trajectory of each over time.
+3. Add a hijack risk indicator: a deal is at hijack risk when a rival link exists with credibility within 20 points of the leading link.
+4. Cross-link from each individual deal page: "Also linked with: Arsenal (15), Liverpool (15)."
+5. Record resolved hijacks as a historical list. "Villa hijacked Newcastle for Manzambi, 18 July" is a strong recurring content unit.
+
+**Acceptance criteria.**
+
+- Player grouping handles name variants and accented characters correctly. Test with Álvaro Rodríguez, Piero Hincapié, Bruno Guimarães.
+- Contested view lists every multi-suitor player.
+- Deal pages cross-link to rival links.
+- Resolved hijacks persist after the deal completes.
+
+---
+
+## TI-023: Collapse post-mortems
+
+**Status: PARTIAL.** The data model landed with TI-001: `collapse_reason` enum, `collapse_narrative`, `pivot_from`/`pivot_to`, rule-based reason classification in `markers.collapse_reason`, and pivot pressure feeding the credibility model. The `/collapsed/` view and pivot chain rendering remain.
+
+**Priority:** P2.
+
+**Problem.** The site tracks collapses (Éderson to Man Utd) but does not analyse them. Collapse causes are patterned and the patterns are interesting.
+
+**Implementation.**
+
+1. Add a `collapse_reason` enum: failed medical, fee gap, personal terms, agent demands, hijacked by rival, player refused, selling club withdrew, financial rules, unknown.
+2. Add a `collapse_narrative` free text field, one to three sentences.
+3. Where a collapse triggers a pivot, link the records. Éderson collapsing and Tielemans arriving within 72 hours is one story, not two.
+4. Build `/collapsed/` showing all dead deals grouped by cause, with counts.
+5. Feed collapse data into the credibility model: a club with a recent collapse in the same position is at elevated risk of a fast pivot, which should raise the credibility of subsequent links at that position.
+
+**Acceptance criteria.**
+
+- Every collapsed deal has a reason and a narrative.
+- Pivot chains render as linked pairs on both deal pages.
+- The collapsed view groups by cause with counts.
+- Collapse counts appear on club dashboards.
+
+---
+
+## TI-024: Squad gap map
+
+**Status: OPEN.** Blocked on network access to the FPL API from the build sandbox. Runs fine from GitHub Actions.
+
+**Priority:** P2.
+
+**Problem.** Club dashboards report spend without context. Tottenham at eight deals and £229.5m reads as chaos until the reader sees what was missing.
+
+**Data source.** The Fantasy Premier League API is free, public, requires no key, and returns all 20 squads with positions.
+
+- `https://fantasy.premierleague.com/api/bootstrap-static/` returns all players, teams, and positions
+- Limitation: Premier League players only. Incoming targets from abroad are not covered and must come from the site's own deal database.
+- Positions in the FPL API are coarse (GK, DEF, MID, FWD). Finer positional detail (CB versus LB, CM versus AM) needs either manual mapping or a supplementary source. Given the site already stores fine-grained positions per deal, maintain a manual override table for the ~25 players per club rather than seeking a perfect API.
+- Fetch at build time and cache. Do not call it from the browser on every page load.
+
+**Implementation.**
+
+1. Build a depth chart per club: position across one axis, age bands across the other.
+2. Flag gaps: positions with fewer than two senior players, positions where the average age exceeds 30, positions where a departure this window is not yet replaced.
+3. Overlay this window's activity so incoming signings visibly fill or fail to fill the flagged gaps.
+4. Add a one-line verdict per club, generated from the rules above rather than written by hand: "Spent £229.5m, still no senior right back."
+
+**Acceptance criteria.**
+
+- Depth charts render for all 20 clubs.
+- Squad data refreshes on every build.
+- Gap detection rules live in one configuration block.
+- Signings and departures this window are visually distinct on the chart.
+- The verdict line is rule-derived and reproducible.
+
+---
+
+## TI-025: Contract expiry board
+
+**Priority:** P2. This is the feature that keeps the site alive between windows.
+
+**Problem.** On 1 September the site goes quiet and traffic collapses. Contract expiries are the one transfer story that stays live all season.
+
+**Implementation.**
+
+1. Compile players across the 20 clubs entering the final 12 months of their contracts. Contract end dates are not in the FPL API. Options, in order of preference:
+   - Manual compilation, roughly 100 to 150 relevant players, refreshed monthly. Tedious but reliable and free.
+   - Transfermarkt has the data but scraping it violates their terms. Do not scrape it.
+   - Some football data APIs offer contract data on paid tiers only. Budget for this if the board proves valuable.
+2. Sort by expiry date, then by player value.
+3. Flag players eligible to sign pre-contract agreements with foreign clubs from 1 January.
+4. Cross-link to any active rumour on that player.
+5. Publish a monthly refresh and send it to the digest list. This is the between-windows engagement engine.
+
+**Acceptance criteria.**
+
+- The board lists all tracked players with expiry within 12 months.
+- Pre-contract eligibility is flagged with the date it begins.
+- Data source and last refresh date are stated on the page.
+- A monthly refresh workflow exists, even if the data entry step is manual.
+
+---
+
+## TI-026: PSR headroom estimator
+
+**Priority:** P2, lowest in this tier. High value, high risk of being wrong in public.
+
+**Problem.** Readers do not understand why some links are financially impossible. Nobody serves this well.
+
+**Implementation.**
+
+1. Compile published club accounts figures: three-year rolling PSR position, squad cost ratio where available.
+2. Model transfer fee amortisation across contract length, which is how clubs actually book these costs, rather than treating a fee as a single-year hit.
+3. Show the working in full. Every input, every assumption, every source, with dates.
+4. Label the output an estimate in unambiguous language. State clearly that it is derived from public accounts and does not include information only clubs hold.
+
+**Acceptance criteria.**
+
+- Every figure cites a public source with a date.
+- Amortisation model is documented on the page.
+- The estimate disclaimer is prominent, not a footnote.
+- No club is described as being in breach. The framing is headroom, not verdict.
+
+---
+
+## TI-027: Reader prediction voting
+
+**Priority:** P2, optional. Cheap engagement, and it generates calibration data.
+
+**Problem.** No reason for a visitor to return before the digest arrives.
+
+**Implementation.**
+
+1. On each deal page, a single binary question: will this deal complete before the window closes?
+2. GitHub Pages is static, so voting needs an external store. Free options:
+   - Cloudflare Workers with KV, generous free tier, requires a small amount of serverless code
+   - Supabase free tier, a Postgres table with row-level security and an anonymous insert policy
+   - A Google Form or Formspree endpoint, crudest option, no live results display
+   Recommendation: Cloudflare Workers with KV, since the site owner may already be using Cloudflare for analytics.
+3. Display the crowd result alongside the site's own credibility score. Divergence is itself content: "The crowd says 71 percent. We say 30."
+4. At window close, publish crowd accuracy versus site accuracy. If the site loses, publish that too. Honesty is the brand.
+5. Rate limit by IP or a client-generated ID. Accept that casual vote manipulation is possible and do not over-engineer against it.
+
+**Acceptance criteria.**
+
+- Votes persist and results display within a second.
+- One vote per visitor per deal, best effort.
+- Crowd and site scores display side by side.
+- Aggregate accuracy comparison publishes at window close.
+
+---
+
+# P3: Deferred
+
+## TI-030: Theoretical transfer sandbox
+
+**Priority:** P3. Do not attempt before the window closes. Recommended target: January 2027 window.
+
+**Concept.** Users construct hypothetical transfers and receive a scored assessment covering likelihood, tactical fit, and squad balance impact.
+
+**Why deferred.** Three reasons, each sufficient on its own:
+
+1. It is the largest build on this list by a wide margin and would consume the remaining window.
+2. It creates unbounded LLM API cost on a site with no revenue. An uncapped API key exposed to the public internet is a direct financial risk.
+3. It conflicts with the brand unless carefully designed. A model asserting "this damages squad chemistry" is precisely the black box the site promises not to be.
+
+**Design constraints for whenever it is built.**
+
+- Squad data from the FPL API as in TI-024.
+- Likelihood scoring uses the site's existing credibility and value models. The LLM does not produce numbers.
+- The LLM's only role is to explain, in prose, the numbers it is handed. Prompt it with computed inputs and forbid it from introducing new quantities.
+- Every assessment shows the numeric inputs alongside the prose, same as deal pages.
+- Cost control is a hard requirement, not a nice-to-have: aggressive caching keyed on player-club pair, a per-session request cap, and a global daily spend ceiling that disables the feature when hit.
+- Strong candidate for the first paid tier.
+
+---
+
+# Suggested sequence
+
+Working to roughly 20 hours per week with the window closing 1 September.
+
+| Week | Tickets |
+| --- | --- |
+| 1 | TI-001, TI-002, TI-003 |
+| 2 | TI-010, TI-012 |
+| 3 | TI-013, TI-020 |
+| 4 | TI-021 |
+| 5 | TI-011, TI-022 |
+| 6 | TI-023, TI-024 |
+| Post-window | TI-025, TI-026, TI-027 |
+| Next window | TI-030 |
+
+The rationale for this ordering: nothing else matters until the data is trustworthy, so week one is bug fixes. Email capture comes next because every day of the open window is subscribers that cannot be recovered later. The source accuracy leaderboard is scheduled early enough that it has data to work with at window close, which is when it becomes a shareable asset. The contract expiry board is deliberately placed after the window because that is exactly when the site needs a reason to exist.

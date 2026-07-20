@@ -22,6 +22,7 @@ from collections import defaultdict
 from dataclasses import dataclass, field
 from datetime import date
 
+from .markers import completion_marker, is_official
 from .entities import canonical_club, deal_id, fold, resolve_deal
 from .models import Article, Candidate, Claim, Deal, Evidence, Stage
 from .sources import to_gbp_millions
@@ -243,6 +244,13 @@ def resolve(
             date=article.published,
             claim=claim.reported_stage,
             fee_gbp_m=to_gbp_millions(claim.fee_amount, claim.fee_currency),
+            # TI-001. The marker is read off the article's own words here, at
+            # the point the evidence is minted, and never recomputed later.
+            # A completion that cannot name the sentence proving it is not a
+            # completion, and the alternative was a pipeline that promoted
+            # deals to `done` because nothing had contradicted them.
+            marker=completion_marker(article.text, article.outlet, article.url),
+            official=is_official(article.url),
         )
 
         match = resolve_deal(claim.player, to_club, from_club, deals)

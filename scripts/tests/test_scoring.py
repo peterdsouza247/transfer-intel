@@ -19,11 +19,12 @@ from transferintel.scoring import (  # noqa: E402
 TODAY = date(2026, 7, 19)
 
 
-def ev(days_ago=0, tier=1, claim=Stage.talks, source="Sky Sports", fee=None):
+def ev(days_ago=0, tier=1, claim=Stage.talks, source="Sky Sports", fee=None,
+       marker=None, official=False):
     return Evidence(
         url=f"https://example.com/{source}/{days_ago}/{claim.value}",
         source=source, tier=tier, date=TODAY - timedelta(days=days_ago),
-        claim=claim, fee_gbp_m=fee,
+        claim=claim, fee_gbp_m=fee, marker=marker, official=official,
     )
 
 
@@ -89,12 +90,12 @@ def test_status_advances_one_rung_only():
     assert decision.flag is not None
 
 
-def test_done_requires_tier_one():
+def test_confirmed_requires_tier_one():
     d = deal(status=Status.medical,
              evidence=[ev(0, 2, Stage.completed, source="Telegraph")])
     assert decide_status(d, TODAY).status is Status.medical
     d2 = deal(status=Status.medical, evidence=[ev(0, 1, Stage.completed)])
-    assert decide_status(d2, TODAY).status is Status.done
+    assert decide_status(d2, TODAY).status is Status.confirmed
 
 
 def test_done_is_terminal():

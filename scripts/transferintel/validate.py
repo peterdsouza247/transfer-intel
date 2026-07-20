@@ -54,6 +54,19 @@ class GateConfig:
 
 DEFAULT_GATE = GateConfig()
 
+#: Fields the pipeline writes as a *consequence* of a decision it already
+#: made, rather than as a decision of its own. They still need a reason and
+#: they are still checked, but counting them against `max_updates` would mean
+#: every genuine status change spent four of the day's fifteen slots on its
+#: own paperwork and the limit stopped measuring editorial volume.
+PROVENANCE_FIELDS: frozenset[str] = frozenset({
+    "last_verified_at",
+    "completion_marker",
+    "completion_source",
+    "completed_date",
+    "base_cred",
+})
+
 
 @dataclass
 class GateResult:
@@ -151,9 +164,10 @@ def check(
 
     # -- volume ----------------------------------------------------------
 
-    if len(updates) > cfg.max_updates:
+    editorial = [o for o in updates if o.field not in PROVENANCE_FIELDS]
+    if len(editorial) > cfg.max_updates:
         r.hard.append(
-            f"{len(updates)} updates, limit is {cfg.max_updates}. A day this "
+            f"{len(editorial)} updates, limit is {cfg.max_updates}. A day this "
             "busy is far more likely to be an upstream fault than real news"
         )
 
@@ -194,23 +208,48 @@ def check(
                         f"{deal.label}: marked complete with no fetchable "
                         "source. This is the failure that matters most"
                     )
-                tier1 = any(
-                    e.tier == 1 and e.url in op.evidence for e in deal.evidence
+                # TI-001. The patch must carry, in the same run, the phrase
+                # and the tier 1 source that justify the promotion. A `done`
+                # nobody can trace back to a sentence is the exact defect
+                # that put Trossard on the site as a Beşiktaş player.
+                marker_op = next(
+                    (o for o in updates
+                     if o.id == op.id and o.field == "completion_marker"
+                     and o.to), None
                 )
-                if not tier1 and http:
-                    r.soft.append(
-                        f"{deal.label}: completed on evidence the gate could "
-                        "not confirm as tier 1, check the link"
+                proof = [
+                    e for e in deal.evidence
+                    if e.tier == 1 and e.confirms_completion
+                    and e.url in op.evidence
+                ]
+                if marker_op is None:
+                    r.hard.append(
+                        f"{deal.label}: promoted to completed without "
+                        "recording the completion marker that justifies it"
+                    )
+                if not proof:
+                    r.hard.append(
+                        f"{deal.label}: no tier 1 evidence carrying a "
+                        "completion marker. Absence of a collapse report is "
+                        "not a signing"
                     )
 
+            # A promotion straight past `confirmed` is legitimate only when a
+            # completion marker is on the record. Everything else must walk.
             if _rung(new) >= 0 and _rung(old) >= 0:
                 jump = _rung(new) - _rung(old)
+                sanctioned = (
+                    new is Status.done
+                    and old is Status.medical
+                    and any(e.tier == 1 and e.confirms_completion
+                            for e in deal.evidence)
+                )
                 if jump < 0:
                     r.hard.append(
                         f"{deal.label}: status went backwards, "
                         f"{old.value} to {new.value}"
                     )
-                elif jump > 1:
+                elif jump > 1 and not sanctioned:
                     r.hard.append(
                         f"{deal.label}: status skipped a rung, "
                         f"{old.value} to {new.value}"
@@ -268,6 +307,7 @@ def check(
                       "never do: creating and deleting deals is a human job")
 
     known = set(known_clubs)
+    collapsed_ids = {d.id for d in after if d.status is Status.collapsed}
     for d in after:
         # Only the buying club needs a dashboard entry. Selling clubs are
         # routinely foreign and out of scope, and warning about them every
@@ -279,10 +319,41 @@ def check(
             )
         if not d.evidence:
             r.soft.append(f"{d.label}: no evidence at all, consider deleting")
-        if d.status is Status.done and d.cred != 100:
-            r.hard.append(f"{d.label}: done but credibility is {d.cred}")
+
+        # -- TI-001 consistency gate -------------------------------------
+        # These four run against the post-patch world on every build, so a
+        # record cannot reach this state by any route: not through scoring,
+        # not through a hand edit, not through a migration.
+        if d.status is Status.done:
+            if d.tier != 1:
+                r.hard.append(
+                    f"{d.label}: completed on a tier {d.tier} source, "
+                    "completion requires tier 1"
+                )
+            if not d.completion_marker:
+                r.hard.append(
+                    f"{d.label}: completed with no completion marker recorded"
+                )
+            if d.completed_date is None:
+                r.hard.append(f"{d.label}: completed with no completed_date")
+            if d.id in collapsed_ids:
+                r.hard.append(f"{d.label}: both completed and collapsed")
+            if d.cred != 100:
+                r.hard.append(f"{d.label}: done but credibility is {d.cred}")
+        elif d.cred == 100:
+            r.hard.append(
+                f"{d.label}: credibility 100 with status {d.status.value}. "
+                "100 is reserved for completed transfers"
+            )
+
+        if d.status is Status.confirmed and d.cred > 90:
+            r.hard.append(
+                f"{d.label}: confirmed pending announcement is capped at 90, "
+                f"got {d.cred}"
+            )
         if d.status is Status.collapsed and d.cred != 0:
             r.hard.append(f"{d.label}: collapsed but credibility is {d.cred}")
+
         future = [e for e in d.evidence if e.date > today]
         if future:
             r.soft.append(
