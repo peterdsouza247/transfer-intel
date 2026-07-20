@@ -1,0 +1,23 @@
+{
+  "date": "2026-07-20",
+  "dry_run": true,
+  "ingest": {
+    "feeds": 5,
+    "feeds_failed": 1,
+    "raw": 288,
+    "in_window": 112,
+    "deduped": 108,
+    "relevant": 20
+  },
+  "extract": {
+    "articles": 20,
+    "batches": 0,
+    "parse_failures": 0,
+    "claims": 0,
+    "usable": 0,
+    "resolved": 0,
+    "candidates": 0,
+    "unresolved": 0,
+    "dropped": []
+  }
+}
