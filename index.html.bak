@@ -831,10 +831,6 @@ section("clubs", function(){
   if(location.pathname.indexOf("/thanks") !== -1){ send("newsletter_confirmed"); }
 })();
 </script>
-
-<!-- Cloudflare Web Analytics -->
-<script type='module' src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "57f3c03a35404d2fb51baadd48f1693d"}'>
-</script>
-<!-- End Cloudflare Web Analytics -->
+<!-- /ti:analytics -->
 </body>
 </html>
