@@ -40,6 +40,9 @@ import sys
 from datetime import date
 from pathlib import Path
 
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from transferintel.markers import contradicts_completion  # noqa: E402

@@ -49,9 +49,20 @@
           "tier": 1,
           "date": "2026-07-08",
           "claim": "completed",
-          "fee_gbp_m": 116.0
+          "fee_gbp_m": 116.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-07-08",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "tonali-newcastle-tottenham",
@@ -74,9 +85,20 @@
           "tier": 1,
           "date": "2026-06-24",
           "claim": "completed",
-          "fee_gbp_m": 92.5
+          "fee_gbp_m": 92.5,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-06-24",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "fernandes-west-ham-tottenham",
@@ -99,9 +121,20 @@
           "tier": 1,
           "date": "2026-07-10",
           "claim": "completed",
-          "fee_gbp_m": 85.0
+          "fee_gbp_m": 85.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-07-10",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "gordon-newcastle-barcelona",
@@ -124,9 +157,20 @@
           "tier": 1,
           "date": "2026-06-28",
           "claim": "completed",
-          "fee_gbp_m": 69.3
+          "fee_gbp_m": 69.3,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-06-28",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "jacquet-rennes-liverpool",
@@ -149,9 +193,20 @@
           "tier": 1,
           "date": "2026-07-09",
           "claim": "completed",
-          "fee_gbp_m": 60.0
+          "fee_gbp_m": 60.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-07-09",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "hecke-brighton-tottenham",
@@ -174,9 +229,20 @@
           "tier": 1,
           "date": "2026-07-02",
           "claim": "completed",
-          "fee_gbp_m": 52.0
+          "fee_gbp_m": 52.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-07-02",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "cucurella-chelsea-real-madrid",
@@ -199,9 +265,20 @@
           "tier": 1,
           "date": "2026-07-01",
           "claim": "completed",
-          "fee_gbp_m": 51.8
+          "fee_gbp_m": 51.8,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-07-01",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "santos-chelsea-man-utd",
@@ -211,11 +288,11 @@
       "fee": 48.0,
       "age": 22,
       "pos": "CM",
-      "status": "done",
+      "status": "confirmed",
       "date": "Jul 16",
       "tier": 1,
       "src": "Ornstein",
-      "cred": 100,
+      "cred": 90,
       "note": "Confirmed (auto-updated 2026-07-16). Medical completed Thursday; all done bar the unveiling.",
       "evidence": [
         {
@@ -224,9 +301,20 @@
           "tier": 1,
           "date": "2026-07-16",
           "claim": "completed",
-          "fee_gbp_m": 48.0
+          "fee_gbp_m": 48.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "quenda-sporting-cp-chelsea",
@@ -249,9 +337,20 @@
           "tier": 1,
           "date": "2026-06-20",
           "claim": "completed",
-          "fee_gbp_m": 44.0
+          "fee_gbp_m": 44.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-06-20",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "palestra-atalanta-chelsea",
@@ -274,9 +373,20 @@
           "tier": 1,
           "date": "2026-07-05",
           "claim": "completed",
-          "fee_gbp_m": 43.0
+          "fee_gbp_m": 43.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-07-05",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "toure-hoffenheim-newcastle",
@@ -286,11 +396,11 @@
       "fee": 42.0,
       "age": 20,
       "pos": "LW",
-      "status": "done",
+      "status": "confirmed",
       "date": "Jul 11",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 100,
+      "cred": 90,
       "note": "Gordon's replacement on the left.",
       "evidence": [
         {
@@ -299,9 +409,20 @@
           "tier": 2,
           "date": "2026-07-11",
           "claim": "completed",
-          "fee_gbp_m": 42.0
+          "fee_gbp_m": 42.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "hojlund-man-utd-napoli",
@@ -324,9 +445,20 @@
           "tier": 1,
           "date": "2026-06-26",
           "claim": "completed",
-          "fee_gbp_m": 38.0
+          "fee_gbp_m": 38.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-06-26",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "tielemans-aston-villa-man-utd",
@@ -336,11 +468,11 @@
       "fee": 35.0,
       "age": 29,
       "pos": "CM",
-      "status": "done",
+      "status": "confirmed",
       "date": "Jul 16",
       "tier": 1,
       "src": "Romano + Ornstein",
-      "cred": 100,
+      "cred": 90,
       "note": "Confirmed (auto-updated 2026-07-16). Release clause triggered (€41m). Villa didn't want to sell. Announcement expected this week.",
       "evidence": [
         {
@@ -349,9 +481,20 @@
           "tier": 1,
           "date": "2026-07-16",
           "claim": "completed",
-          "fee_gbp_m": 35.0
+          "fee_gbp_m": 35.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "hincapie-leverkusen-arsenal",
@@ -374,9 +517,20 @@
           "tier": 1,
           "date": "2026-06-18",
           "claim": "completed",
-          "fee_gbp_m": 34.5
+          "fee_gbp_m": 34.5,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-06-18",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "munoz-osasuna-liverpool",
@@ -399,9 +553,20 @@
           "tier": 1,
           "date": "2026-07-03",
           "claim": "completed",
-          "fee_gbp_m": 34.5
+          "fee_gbp_m": 34.5,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-07-03",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "hackney-middlesbrough-everton",
@@ -424,9 +589,20 @@
           "tier": 1,
           "date": "2026-07-06",
           "claim": "completed",
-          "fee_gbp_m": 24.0
+          "fee_gbp_m": 24.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-07-06",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "rohl-freiburg-everton",
@@ -449,9 +625,20 @@
           "tier": 1,
           "date": "2026-07-04",
           "claim": "completed",
-          "fee_gbp_m": 21.7
+          "fee_gbp_m": 21.7,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-07-04",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "yohanna-aik-brighton",
@@ -474,9 +661,20 @@
           "tier": 1,
           "date": "2026-06-30",
           "claim": "completed",
-          "fee_gbp_m": 21.5
+          "fee_gbp_m": 21.5,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-06-30",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "malen-aston-villa-roma",
@@ -499,9 +697,20 @@
           "tier": 1,
           "date": "2026-06-25",
           "claim": "completed",
-          "fee_gbp_m": 21.7
+          "fee_gbp_m": 21.7,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-06-25",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "jaouen-reims-newcastle",
@@ -524,9 +733,20 @@
           "tier": 1,
           "date": "2026-06-22",
           "claim": "completed",
-          "fee_gbp_m": 18.5
+          "fee_gbp_m": 18.5,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-06-22",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "schuster-rb-salzburg-brentford",
@@ -549,9 +769,20 @@
           "tier": 1,
           "date": "2026-06-19",
           "claim": "completed",
-          "fee_gbp_m": 16.5
+          "fee_gbp_m": 16.5,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-06-19",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "vuskovic-tottenham-brighton",
@@ -561,11 +792,11 @@
       "fee": 46.0,
       "age": 19,
       "pos": "CB",
-      "status": "done",
+      "status": "confirmed",
       "date": "Jul 16",
       "tier": 2,
       "src": "Football365",
-      "cred": 100,
+      "cred": 90,
       "note": "Confirmed (auto-updated 2026-07-16). £46m + £4m agreed; Croatia defender's World Cup over, announcement imminent.",
       "evidence": [
         {
@@ -574,9 +805,20 @@
           "tier": 2,
           "date": "2026-07-16",
           "claim": "completed",
-          "fee_gbp_m": 46.0
+          "fee_gbp_m": 46.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "manzambi-freiburg-aston-villa",
@@ -586,11 +828,11 @@
       "fee": 52.0,
       "age": 20,
       "pos": "AM",
-      "status": "done",
+      "status": "confirmed",
       "date": "Jul 18",
       "tier": 1,
       "src": "Romano",
-      "cred": 100,
+      "cred": 90,
       "note": "Confirmed (auto-updated 2026-07-18). Villa hijacked Newcastle's agreed deal after his 3-goal World Cup for Switzerland. ~€60m.",
       "evidence": [
         {
@@ -599,9 +841,20 @@
           "tier": 1,
           "date": "2026-07-18",
           "claim": "completed",
-          "fee_gbp_m": 52.0
+          "fee_gbp_m": 52.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "greenwood-marseille-fenerbahce",
@@ -624,9 +877,20 @@
           "tier": 1,
           "date": "2026-07-12",
           "claim": "agreed",
-          "fee_gbp_m": 0.0
+          "fee_gbp_m": 0.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "trossard-arsenal-besiktas",
@@ -636,11 +900,11 @@
       "fee": 15.3,
       "age": 31,
       "pos": "LW",
-      "status": "done",
+      "status": "confirmed",
       "date": "Jul 16",
       "tier": 2,
       "src": "Football365 / Romano",
-      "cred": 100,
+      "cred": 90,
       "note": "Confirmed (auto-updated 2026-07-16). Fee agreed (£17-20m reported); personal terms being discussed mid-World Cup.",
       "evidence": [
         {
@@ -649,9 +913,20 @@
           "tier": 2,
           "date": "2026-07-16",
           "claim": "completed",
-          "fee_gbp_m": 15.3
+          "fee_gbp_m": 15.3,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "chavarria-rayo-vallecano-chelsea",
@@ -674,9 +949,20 @@
           "tier": 1,
           "date": "2026-07-12",
           "claim": "talks",
-          "fee_gbp_m": 15.0
+          "fee_gbp_m": 15.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "savinho-man-city-tottenham",
@@ -699,9 +985,20 @@
           "tier": 1,
           "date": "2026-07-12",
           "claim": "talks",
-          "fee_gbp_m": 60.0
+          "fee_gbp_m": 60.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "kroupi-bournemouth-tottenham",
@@ -724,9 +1021,20 @@
           "tier": 2,
           "date": "2026-07-12",
           "claim": "talks",
-          "fee_gbp_m": 75.0
+          "fee_gbp_m": 75.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "lacroix-crystal-palace-chelsea",
@@ -749,9 +1057,20 @@
           "tier": 2,
           "date": "2026-07-10",
           "claim": "talks",
-          "fee_gbp_m": 35.0
+          "fee_gbp_m": 35.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "rogers-aston-villa-arsenal",
@@ -774,9 +1093,20 @@
           "tier": 2,
           "date": "2026-07-12",
           "claim": "interest",
-          "fee_gbp_m": 130.0
+          "fee_gbp_m": 130.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "rodriguez-elche-bournemouth",
@@ -786,11 +1116,11 @@
       "fee": 25.7,
       "age": 21,
       "pos": "ST",
-      "status": "done",
+      "status": "confirmed",
       "date": "Jul 16",
       "tier": 3,
       "src": "Spanish press",
-      "cred": 100,
+      "cred": 90,
       "note": "Confirmed (auto-updated 2026-07-16). 'Deal agreed' a week ago, then silence. No collapse reported either.",
       "evidence": [
         {
@@ -799,9 +1129,20 @@
           "tier": 3,
           "date": "2026-07-16",
           "claim": "completed",
-          "fee_gbp_m": 25.7
+          "fee_gbp_m": 25.7,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "alvarez-atletico-madrid-arsenal",
@@ -824,9 +1165,20 @@
           "tier": 2,
           "date": "2026-07-13",
           "claim": "interest",
-          "fee_gbp_m": 100.0
+          "fee_gbp_m": 100.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "tzolis-club-brugge-arsenal",
@@ -849,9 +1201,20 @@
           "tier": 1,
           "date": "2026-07-12",
           "claim": "interest",
-          "fee_gbp_m": 35.0
+          "fee_gbp_m": 35.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "guimaraes-newcastle-arsenal",
@@ -874,9 +1237,20 @@
           "tier": 2,
           "date": "2026-07-12",
           "claim": "interest",
-          "fee_gbp_m": 90.0
+          "fee_gbp_m": 90.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "gomes-wolves-man-utd",
@@ -899,9 +1273,20 @@
           "tier": 2,
           "date": "2026-07-11",
           "claim": "interest",
-          "fee_gbp_m": 45.0
+          "fee_gbp_m": 45.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "barcola-psg-liverpool",
@@ -924,9 +1309,20 @@
           "tier": 2,
           "date": "2026-07-12",
           "claim": "interest",
-          "fee_gbp_m": 80.0
+          "fee_gbp_m": 80.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "bouaddi-lille-man-city",
@@ -949,9 +1345,20 @@
           "tier": 2,
           "date": "2026-07-12",
           "claim": "interest",
-          "fee_gbp_m": 40.0
+          "fee_gbp_m": 40.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "muani-psg-crystal-palace",
@@ -974,9 +1381,20 @@
           "tier": 3,
           "date": "2026-07-12",
           "claim": "interest",
-          "fee_gbp_m": 30.0
+          "fee_gbp_m": 30.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "watkins-aston-villa-fenerbahce",
@@ -999,9 +1417,20 @@
           "tier": 3,
           "date": "2026-07-12",
           "claim": "interest",
-          "fee_gbp_m": 35.0
+          "fee_gbp_m": 35.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "williams-nott-m-forest-man-utd",
@@ -1024,9 +1453,20 @@
           "tier": 3,
           "date": "2026-07-12",
           "claim": "interest",
-          "fee_gbp_m": 25.0
+          "fee_gbp_m": 25.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "ederson-atalanta-man-utd",
@@ -1049,9 +1489,20 @@
           "tier": 1,
           "date": "2026-07-10",
           "claim": "collapsed",
-          "fee_gbp_m": 34.9
+          "fee_gbp_m": 34.9,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "robertson-liverpool-tottenham",
@@ -1074,9 +1525,20 @@
           "tier": 1,
           "date": "2026-06-17",
           "claim": "completed",
-          "fee_gbp_m": 0.0
+          "fee_gbp_m": 0.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-06-17",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "senesi-bournemouth-tottenham",
@@ -1099,9 +1561,20 @@
           "tier": 1,
           "date": "2026-06-21",
           "claim": "completed",
-          "fee_gbp_m": 0.0
+          "fee_gbp_m": 0.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-06-21",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "dubravka-burnley-tottenham",
@@ -1124,9 +1597,20 @@
           "tier": 1,
           "date": "2026-06-16",
           "claim": "completed",
-          "fee_gbp_m": 0.0
+          "fee_gbp_m": 0.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-06-16",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "konate-liverpool-real-madrid",
@@ -1149,9 +1633,20 @@
           "tier": 1,
           "date": "2026-06-16",
           "claim": "completed",
-          "fee_gbp_m": 0.0
+          "fee_gbp_m": 0.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-06-16",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "silva-man-city-real-madrid",
@@ -1174,9 +1669,20 @@
           "tier": 1,
           "date": "2026-07-01",
           "claim": "completed",
-          "fee_gbp_m": 0.0
+          "fee_gbp_m": 0.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-07-01",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     },
     {
       "id": "trippier-newcastle-wolves",
@@ -1199,9 +1705,20 @@
           "tier": 1,
           "date": "2026-06-20",
           "claim": "completed",
-          "fee_gbp_m": 0.0
+          "fee_gbp_m": 0.0,
+          "marker": null,
+          "official": false
         }
-      ]
+      ],
+      "last_verified_at": null,
+      "completion_marker": "hand-verified at migration, no fetchable source",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-06-20",
+      "base_cred": null,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
     }
   ],
   "clubs": {
