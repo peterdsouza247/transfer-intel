@@ -91,6 +91,21 @@ class ScoringConfig:
     #: everything: 100 is reserved for a deal carrying a completion marker.
     confirmed_cred_cap: int = 90
 
+    #: How much of its base score a `confirmed` deal can lose to silence.
+    #:
+    #: Confirmed deals decay, because a signing nobody has announced three
+    #: weeks after a tier 1 source called it finished really is less certain
+    #: than one announced yesterday: clubs announce promptly, and silence
+    #: after "it is done" is itself evidence. Trossard is the live example.
+    #:
+    #: But the full curve took them too far. A record badged "Confirmed
+    #: pending announcement" showing 52 out of 100 contradicts its own badge:
+    #: 52 on this scale reads as a coin flip, and a tier 1 completion claim is
+    #: not a coin flip whatever happens next. The badge and the number have to
+    #: say the same thing. This floor keeps the decay informative without
+    #: letting it argue with the label next to it.
+    confirmed_decay_floor: float = 0.85
+
     #: TI-021. How far measured source accuracy may move a base score, and how
     #: many resolved claims a source needs before its rate is trusted at all.
     reliability_swing: int = 10
@@ -329,8 +344,12 @@ def compute_cred(
     b.total = max(0, min(100, round(b.base_total * b.multiplier)))
 
     if deal.status is Status.confirmed:
-        b.total = min(b.total, cfg.confirmed_cred_cap)
+        # Re-derive from the base with a gentler floor, then cap.
+        gentle = max(b.multiplier, cfg.confirmed_decay_floor)
+        b.multiplier = gentle
         b.base_total = min(b.base_total, cfg.confirmed_cred_cap)
+        b.total = max(0, min(cfg.confirmed_cred_cap,
+                             round(b.base_total * gentle)))
     return b
 
 

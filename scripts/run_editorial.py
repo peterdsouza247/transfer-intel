@@ -31,6 +31,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 
 from transferintel.models import Deal, Evidence, Patch, PatchOp  # noqa: E402
 from transferintel.notes import NoteWriter, note_ops  # noqa: E402
+from dataclasses import replace  # noqa: E402
 from transferintel.scoring import DEFAULT_CONFIG, score_all  # noqa: E402
 from transferintel import validate  # noqa: E402
 
@@ -118,6 +119,11 @@ def main() -> int:
                     help="write the updated data.json and data.js")
     ap.add_argument("--no-notes", action="store_true", help="skip phase 4")
     ap.add_argument("--max-notes", type=int, default=12)
+    ap.add_argument("--recent-days", type=int, default=None,
+                    help="widen the evidence window used for status changes. "
+                         "Defaults to the scoring config's 3 days. Raise it "
+                         "only when catching up after missed runs: see "
+                         "docs/CATCHUP.md")
     ap.add_argument("--max-changes", type=int, default=15,
                     help="abort if phase 3 wants more updates than this")
     args = ap.parse_args()
@@ -131,7 +137,18 @@ def main() -> int:
     if args.evidence and args.evidence.exists():
         attach_evidence(deals, json.loads(args.evidence.read_text()))
 
-    ops = score_all(deals, today, DEFAULT_CONFIG)
+    # A catch-up run widens the window that lets evidence move a status.
+    # The default of three days assumes the pipeline ran yesterday; after a
+    # gap it has to reach back far enough to see the news it missed, or every
+    # article it just ingested is scored as historical context and moves
+    # nothing. See docs/CATCHUP.md.
+    scoring_cfg = DEFAULT_CONFIG
+    if args.recent_days:
+        scoring_cfg = replace(DEFAULT_CONFIG, recent_window_days=args.recent_days)
+        print(f"Catch-up mode: evidence window widened to "
+              f"{args.recent_days} days.")
+
+    ops = score_all(deals, today, scoring_cfg)
 
     writer = NoteWriter(max_notes=args.max_notes)
     notes_written = 0

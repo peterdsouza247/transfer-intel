@@ -164,7 +164,7 @@ def main() -> int:
     # and so a crawler sees the offer. The page's own script re-renders these
     # on load; both produce the same markup.
     document = site.inject_into(
-        document, "capture-hero", site.render_capture_form(cfg, clubs, "hero"))
+        document, "capture-top", site.render_capture_form(cfg, clubs, "top"))
     document = site.inject_into(
         document, "capture-index",
         site.render_capture_form(cfg, clubs, "index", with_preferences=True))

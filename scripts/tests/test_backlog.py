@@ -28,7 +28,8 @@ from transferintel.models import (  # noqa: E402
     CollapseReason, Deal, Evidence, Stage, Status,
 )
 from transferintel.scoring import (  # noqa: E402
-    DEFAULT_DECAY, DecayCurve, compute_cred, decide_status, score_deal,
+    DEFAULT_CONFIG, DEFAULT_DECAY, DecayCurve, compute_cred, decide_status,
+    score_deal,
 )
 
 TODAY = date(2026, 7, 20)
@@ -451,13 +452,13 @@ def test_all_six_analytics_events_exist():
 def test_capture_form_is_absent_until_configured():
     """A form posting nowhere is worse than no form."""
     assert site.render_capture_form(
-        site.SiteConfig(base_url="https://x.test"), [], "hero") == ""
+        site.SiteConfig(base_url="https://x.test"), [], "top") == ""
 
 
 def test_capture_form_carries_preferences_when_asked():
     cfg = site.SiteConfig(base_url="https://x.test",
                           newsletter_action="https://provider.test/f")
-    plain = site.render_capture_form(cfg, ["Arsenal"], "hero")
+    plain = site.render_capture_form(cfg, ["Arsenal"], "top")
     rich = site.render_capture_form(cfg, ["Arsenal"], "index",
                                     with_preferences=True)
     assert "fields[threshold]" not in plain
@@ -556,3 +557,83 @@ def test_sort_preferences_use_session_not_local_storage():
     assert html.count("ti.valsort") >= 1
     assert html.count("ti.feedsort") >= 1
     assert "localStorage" not in html
+
+
+# ============================================================ follow-ups
+
+
+def test_confirmed_decay_is_floored_so_it_cannot_contradict_its_badge():
+    """A record badged "Confirmed pending announcement" must not also show a
+    number that reads as a coin flip.
+
+    Confirmed deals still decay: silence after a tier 1 source calls a deal
+    finished is real evidence. But the full curve took them to 50 and below,
+    where the number argues with the label printed next to it.
+    """
+    from dataclasses import replace as _replace
+
+    quiet = deal(
+        status=Status.confirmed, cred=70,
+        last_verified_at=TODAY - timedelta(days=11),
+        evidence=[ev(11, 2, Stage.completed, source="Football365")],
+    )
+    unfloored = _replace(DEFAULT_CONFIG, confirmed_decay_floor=0.0)
+    assert compute_cred(quiet, TODAY, unfloored).total < \
+        compute_cred(quiet, TODAY).total
+    assert compute_cred(quiet, TODAY).total >= 55
+
+
+def test_confirmed_still_decays_inside_the_floor():
+    fresh = deal(status=Status.confirmed, cred=90,
+                 last_verified_at=TODAY,
+                 evidence=[ev(0, 1, Stage.completed)])
+    quiet = deal(status=Status.confirmed, cred=90,
+                 last_verified_at=TODAY - timedelta(days=8),
+                 evidence=[ev(8, 1, Stage.completed)])
+    assert compute_cred(quiet, TODAY).total < compute_cred(fresh, TODAY).total
+
+
+def test_confirmed_never_reaches_one_hundred():
+    """100 stays reserved for an announced transfer, whatever the evidence."""
+    strong = deal(
+        status=Status.confirmed, cred=90, last_verified_at=TODAY,
+        evidence=[ev(0, 1, Stage.completed),
+                  ev(0, 1, Stage.completed, source="BBC Sport"),
+                  ev(0, 1, Stage.completed, source="Ornstein")],
+    )
+    assert compute_cred(strong, TODAY).total <= 90
+
+
+def test_collapsed_stays_at_zero():
+    dead = deal(status=Status.collapsed, cred=0,
+                evidence=[ev(30, 1, Stage.collapsed)])
+    b = compute_cred(dead, TODAY)
+    assert b.total == 0 and b.pinned
+
+
+def test_catch_up_window_is_configurable():
+    """Missed runs need a wider evidence window or the news they ingest is
+    scored as history and moves nothing."""
+    from dataclasses import replace as _replace
+
+    stale_news = deal(status=Status.talks, cred=45,
+                      evidence=[ev(7, 1, Stage.agreed)])
+    assert decide_status(stale_news, TODAY).status is Status.talks
+    wide = _replace(DEFAULT_CONFIG, recent_window_days=10)
+    assert decide_status(stale_news, TODAY, wide).status is Status.agreed
+
+
+def test_one_capture_form_on_mobile():
+    """Three asks on one stacked scroll reads as nagging."""
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    assert 'id="capture-top"' in html
+    assert "capture-hero" not in html
+    mobile = html[html.index("@media(max-width:860px)"):]
+    mobile = mobile[:mobile.index("</style>")]
+    assert "#capture-index,#capture-footer{display:none}" in mobile
+
+
+def test_capture_form_sits_above_the_nav():
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    assert html.index("</header>") < html.index('id="capture-top"')
+    assert html.index('id="capture-top"') < html.index('<nav id="tabnav"')
