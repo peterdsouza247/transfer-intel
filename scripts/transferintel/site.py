@@ -348,10 +348,10 @@ def render_value_rows(deals: list[Deal], proven_clubs: Iterable[str] = ()) -> st
     if not rows:
         return VALUE_EMPTY_ROW
     out = []
-    for i, d in enumerate(rows):
+    for d in rows:
         label, css = verdict(d, proven_clubs)
         out.append(
-            f'<tr class="clickable" data-i="{i}">'
+            f'<tr class="clickable" data-id="{e(d.id)}">'
             f"<td><b>{e(d.p)}</b></td>"
             f'<td class="move">{e(d.from_club)} to {e(d.to)}</td>'
             f"<td>{d.age}</td>"
@@ -562,10 +562,68 @@ def render_funnel(deals: list[Deal]) -> str:
     return "\n".join(chips)
 
 
-def render_feed_items(deals: list[Deal]) -> str:
-    recent = sorted(deals, key=lambda d: (d.cred, d.p), reverse=True)[:12]
+#: The pulse feed's default ordering, mirrored exactly in index.html.
+#:
+#: Collapsed first because a dead deal is the most surprising thing on the
+#: page, then the stages closest to resolution, then the noise. Completed
+#: deals sit near the bottom deliberately: they are settled, and a pulse is
+#: about what is still moving.
+FEED_RANK: dict[str, int] = {
+    "collapsed": 0, "medical": 1, "confirmed": 2, "agreed": 3,
+    "talks": 4, "done": 5, "rumor": 6,
+}
+
+_MONTHS = {m: i for i, m in enumerate(
+    ["jan", "feb", "mar", "apr", "may", "jun",
+     "jul", "aug", "sep", "oct", "nov", "dec"], start=1)}
+
+
+def display_date_key(label: str) -> tuple[int, int]:
+    """Sort key for the site's display dates, e.g. "Jul 8".
+
+    Returns (0, 0) for anything unparseable, which sorts such rows last under
+    a descending sort. A deal with no date is not recent news.
+    """
+    parts = (label or "").replace(",", " ").split()
+    if len(parts) < 2:
+        return (0, 0)
+    month = _MONTHS.get(parts[0][:3].lower())
+    if month is None:
+        return (0, 0)
+    try:
+        return (month, int(parts[1]))
+    except ValueError:
+        return (month, 0)
+
+
+def feed_order(deals: Iterable[Deal], mode: str = "active") -> list[Deal]:
+    """Order the pulse feed. Must match the `FEED_SORTS` table in index.html.
+
+    The pre-rendered feed used to sort by credibility then player name, while
+    the browser sorted by stage then fee. The list therefore reordered itself
+    the moment JavaScript ran, and readers without it got twelve completed
+    deals in reverse alphabetical order, which is not a pulse.
+    """
+    rows = list(deals)
+    if mode == "recent":
+        return sorted(rows, key=lambda d: (display_date_key(d.date), d.fee or 0),
+                      reverse=True)
+    if mode == "fee":
+        return sorted(rows, key=lambda d: (-(d.fee or 0), d.p))
+    if mode == "cred":
+        return sorted(rows, key=lambda d: (-d.cred, d.p))
+    return sorted(
+        rows,
+        key=lambda d: (FEED_RANK.get(
+            d.status.value if hasattr(d.status, "value") else str(d.status), 9),
+            -(d.fee or 0), d.p),
+    )
+
+
+def render_feed_items(deals: list[Deal], mode: str = "active",
+                      limit: int = 12) -> str:
     items = []
-    for d in recent:
+    for d in feed_order(deals, mode)[:limit]:
         items.append(
             f'<div class="item"><div class="when">{e(d.date or "")}</div>'
             f'<div class="what"><b>{e(d.p)}</b> '

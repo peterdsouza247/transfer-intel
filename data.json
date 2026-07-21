@@ -25,7 +25,15 @@
       "Liverpool",
       "Man City",
       "Tottenham"
-    ]
+    ],
+    "newsletter": {
+      "provider": "kit",
+      "action": "https://app.kit.com/forms/9707763/subscriptions"
+    },
+    "analytics": {
+      "cloudflareToken": "57f3c03a35404d2fb51baadd48f1693d",
+      "goatcounter": "https://transferintel.goatcounter.com/count"
+    }
   },
   "deals": [
     {

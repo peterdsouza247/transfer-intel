@@ -247,6 +247,11 @@ def test_chart_and_table_read_the_same_collection():
     eligible = site.value_eligible(deals)
     rendered = site.render_value_rows(deals, raw["config"].get("provenClubs", []))
     assert rendered.count('class="clickable"') == len(eligible)
+    # Rows are keyed by deal id, never by position. Sorting reorders the
+    # array in the browser, and an index would then open the wrong deal.
+    for d in eligible:
+        assert f'data-id="{d.id}"' in rendered
+    assert "data-i=" not in rendered
 
 
 def test_free_transfers_are_excluded_cleanly():
@@ -306,6 +311,46 @@ def test_sections_stack_on_mobile():
     assert "@media(max-width:860px)" in html
     assert "scrollIntoView" in html
     assert "touch-action:pan-x pan-y" in html
+
+
+def test_nav_is_not_trapped_inside_the_header():
+    """A sticky or fixed nav inside <header> cannot outlive the header.
+
+    Sticky positioning is bounded by the containing block. The header is only
+    as tall as its own contents, so a nav inside it scrolled away with it and
+    the only way back to the first section was to scroll the whole page up.
+    """
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    header = html[html.index("<header>"):html.index("</header>")]
+    assert "<nav" not in header
+    assert html.index("</header>") < html.index('<nav id="tabnav"')
+
+
+def test_mobile_nav_stays_on_screen_and_clears_content():
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    mobile = html[html.index("@media(max-width:860px)"):]
+    mobile = mobile[:mobile.index("</style>")]
+    assert "position:fixed" in mobile.replace(" ", "")
+    assert "bottom:0" in mobile.replace(" ", "")
+    # The bar overlays the page, so the page has to make room for it or the
+    # footer and the last capture form sit underneath it forever.
+    assert "padding-bottom:calc(64px" in mobile.replace(" ", "")
+    assert "safe-area-inset-bottom" in mobile
+
+
+def test_nav_buttons_carry_both_label_lengths():
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    for full, brief in [("Window Pulse", "Pulse"), ("Rumour Credibility", "Rumours"),
+                        ("Value Analytics", "Value"), ("Club Dashboards", "Clubs")]:
+        assert f'<span class="full">{full}</span>' in html, full
+        assert f'<span class="brief">{brief}</span>' in html, brief
+
+
+def test_active_tab_is_announced_not_just_coloured():
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    assert html.count('role="tab"') == 4
+    assert 'aria-selected="true"' in html
+    assert "setAttribute(\"aria-selected\"" in html
 
 
 # ============================================================ TI-010, TI-011
@@ -431,3 +476,83 @@ def test_club_cards_show_in_out_and_net():
     html = (ROOT / "index.html").read_text(encoding="utf-8")
     for label in ["<span>Spent</span>", "<span>Sold</span>", "<span>Net</span>"]:
         assert label in html, label
+
+
+# ============================================================ sorting
+
+
+def test_feed_default_order_matches_the_browser():
+    """The pre-rendered pulse feed and the browser feed must agree.
+
+    They used to not: the build sorted by credibility then player name while
+    index.html sorted by stage then fee, so the list visibly reshuffled the
+    moment the script ran, and readers without JavaScript got twelve settled
+    completions in reverse alphabetical order.
+    """
+    _, deals = _load_site_data()
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+
+    # The browser's rank table, read out of the page rather than restated.
+    found = re.search(r"const RANK=\{([^}]*)\}", html)
+    assert found, "browser feed rank table not found"
+    browser_rank = dict(
+        (k.strip(), int(v)) for k, v in
+        (pair.split(":") for pair in found.group(1).split(","))
+    )
+    assert browser_rank == site.FEED_RANK
+
+    ordered = site.feed_order(deals)
+    ranks = [site.FEED_RANK[d.status.value] for d in ordered]
+    assert ranks == sorted(ranks)
+
+
+def test_every_feed_sort_is_implemented_on_both_sides():
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    for mode in ["active", "recent", "fee", "cred", "quiet"]:
+        assert f'value="{mode}"' in html, mode
+        assert f"{mode}:" in html, mode
+    # "quiet" is browser only: it depends on the reader's clock, so the build
+    # cannot pre-render it and does not pretend to.
+    for mode in ["active", "recent", "fee", "cred"]:
+        assert site.feed_order([], mode) == []
+
+
+def test_display_dates_sort_chronologically():
+    assert site.display_date_key("Jul 8") < site.display_date_key("Jul 21")
+    assert site.display_date_key("Jun 30") < site.display_date_key("Jul 1")
+    assert site.display_date_key("") == (0, 0)
+    assert site.display_date_key("not a date") == (0, 0)
+
+
+def test_feed_recent_puts_undated_deals_last():
+    _, deals = _load_site_data()
+    ordered = site.feed_order(deals, "recent")
+    keys = [site.display_date_key(d.date) for d in ordered]
+    assert keys == sorted(keys, reverse=True)
+
+
+def test_value_table_columns_are_all_sortable():
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    for column in ["player", "move", "age", "fee", "score", "verdict"]:
+        assert f'data-sort="{column}"' in html, column
+        assert f"{column}:" in html, column
+
+
+def test_sortable_headers_are_reachable_and_announced():
+    """A sortable header that is only a click target excludes keyboard and
+    screen reader users from the feature entirely."""
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    headers = re.findall(r'<th data-sort="(\w+)" aria-sort="(\w+)">'
+                         r'<button type="button">', html)
+    assert len(headers) == 6
+    # Exactly one column carries the initial sort, and it is the one the
+    # build actually rendered.
+    assert [h[0] for h in headers if h[1] != "none"] == ["fee"]
+    assert "aria-sort" in html and "focus-visible" in html
+
+
+def test_sort_preferences_use_session_not_local_storage():
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    assert html.count("ti.valsort") >= 1
+    assert html.count("ti.feedsort") >= 1
+    assert "localStorage" not in html
