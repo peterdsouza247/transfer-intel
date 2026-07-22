@@ -10,7 +10,11 @@ name: Daily digest
 
 on:
   schedule:
-    - cron: "0 6 * * *"
+    - cron: "30 6 * * *"
+  # 06:30 UTC, 12:00 IST, 07:30 BST. After the editorial run at 04:00 so the
+  # editions describe the site as it now stands, and landing in UK inboxes at
+  # breakfast. It used to run an hour BEFORE the refresh, so every edition
+  # described yesterday.
   workflow_dispatch:
     inputs:
       send:

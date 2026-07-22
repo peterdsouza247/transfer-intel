@@ -111,7 +111,46 @@ Now explicitly split: the code is proprietary, the dataset is CC BY 4.0 with
 attribution, and the licence states that CC BY covers the compilation rather
 than the underlying reporting, which belongs to the outlets cited.
 
+### Added after v1.0
+
+- `scripts/draft_claims.py` drafts `manual/claims.json` from fetched articles
+  by pattern matching, so the by-hand routine becomes correcting claims rather
+  than writing them. Every entry is marked `_draft: true`, and `run_ingest`
+  refuses a file that still contains one: the draft saves the typing, not the
+  judgment.
+- `scripts/add_candidates.py` promotes a detected candidate into a tracked
+  deal, with the gate applied.
+- `run_editorial.py --recent-days auto` sizes the evidence window from the age
+  of the evidence in hand, so a run after a gap widens itself instead of
+  scoring last week's announcements as history and reporting nothing changed.
+  The scheduled workflow passes it.
+
+### Changed after v1.0
+
+- Editorial moved to 04:00 UTC and the digest to 06:30 UTC. The digest used to
+  run an hour *before* the refresh, so every edition described yesterday.
+
 ### Fixed after v1.0
+
+- Removing the two extra capture forms left three orphaned fragments in
+  `index.html`. The deletion used a non-greedy `<div id="...">.*?</div>`,
+  which stops at the first *inner* closing div, so each form's tail survived:
+  a hidden input, a stray paragraph and an unmatched `</form>`, rendering
+  "Double opt-in. One click to unsubscribe." as loose text three times down
+  the page. A test now asserts the form, details and div tags balance and
+  that each give-away phrase appears exactly once.
+
+- **New deals had no way into the dataset.** `run_ingest.py` wrote detected
+  transfers for untracked players to `build/candidates.json` and nothing ever
+  read that file, so the only route in was hand-editing `data.json`. In
+  practice new deals never entered at all: the site kept scoring the same
+  players while the window moved on. `scripts/add_candidates.py` is the
+  missing step.
+- Club aliases canonicalised to strings the dataset does not use: "Wolves"
+  became "Wolverhampton", "Atletico Madrid" became "Atletico", "PSG" became
+  "Paris Saint-Germain". Since dashboards match on exact string equality, an
+  ingested deal and a migrated one described the same club two ways. A test
+  now asserts every club name in `data.json` is its own canonical form.
 
 - `migrate_data.parse_display_date` called `strptime` without a year, which
   emits a DeprecationWarning under Python 3.14 and will stop working in 3.15.

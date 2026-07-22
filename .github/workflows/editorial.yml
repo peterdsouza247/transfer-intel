@@ -2,7 +2,10 @@ name: Editorial refresh
 
 on:
   schedule:
-    - cron: "0 7 * * *"   # daily, 07:00 UTC, after the morning news cycle
+    - cron: "0 4 * * *"
+  # 04:00 UTC, 09:30 IST. Late enough to have the whole previous UK news day
+  # (which runs to about 22:00 UTC), early enough that the PR is waiting when
+  # you start work, and before the digest at 06:30 so subscribers get today.
   workflow_dispatch:
     inputs:
       no_notes:
@@ -78,6 +81,7 @@ jobs:
           python scripts/run_editorial.py \
             --data data.json \
             --evidence build/evidence.json \
+            --recent-days auto \
             --out build \
             --max-notes 12 \
             --max-changes 15 \

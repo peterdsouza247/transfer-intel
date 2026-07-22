@@ -33,6 +33,32 @@ five sources, twelve claims, two of which promoted deals to `done` on
 Manchester United's own announcement. Copy them and edit rather than starting
 from an empty file.
 
+## New deals need one more step
+
+`run_ingest.py` writes transfers involving untracked players to
+`build/candidates.json`. Nothing reads that file automatically, and that is
+deliberate: a candidate is a name the extractor did not recognise, which is
+exactly when a human should look.
+
+```bash
+python scripts/add_candidates.py --list
+python scripts/add_candidates.py --add <id> --age 24 --pos AM --apply
+```
+
+`--age` and `--pos` are required because neither can be read off a headline
+and both change the score: age drives the value model, position drives the
+squad reasoning. Everything else, including status, tier, credibility and the
+evidence trail, is derived from the candidate's own reporting.
+
+A candidate enters at the status its evidence supports rather than climbing
+the ladder from `rumor`, because its evidence is its entire history. It still
+cannot enter as `done` without a tier 1 completion marker: the seeding maps
+`completed` to `confirmed`, and only `decide_status` can go further.
+
+If a new deal supersedes one you are already tracking, mark the old record
+`collapsed` and set `pivot_to` to the new id. Arsenal losing Rogers to
+Chelsea is one story, not two.
+
 ## The two input files
 
 `articles.json` is the provenance. One entry per source article:

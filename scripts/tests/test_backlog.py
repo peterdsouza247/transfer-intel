@@ -856,3 +856,107 @@ def test_the_filter_accepts_some_false_positives_on_purpose():
     from transferintel.prefilter import looks_like_transfer_news
     assert looks_like_transfer_news(
         _art("Spain leave it late as Merino scores a stoppage-time winner"))
+
+
+def test_club_aliases_match_the_dataset_house_style():
+    """The site matches club dashboards on exact string equality.
+
+    The alias table canonicalised to "Wolverhampton" while every record in
+    data.json said "Wolves", so an ingested deal and a migrated one described
+    the same club with two different strings and only one of them could ever
+    match a dashboard.
+    """
+    from transferintel.entities import canonical_club
+
+    raw = json.loads((ROOT / "data.json").read_text(encoding="utf-8"))
+    known = set(raw["clubs"])
+    seen = {d["from"] for d in raw["deals"]} | {d["to"] for d in raw["deals"]}
+    for name in seen:
+        assert canonical_club(name, known) == name, (
+            f"{name!r} in data.json canonicalises to "
+            f"{canonical_club(name, known)!r}; the two must agree"
+        )
+
+
+def test_no_orphaned_form_markup_in_the_page():
+    """Removing a placement must remove the whole form, not part of it.
+
+    A non-greedy `<div id="capture-x">.*?</div>` stops at the first *inner*
+    closing div, so deleting a form that contains one leaves its tail behind:
+    a hidden input, a stray paragraph and an unmatched `</form>`, rendering
+    "Double opt-in. One click to unsubscribe." as loose text mid-page. Three
+    of those shipped before anyone noticed, because unbalanced tags still
+    render and the leftovers looked like ordinary copy.
+    """
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    markup = html[:html.index("<script>\nconst DATA")]
+    assert markup.count("<form") == markup.count("</form>") == 1
+    assert markup.count("<details") == markup.count("</details>") == 1
+    assert markup.count("<div") == markup.count("</div>")
+    # The give-away strings, each of which must appear exactly once.
+    for phrase in ("Double opt-in", "Get the digest",
+                   "Only want certain clubs", "The daily transfer digest"):
+        assert markup.count(phrase) == 1, f"{phrase!r} x{markup.count(phrase)}"
+
+
+# ============================================================ draft claims
+
+
+def test_drafts_cannot_enter_the_pipeline_unread(tmp_path):
+    """A guessed claim must not become evidence without a human reading it."""
+    import subprocess
+
+    claims = tmp_path / "c.json"
+    claims.write_text(json.dumps([{
+        "_draft": True, "_review": ["check the clubs"],
+        "is_transfer_claim": True, "player": "X", "from_club": "Arsenal",
+        "to_club": "Chelsea", "reported_stage": "talks",
+        "fee_amount": None, "fee_currency": None,
+        "article_url": "https://x.test/a",
+    }]), encoding="utf-8")
+    articles = tmp_path / "a.json"
+    articles.write_text(json.dumps([{
+        "url": "https://x.test/a", "title": "t", "summary": "",
+        "published": "2026-07-22", "outlet": "BBC Sport", "tier": 1,
+    }]), encoding="utf-8")
+
+    out = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "run_ingest.py"),
+         "--data", str(ROOT / "data.json"), "--out", str(tmp_path / "b"),
+         "--articles", str(articles), "--claims", str(claims),
+         "--today", "2026-07-22"],
+        capture_output=True, text=True, cwd=str(ROOT))
+    assert out.returncode == 2
+    assert "_draft" in out.stderr
+
+
+def test_drafter_reads_a_headline_it_should_get_right():
+    from transferintel.models import Article
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from draft_claims import draft
+
+    known = ["Arsenal", "Brighton", "Chelsea", "Aston Villa"]
+    art = Article(
+        url="https://x.test/1",
+        title="Ellis Hartley to undergo Arsenal medical on Sunday",
+        summary="Brighton have accepted a bid worth £42m.",
+        published="2026-07-22", outlet="BBC Sport", tier=1)
+    got = draft(art, known)
+    assert got["player"] == "Ellis Hartley"
+    assert got["reported_stage"] == "medical"
+    assert got["fee_amount"] == 42.0
+    assert {got["from_club"], got["to_club"]} == {"Arsenal", "Brighton"}
+    assert got["_draft"] is True and got["_review"]
+
+
+def test_drafter_admits_what_it_could_not_find():
+    from transferintel.models import Article
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from draft_claims import draft
+
+    art = Article(
+        url="https://x.test/2",
+        title="Rafael Moreno completes Newcastle move from Benfica",
+        summary="", published="2026-07-22", outlet="BBC Sport", tier=1)
+    got = draft(art, ["Newcastle"])   # Benfica is not a known club
+    assert any("known club" in r for r in got["_review"])

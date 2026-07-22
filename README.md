@@ -24,7 +24,8 @@ Live: https://peterdsouza247.github.io/transfer-intel/
 | [docs/ANALYTICS.md](docs/ANALYTICS.md) | what to measure |
 | [docs/COSTS.md](docs/COSTS.md) | keeping the credit spend down |
 | [docs/CATCHUP.md](docs/CATCHUP.md) | the newest deal is days old, what now |
-| [docs/MANUAL-INGEST.md](docs/MANUAL-INGEST.md) | running without an API key |
+| [docs/DAILY-REFRESH.md](docs/DAILY-REFRESH.md) | **the by-hand daily routine, start here if there is no API key** |
+| [docs/MANUAL-INGEST.md](docs/MANUAL-INGEST.md) | the file formats behind that routine |
 | [docs/DISCOVERABILITY.md](docs/DISCOVERABILITY.md) | SEO, pre-rendering, the manual steps |
 | [docs/backlog.md](docs/backlog.md) | what is built, what is open, what was rejected |
 | [CHANGELOG.md](CHANGELOG.md) | what changed and why |
@@ -148,6 +149,8 @@ transfer-intel/
     run_digest.py         the daily email
     render_site.py        phase 7
     check_ingest.py       fails the run when ingestion produced nothing
+    draft_claims.py       drafts manual claims for a human to correct
+    add_candidates.py     promotes a detected candidate into a tracked deal
     check_site.py         post-build sanity check
     backfill_completions.py   completion audit
     migrate_data.py       phase 0, one time

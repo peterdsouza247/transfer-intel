@@ -1,42 +1,18 @@
 [
- {
-  "url": "https://www.manutd.com/en/news/manchester-united-announce-signing-of-youri-tielemans",
-  "title": "United announce Tielemans signing",
-  "summary": "Manchester United is pleased to confirm that Youri Tielemans has joined the club, subject to registration.",
-  "published": "2026-07-14",
-  "outlet": "Man Utd",
-  "tier": 1
- },
- {
-  "url": "https://www.espn.com/soccer/story/_/id/49318443/manchester-united-announce-signing-andrey-santos-chelsea-premier-league-transfer-news",
-  "title": "Man United announce signing of midfielder Andrey Santos from Chelsea",
-  "summary": "Manchester United is pleased to confirm that Andrey Santos has joined the club, subject to registration. The Brazil international has signed a contract until June 2031, with the option to extend for a further year.",
-  "published": "2026-07-13",
-  "outlet": "ESPN",
-  "tier": 1
- },
- {
-  "url": "https://www.rte.ie/sport/soccer/2026/0714/1583284-pl-transfers-brighton-sign-vuskovic-from-tottenham/",
-  "title": "Transfers: United sign Tielemans, Trossard exits Arsenal",
-  "summary": "Brighton have signed defender Luka Vuskovic from Tottenham Hotspur for an initial 46 million pounds. The 19-year-old Croatia international has agreed a five-year contract with the Seagulls. Manchester United have confirmed the signing of Belgium midfielder Youri Tielemans from Aston Villa on a five-year contract for a fee understood to be 35 million pounds. Tielemans is United's third summer signing after Andrey Santos and goalkeeper Karl Darlow from Leeds.",
-  "published": "2026-07-14",
-  "outlet": "RTE",
-  "tier": 2
- },
- {
-  "url": "https://www.skysports.com/football/news/12875/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs",
-  "title": "Summer transfer window 2026: Premier League deals, ins and outs",
-  "summary": "Aston Villa in: Johan Manzambi from Freiburg, 59.5m. Joao Gomes from Wolves, 38m. Aston Villa out: Morgan Rogers to Chelsea, 117m. Youri Tielemans to Man Utd, 36m. Arsenal out: Leandro Trossard to Besiktas, 17m.",
-  "published": "2026-07-22",
-  "outlet": "Sky Sports",
-  "tier": 1
- },
- {
-  "url": "https://www.transfermarkt.us/",
-  "title": "Transfers, rumours and market values",
-  "summary": "Johan Manzambi joins Aston Villa, SC Freiburg receive record transfer fee. Manchester United sign Youri Tielemans from Aston Villa. Leandro Trossard joins Besiktas for 20m euro package as Arsenal turn attention to Rogers. Luka Vuskovic joins Brighton from Tottenham in club record deal.",
-  "published": "2026-07-22",
-  "outlet": "Transfermarkt",
-  "tier": 2
- }
+ {"url":"https://www.espn.co.uk/football/story/_/id/49330001/rogers-completes-chelsea-switch-aston-villa",
+  "title":"Rogers completes Chelsea switch from Aston Villa",
+  "summary":"Morgan Rogers has completed his move to Chelsea from Aston Villa in a British record deal worth 117 million pounds.",
+  "published":"2026-07-21","outlet":"ESPN","tier":1},
+ {"url":"https://www.transfermarkt.us/",
+  "title":"Chelsea complete Morgan Rogers signing, Blues beat Arsenal to stunning transfer",
+  "summary":"Done Deal. British record deal. Chelsea complete Morgan Rogers signing as the Blues beat Arsenal to a stunning 138m euro transfer from Aston Villa.",
+  "published":"2026-07-21","outlet":"Transfermarkt","tier":2},
+ {"url":"https://www.skysports.com/football/news/12875/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs",
+  "title":"Rogers first words after record-breaking Chelsea move",
+  "summary":"Morgan Rogers has signed for Chelsea from Aston Villa for a British record fee of 117 million pounds. Aston Villa have signed Joao Gomes from Wolves for 38 million pounds.",
+  "published":"2026-07-21","outlet":"Sky Sports","tier":1},
+ {"url":"https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/02/premier-league-2026-summer-transfers-done-deals-all-completed-confirmed-signings-official",
+  "title":"Premier League summer transfers 2026: All the Done Deals",
+  "summary":"Aston Villa have compensated for the loss of Tielemans with the club-record signing of Johan Manzambi and the arrival of Joao Gomes. Arsenal have signed Piero Hincapie on a permanent deal and Illan Meslier on a free transfer from Leeds United. The Gunners have also agreed a deal to sign Club Brugge winger Christos Tzolis, but they have missed out on Rogers, who joins Chelsea.",
+  "published":"2026-07-22","outlet":"FootballTransfers","tier":2}
 ]

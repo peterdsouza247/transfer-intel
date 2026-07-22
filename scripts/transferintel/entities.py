@@ -23,8 +23,9 @@ CLUB_ALIASES: dict[str, str] = {
     "city": "Manchester City",
     "spurs": "Tottenham",
     "tottenham hotspur": "Tottenham",
-    "wolves": "Wolverhampton",
-    "wolverhampton wanderers": "Wolverhampton",
+    "wolves": "Wolves",
+    "wolverhampton wanderers": "Wolves",
+    "wolverhampton": "Wolves",
     "brighton and hove albion": "Brighton",
     "brighton & hove albion": "Brighton",
     "west ham united": "West Ham",
@@ -40,10 +41,16 @@ CLUB_ALIASES: dict[str, str] = {
     "sporting": "Sporting CP",
     "inter milan": "Inter",
     "internazionale": "Inter",
-    "atletico madrid": "Atletico",
-    "athletico madrid": "Atletico",
-    "psg": "Paris Saint-Germain",
-    "paris sg": "Paris Saint-Germain",
+    # Canonical forms follow data.json rather than the other way round. The
+    # site matches dashboards on exact string equality, so the alias table
+    # producing "Atletico" while every record said "Atletico Madrid" meant an
+    # ingested deal and a migrated one described the same club two ways.
+    "atletico madrid": "Atlético Madrid",
+    "athletico madrid": "Atlético Madrid",
+    "atletico": "Atlético Madrid",
+    "psg": "PSG",
+    "paris sg": "PSG",
+    "paris saint-germain": "PSG",
     "bayern munich": "Bayern",
     "borussia dortmund": "Dortmund",
     "eintracht": "Eintracht Frankfurt",

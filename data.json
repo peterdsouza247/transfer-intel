@@ -418,7 +418,7 @@
       "date": "Jul 11",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 68,
+      "cred": 60,
       "note": "Gordon's replacement on the left.",
       "evidence": [
         {
@@ -436,7 +436,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 80,
+      "base_cred": 70,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -834,7 +834,7 @@
       "date": "Jul 16",
       "tier": 2,
       "src": "Football365",
-      "cred": 90,
+      "cred": 85,
       "note": "Confirmed (auto-updated 2026-07-16). £46m + £4m agreed; Croatia defender's World Cup over, announcement imminent.",
       "evidence": [
         {
@@ -872,7 +872,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 90,
+      "base_cred": 85,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -946,7 +946,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 60,
+      "cred": 52,
       "note": "Utd declined buy-back; get >£10m via sell-on clause.",
       "evidence": [
         {
@@ -964,7 +964,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 80,
+      "base_cred": 70,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1038,7 +1038,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 48,
+      "cred": 41,
       "note": "Personal terms agreed; Rayo rejected first bid, second ~£15m in.",
       "evidence": [
         {
@@ -1056,7 +1056,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 65,
+      "base_cred": 55,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1074,7 +1074,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 48,
+      "cred": 41,
       "note": "Third window Spurs have tried; Romano says he's their 'next big' signing if clubs agree.",
       "evidence": [
         {
@@ -1092,7 +1092,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 65,
+      "base_cred": 55,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1110,7 +1110,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 34,
+      "cred": 26,
       "note": "Spurs ready to offer £75m and reportedly willing to go higher.",
       "evidence": [
         {
@@ -1128,7 +1128,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 45,
+      "base_cred": 35,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1146,7 +1146,7 @@
       "date": "Jul 10",
       "tier": 2,
       "src": "Football365",
-      "cred": 30,
+      "cred": 24,
       "note": "Talks smooth but on hold: Palace need a replacement, Lacroix wants his World Cup medal first.",
       "evidence": [
         {
@@ -1164,7 +1164,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 45,
+      "base_cred": 35,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1178,12 +1178,12 @@
       "fee": 130.0,
       "age": 24,
       "pos": "AM",
-      "status": "rumor",
+      "status": "collapsed",
       "date": "Jul 12",
       "tier": 2,
       "src": "Telegraph / F365",
-      "cred": 26,
-      "note": "Personal terms reportedly agreed; Villa want £130m. Nothing moves while England are in the World Cup.",
+      "cred": 0,
+      "note": "Arsenal had personal terms reportedly agreed but lost the player to Chelsea.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:rogers-aston-villa-arsenal",
@@ -1194,17 +1194,27 @@
           "fee_gbp_m": 130.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/02/premier-league-2026-summer-transfers-done-deals-all-completed-confirmed-signings-official",
+          "source": "FootballTransfers",
+          "tier": 2,
+          "date": "2026-07-22",
+          "claim": "collapsed",
+          "fee_gbp_m": null,
+          "marker": "has signed",
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-12",
+      "last_verified_at": "2026-07-22",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 35,
-      "collapse_reason": null,
-      "collapse_narrative": "",
+      "base_cred": 0,
+      "collapse_reason": "hijacked",
+      "collapse_narrative": "Chelsea completed the signing for a British record 117m on 21 July.",
       "pivot_from": null,
-      "pivot_to": null
+      "pivot_to": "rogers-aston-villa-chelsea"
     },
     {
       "id": "rodriguez-elche-bournemouth",
@@ -1254,7 +1264,7 @@
       "date": "Jul 13",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 27,
+      "cred": 20,
       "note": "Arsenal 'pushing' post-World Cup. Would be the striker upgrade, and the fee to match.",
       "evidence": [
         {
@@ -1272,7 +1282,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 35,
+      "base_cred": 25,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1286,11 +1296,11 @@
       "fee": 35.0,
       "age": 24,
       "pos": "LW",
-      "status": "rumor",
+      "status": "talks",
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 41,
+      "cred": 45,
       "note": "Player 'wants' the move; depends on Trossard/Martinelli exits.",
       "evidence": [
         {
@@ -1302,13 +1312,23 @@
           "fee_gbp_m": 35.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/02/premier-league-2026-summer-transfers-done-deals-all-completed-confirmed-signings-official",
+          "source": "FootballTransfers",
+          "tier": 2,
+          "date": "2026-07-22",
+          "claim": "agreed",
+          "fee_gbp_m": null,
+          "marker": "has signed",
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-12",
+      "last_verified_at": "2026-07-22",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 55,
+      "base_cred": 60,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1326,7 +1346,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 26,
+      "cred": 19,
       "note": "Has told Newcastle he wants out but won't force it. No bid yet; it needs to start with an 8.",
       "evidence": [
         {
@@ -1344,7 +1364,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 35,
+      "base_cred": 25,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1358,12 +1378,12 @@
       "fee": 45.0,
       "age": 25,
       "pos": "CM",
-      "status": "rumor",
+      "status": "collapsed",
       "date": "Jul 11",
       "tier": 2,
       "src": "Football365",
-      "cred": 28,
-      "note": "Back on after Éderson's medical failed; Tielemans deal may kill it.",
+      "cred": 0,
+      "note": "United interest never became a bid; Villa signed him instead.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:gomes-wolves-man-utd",
@@ -1380,11 +1400,11 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 40,
-      "collapse_reason": null,
-      "collapse_narrative": "",
+      "base_cred": 0,
+      "collapse_reason": "hijacked",
+      "collapse_narrative": "Gomes joined Aston Villa for 38m on 21 July.",
       "pivot_from": null,
-      "pivot_to": null
+      "pivot_to": "gomes-wolves-aston-villa"
     },
     {
       "id": "barcola-psg-liverpool",
@@ -1398,7 +1418,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 26,
+      "cred": 19,
       "note": "'Top of list' if Diomande→PSG happens. Reports say he prefers London; Arsenal lurking.",
       "evidence": [
         {
@@ -1416,7 +1436,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 35,
+      "base_cred": 25,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1434,7 +1454,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 26,
+      "cred": 19,
       "note": "World Cup breakout with Morocco; background talks only.",
       "evidence": [
         {
@@ -1452,7 +1472,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 35,
+      "base_cred": 25,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1470,7 +1490,7 @@
       "date": "Jul 12",
       "tier": 3,
       "src": "French press",
-      "cred": 11,
+      "cred": 4,
       "note": "Palace 'strongly interested' after Juventus stalled. Spurs re-signing him also mooted, oddly.",
       "evidence": [
         {
@@ -1488,7 +1508,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 15,
+      "base_cred": 5,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1506,7 +1526,7 @@
       "date": "Jul 12",
       "tier": 3,
       "src": "Turkish press",
-      "cred": 11,
+      "cred": 4,
       "note": "Personal terms 'agreed' per Turkey; if he were truly available at £35m there'd be a queue.",
       "evidence": [
         {
@@ -1524,7 +1544,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 15,
+      "base_cred": 5,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1542,7 +1562,7 @@
       "date": "Jul 12",
       "tier": 3,
       "src": "Paper talk",
-      "cred": 11,
+      "cred": 4,
       "note": "He's mid-contract-renewal talks at Forest. Filed under 'agent noise'.",
       "evidence": [
         {
@@ -1560,7 +1580,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 15,
+      "base_cred": 5,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1812,6 +1832,108 @@
       "completion_marker": "hand-verified at migration, no fetchable source",
       "completion_source": "Sky Sports",
       "completed_date": "2026-06-20",
+      "base_cred": 100,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
+    },
+    {
+      "id": "rogers-aston-villa-chelsea",
+      "p": "Morgan Rogers",
+      "from": "Aston Villa",
+      "to": "Chelsea",
+      "fee": 117.0,
+      "age": 24,
+      "pos": "AM",
+      "status": "done",
+      "date": "Jul 21",
+      "tier": 1,
+      "src": "ESPN",
+      "cred": 100,
+      "note": "British record fee. Chelsea beat Arsenal to the signature after personal terms were reported agreed at the Emirates.",
+      "evidence": [
+        {
+          "url": "https://www.espn.co.uk/football/story/_/id/49330001/rogers-completes-chelsea-switch-aston-villa",
+          "source": "ESPN",
+          "tier": 1,
+          "date": "2026-07-21",
+          "claim": "completed",
+          "fee_gbp_m": 117.0,
+          "marker": "completes move",
+          "official": false
+        },
+        {
+          "url": "https://www.transfermarkt.us/",
+          "source": "Transfermarkt",
+          "tier": 2,
+          "date": "2026-07-21",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.skysports.com/football/news/12875/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-07-21",
+          "claim": "completed",
+          "fee_gbp_m": 117.0,
+          "marker": "has signed",
+          "official": false
+        }
+      ],
+      "last_verified_at": "2026-07-21",
+      "completion_marker": "completes move",
+      "completion_source": "ESPN",
+      "completed_date": "2026-07-22",
+      "base_cred": 100,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
+    },
+    {
+      "id": "gomes-wolves-aston-villa",
+      "p": "Joao Gomes",
+      "from": "Wolves",
+      "to": "Aston Villa",
+      "fee": 38.0,
+      "age": 25,
+      "pos": "CM",
+      "status": "done",
+      "date": "Jul 22",
+      "tier": 1,
+      "src": "Sky Sports",
+      "cred": 100,
+      "note": "Villa reinvest the Tielemans money in midfield within a week of losing him.",
+      "evidence": [
+        {
+          "url": "https://www.skysports.com/football/news/12875/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-07-21",
+          "claim": "completed",
+          "fee_gbp_m": 38.0,
+          "marker": "has signed",
+          "official": false
+        },
+        {
+          "url": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/02/premier-league-2026-summer-transfers-done-deals-all-completed-confirmed-signings-official",
+          "source": "FootballTransfers",
+          "tier": 2,
+          "date": "2026-07-22",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": "has signed",
+          "official": false
+        }
+      ],
+      "last_verified_at": "2026-07-22",
+      "completion_marker": "has signed",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-07-22",
       "base_cred": 100,
       "collapse_reason": null,
       "collapse_narrative": "",

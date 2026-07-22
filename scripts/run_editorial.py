@@ -119,11 +119,12 @@ def main() -> int:
                     help="write the updated data.json and data.js")
     ap.add_argument("--no-notes", action="store_true", help="skip phase 4")
     ap.add_argument("--max-notes", type=int, default=12)
-    ap.add_argument("--recent-days", type=int, default=None,
+    ap.add_argument("--recent-days", default=None,
                     help="widen the evidence window used for status changes. "
                          "Defaults to the scoring config's 3 days. Raise it "
                          "only when catching up after missed runs: see "
-                         "docs/CATCHUP.md")
+                         "docs/CATCHUP.md. Pass 'auto' to size it from the "
+                         "age of the evidence in hand.")
     ap.add_argument("--max-changes", type=int, default=15,
                     help="abort if phase 3 wants more updates than this")
     args = ap.parse_args()
@@ -143,6 +144,21 @@ def main() -> int:
     # article it just ingested is scored as historical context and moves
     # nothing. See docs/CATCHUP.md.
     scoring_cfg = DEFAULT_CONFIG
+    if args.recent_days == "auto":
+        # Derive the window from the evidence actually in hand, so a run after
+        # a gap widens itself instead of silently scoring last week's
+        # announcements as history and reporting zero changes. This is the
+        # single most common way a correct run looks like a broken one.
+        newest = max(
+            (e.date for d in deals for e in d.evidence), default=today
+        )
+        needed = max(DEFAULT_CONFIG.recent_window_days, (today - newest).days + 1)
+        if needed > DEFAULT_CONFIG.recent_window_days:
+            print(f"Newest evidence is {(today - newest).days} days old; "
+                  f"widening the window to {needed} days.")
+        args.recent_days = needed
+    elif args.recent_days:
+        args.recent_days = int(args.recent_days)
     if args.recent_days:
         scoring_cfg = replace(DEFAULT_CONFIG, recent_window_days=args.recent_days)
         print(f"Catch-up mode: evidence window widened to "
