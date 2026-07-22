@@ -1,0 +1,237 @@
+{
+  "anderson-nott-m-forest-man-city": {
+    "status": "done",
+    "cred": 100,
+    "fee": 116.0
+  },
+  "tonali-newcastle-tottenham": {
+    "status": "done",
+    "cred": 100,
+    "fee": 92.5
+  },
+  "fernandes-west-ham-tottenham": {
+    "status": "done",
+    "cred": 100,
+    "fee": 85.0
+  },
+  "gordon-newcastle-barcelona": {
+    "status": "done",
+    "cred": 100,
+    "fee": 69.3
+  },
+  "jacquet-rennes-liverpool": {
+    "status": "done",
+    "cred": 100,
+    "fee": 60.0
+  },
+  "hecke-brighton-tottenham": {
+    "status": "done",
+    "cred": 100,
+    "fee": 52.0
+  },
+  "cucurella-chelsea-real-madrid": {
+    "status": "done",
+    "cred": 100,
+    "fee": 51.8
+  },
+  "santos-chelsea-man-utd": {
+    "status": "confirmed",
+    "cred": 80,
+    "fee": 48.0
+  },
+  "quenda-sporting-cp-chelsea": {
+    "status": "done",
+    "cred": 100,
+    "fee": 44.0
+  },
+  "palestra-atalanta-chelsea": {
+    "status": "done",
+    "cred": 100,
+    "fee": 43.0
+  },
+  "toure-hoffenheim-newcastle": {
+    "status": "confirmed",
+    "cred": 68,
+    "fee": 42.0
+  },
+  "hojlund-man-utd-napoli": {
+    "status": "done",
+    "cred": 100,
+    "fee": 38.0
+  },
+  "tielemans-aston-villa-man-utd": {
+    "status": "confirmed",
+    "cred": 80,
+    "fee": 35.0
+  },
+  "hincapie-leverkusen-arsenal": {
+    "status": "done",
+    "cred": 100,
+    "fee": 34.5
+  },
+  "munoz-osasuna-liverpool": {
+    "status": "done",
+    "cred": 100,
+    "fee": 34.5
+  },
+  "hackney-middlesbrough-everton": {
+    "status": "done",
+    "cred": 100,
+    "fee": 24.0
+  },
+  "rohl-freiburg-everton": {
+    "status": "done",
+    "cred": 100,
+    "fee": 21.7
+  },
+  "yohanna-aik-brighton": {
+    "status": "done",
+    "cred": 100,
+    "fee": 21.5
+  },
+  "malen-aston-villa-roma": {
+    "status": "done",
+    "cred": 100,
+    "fee": 21.7
+  },
+  "jaouen-reims-newcastle": {
+    "status": "done",
+    "cred": 100,
+    "fee": 18.5
+  },
+  "schuster-rb-salzburg-brentford": {
+    "status": "done",
+    "cred": 100,
+    "fee": 16.5
+  },
+  "vuskovic-tottenham-brighton": {
+    "status": "confirmed",
+    "cred": 71,
+    "fee": 46.0
+  },
+  "manzambi-freiburg-aston-villa": {
+    "status": "confirmed",
+    "cred": 87,
+    "fee": 52.0
+  },
+  "greenwood-marseille-fenerbahce": {
+    "status": "agreed",
+    "cred": 60,
+    "fee": 0.0
+  },
+  "trossard-arsenal-besiktas": {
+    "status": "confirmed",
+    "cred": 71,
+    "fee": 15.3
+  },
+  "chavarria-rayo-vallecano-chelsea": {
+    "status": "talks",
+    "cred": 48,
+    "fee": 15.0
+  },
+  "savinho-man-city-tottenham": {
+    "status": "talks",
+    "cred": 48,
+    "fee": 60.0
+  },
+  "kroupi-bournemouth-tottenham": {
+    "status": "talks",
+    "cred": 34,
+    "fee": 75.0
+  },
+  "lacroix-crystal-palace-chelsea": {
+    "status": "talks",
+    "cred": 30,
+    "fee": 35.0
+  },
+  "rogers-aston-villa-arsenal": {
+    "status": "rumor",
+    "cred": 26,
+    "fee": 130.0
+  },
+  "rodriguez-elche-bournemouth": {
+    "status": "confirmed",
+    "cred": 13,
+    "fee": 25.7
+  },
+  "alvarez-atletico-madrid-arsenal": {
+    "status": "rumor",
+    "cred": 27,
+    "fee": 100.0
+  },
+  "tzolis-club-brugge-arsenal": {
+    "status": "rumor",
+    "cred": 41,
+    "fee": 35.0
+  },
+  "guimaraes-newcastle-arsenal": {
+    "status": "rumor",
+    "cred": 26,
+    "fee": 90.0
+  },
+  "gomes-wolves-man-utd": {
+    "status": "rumor",
+    "cred": 28,
+    "fee": 45.0
+  },
+  "barcola-psg-liverpool": {
+    "status": "rumor",
+    "cred": 26,
+    "fee": 80.0
+  },
+  "bouaddi-lille-man-city": {
+    "status": "rumor",
+    "cred": 26,
+    "fee": 40.0
+  },
+  "muani-psg-crystal-palace": {
+    "status": "rumor",
+    "cred": 11,
+    "fee": 30.0
+  },
+  "watkins-aston-villa-fenerbahce": {
+    "status": "rumor",
+    "cred": 11,
+    "fee": 35.0
+  },
+  "williams-nott-m-forest-man-utd": {
+    "status": "rumor",
+    "cred": 11,
+    "fee": 25.0
+  },
+  "ederson-atalanta-man-utd": {
+    "status": "collapsed",
+    "cred": 0,
+    "fee": 34.9
+  },
+  "robertson-liverpool-tottenham": {
+    "status": "done",
+    "cred": 100,
+    "fee": 0.0
+  },
+  "senesi-bournemouth-tottenham": {
+    "status": "done",
+    "cred": 100,
+    "fee": 0.0
+  },
+  "dubravka-burnley-tottenham": {
+    "status": "done",
+    "cred": 100,
+    "fee": 0.0
+  },
+  "konate-liverpool-real-madrid": {
+    "status": "done",
+    "cred": 100,
+    "fee": 0.0
+  },
+  "silva-man-city-real-madrid": {
+    "status": "done",
+    "cred": 100,
+    "fee": 0.0
+  },
+  "trippier-newcastle-wolves": {
+    "status": "done",
+    "cred": 100,
+    "fee": 0.0
+  }
+}
