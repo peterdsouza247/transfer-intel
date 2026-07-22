@@ -111,6 +111,23 @@ Now explicitly split: the code is proprietary, the dataset is CC BY 4.0 with
 attribution, and the licence states that CC BY covers the compilation rather
 than the underlying reporting, which belongs to the outlets cited.
 
+### Fixed after v1.0
+
+- `migrate_data.parse_display_date` called `strptime` without a year, which
+  emits a DeprecationWarning under Python 3.14 and will stop working in 3.15.
+  The warning was hiding a real defect: the implicit year is 1900, which was
+  not a leap year, so "Feb 29" raised and fell through to the fallback date
+  even in years where it exists. The year is now supplied to the parse.
+- The test suite treats DeprecationWarning as an error, so the next one is
+  found by the build rather than by a user on a newer Python.
+
+### Changed after v1.0
+
+- The email capture form is now a single instance under the site header,
+  rather than three placements. TI-011's club and threshold preferences move
+  onto it, folded behind a disclosure that is closed by default, since the
+  placement that used to carry them no longer exists.
+
 ### Removed
 
 - `scripts/update_data.py` and its workflow. A Wikipedia scraper that promoted

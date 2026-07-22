@@ -64,6 +64,13 @@ def render_candidates_md(candidates, stats) -> str:
     return "\n".join(lines)
 
 
+def _require(path, what: str, hint: str) -> bool:
+    if path is None or path.exists():
+        return True
+    print(f"\n{path} does not exist.\n  {what}\n  {hint}", file=sys.stderr)
+    return False
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--data", type=Path, default=Path("data.json"))
@@ -131,6 +138,16 @@ def main() -> int:
 
     # -- phase 2 ------------------------------------------------------------
     stats = ExtractionStats()
+    if args.claims and not args.claims.exists():
+        # A raw FileNotFoundError traceback here is unhelpful: by this point
+        # the run has already fetched and filtered, so it reads like the
+        # pipeline broke rather than like a path being wrong.
+        print(f"\n{args.claims} does not exist.\n"
+              "  --claims expects a JSON array of pre-extracted claims.\n"
+              "  See docs/MANUAL-INGEST.md, and manual/claims.json for a\n"
+              "  worked example you can copy.", file=sys.stderr)
+        return 2
+
     if args.claims:
         # Claims supplied from outside. Everything downstream is unchanged:
         # resolution, marker detection, deduping, scoring and the gate all run

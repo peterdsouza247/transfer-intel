@@ -459,7 +459,7 @@ def test_capture_form_carries_preferences_when_asked():
     cfg = site.SiteConfig(base_url="https://x.test",
                           newsletter_action="https://provider.test/f")
     plain = site.render_capture_form(cfg, ["Arsenal"], "top")
-    rich = site.render_capture_form(cfg, ["Arsenal"], "index",
+    rich = site.render_capture_form(cfg, ["Arsenal"], "top",
                                     with_preferences=True)
     assert "fields[threshold]" not in plain
     assert "fields[threshold]" in rich and "Arsenal" in rich
@@ -623,14 +623,34 @@ def test_catch_up_window_is_configurable():
     assert decide_status(stale_news, TODAY, wide).status is Status.agreed
 
 
-def test_one_capture_form_on_mobile():
-    """Three asks on one stacked scroll reads as nagging."""
+def test_exactly_one_capture_form_on_the_page():
+    """One ask, not three.
+
+    Three placements meant meeting the same offer three times on a single
+    scroll, which reads as nagging rather than as an offer. A reader who has
+    declined once does not need asking again on the way to the footer.
+    """
     html = (ROOT / "index.html").read_text(encoding="utf-8")
     assert 'id="capture-top"' in html
-    assert "capture-hero" not in html
-    mobile = html[html.index("@media(max-width:860px)"):]
-    mobile = mobile[:mobile.index("</style>")]
-    assert "#capture-index,#capture-footer{display:none}" in mobile
+    for gone in ("capture-hero", "capture-index", "capture-footer"):
+        assert gone not in html, gone
+    # Count the rendered markup only. The page script carries a template
+    # literal for the same form, which is not a second form on the page.
+    markup = html[:html.index("<script>\nconst DATA")]
+    assert markup.count('<form class="capture"') == 1
+    assert markup.count('id="capture-') == 1
+
+
+def test_the_single_form_still_collects_preferences():
+    """TI-011 segmentation had exactly one collection point, and it was on a
+    placement that no longer exists. Folded into a disclosure instead, so the
+    form asks for one thing and keeps the rest optional."""
+    cfg = site.SiteConfig(base_url="https://x.test",
+                          newsletter_action="https://provider.test/f")
+    rendered = site.render_capture_form(cfg, ["Arsenal"], "top",
+                                        with_preferences=True)
+    assert "fields[clubs]" in rendered and "fields[threshold]" in rendered
+    assert "<details" in rendered and "<summary>" in rendered
 
 
 def test_capture_form_sits_above_the_nav():
@@ -682,7 +702,10 @@ def test_prefilter_keeps_real_transfer_headlines(title):
 
 
 @pytest.mark.parametrize("title", [
-    "Spain leave it late as super-sub Merino scores a stoppage-time winner",
+    # "Spain leave it late" used to be here. Adding "leave" to the vocabulary
+    # so that "Rashford to leave Man Utd" survives made this a false positive,
+    # which is the trade the module documents and accepts. Covered instead by
+    # test_the_filter_accepts_some_false_positives_on_purpose.
     "France forward Mbappe condemns a Paraguayan senator",
     "After 10 years as Fifa president, could the controversy tip the balance",
     "BBC Sport looks at the end of Ronaldo's World Cup career",
@@ -792,3 +815,44 @@ def test_health_check_survives_a_truncated_stats_file(tmp_path):
     assert out.returncode == 1
     assert "truncated" in out.stdout
     assert "Traceback" not in out.stderr
+
+
+def test_no_orphaned_capture_references_in_the_page_script():
+    """Removing the extra placements left `idx` and `foot` in use below their
+    deleted declaration. The error boundary caught it and the form still
+    rendered from the build, which is exactly why it was easy to miss."""
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    script = html[html.index("<script>\nconst DATA"):]
+    for orphan in ('form("index"', 'form("footer"', 'form("hero"'):
+        assert orphan not in script, orphan
+
+
+@pytest.mark.parametrize("title", [
+    "Iraola wants Mac Allister and Alisson to stay with Reds",
+    "Arsenal fend off interest in Saka",
+    "Guimaraes commits future to Newcastle with new deal",
+    "Palace insist Lacroix is not for sale",
+    "Rashford to quit Man Utd this summer",
+])
+def test_prefilter_keeps_transfers_that_are_being_resisted(title):
+    """Resisting a transfer is transfer news.
+
+    A manager saying he wants a player to stay only gets written because
+    somebody is trying to buy him. The filter was dropping the whole genre:
+    contract renewals, hands-off statements, players agitating to leave.
+    """
+    from transferintel.prefilter import looks_like_transfer_news
+    assert looks_like_transfer_news(_art(title))
+
+
+def test_the_filter_accepts_some_false_positives_on_purpose():
+    """"Spain leave it late" matches on "leave" and is kept.
+
+    Documented rather than fixed. Chasing idioms is the "how much more can
+    this cut" thinking the module exists to avoid, and one extra article in a
+    batch costs a fraction of a penny. The asymmetry runs the other way: a
+    dropped transfer story costs a deal, silently.
+    """
+    from transferintel.prefilter import looks_like_transfer_news
+    assert looks_like_transfer_news(
+        _art("Spain leave it late as Merino scores a stoppage-time winner"))

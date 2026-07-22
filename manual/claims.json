@@ -1,0 +1,122 @@
+[
+ {
+  "is_transfer_claim": true,
+  "player": "Youri Tielemans",
+  "from_club": "Aston Villa",
+  "to_club": "Man Utd",
+  "reported_stage": "completed",
+  "fee_amount": null,
+  "fee_currency": null,
+  "article_url": "https://www.manutd.com/en/news/manchester-united-announce-signing-of-youri-tielemans"
+ },
+ {
+  "is_transfer_claim": true,
+  "player": "Andrey Santos",
+  "from_club": "Chelsea",
+  "to_club": "Man Utd",
+  "reported_stage": "completed",
+  "fee_amount": null,
+  "fee_currency": null,
+  "article_url": "https://www.espn.com/soccer/story/_/id/49318443/manchester-united-announce-signing-andrey-santos-chelsea-premier-league-transfer-news"
+ },
+ {
+  "is_transfer_claim": true,
+  "player": "Luka Vuskovic",
+  "from_club": "Tottenham",
+  "to_club": "Brighton",
+  "reported_stage": "completed",
+  "fee_amount": 46,
+  "fee_currency": "GBP",
+  "article_url": "https://www.rte.ie/sport/soccer/2026/0714/1583284-pl-transfers-brighton-sign-vuskovic-from-tottenham/"
+ },
+ {
+  "is_transfer_claim": true,
+  "player": "Youri Tielemans",
+  "from_club": "Aston Villa",
+  "to_club": "Man Utd",
+  "reported_stage": "completed",
+  "fee_amount": 35,
+  "fee_currency": "GBP",
+  "article_url": "https://www.rte.ie/sport/soccer/2026/0714/1583284-pl-transfers-brighton-sign-vuskovic-from-tottenham/"
+ },
+ {
+  "is_transfer_claim": true,
+  "player": "Karl Darlow",
+  "from_club": "Leeds",
+  "to_club": "Man Utd",
+  "reported_stage": "completed",
+  "fee_amount": null,
+  "fee_currency": null,
+  "article_url": "https://www.rte.ie/sport/soccer/2026/0714/1583284-pl-transfers-brighton-sign-vuskovic-from-tottenham/"
+ },
+ {
+  "is_transfer_claim": true,
+  "player": "Johan Manzambi",
+  "from_club": "Freiburg",
+  "to_club": "Aston Villa",
+  "reported_stage": "completed",
+  "fee_amount": 59.5,
+  "fee_currency": "GBP",
+  "article_url": "https://www.skysports.com/football/news/12875/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs"
+ },
+ {
+  "is_transfer_claim": true,
+  "player": "Joao Gomes",
+  "from_club": "Wolves",
+  "to_club": "Aston Villa",
+  "reported_stage": "completed",
+  "fee_amount": 38,
+  "fee_currency": "GBP",
+  "article_url": "https://www.skysports.com/football/news/12875/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs"
+ },
+ {
+  "is_transfer_claim": true,
+  "player": "Morgan Rogers",
+  "from_club": "Aston Villa",
+  "to_club": "Chelsea",
+  "reported_stage": "completed",
+  "fee_amount": 117,
+  "fee_currency": "GBP",
+  "article_url": "https://www.skysports.com/football/news/12875/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs"
+ },
+ {
+  "is_transfer_claim": true,
+  "player": "Leandro Trossard",
+  "from_club": "Arsenal",
+  "to_club": "Besiktas",
+  "reported_stage": "completed",
+  "fee_amount": 17,
+  "fee_currency": "GBP",
+  "article_url": "https://www.skysports.com/football/news/12875/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs"
+ },
+ {
+  "is_transfer_claim": true,
+  "player": "Johan Manzambi",
+  "from_club": "Freiburg",
+  "to_club": "Aston Villa",
+  "reported_stage": "completed",
+  "fee_amount": null,
+  "fee_currency": null,
+  "article_url": "https://www.transfermarkt.us/"
+ },
+ {
+  "is_transfer_claim": true,
+  "player": "Luka Vuskovic",
+  "from_club": "Tottenham",
+  "to_club": "Brighton",
+  "reported_stage": "completed",
+  "fee_amount": null,
+  "fee_currency": null,
+  "article_url": "https://www.transfermarkt.us/"
+ },
+ {
+  "is_transfer_claim": true,
+  "player": "Leandro Trossard",
+  "from_club": "Arsenal",
+  "to_club": "Besiktas",
+  "reported_stage": "completed",
+  "fee_amount": null,
+  "fee_currency": null,
+  "article_url": "https://www.transfermarkt.us/"
+ }
+]

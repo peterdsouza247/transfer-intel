@@ -26,6 +26,13 @@ cat build/patch.md          # read before applying
 cat build/candidates.md     # deals not yet tracked
 ```
 
+## A worked example ships with the repo
+
+`manual/articles.json` and `manual/claims.json` hold the real 22 July refresh:
+five sources, twelve claims, two of which promoted deals to `done` on
+Manchester United's own announcement. Copy them and edit rather than starting
+from an empty file.
+
 ## The two input files
 
 `articles.json` is the provenance. One entry per source article:

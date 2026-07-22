@@ -6,13 +6,20 @@ all ordinary code.
 
 ## What was changed, and why
 
-**A prefilter in front of the extractor.** This is the large one. A general
-football feed during a World Cup summer is mostly match reports, injury news
-and federation politics. A sample of nine consecutive BBC football headlines
-in July 2026 contained exactly one transfer story, and the extractor was
-reading all nine. `prefilter.py` drops anything with no transfer signal
-before a token is spent. Measured on real headlines it keeps 100 percent of
-known transfer articles and drops about 90 percent of the rest.
+**A prefilter in front of the extractor.** `prefilter.py` drops anything with
+no transfer signal before a token is spent.
+
+**How much it saves depends entirely on your feeds, and the first estimate
+here was wrong.** It was based on a sample of general BBC football headlines,
+where one story in nine was about a transfer, and predicted a cut of roughly
+85 percent. On the feeds actually configured in `sources.py` the real figure
+is closer to 16 percent, because several of them are transfer-specific
+already: Sky's 12040 is the transfer centre feed, not general football. The
+filter is still worth having, and it is worth less than first claimed.
+
+Recall is unaffected and is the number that matters: it keeps 100 percent of
+known transfer articles in the eval fixtures, including the ones about
+transfers being resisted rather than completed.
 
 **A seen-article cache.** The ingest window is 36 hours and the job runs
 every 24, so roughly a third of each day's articles were already read and

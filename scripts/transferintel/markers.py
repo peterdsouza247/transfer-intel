@@ -46,6 +46,12 @@ from .models import CollapseReason
 COMPLETION_PATTERNS: tuple[tuple[str, str], ...] = (
     ("has signed", r"\b(?:has|have) signed\b"),
     ("has joined", r"\b(?:has|have) joined\b"),
+    # "Manzambi joins Aston Villa" is one of the commonest ways a completed
+    # transfer is written, and the bare present tense was being missed. The
+    # lookahead is the whole trick: "joins Aston Villa" is a completion,
+    # "joins the race", "joins talks" and "joins up with" are not.
+    ("joins", r"\bjoins\b(?!\s+(?:the\s+(?:race|hunt|chase|list)|talks|"
+              r"up\b|forces|in\b|his\s|team-?mates))"),
     ("officially signed", r"\bofficially (?:signed|joined|completed)\b"),
     ("completes move", r"\bcomplet(?:es|ed) (?:\w+ ){0,3}?(?:move|transfer|switch)\b"),
     ("seals move", r"\bseal(?:s|ed) (?:\w+ ){0,3}?(?:move|transfer|switch)\b"),

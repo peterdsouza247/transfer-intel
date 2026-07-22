@@ -228,3 +228,29 @@ def test_evidence_output_is_shaped_for_the_editorial_pass():
     for items in payload.values():
         for item in items:
             Evidence(**item)
+
+
+def test_display_dates_parse_without_deprecation_warnings():
+    """Python 3.15 will stop allowing strptime without a year.
+
+    The warning was not cosmetic. The implicit default year is 1900, which was
+    not a leap year, so "Feb 29" raised `day is out of range for month` and
+    fell through to the fallback date even in a year where it exists.
+    """
+    import warnings
+    from datetime import date
+
+    with warnings.catch_warnings():
+        warnings.simplefilter("error", DeprecationWarning)
+        assert parse_display_date("Jul 8", date(2026, 7, 22)) == date(2026, 7, 8)
+        assert parse_display_date("8 Jul", date(2026, 7, 22)) == date(2026, 7, 8)
+        # Rolls back a year rather than landing in the future.
+        assert parse_display_date("Dec 20", date(2026, 7, 22)) == date(2025, 12, 20)
+
+
+def test_leap_day_resolves_in_a_leap_year():
+    from datetime import date
+
+    assert parse_display_date("Feb 29", date(2028, 7, 22)) == date(2028, 2, 29)
+    # No such date in 2027, so the fallback is correct rather than a crash.
+    assert parse_display_date("Feb 29", date(2027, 7, 22)) == date(2027, 7, 22)

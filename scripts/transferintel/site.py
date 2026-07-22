@@ -386,13 +386,18 @@ def render_capture_form(
 
     prefs = ""
     if with_preferences:
-        # TI-011. Two fields, both optional, both defaulted to "everything".
-        # A signup form that demands decisions before it will take an address
-        # is a signup form people close.
+        # TI-011. Two fields, both optional, both defaulted to "everything",
+        # and both folded away behind a disclosure. A signup form that demands
+        # decisions before it will take an address is a signup form people
+        # close, and this is now the only form on the page: it has to ask for
+        # one thing, and let the rest be optional detail for the minority who
+        # want it.
         options = "".join(
             f'<option value="{e(c)}">{e(c)}</option>' for c in sorted(clubs)
         )
         prefs = f"""
+  <details class="capture-more">
+    <summary>Only want certain clubs?</summary>
       <div class="capture-prefs">
         <label>Clubs
           <select name="fields[clubs]" multiple size="4"
@@ -410,7 +415,8 @@ def render_capture_form(
             <option value="confirmed">Confirmed only</option>
           </select>
         </label>
-      </div>"""
+      </div>
+  </details>"""
 
     return f"""<form class="capture" method="post"
       action="{e(cfg.newsletter_action)}"

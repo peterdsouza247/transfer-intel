@@ -162,13 +162,13 @@ def main() -> int:
     # TI-010. Rendered server-side so the form works with JavaScript disabled
     # and so a crawler sees the offer. The page's own script re-renders these
     # on load; both produce the same markup.
+    # One form, under the header. Three placements meant meeting the same ask
+    # three times on a single scroll, which reads as nagging rather than as an
+    # offer, and a reader who has declined once does not need asking again on
+    # the way to the footer.
     document = site.inject_into(
-        document, "capture-top", site.render_capture_form(cfg, clubs, "top"))
-    document = site.inject_into(
-        document, "capture-index",
-        site.render_capture_form(cfg, clubs, "index", with_preferences=True))
-    document = site.inject_into(
-        document, "capture-footer", site.render_capture_form(cfg, clubs, "footer"))
+        document, "capture-top",
+        site.render_capture_form(cfg, clubs, "top", with_preferences=True))
     document = site.inject_into(document, "feed", site.render_feed_items(deals))
     document = site.inject_into(
         document, "footer",

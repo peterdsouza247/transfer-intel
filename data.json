@@ -296,11 +296,11 @@
       "fee": 48.0,
       "age": 22,
       "pos": "CM",
-      "status": "confirmed",
+      "status": "done",
       "date": "Jul 16",
       "tier": 1,
       "src": "Ornstein",
-      "cred": 80,
+      "cred": 100,
       "note": "Confirmed (auto-updated 2026-07-16). Medical completed Thursday; all done bar the unveiling.",
       "evidence": [
         {
@@ -312,13 +312,23 @@
           "fee_gbp_m": 48.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.espn.com/soccer/story/_/id/49318443/manchester-united-announce-signing-andrey-santos-chelsea-premier-league-transfer-news",
+          "source": "ESPN",
+          "tier": 1,
+          "date": "2026-07-13",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": "has signed",
+          "official": false
         }
       ],
       "last_verified_at": "2026-07-16",
-      "completion_marker": null,
-      "completion_source": null,
-      "completed_date": null,
-      "base_cred": 90,
+      "completion_marker": "has signed",
+      "completion_source": "ESPN",
+      "completed_date": "2026-07-22",
+      "base_cred": 100,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -476,11 +486,11 @@
       "fee": 35.0,
       "age": 29,
       "pos": "CM",
-      "status": "confirmed",
+      "status": "done",
       "date": "Jul 16",
       "tier": 1,
       "src": "Romano + Ornstein",
-      "cred": 80,
+      "cred": 100,
       "note": "Confirmed (auto-updated 2026-07-16). Release clause triggered (€41m). Villa didn't want to sell. Announcement expected this week.",
       "evidence": [
         {
@@ -492,13 +502,33 @@
           "fee_gbp_m": 35.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.manutd.com/en/news/manchester-united-announce-signing-of-youri-tielemans",
+          "source": "Man Utd",
+          "tier": 1,
+          "date": "2026-07-14",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": "official announcement on manutd.com",
+          "official": true
+        },
+        {
+          "url": "https://www.rte.ie/sport/soccer/2026/0714/1583284-pl-transfers-brighton-sign-vuskovic-from-tottenham/",
+          "source": "RTE",
+          "tier": 2,
+          "date": "2026-07-14",
+          "claim": "completed",
+          "fee_gbp_m": 35.0,
+          "marker": "has signed",
+          "official": false
         }
       ],
       "last_verified_at": "2026-07-16",
-      "completion_marker": null,
-      "completion_source": null,
-      "completed_date": null,
-      "base_cred": 90,
+      "completion_marker": "official announcement on manutd.com",
+      "completion_source": "Man Utd",
+      "completed_date": "2026-07-22",
+      "base_cred": 100,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -804,7 +834,7 @@
       "date": "Jul 16",
       "tier": 2,
       "src": "Football365",
-      "cred": 71,
+      "cred": 80,
       "note": "Confirmed (auto-updated 2026-07-16). £46m + £4m agreed; Croatia defender's World Cup over, announcement imminent.",
       "evidence": [
         {
@@ -816,13 +846,33 @@
           "fee_gbp_m": 46.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.rte.ie/sport/soccer/2026/0714/1583284-pl-transfers-brighton-sign-vuskovic-from-tottenham/",
+          "source": "RTE",
+          "tier": 2,
+          "date": "2026-07-14",
+          "claim": "completed",
+          "fee_gbp_m": 46.0,
+          "marker": "has signed",
+          "official": false
+        },
+        {
+          "url": "https://www.transfermarkt.us/",
+          "source": "Transfermarkt",
+          "tier": 2,
+          "date": "2026-07-22",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": "joins",
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-16",
+      "last_verified_at": "2026-07-22",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 80,
+      "base_cred": 90,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -833,7 +883,7 @@
       "p": "Johan Manzambi",
       "from": "Freiburg",
       "to": "Aston Villa",
-      "fee": 52.0,
+      "fee": 59.5,
       "age": 20,
       "pos": "AM",
       "status": "confirmed",
@@ -852,9 +902,29 @@
           "fee_gbp_m": 52.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.skysports.com/football/news/12875/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-07-22",
+          "claim": "completed",
+          "fee_gbp_m": 59.5,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.transfermarkt.us/",
+          "source": "Transfermarkt",
+          "tier": 2,
+          "date": "2026-07-22",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": "joins",
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-18",
+      "last_verified_at": "2026-07-22",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
@@ -905,14 +975,14 @@
       "p": "Leandro Trossard",
       "from": "Arsenal",
       "to": "Beşiktaş",
-      "fee": 15.3,
+      "fee": 17.0,
       "age": 31,
       "pos": "LW",
       "status": "confirmed",
       "date": "Jul 16",
       "tier": 2,
       "src": "Football365 / Romano",
-      "cred": 71,
+      "cred": 80,
       "note": "Confirmed (auto-updated 2026-07-16). Fee agreed (£17-20m reported); personal terms being discussed mid-World Cup.",
       "evidence": [
         {
@@ -924,13 +994,33 @@
           "fee_gbp_m": 15.3,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.skysports.com/football/news/12875/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-07-22",
+          "claim": "completed",
+          "fee_gbp_m": 17.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.transfermarkt.us/",
+          "source": "Transfermarkt",
+          "tier": 2,
+          "date": "2026-07-22",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": "joins",
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-16",
+      "last_verified_at": "2026-07-22",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 80,
+      "base_cred": 90,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,

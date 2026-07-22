@@ -45,24 +45,32 @@ the one chance you get to ask a visitor for their email.
 
 ## What gets rendered
 
-Three placements, no modal and no interstitial:
+One form, directly under the site header and above the section nav. No modal,
+no interstitial, no second ask further down the page.
 
-- below the hero KPIs
-- at the end of the credibility index, this one carries the preference fields
-- above the footer
+It was three placements originally: below the hero, at the end of the
+credibility index, and above the footer. On desktop those were separated by
+real content. On mobile, where every section stacks into one scroll, it meant
+meeting the same offer three times on the way down, which reads as nagging
+rather than as an offer. A reader who has declined once does not need asking
+again before the footer.
 
-All three are real HTML forms rendered at build time, so they work with
-JavaScript disabled and a crawler can see the offer. The page's own script
-re-renders them on load from the same config; both produce the same markup.
+The form is real HTML rendered at build time, so it works with JavaScript
+disabled and a crawler can see the offer. The page script re-renders the same
+form from the same config on load; both produce identical markup.
 
 Submitting redirects to `/thanks/`, which is also the analytics conversion
 goal. See `docs/ANALYTICS.md`.
 
 ## Preferences (TI-011)
 
-The index placement collects two optional fields, both defaulted to
-"everything". A signup form that demands decisions before it will take an
-address is a signup form people close.
+The form collects two optional fields, both defaulted to "everything", folded
+away behind a "Only want certain clubs?" disclosure that is closed by default.
+
+That fold matters more now than it did. A signup form that demands decisions
+before it will take an address is a signup form people close, and this is the
+only form on the page: it has to ask for one thing well. The preferences are
+there for the minority who want them and invisible to everyone else.
 
 - **Clubs**, a multi-select stored as provider tags
 - **Minimum credibility**, stored as a custom field: any, 40+, 60+, 80+, or

@@ -164,15 +164,25 @@ def parse_with_python(js: str) -> dict:
 
 def parse_display_date(raw: str, fallback: date) -> date:
     """`"Jul 15"` has no year. Assume the most recent occurrence not in the
-    future, which is right for every in-window date and harmless otherwise."""
+    future, which is right for every in-window date and harmless otherwise.
+
+    The year is supplied to `strptime` rather than patched on afterwards.
+    Parsing without one silently defaults to 1900, which Python 3.15 will stop
+    allowing, and which was already wrong for one date: 1900 was not a leap
+    year, so "Feb 29" raised `day is out of range for month` and fell through
+    to the fallback even in a year where the date exists.
+    """
     raw = (raw or "").strip()
-    for fmt in ("%b %d", "%d %b", "%B %d"):
-        try:
-            parsed = datetime.strptime(raw, fmt).date()
-        except ValueError:
-            continue
-        for year in (fallback.year, fallback.year - 1):
-            candidate = parsed.replace(year=year)
+    if not raw:
+        return fallback
+    for year in (fallback.year, fallback.year - 1):
+        for fmt in ("%b %d", "%d %b", "%B %d"):
+            try:
+                candidate = datetime.strptime(
+                    f"{raw} {year}", f"{fmt} %Y"
+                ).date()
+            except ValueError:
+                continue
             if candidate <= fallback:
                 return candidate
     return fallback

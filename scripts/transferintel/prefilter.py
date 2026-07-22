@@ -49,6 +49,14 @@ TRANSFER_TERMS: tuple[str, ...] = (
     "reject", "rejected", "approach", "monitoring", "scouted", "shortlist",
     "replacement", "successor", "suitor", "suitors", "available", "for sale",
     "wants out", "future",
+    # Resisting a transfer is transfer news. "Iraola wants Mac Allister to
+    # stay" only gets written because somebody is trying to buy him, and the
+    # filter was dropping the whole genre: contract renewals, hands-off
+    # statements, players agitating to leave.
+    "stay", "stays", "staying", "remain", "remains", "keep", "keeping",
+    "retain", "hold on to", "hands off", "not for sale", "quit", "quits",
+    "leave", "leaves", "leaving", "commit", "commits", "extension",
+    "extend", "renew", "renewal", "new deal", "tie down", "fend off",
 )
 
 #: Money, in any of the three currencies the feeds use. A headline with a fee
