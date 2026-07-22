@@ -56,14 +56,24 @@ jobs:
             --window-hours 36 \
             --max-batches 12
 
+      # The ingest step above is allowed to fail so a dead feed cannot stop the
+      # decay pass. That tolerance is what let a missing API key run silently
+      # for days, publishing a green tick and no new deals. This turns that
+      # state back into a visible failure.
+      - name: Ingestion health
+        run: python scripts/check_ingest.py --stats build/ingest_stats.json
+
       - name: Guarantee an evidence file
+        if: always()
         run: '[ -f build/evidence.json ] || echo "{}" > build/evidence.json' 
 
       - name: Score and write notes
         id: editorial
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          TI_NOTE_MODEL: claude-sonnet-5
+          # Haiku handles a one-sentence note against an explicit rules block,
+          # and costs roughly a third of Sonnet. Revert if quality drops.
+          TI_NOTE_MODEL: claude-haiku-4-5-20251001
         run: |
           python scripts/run_editorial.py \
             --data data.json \

@@ -1,24 +1,70 @@
-Copyright (c) 2026 Peter Brendan (Peter D'Souza). All rights reserved.
+TransferIntel
+Copyright (c) 2026 Peter D'Souza, writing as Peter Brendan.
 
-This work, including its source code, text, artwork, game design, and all
-other content in this repository, is made available for viewing and personal
-play only.
+This repository is covered by two different terms, because the code and the
+data are different assets with different purposes.
 
-The editorial content in data.js (credibility assessments, notes, and club commentary) is original authored content and may not be scraped, republished, or used to train derivative datasets.
+--------------------------------------------------------------------------
+1. THE SOFTWARE: all rights reserved
+--------------------------------------------------------------------------
+
+The source code, including the Python pipeline in scripts/, the site
+template index.html, the build tooling, the tests and the documentation, is
+proprietary. All rights reserved.
 
 Permission is NOT granted to:
-  - copy, reuse, or redistribute the source code or content, in whole or in
-    part, in any other project or product;
-  - create derivative works, including modified versions, ports, or clones
-    using this code or text;
-  - use the names, titles, characters, or written content commercially;
-  - rehost or mirror this work on any other site or service.
+  - copy, reuse or redistribute the source code, in whole or in part, in any
+    other project, product or service;
+  - create derivative works, including modified versions, ports or clones;
+  - rehost or mirror the site on any other domain or service;
+  - use the TransferIntel name or branding commercially.
 
-Playing the game in a browser, linking to the official pages, forking on
-GitHub for the sole purpose of reading the code (per GitHub's Terms of
-Service), and quoting brief excerpts for review or commentary are permitted.
+Permitted without asking:
+  - reading the code here, including forking on GitHub for that purpose
+    alone, as GitHub's Terms of Service require;
+  - running it locally to evaluate it;
+  - quoting brief excerpts for review, teaching or commentary.
 
-For licensing, collaboration, or any other permission, contact:
+--------------------------------------------------------------------------
+2. THE DATASET: Creative Commons Attribution 4.0 International
+--------------------------------------------------------------------------
+
+The transfer dataset, meaning the deal records in data.json and their
+generated presentations in data.js, the deal pages, the club pages, the RSS
+feed and llms.txt, is licensed under CC BY 4.0:
+
+    https://creativecommons.org/licenses/by/4.0/
+
+You may share and adapt it, including commercially, provided you give
+appropriate credit and link back to
+https://peterdsouza247.github.io/transfer-intel/
+
+This is deliberate. The dataset is more useful to its author the more widely
+it is cited, and every generated page already declares this licence in its
+Schema.org markup. A restriction the machine-readable metadata contradicts
+would not be worth much anyway.
+
+Note what CC BY does and does not cover. It applies to the compilation: the
+credibility scores, statuses, the evidence records and the editorial notes.
+It does not and cannot grant rights in the underlying reporting, which
+belongs to the outlets cited in each record. Attribution to TransferIntel is
+not a substitute for their permission.
+
+--------------------------------------------------------------------------
+3. NOT ADVICE
+--------------------------------------------------------------------------
+
+Credibility scores are an assessment of how well supported a published claim
+is. They are not predictions, not statements of fact about any transfer, and
+not betting advice.
+
+--------------------------------------------------------------------------
+
+Licensing, collaboration or anything not covered above:
 peterbrendanwrites@gmail.com
 
-THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND.
+THE WORK IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHOR BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY ARISING FROM, OUT
+OF OR IN CONNECTION WITH THE WORK OR ITS USE.

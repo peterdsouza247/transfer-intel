@@ -20,7 +20,12 @@ from datetime import date
 from .models import Deal, PatchOp
 from .scoring import recent, ScoringConfig, DEFAULT_CONFIG
 
-DEFAULT_MODEL = os.environ.get("TI_NOTE_MODEL", "claude-sonnet-5")
+#: Notes are one sentence of 6 to 30 words, written against an explicit rules
+#: block, and validated on the way out with a retry that quotes the specific
+#: violation back. That is a task shaped for a small model, and Haiku costs
+#: roughly a third of Sonnet per token. Set TI_NOTE_MODEL to override if the
+#: prose quality drops below what you want on the page.
+DEFAULT_MODEL = os.environ.get("TI_NOTE_MODEL", "claude-haiku-4-5-20251001")
 
 #: House style: no em dash, en dash, horizontal bar, or figure dash. Ever.
 BANNED_CHARS = "\u2014\u2013\u2015\u2012"

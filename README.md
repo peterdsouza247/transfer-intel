@@ -13,6 +13,24 @@ Live: https://peterdsouza247.github.io/transfer-intel/
 
 ---
 
+## Documentation
+
+| Read this | When |
+|---|---|
+| [docs/DEPLOY.md](docs/DEPLOY.md) | first run, verify, ship |
+| [docs/OPERATIONS.md](docs/OPERATIONS.md) | the daily routine and the scheduled jobs |
+| [docs/INSTALL.md](docs/INSTALL.md) | what the files are and what to read in what order |
+| [docs/NEWSLETTER.md](docs/NEWSLETTER.md) | email capture and the digest |
+| [docs/ANALYTICS.md](docs/ANALYTICS.md) | what to measure |
+| [docs/COSTS.md](docs/COSTS.md) | keeping the credit spend down |
+| [docs/CATCHUP.md](docs/CATCHUP.md) | the newest deal is days old, what now |
+| [docs/MANUAL-INGEST.md](docs/MANUAL-INGEST.md) | running without an API key |
+| [docs/DISCOVERABILITY.md](docs/DISCOVERABILITY.md) | SEO, pre-rendering, the manual steps |
+| [docs/backlog.md](docs/backlog.md) | what is built, what is open, what was rejected |
+| [CHANGELOG.md](CHANGELOG.md) | what changed and why |
+
+---
+
 ## How it actually works
 
 The site is static and hosted on GitHub Pages. There is no server. Everything
@@ -110,9 +128,11 @@ transfer-intel/
   data.js                 generated from data.json, what the browser loads
   deals/ clubs/ thanks/   generated pages, one per URL
   og/                     generated Open Graph cards
+  conftest.py             pins test imports to this checkout
   scripts/
     transferintel/        the pipeline package
       ingest.py           phase 1, RSS
+      prefilter.py        drops non-transfer articles before they cost anything
       extract.py          phase 2, claims
       markers.py          what counts as proof a transfer happened
       scoring.py          phase 3, all the arithmetic
@@ -127,11 +147,15 @@ transfer-intel/
     run_editorial.py      phases 3 to 6
     run_digest.py         the daily email
     render_site.py        phase 7
-    backfill_completions.py   one-off completion audit
+    check_ingest.py       fails the run when ingestion produced nothing
+    check_site.py         post-build sanity check
+    backfill_completions.py   completion audit
+    migrate_data.py       phase 0, one time
     run_evals.py          golden set
-    tests/                145 tests, all offline
+    tests/                185 tests, all offline
   evals/                  recorded days, replayed on every run
   fixtures/               offline feeds and data
+  docs/                   see the index above
   .github/workflows/      editorial refresh, digest, extraction evals
 ```
 
@@ -141,7 +165,7 @@ transfer-intel/
 
 ```bash
 pip install -r scripts/requirements.txt
-python -m pytest scripts/tests -q              # expect 145 passed
+python -m pytest                               # expect 185 passed
 python scripts/run_evals.py --suite pipeline   # expect 3/3, 0 false completions
 ```
 
@@ -226,6 +250,19 @@ decay curve reads.
 
 ## Licence
 
-Code under the terms in `LICENSE`. The dataset is published under CC BY 4.0,
-declared in the page's structured data. Scores are an assessment of how well
-supported a claim is. They are not predictions and not betting advice.
+Two sets of terms, in `LICENSE`.
+
+The **code** is proprietary, all rights reserved. Read it, run it locally,
+quote it for review. Do not ship it.
+
+The **dataset**, meaning the deal records and their generated pages, is CC BY
+4.0. Share and adapt it, including commercially, with credit and a link back.
+Every generated page declares this in its Schema.org markup, and `robots.txt`
+admits the answer engines on purpose: this site is more useful to its author
+the more widely it is cited.
+
+CC BY covers the compilation, not the underlying reporting. The articles cited
+in each record belong to the outlets that wrote them.
+
+Scores are an assessment of how well supported a published claim is. They are
+not predictions, not statements of fact, and not betting advice.

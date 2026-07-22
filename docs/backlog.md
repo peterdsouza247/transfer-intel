@@ -1,5 +1,16 @@
 # TransferIntel: Engineering Backlog
 
+> **Status at v1.0, released 22 July 2026.** TI-001, TI-002, TI-003, TI-010,
+> TI-011, TI-012, TI-013 and TI-020 are built, tested and shipped. TI-023
+> landed its data model with TI-001; its views remain. TI-021, TI-022, TI-024
+> and TI-028 are open. Two tickets were rediagnosed during implementation and
+> the corrected causes are recorded inline below. See `CHANGELOG.md` for what
+> shipped, and `docs/COSTS.md` for the credit controls added afterwards.
+>
+> Next up should be **TI-021**, the source accuracy leaderboard: its scoring
+> hook is already wired, and it needs outcome data accumulating from now to be
+> worth anything by the time the window closes on 1 September.
+
 Prepared 20 July 2026. Target: Premier League summer window closes 1 September 2026.
 Site: https://peterdsouza247.github.io/transfer-intel/
 Stack assumptions: Python content pipeline generating a static site, deployed to GitHub Pages. Where a ticket assumes something about the codebase it is flagged as an assumption for the engineer to verify.

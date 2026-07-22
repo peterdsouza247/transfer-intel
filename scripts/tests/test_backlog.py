@@ -637,3 +637,158 @@ def test_capture_form_sits_above_the_nav():
     html = (ROOT / "index.html").read_text(encoding="utf-8")
     assert html.index("</header>") < html.index('id="capture-top"')
     assert html.index('id="capture-top"') < html.index('<nav id="tabnav"')
+
+
+# ============================================================ cost controls
+
+
+def _art(title, url="https://bbc.co.uk/sport/football/articles/x", outlet="BBC Sport"):
+    from transferintel.models import Article
+    return Article(url=url, title=title, summary="", published="2026-07-22",
+                   outlet=outlet, tier=1)
+
+
+def test_prefilter_keeps_every_known_transfer_article():
+    """Recall is the only metric that matters here.
+
+    A false positive costs a fraction of a penny. A false negative costs a
+    deal, silently, with nothing in any log to say a story was missed.
+    """
+    from transferintel.models import Article
+    from transferintel.prefilter import looks_like_transfer_news
+
+    for case in (ROOT / "evals" / "cases").iterdir():
+        articles = case / "articles.json"
+        if not articles.exists():
+            continue
+        for raw in json.loads(articles.read_text(encoding="utf-8")):
+            article = Article(**raw)
+            assert looks_like_transfer_news(article), article.title
+
+
+@pytest.mark.parametrize("title", [
+    "Tottenham to target Bournemouth Kroupi",
+    "Man Utd set 40m valuation on Rashford",
+    "Rudiger signs one-year extension at Real Madrid",
+    "Arsenal complete deal for Club Brugge winger",
+    "Chelsea bid rejected for Palace defender",
+    "Villa hijack Newcastle move for Freiburg midfielder",
+    "Player X on the verge of a switch to Everton",
+    "Spurs willing to pay 75m",
+])
+def test_prefilter_keeps_real_transfer_headlines(title):
+    from transferintel.prefilter import looks_like_transfer_news
+    assert looks_like_transfer_news(_art(title))
+
+
+@pytest.mark.parametrize("title", [
+    "Spain leave it late as super-sub Merino scores a stoppage-time winner",
+    "France forward Mbappe condemns a Paraguayan senator",
+    "After 10 years as Fifa president, could the controversy tip the balance",
+    "BBC Sport looks at the end of Ronaldo's World Cup career",
+])
+def test_prefilter_drops_match_and_politics_coverage(title):
+    from transferintel.prefilter import looks_like_transfer_news
+    assert not looks_like_transfer_news(_art(title))
+
+
+def test_live_and_video_paths_are_never_read():
+    from transferintel.prefilter import looks_like_transfer_news
+    assert not looks_like_transfer_news(
+        _art("Transfer deadline day live: every signing",
+             "https://bbc.co.uk/sport/football/live/12345"))
+
+
+def test_seen_articles_are_not_paid_for_twice():
+    """The window is 36 hours and the job runs every 24."""
+    from transferintel.prefilter import FilterStats, prefilter
+
+    articles = [_art("Arsenal agree deal for winger",
+                     f"https://bbc.co.uk/sport/football/articles/{i}")
+                for i in range(3)]
+    stats = FilterStats()
+    kept = prefilter(articles, {articles[0].url, articles[1].url}, stats)
+    assert len(kept) == 1
+    assert stats.dropped_seen_before == 2
+
+
+def test_seen_cache_prunes_old_entries(tmp_path):
+    from datetime import date, timedelta
+    from transferintel.prefilter import load_seen, save_seen
+
+    cache = tmp_path / "seen.json"
+    old = (date.today() - timedelta(days=30)).isoformat()
+    cache.write_text(json.dumps({"https://a.test/old": old}), encoding="utf-8")
+    save_seen(cache, {}, ["https://a.test/new"], date.today())
+    urls, _ = load_seen(cache)
+    assert "https://a.test/new" in urls
+    assert "https://a.test/old" not in urls
+
+
+def test_notes_default_to_the_cheaper_model():
+    from transferintel import notes
+    assert "haiku" in notes.DEFAULT_MODEL.lower()
+def _ingest_check(tmp_path, stats):
+    import subprocess
+    f = tmp_path / "s.json"
+    f.write_text(json.dumps(stats), encoding="utf-8")
+    return subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "check_ingest.py"),
+         "--stats", str(f)],
+        capture_output=True, text=True,
+    )
+
+
+def test_missing_api_key_fails_the_run_instead_of_publishing_silence(tmp_path):
+    """The failure mode that let the site go four days without a new deal.
+
+    Ingest is allowed to fail so a dead feed cannot block the decay pass. With
+    no API key the extractor returns nothing, an empty evidence file is
+    written, and the run reports success forever.
+    """
+    out = _ingest_check(tmp_path, {
+        "dry_run": True, "ingest": {"feeds": 5, "feeds_failed": 0},
+        "extract": {"articles": 30, "claims": 0},
+    })
+    assert out.returncode == 1
+    assert "ANTHROPIC_API_KEY" in out.stdout
+
+
+def test_all_feeds_down_fails_the_run(tmp_path):
+    out = _ingest_check(tmp_path, {
+        "dry_run": False, "ingest": {"feeds": 5, "feeds_failed": 5},
+        "extract": {"articles": 0, "claims": 0},
+    })
+    assert out.returncode == 1
+
+
+def test_a_genuinely_quiet_day_passes(tmp_path):
+    """Articles read, no transfer claims found. That is news, not an outage."""
+    out = _ingest_check(tmp_path, {
+        "dry_run": False, "ingest": {"feeds": 5, "feeds_failed": 1},
+        "extract": {"articles": 22, "claims": 0},
+    })
+    assert out.returncode == 0
+    assert "quiet days" in out.stdout
+
+
+def test_a_healthy_run_passes(tmp_path):
+    out = _ingest_check(tmp_path, {
+        "dry_run": False, "ingest": {"feeds": 5, "feeds_failed": 0},
+        "extract": {"articles": 28, "claims": 9, "resolved": 6},
+    })
+    assert out.returncode == 0
+
+
+def test_health_check_survives_a_truncated_stats_file(tmp_path):
+    """An interrupted run leaves half a JSON file. The checker must report
+    that, not raise about it."""
+    import subprocess
+    f = tmp_path / "s.json"
+    f.write_text('{"ingest": {"feeds"', encoding="utf-8")
+    out = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "check_ingest.py"),
+         "--stats", str(f)], capture_output=True, text=True)
+    assert out.returncode == 1
+    assert "truncated" in out.stdout
+    assert "Traceback" not in out.stderr

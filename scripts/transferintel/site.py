@@ -27,15 +27,13 @@ from __future__ import annotations
 import html
 import json
 import re
-import unicodedata
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from datetime import date, datetime, timezone
 from html.parser import HTMLParser
-from pathlib import Path
 from typing import Iterable
 
 from .entities import fold_for_slug
-from .models import Deal, Status
+from .models import Deal
 
 # The generated head block is delimited at both ends so a rerun can remove
 # exactly what the previous run added, leaving the author's own whitespace and
@@ -762,7 +760,7 @@ def head_tags(
         f'<meta name="description" content="{e(description)}">',
         f'<link rel="canonical" href="{e(canonical)}">',
         '<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">',
-        f'<meta property="og:type" content="website">',
+        '<meta property="og:type" content="website">',
         f'<meta property="og:site_name" content="{e(cfg.title)}">',
         f'<meta property="og:title" content="{e(title)}">',
         f'<meta property="og:description" content="{e(description)}">',

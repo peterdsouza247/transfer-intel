@@ -29,7 +29,10 @@ from transferintel.extract import (  # noqa: E402
     ClaimExtractor, ExtractionStats, rank_candidates, resolve,
 )
 from transferintel.ingest import collect  # noqa: E402
-from transferintel.models import Article, Deal  # noqa: E402
+from transferintel.models import Article, Claim, Deal  # noqa: E402
+from transferintel.prefilter import (  # noqa: E402
+    FilterStats, load_seen, prefilter, save_seen,
+)
 
 
 def render_candidates_md(candidates, stats) -> str:
@@ -71,6 +74,17 @@ def main() -> int:
                     help="replay a saved article set instead of fetching")
     ap.add_argument("--max-batches", type=int, default=12,
                     help="cost ceiling, 20 articles per batch")
+    ap.add_argument("--claims", type=Path, default=None,
+                    help="load pre-extracted claims and skip phase 2 entirely, "
+                         "for running without an API key. "
+                         "See docs/MANUAL-INGEST.md")
+    ap.add_argument("--seen-cache", type=Path,
+                    default=Path("logs/seen-articles.json"),
+                    help="URLs already extracted, so the overlap between the "
+                         "36 hour window and the 24 hour schedule is not paid "
+                         "for twice")
+    ap.add_argument("--no-cache", action="store_true",
+                    help="re-extract everything, ignoring the seen cache")
     ap.add_argument("--candidate-min-tier", type=int, default=2)
     ap.add_argument("--save-claims", action="store_true", default=True,
                     help="write the raw claim cassette for eval replay")
@@ -102,12 +116,39 @@ def main() -> int:
         encoding="utf-8",
     )
 
+    # -- gate before the meter starts ---------------------------------------
+    # Everything above is free: fetching a feed costs nothing. Everything
+    # below is billed per token. This is the only place in the pipeline where
+    # dropping work saves real money, so it is where the filtering happens.
+    seen_urls, seen_cache = (set(), {})
+    if not args.no_cache:
+        seen_urls, seen_cache = load_seen(args.seen_cache)
+    fstats = FilterStats()
+    articles = prefilter(articles, seen_urls, fstats)
+    print(fstats.summary())
+    if fstats.samples:
+        print("  dropped, e.g.: " + "; ".join(fstats.samples[:3]))
+
     # -- phase 2 ------------------------------------------------------------
     stats = ExtractionStats()
-    extractor = ClaimExtractor(max_batches=args.max_batches)
-    claims = extractor.run(articles, stats)
+    if args.claims:
+        # Claims supplied from outside. Everything downstream is unchanged:
+        # resolution, marker detection, deduping, scoring and the gate all run
+        # exactly as they would on model output, so a curated claim cannot
+        # promote a deal to `done` without the same completion marker and tier
+        # 1 source the pipeline demands of anything else.
+        claims = [Claim(**c) for c in
+                  json.loads(args.claims.read_text(encoding="utf-8"))]
+        stats.articles = len(articles)
+        stats.claims = len(claims)
+        extractor = None
+        print(f"Loaded {len(claims)} claims from {args.claims}, "
+              "phase 2 skipped.")
+    else:
+        extractor = ClaimExtractor(max_batches=args.max_batches)
+        claims = extractor.run(articles, stats)
 
-    if args.save_claims:
+    if args.save_claims and not args.claims:
         # The cassette. Recording it is what makes phase 6 free to run.
         (args.out / "claims.json").write_text(
             json.dumps([c.model_dump(mode="json") for c in claims], indent=2),
@@ -135,7 +176,15 @@ def main() -> int:
     (args.out / "ingest_stats.json").write_text(
         json.dumps({
             "date": today.isoformat(),
-            "dry_run": extractor.dry,
+            "dry_run": bool(extractor) and extractor.dry,
+            "claims_supplied": bool(args.claims),
+            "filter": {
+                "seen": fstats.seen, "kept": fstats.kept,
+                "cut_rate": round(fstats.cut_rate, 3),
+                "no_signal": fstats.dropped_no_signal,
+                "dead_path": fstats.dropped_dead_path,
+                "seen_before": fstats.dropped_seen_before,
+            },
             "ingest": ingest_stats,
             "extract": {
                 "articles": stats.articles, "batches": stats.batches,
@@ -148,7 +197,14 @@ def main() -> int:
         encoding="utf-8",
     )
 
-    mode = " (dry run, no API key)" if extractor.dry else ""
+    if not args.no_cache and extractor and not extractor.dry:
+        # Only after a real extraction. Marking articles as seen during a dry
+        # run would make them invisible to the first run that has a key.
+        save_seen(args.seen_cache, seen_cache,
+                  [a.url for a in articles], today)
+
+    mode = (" (claims supplied)" if args.claims
+            else " (dry run, no API key)" if extractor and extractor.dry else "")
     print(
         f"{len(articles)} articles, {stats.claims} claims, "
         f"{stats.resolved} attached to {len(evidence)} deals, "

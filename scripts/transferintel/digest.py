@@ -227,7 +227,7 @@ def render_markdown(edition: Edition, base_url: str, window_name: str = "") -> s
             "Nothing moved today that clears our reporting bar.",
             "",
             "No new deals, no status changes, no credibility swings worth "
-            f"reporting. That is a real result during a window: most days "
+            "reporting. That is a real result during a window: most days "
             "produce noise rather than news.",
             "",
             f"[The full index is where it always is]({base_url.rstrip('/')}/).",

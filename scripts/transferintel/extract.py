@@ -20,7 +20,6 @@ import os
 import re
 from collections import defaultdict
 from dataclasses import dataclass, field
-from datetime import date
 
 from .markers import completion_marker, is_official
 from .entities import canonical_club, deal_id, fold, resolve_deal

@@ -15,8 +15,8 @@ made in Python.
 | 6 | Evals against a golden set | Haiku, extraction suite only |
 | 7 | Render the discoverable site | none |
 
-Deployment and the daily routine are in [OPERATIONS.md](../OPERATIONS.md).
-SEO and pre-rendering are in [DISCOVERABILITY.md](../DISCOVERABILITY.md).
+Deployment and the daily routine are in [OPERATIONS.md](../docs/OPERATIONS.md).
+SEO and pre-rendering are in [DISCOVERABILITY.md](../docs/DISCOVERABILITY.md).
 
 ## Layout
 

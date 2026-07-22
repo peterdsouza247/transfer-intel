@@ -53,7 +53,7 @@ Credibility scores are computed in code, not written by a model. A score rises w
 - [Bruno Guimarães, Newcastle to Arsenal](https://peterdsouza247.github.io/transfer-intel/deals/guimaraes-newcastle-arsenal/): credibility 26/100
 - [Bradley Barcola, PSG to Liverpool](https://peterdsouza247.github.io/transfer-intel/deals/barcola-psg-liverpool/): credibility 26/100
 - [Ayyoub Bouaddi, Lille to Man City](https://peterdsouza247.github.io/transfer-intel/deals/bouaddi-lille-man-city/): credibility 26/100
-- [Álvaro Rodríguez, Elche to Bournemouth](https://peterdsouza247.github.io/transfer-intel/deals/rodriguez-elche-bournemouth/): credibility 21/100
+- [Álvaro Rodríguez, Elche to Bournemouth](https://peterdsouza247.github.io/transfer-intel/deals/rodriguez-elche-bournemouth/): credibility 13/100
 - [Randal Kolo Muani, PSG to Crystal Palace](https://peterdsouza247.github.io/transfer-intel/deals/muani-psg-crystal-palace/): credibility 11/100
 - [Ollie Watkins, Aston Villa to Fenerbahçe](https://peterdsouza247.github.io/transfer-intel/deals/watkins-aston-villa-fenerbahce/): credibility 11/100
 - [Neco Williams, Nott'm Forest to Man Utd](https://peterdsouza247.github.io/transfer-intel/deals/williams-nott-m-forest-man-utd/): credibility 11/100
