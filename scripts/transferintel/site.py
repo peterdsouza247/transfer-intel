@@ -33,7 +33,7 @@ from html.parser import HTMLParser
 from typing import Iterable
 
 from .entities import fold_for_slug
-from .models import Deal
+from .models import Deal, Evidence
 
 # The generated head block is delimited at both ends so a rerun can remove
 # exactly what the previous run added, leaving the author's own whitespace and
@@ -518,6 +518,38 @@ def render_analytics(cfg: SiteConfig) -> str:
     return "\n".join(parts)
 
 
+def best_source_link(deal: Deal) -> Evidence | None:
+    """The best piece of evidence a reader can actually open.
+
+    Tier 1 first, then most recent. Migrated records carry `urn:` evidence
+    rather than a link, so a large part of the dataset has none and gets no
+    link at all. That is the honest outcome: there is nothing to send anyone
+    to, and a dead link is worse than no link.
+    """
+    live = [
+        e for e in deal.evidence
+        if str(e.url).startswith("http")
+    ]
+    if not live:
+        return None
+    live.sort(key=lambda e: (e.tier, -e.date.toordinal()))
+    return live[0]
+
+
+def source_anchor(deal: Deal) -> str:
+    best = best_source_link(deal)
+    if best is None:
+        return ""
+    return (
+        f' <a class="srclink" href="{e(str(best.url))}" target="_blank" '
+        f'rel="noopener nofollow">{e(best.source)} &#8599;</a>'
+    )
+
+
+def pos_badge(deal: Deal) -> str:
+    return f'<span class="pos">{e(deal.pos)}</span>' if deal.pos else ""
+
+
 def render_deal_list(deals: Iterable[Deal], cfg: SiteConfig) -> str:
     """The pre-rendered rumour list. The site's JS replaces this on load."""
     rows = []
@@ -527,12 +559,14 @@ def render_deal_list(deals: Iterable[Deal], cfg: SiteConfig) -> str:
             f'<article class="rumor" id="deal-{e(d.id)}">'
             f'<div class="cred {cred_class(d.cred)}" aria-label="Credibility {d.cred} of 100">'
             f"<span>{d.cred}</span></div>"
-            f"<div><h3><a href=\"{e(cfg.href(deal_path(d)))}\">{e(d.p)}</a></h3>"
+            f"<div><h3><a href=\"{e(cfg.href(deal_path(d)))}\">{e(d.p)}</a>"
+            f"{pos_badge(d)}</h3>"
             f"<p>{e(deal_sentence(d))}</p>"
             f'<p class="meta">{e(STATUS_LABEL.get(status, status))}'
             f"{f' · £{d.fee:g}m' if d.fee else ''}"
             f"{f' · {e(d.src)}' if d.src else ''}"
-            f"{f' · updated {e(d.date)}' if d.date else ''}</p>"
+            f"{f' · updated {e(d.date)}' if d.date else ''}"
+            f"{source_anchor(d)}</p>"
             f"{f'<p class=\"note\">{e(d.note)}</p>' if d.note else ''}"
             "</div></article>"
         )
@@ -630,8 +664,9 @@ def render_feed_items(deals: list[Deal], mode: str = "active",
     for d in feed_order(deals, mode)[:limit]:
         items.append(
             f'<div class="item"><div class="when">{e(d.date or "")}</div>'
-            f'<div class="what"><b>{e(d.p)}</b> '
-            f'<span class="meta">{e(deal_sentence(d))}</span></div></div>'
+            f'<div class="what"><b>{e(d.p)}</b>{pos_badge(d)} '
+            f'<span class="meta">{e(deal_sentence(d))}'
+            f'{source_anchor(d)}</span></div></div>'
         )
     return "\n".join(items)
 

@@ -28,6 +28,7 @@ Live: https://peterdsouza247.github.io/transfer-intel/
 | [docs/MANUAL-INGEST.md](docs/MANUAL-INGEST.md) | the file formats behind that routine |
 | [docs/DISCOVERABILITY.md](docs/DISCOVERABILITY.md) | SEO, pre-rendering, the manual steps |
 | [docs/backlog.md](docs/backlog.md) | what is built, what is open, what was rejected |
+| [docs/PARTNERSHIP.md](docs/PARTNERSHIP.md) | the pitch, the risks, and the social copy |
 | [CHANGELOG.md](CHANGELOG.md) | what changed and why |
 
 ---

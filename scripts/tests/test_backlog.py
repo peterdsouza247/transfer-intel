@@ -960,3 +960,71 @@ def test_drafter_admits_what_it_could_not_find():
         summary="", published="2026-07-22", outlet="BBC Sport", tier=1)
     got = draft(art, ["Newcastle"])   # Benfica is not a known club
     assert any("known club" in r for r in got["_review"])
+
+
+def test_no_orphaned_form_controls_outside_a_form():
+    """Two stray dropdowns shipped at the foot of the rumours section.
+
+    They were the preference fields of a deleted capture form: the cleanup
+    removed the form's tail and left its middle. Form controls render fine
+    outside a form, so nothing complained.
+    """
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    markup = html[:html.index("<script>\nconst DATA")]
+    # Every provider field belongs to the one surviving form.
+    assert markup.count('name="fields[clubs]"') == 1
+    assert markup.count('name="fields[threshold]"') == 1
+    assert markup.count('class="capture-prefs"') == 1
+    # The filter selects, and nothing else.
+    assert markup.count("<select") == 7, markup.count("<select")
+
+
+def test_positions_and_source_links_render():
+    html = (ROOT / "index.html").read_text(encoding="utf-8")
+    markup = html[:html.index("<script>\nconst DATA")]
+    assert markup.count('class="pos"') > 20
+    assert 'class="srclink"' in markup
+    # Outbound links must not hand the opener window over.
+    for tag in re.findall(r'<a class="srclink"[^>]*>', markup):
+        assert 'rel="noopener nofollow"' in tag, tag
+        assert 'target="_blank"' in tag, tag
+
+
+def test_seed_records_get_no_source_link():
+    """A urn: seed is not a link. Rendering one would be a dead end."""
+    from transferintel.models import Deal
+    raw = json.loads((ROOT / "data.json").read_text(encoding="utf-8"))
+    seeded = [
+        Deal(**d) for d in raw["deals"]
+        if d["evidence"] and all(str(e["url"]).startswith("urn:")
+                                 for e in d["evidence"])
+    ]
+    assert seeded, "dataset should still contain migrated records"
+    for deal in seeded:
+        assert site.best_source_link(deal) is None
+        assert site.source_anchor(deal) == ""
+
+
+def test_pitch_numbers_match_the_scoring_code():
+    """The pitch quotes the model's actual constants.
+
+    A pitch document that describes tier 1 as 55 while the code says something
+    else is worse than one that stays vague: it is checkable, and someone
+    evaluating this will check.
+    """
+    from transferintel.scoring import DEFAULT_CONFIG, DEFAULT_DECAY
+
+    pitch = (ROOT / "docs" / "PARTNERSHIP.md").read_text(encoding="utf-8")
+    for tier, base in DEFAULT_CONFIG.base_by_tier.items():
+        assert f"| **{base}** |" in pitch, f"tier {tier} base {base}"
+    assert f"+{DEFAULT_CONFIG.corroboration_step} for each" in pitch
+    assert f"capped at +{DEFAULT_CONFIG.corroboration_cap}" in pitch
+    for label, bonus in [("Fee agreed", "agreed"), ("Medical booked", "medical"),
+                         ("Reported complete", "completed")]:
+        from transferintel.models import Stage
+        expected = DEFAULT_CONFIG.stage_bonus[Stage(bonus)]
+        assert f"| {label} | +{expected} |" in pitch, label
+    assert f"{DEFAULT_DECAY.mid_multiplier:.2f}" in pitch
+    assert f"**{DEFAULT_DECAY.stale_multiplier:.2f}**" in pitch
+    assert f"{DEFAULT_CONFIG.confirmed_cred_cap}" in pitch
+    assert f"at most {DEFAULT_CONFIG.max_cred_delta_per_run} points" in pitch

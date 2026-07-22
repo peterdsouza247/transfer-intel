@@ -130,7 +130,26 @@ than the underlying reporting, which belongs to the outlets cited.
 - Editorial moved to 04:00 UTC and the digest to 06:30 UTC. The digest used to
   run an hour *before* the refresh, so every edition described yesterday.
 
+### Added after v1.0
+
+- Position badges on player names throughout the index, the pulse feed and
+  the pre-rendered pages.
+- Source links. Where a record carries evidence with a real URL, the reader
+  can open the article that produced the score. Migrated records hold `urn:`
+  seeds rather than links and correctly show nothing: a dead link is worse
+  than no link.
+- `docs/PARTNERSHIP.md`, the pitch for outlets, including the independence
+  problem that comes with taking their money, and a section setting out the
+  scoring model in full: tier bases, corroboration cap, stage bonuses, the
+  decay curve, and four worked examples from the live dataset. A test asserts
+  those numbers still match `scoring.py`, because a checkable claim that has
+  drifted is worse than a vague one.
+
 ### Fixed after v1.0
+
+- Two stray dropdowns at the foot of the Rumour Credibility section: an
+  orphaned `capture-prefs` block left behind when the second capture form was
+  removed. The earlier cleanup caught the form tails and missed this.
 
 - Removing the two extra capture forms left three orphaned fragments in
   `index.html`. The deletion used a non-greedy `<div id="...">.*?</div>`,
