@@ -48,6 +48,26 @@ def post_json(url: str, payload: dict, headers: dict) -> tuple[int, str]:
         return 0, str(exc)
 
 
+def kit_tags(api_key: str) -> set[str] | None:
+    """Tag names that exist in the Kit account, or None if the call failed.
+
+    Needed because a segment filter naming a tag nobody created does not
+    error: it matches zero subscribers and sends an email to nobody, which
+    looks exactly like a successful send in the logs.
+    """
+    req = urllib.request.Request(
+        "https://api.kit.com/v4/tags",
+        headers={"Accept": "application/json", "X-Kit-Api-Key": api_key},
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=TIMEOUT) as resp:
+            payload = json.loads(resp.read().decode("utf-8", "replace"))
+    except (urllib.error.URLError, urllib.error.HTTPError, ValueError,
+            TimeoutError, OSError):
+        return None
+    return {t.get("name", "") for t in payload.get("tags", [])}
+
+
 def send_edition(provider: str, api_key: str, subject: str, body: str,
                  segment: str) -> tuple[int, str]:
     """One edition to one provider. Returns (status, message).
@@ -65,12 +85,20 @@ def send_edition(provider: str, api_key: str, subject: str, body: str,
             {"Authorization": f"Token {api_key}"},
         )
     if provider == "kit":
+        payload: dict = {"subject": subject, "content": body}
+        if segment != "all":
+            # Kit wants an array of filter groups, not a single group. Sending
+            # the bare object returned 422 "Subscriber filter must be an
+            # array" on every segmented edition while the unsegmented one,
+            # which sends no filter at all, went out fine. So the daily digest
+            # reached everybody and the per-club editions reached nobody, and
+            # the run reported partial success.
+            payload["subscriber_filter"] = [
+                {"all": [{"type": "tag", "name": segment}]}
+            ]
         return post_json(
             "https://api.kit.com/v4/broadcasts",
-            {"subject": subject, "content": body,
-             "email_template_id": None,
-             "subscriber_filter": None if segment == "all"
-             else {"all": [{"type": "tag", "name": segment}]}},
+            payload,
             {"X-Kit-Api-Key": api_key},
         )
     return 0, f"unknown provider {provider!r}, nothing sent"
@@ -156,6 +184,30 @@ def main() -> int:
         print("NEWSLETTER_API_KEY or config.newsletter.provider is missing. "
               "Editions were written but nothing was sent.", file=sys.stderr)
         return 1
+
+    # Preflight. A club segment targets a Kit tag of the same name, and the
+    # signup form writes club preferences to a custom field rather than a
+    # tag, so unless an automation converts one to the other those tags do
+    # not exist. A filter naming a tag nobody created does not error: it
+    # matches zero subscribers and reports success.
+    if provider == "kit" and len(written) > 1:
+        tags = kit_tags(api_key)
+        if tags is not None:
+            wanted = {e.segment for e, *_ in written if e.segment != "all"}
+            missing = sorted(wanted - tags)
+            if missing:
+                print(
+                    f"\nSkipping {len(missing)} club edition(s) with no "
+                    "matching tag in Kit:\n  " + ", ".join(missing) +
+                    "\n  Create these tags, or add a Kit automation that "
+                    "tags subscribers\n  from the `clubs` custom field the "
+                    "signup form collects. Until then\n  these editions "
+                    "would be sent to nobody. See docs/NEWSLETTER.md.\n",
+                    file=sys.stderr)
+                written = [
+                    row for row in written
+                    if row[0].segment == "all" or row[0].segment not in missing
+                ]
 
     failures = 0
     for edition, subject, body, _ in written:

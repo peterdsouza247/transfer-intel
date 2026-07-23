@@ -125,6 +125,29 @@ failed step is exactly when it happens.
 
 Override deliberately with `--force`, and only when you know why.
 
+## Per-club editions need Kit tags
+
+Segments are off until you set the repository variable `DIGEST_SEGMENTS` to
+`true`, and there is a second requirement that is easy to miss.
+
+A club edition targets a Kit **tag** of that name. The signup form writes club
+preferences to a custom **field**, not a tag. Those are different things, so
+unless you connect them the tags do not exist, and a filter naming a tag
+nobody created does not error: it matches zero subscribers and reports
+success.
+
+Two ways to connect them:
+
+1. Create a tag per club by hand, and a Kit automation that applies it when
+   the `clubs` custom field contains that club.
+2. Change the form to write tags directly.
+
+The digest checks before sending. Any club edition with no matching tag is
+skipped, with the missing names listed, rather than sent into a void.
+
+Until the list is large enough that a Newcastle subscriber would rather not
+read about Everton, leave segments off. One good email beats six empty ones.
+
 ## State files
 
 | File | What it is |

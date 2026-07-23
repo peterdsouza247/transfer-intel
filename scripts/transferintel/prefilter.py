@@ -83,6 +83,41 @@ _DEAD_PATHS = re.compile(
 )
 
 
+#: Competitions and markers that put an article outside this site's scope.
+#:
+#: TransferIntel tracks the men's Premier League window. During a major
+#: women's tournament the general football feeds fill with women's transfer
+#: news, which is real news, correctly matches every transfer keyword, and is
+#: not what this site is about. Left in, it drowns the dataset in players no
+#: tracked club is signing.
+#:
+#: Matched on whole words against title and summary. "Women" and "womens"
+#: only: no bare "her" or "she", which appear constantly in men's coverage
+#: quoting a partner, a chairwoman or a journalist.
+OUT_OF_SCOPE = re.compile(
+    r"\b(?:women'?s?|ladies|wsl|nwsl|lionesses|matildas|"
+    r"women'?s\s+(?:super\s+league|championship|world\s+cup|euros?))\b",
+    re.I,
+)
+
+#: URL segments that mark a section as out of scope regardless of wording.
+_OUT_OF_SCOPE_PATHS = re.compile(
+    r"/(?:womens?|womens-football|wsl|nwsl)(?:/|-|$)", re.I
+)
+
+
+def in_scope(article: Article) -> bool:
+    """False when the article is about a competition this site does not cover.
+
+    Deliberately narrow. The cost of excluding something wrongly is a missed
+    deal, so this only fires on explicit markers: a competition name, a squad
+    nickname, or a section of a site given over to it.
+    """
+    if _OUT_OF_SCOPE_PATHS.search(article.url or ""):
+        return False
+    return not OUT_OF_SCOPE.search(article.text or "")
+
+
 @dataclass
 class FilterStats:
     """What the gate did, so the saving and the risk are both auditable."""
@@ -92,6 +127,7 @@ class FilterStats:
     dropped_no_signal: int = 0
     dropped_dead_path: int = 0
     dropped_seen_before: int = 0
+    dropped_out_of_scope: int = 0
     samples: list[str] = field(default_factory=list)
 
     @property
@@ -104,6 +140,7 @@ class FilterStats:
             f"({self.cut_rate:.0%} filtered): "
             f"{self.dropped_no_signal} without a transfer signal, "
             f"{self.dropped_dead_path} from non-news sections, "
+            f"{self.dropped_out_of_scope} outside this site's scope, "
             f"{self.dropped_seen_before} already extracted on a previous run"
         )
 
@@ -141,6 +178,12 @@ def prefilter(
             continue
         if _DEAD_PATHS.search(article.url or ""):
             stats.dropped_dead_path += 1
+            continue
+        if not in_scope(article):
+            stats.dropped_out_of_scope += 1
+            if len(stats.samples) < sample_limit:
+                stats.samples.append(
+                    "[out of scope] " + (article.title or article.url)[:96])
             continue
         if not looks_like_transfer_news(article):
             stats.dropped_no_signal += 1

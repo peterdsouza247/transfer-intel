@@ -1,26 +1,954 @@
 [
- {"url":"https://www.espn.co.uk/football/story/_/id/49330001/rogers-completes-chelsea-switch-aston-villa",
-  "title":"Rogers completes Chelsea switch from Aston Villa",
-  "summary":"Morgan Rogers has completed his move to Chelsea from Aston Villa in a British record deal worth 117 million pounds.",
-  "published":"2026-07-21","outlet":"ESPN","tier":1},
- {"url":"https://www.transfermarkt.us/",
-  "title":"Chelsea complete Morgan Rogers signing, Blues beat Arsenal to stunning transfer",
-  "summary":"Done Deal. British record deal. Chelsea complete Morgan Rogers signing as the Blues beat Arsenal to a stunning 138m euro transfer from Aston Villa.",
-  "published":"2026-07-21","outlet":"Transfermarkt","tier":2},
- {"url":"https://www.skysports.com/football/news/12875/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs",
-  "title":"Rogers first words after record-breaking Chelsea move",
-  "summary":"Morgan Rogers has signed for Chelsea from Aston Villa for a British record fee of 117 million pounds. Aston Villa have signed Joao Gomes from Wolves for 38 million pounds.",
-  "published":"2026-07-21","outlet":"Sky Sports","tier":1},
- {"url":"https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/02/premier-league-2026-summer-transfers-done-deals-all-completed-confirmed-signings-official",
-  "title":"Premier League summer transfers 2026: All the Done Deals",
-  "summary":"Aston Villa have compensated for the loss of Tielemans with the club-record signing of Johan Manzambi and the arrival of Joao Gomes. Arsenal have signed Piero Hincapie on a permanent deal and Illan Meslier on a free transfer from Leeds United. The Gunners have also agreed a deal to sign Club Brugge winger Christos Tzolis, but they have missed out on Rogers, who joins Chelsea.",
-  "published":"2026-07-22","outlet":"FootballTransfers","tier":2},
- {"url":"https://www.skysports.com/football/news/12040/13565869/alejandro-garnacho-transfer-news-aston-villa-agree-deal-with-chelsea-for-winger",
-  "title":"Aston Villa agree deal to sign Garnacho",
-  "summary":"Aston Villa have agreed a deal to sign Alejandro Garnacho from Chelsea.",
-  "published":"2026-07-23","outlet":"Sky Sports","tier":1},
- {"url":"https://www.skysports.com/football/news/12040/13566027/bradley-barcola-arsenal-retain-an-interest-in-paris-saint-germain-forward-after-missing-out-on-morgan-rogers-to-chelsea",
-  "title":"Is Barcola next on Arsenal's list after missing out on Rogers?",
-  "summary":"Arsenal have retained an interest in Paris Saint-Germain forward Bradley Barcola after missing out on Morgan Rogers, who has joined Chelsea from Aston Villa for a British record fee of 117 million pounds.",
-  "published":"2026-07-23","outlet":"Sky Sports","tier":1}
+ {
+  "url": "https://www.bbc.co.uk/sport/football/articles/c89nxdpyl2eo",
+  "title": "Australia striker McNamara joins Everton",
+  "summary": "Everton sign Australia striker Holly McNamara on a free transfer from Melbourne City.",
+  "published": "2026-07-21",
+  "outlet": "BBC Sport",
+  "tier": 1
+ },
+ {
+  "url": "https://www.bbc.co.uk/sport/football/articles/cr49lgg014ko",
+  "title": "Newcastle closing in on Liverpool forward Kiernan",
+  "summary": "Newcastle United are in advanced talks to sign Republic of Ireland forward Leanne Kiernan from Liverpool.",
+  "published": "2026-07-22",
+  "outlet": "BBC Sport",
+  "tier": 1
+ },
+ {
+  "url": "https://www.bbc.co.uk/sport/football/articles/cpq8lpj530po",
+  "title": "Arsenal set to make £70m bid for Newcastle's Guimaraes",
+  "summary": "Arsenal are set to make a £70m offer for Newcastle captain Bruno Guimaraes.",
+  "published": "2026-07-23",
+  "outlet": "BBC Sport",
+  "tier": 1
+ },
+ {
+  "url": "https://www.bbc.co.uk/sport/football/articles/c5yw69d1v37o",
+  "title": "Newcastle and Liverpool planning Keegan tribute at season opener",
+  "summary": "Newcastle United and Liverpool are in discussions over a tribute to Kevin Keegan before their Premier League opener at St James' Park on Sunday 23rd August.",
+  "published": "2026-07-23",
+  "outlet": "BBC Sport",
+  "tier": 1
+ },
+ {
+  "url": "https://www.bbc.co.uk/sport/football/articles/c1d1g6k51l7o",
+  "title": "Garnacho joins Villa on loan from Chelsea",
+  "summary": "Aston Villa sign Chelsea winger Alejandro Garnacho in a loan deal that will become permanent \"if certain criteria are met\".",
+  "published": "2026-07-23",
+  "outlet": "BBC Sport",
+  "tier": 1
+ },
+ {
+  "url": "https://www.bbc.co.uk/sport/football/articles/clyl7eve9ddo",
+  "title": "Leeds in talks to sign Man City keeper Trafford",
+  "summary": "Leeds United are in discussions with Manchester City to sign goalkeeper James Trafford.",
+  "published": "2026-07-23",
+  "outlet": "BBC Sport",
+  "tier": 1
+ },
+ {
+  "url": "https://www.bbc.co.uk/sport/football/articles/cg4d5ex1ewzo",
+  "title": "Iraola held with clubs before Liverpool move",
+  "summary": "New Liverpool manager Andoni Iraola says he was in talks with other clubs before the Reds swooped - then \"things moved quite fast\" to take him to Anfield.",
+  "published": "2026-07-23",
+  "outlet": "BBC Sport",
+  "tier": 1
+ },
+ {
+  "url": "https://www.bbc.co.uk/sport/football/articles/cr593z81lqno",
+  "title": "Newcastle agree £34m deal for Monaco's Bamba",
+  "summary": "Midfielder Aladji Bamba is due to arrive on Thursday for a medical and to sign a long-term contract.",
+  "published": "2026-07-23",
+  "outlet": "BBC Sport",
+  "tier": 1
+ },
+ {
+  "url": "https://www.bbc.co.uk/sport/football/articles/cvg0723e0jko",
+  "title": "Garnacho, Rogers and two clubs trying to balance the books",
+  "summary": "How can Chelsea afford Morgan Rogers? And why are Aston Villa pursuing a loan for Alejandro Garnacho rather than buying him?",
+  "published": "2026-07-23",
+  "outlet": "BBC Sport",
+  "tier": 1
+ },
+ {
+  "url": "https://www.skysports.com/football/news/12040/13566210/alejandro-garnacho-transfer-news-aston-villa-offer-winger-route-to-redemption-after-completing-chelsea-exit",
+  "title": "Why Villa could offer Garnacho the perfect route to redemption",
+  "summary": "At the age of just 22, Alejandro Garnacho's career is at a crossroads, but his move to Aston Villa, driven by Unai Emery, offers the perfect chance to get it back on track.",
+  "published": "2026-07-23",
+  "outlet": "Sky Sports",
+  "tier": 1
+ },
+ {
+  "url": "https://www.skysports.com/football/news/12040/13564283/arsenal-transfer-news-christos-tzolis-signs-in-34m-deal-from-club-brugge-as-replacement-for-leandro-trossard",
+  "title": "Arsenal complete deal to sign winger Tzolis",
+  "summary": "Arsenal have announced the signing of winger Christos Tzolis from Club Brugge on a five-year deal.",
+  "published": "2026-07-23",
+  "outlet": "Sky Sports",
+  "tier": 1
+ },
+ {
+  "url": "https://talksport.com/football/4443886/chelsea-sign-morgan-rogers-british-transfer-record",
+  "title": "Morgan Rogers joins Chelsea in record-breaking £117m deal from Aston Villa",
+  "summary": "",
+  "published": "2026-07-21",
+  "outlet": "talksport.com",
+  "tier": 2
+ },
+ {
+  "url": "https://talksport.com/football/4447406/liverpool-talks-consortium-mittal-family-worth-six-billion",
+  "title": "Liverpool could become worth $6billion as club enters talks with consortium backed by Mittal family",
+  "summary": "",
+  "published": "2026-07-21",
+  "outlet": "talksport.com",
+  "tier": 2
+ },
+ {
+  "url": "https://talksport.com/football/4445125/alex-scott-contract-bournemouth-arsenal-manchester-united-rumours",
+  "title": "Chelsea have Alex Scott bid rejected by Bournemouth as star turns down new deal",
+  "summary": "",
+  "published": "2026-07-21",
+  "outlet": "talksport.com",
+  "tier": 2
+ },
+ {
+  "url": "https://talksport.com/football/4444966/transfer-notebook-aston-villa-morgan-rogers-chelsea-marcus-rashford",
+  "title": "Aston Villa offered two Chelsea outcasts after £117m Morgan Rogers deal",
+  "summary": "",
+  "published": "2026-07-21",
+  "outlet": "talksport.com",
+  "tier": 2
+ },
+ {
+  "url": "https://www.theguardian.com/football/2026/jul/22/arsenal-william-saliba-back-injury-france-world-cup",
+  "title": "Arsenal reveal William Saliba out for ‘extended period’ with back injury",
+  "summary": "Centre-back forced off in World Cup semi-final Arsenal say problem does not require surgery Arsenal, the Premier League champions, have been dealt a big injury blow after the centre-back William Saliba was ruled out for “an extended period” with a back injury. Saliba played with a back problem during France’s run to the World Cup semi-final and, although he will not require an operation, the 25-year-old is set for a significant spell on the sidelines. He was forced off with the injury after just 30 minutes of France’s last-four defeat by Spain . Continue reading...",
+  "published": "2026-07-22",
+  "outlet": "The Guardian",
+  "tier": 2
+ },
+ {
+  "url": "https://www.theguardian.com/football/2026/jul/22/amazon-founder-jeff-bezos-consortium-stake-liverpool-football",
+  "title": "Amazon founder Jeff Bezos in talks to join consortium seeking 30% stake in Liverpool",
+  "summary": "Billionaire keen to be part of Amit ­Bhatia’s £1.35bn bid Bezos has previously explored buying NFL franchises The Amazon founder Jeff Bezos has held talks about joining the consortium that is seeking to buy around 30% of Liverpool. The group led by the former Queens Park Rangers co‑owner Amit Bhatia has made a provisional offer of £1.35bn to buy a stake from Fenway Sports Group (FSG), and is talking to other potential investors over supplying funding. Continue reading...",
+  "published": "2026-07-22",
+  "outlet": "The Guardian",
+  "tier": 2
+ },
+ {
+  "url": "https://www.theguardian.com/football/2026/jul/22/liverpool-open-talks-over-selling-significant-stake-in-the-club",
+  "title": "Liverpool primed for business: Bezos, Bhatia and the next steps at Anfield",
+  "summary": "Fenway Sports Group looks to be locked in talks with a consortium led by the son-in-law of Lakshmi Mittal, while the Amazon founder has now been linked Continue reading...",
+  "published": "2026-07-22",
+  "outlet": "The Guardian",
+  "tier": 2
+ },
+ {
+  "url": "https://www.theguardian.com/football/2026/jul/22/football-daily-email-liverpool-chelsea-manchester-city-what-you-may-have-missed",
+  "title": "Football Daily | Chelsea’s financial shrug and Liverpool leaking players – what you may have missed",
+  "summary": "Sign up now! Sign up now! Sign up now? Sign up now! After the eye-watering excess of the Geopolitics World Cup, we can return to the modest, measured land of the domestic game. While our attention has been elsewhere, Manchester City have splashed £116m on Elliot Anderson. Chelsea, not to be outshone, have splurged £117m on Morgan Rogers. Even Tottenham have parted with £230m to revamp their mildly traumatised squad. Manchester United, who went down to Wrexham in their first pre-season friendly in Helsinki, have kept things modest, buying Andrey Santos and Youri Tielemans for the same £85m Spur",
+  "published": "2026-07-22",
+  "outlet": "The Guardian",
+  "tier": 2
+ },
+ {
+  "url": "https://talksport.com/football/4449362/alex-disasi-chelsea-roma-ac-milan-west-ham-transfer-news",
+  "title": "Axel Disasi offered Chelsea escape route as two European clubs express interest",
+  "summary": "",
+  "published": "2026-07-22",
+  "outlet": "talksport.com",
+  "tier": 2
+ },
+ {
+  "url": "https://talksport.com/football/4449101/john-stones-transfer-chelsea-arsenal-liverpool",
+  "title": "John Stones linked with Chelsea and Arsenal but told he&#8217;d be perfect signing for Premier League rival instead",
+  "summary": "",
+  "published": "2026-07-22",
+  "outlet": "talksport.com",
+  "tier": 2
+ },
+ {
+  "url": "https://talksport.com/football/4446731/watch-liverpool-sunderland-kickoff-time-squads-location",
+  "title": "Where to watch Liverpool v Sunderland plus UK kick-off time, squads and location",
+  "summary": "",
+  "published": "2026-07-22",
+  "outlet": "talksport.com",
+  "tier": 2
+ },
+ {
+  "url": "https://www.birminghammail.co.uk/sport/football/transfer-news/aston-villa-acting-negatively-liverpool-34331834",
+  "title": "Aston Villa acting 'negatively' as Liverpool told they would accept £80m for another transfer",
+  "summary": "Aston Villa defender Ezri Konsa has been in fine form for England at the World Cup and is being linked with a move to Liverpool",
+  "published": "2026-07-22",
+  "outlet": "birminghammail.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.standard.co.uk/sport/football/rodri-transfer-latest-man-city-real-madrid-b1290993.html",
+  "title": "Man City handed transfer boost as Real Madrid warned off Rodri move",
+  "summary": "Spaniard captained his nation to World Cup glory mere weeks ago but Los Blancos may no longer be keen to move for him",
+  "published": "2026-07-22",
+  "outlet": "Evening Standard",
+  "tier": 2
+ },
+ {
+  "url": "https://www.standard.co.uk/sport/football/chelsea-fc-disasi-asking-price-transfer-latest-west-ham-b1290983.html",
+  "title": "Chelsea set asking price for Axel Disasi as wantaway star's transfer wish revealed",
+  "summary": "Frenchman has not made a first-team appearance for the Blues since January 2025 but is subject to interest from West Ham",
+  "published": "2026-07-22",
+  "outlet": "Evening Standard",
+  "tier": 2
+ },
+ {
+  "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-tour-diary-andoni-iraolas-34335450",
+  "title": "Liverpool US tour diary - Andoni Iraola's telling answer on transfers as two positions targeted",
+  "summary": "Paul Gorst reports from Chicago as Liverpool's pre-season tour continues in the United States",
+  "published": "2026-07-22",
+  "outlet": "liverpoolecho.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.chroniclelive.co.uk/sport/football/football-news/newcastle-united-transfer-chief-quit-34332640",
+  "title": "Newcastle United transfer chief to quit as Magpies negotiate September 2 exit",
+  "summary": "The Magpies have agreed an exit date for Steve Nickson after it became clear his stint on Tyneside was over. After being linked initially with West Ham and applying for the job, he has now taken a post at Wrexham",
+  "published": "2026-07-22",
+  "outlet": "chroniclelive.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.chroniclelive.co.uk/sport/football/transfer-news/newcastle-united-signing-would-tick-34331417",
+  "title": "Newcastle United signing would 'tick all the boxes' - but there is a catch",
+  "summary": "James Trafford continues to be linked with a move to Newcastle United after a season of being second choice at Manchester City",
+  "published": "2026-07-22",
+  "outlet": "chroniclelive.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.chroniclelive.co.uk/sport/football/football-news/bruno-guimaraes-given-newcastle-united-34330969",
+  "title": "Bruno Guimaraes given Newcastle United return date as Arsenal learn transfer timeline",
+  "summary": "The summer has been rife with stories of Arsenal being keen on Bruno Guimaraes - but they are yet to show their hand",
+  "published": "2026-07-22",
+  "outlet": "chroniclelive.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.theguardian.com/football/2026/jul/23/elliot-anderson-manchester-city-116m-nottingham-forest-transfer-premier-league",
+  "title": "Elliot Anderson lauds City as ‘kings of Manchester’ after £116m Forest transfer",
+  "summary": "‘They’re winners, relentless, a team I want to be part of’ Midfielder hails De Bruyne as a childhood inspiration Elliot Anderson has called Manchester City the “kings of Manchester” after completing his £116m move to the club from Nottingham Forest. The 23-year-old was a key part of England’s third-place finish at the World Cup, having been an ever-present for Forest in the Premier League last season. Before Morgan Rogers’ £117m transfer to Chelsea from Aston Villa on Tuesday , Anderson’s fee was the record for a British player. Continue reading...",
+  "published": "2026-07-23",
+  "outlet": "The Guardian",
+  "tier": 2
+ },
+ {
+  "url": "https://www.theguardian.com/football/2026/jul/23/andoni-iraola-liverpool-interview-spain",
+  "title": "‘Don’t become the protagonist’: Andoni Iraola on the secret of Spain’s success and his role at Liverpool",
+  "summary": "Liverpool’s new head coach is settling into the pre-season tour in Chicago as he begins to reshape the Reds’ identity Over coffee in Liverpool’s plush hotel in Chicago, Andoni Iraola presents his theory for the phenomenal success of Basque and Spanish coaches. It is a theory that will shape his entire approach to life as the Liverpool head coach and his attempts to bring the connection, the joy and the belief back to Anfield. It centres on the power of the collective. The Champions League, the Premier League, the Europa League, the FA Cup, the League Cup, the European Championship and, as of S",
+  "published": "2026-07-23",
+  "outlet": "The Guardian",
+  "tier": 2
+ },
+ {
+  "url": "https://www.theguardian.com/football/2026/jul/23/arsenal-sign-greece-forward-christos-tzolis-from-club-brugge-for-34m",
+  "title": "Arsenal sign Greece forward Christos Tzolis from Club Brugge for £34m",
+  "summary": "Tzolis joins Hincapié and Meslier among arrivals ‘⁠It’s absolutely amazing to sign for such a big ​club’ Arsenal have completed the £34m signing of Christos Tzolis from Club Brugge. The Greece international, 24, has signed a five-year contract with the Premier League champions and arrives as a replacement for Leandro Trossard following the Belgian’s switch to Besiktas . Tzolis’s move to the Emirates Stadium – Arsenal’s third permanent transfer of the summer – arrives 48 hours after the north Londoners missed out on Morgan Rogers who signed a £117m British-record fee with Chelsea, describing hi",
+  "published": "2026-07-23",
+  "outlet": "The Guardian",
+  "tier": 2
+ },
+ {
+  "url": "https://www.theguardian.com/football/2026/jul/23/transfer-roundup-barcelona-sign-karim-adeyemi-newcastle-aladji-bamba-monaco",
+  "title": "Transfer roundup: Barcelona sign Adeyemi, Monaco’s Bamba set for Newcastle",
+  "summary": "Karim Adeyemi moves from Dortmund in £19m deal Newcastle close on £34m Aladji Bamba from Monaco Barcelona have signed German winger Karim Adeyemi from Borussia Dortmund ⁠on a deal until 2031 while Newcastle are set to make Aladji Bamba their fourth summer signing. The La Liga club will pay around €22m (£19m) plus add-ons for the Germany international ⁠and the package includes a sell-on clause. Continue reading...",
+  "published": "2026-07-23",
+  "outlet": "The Guardian",
+  "tier": 2
+ },
+ {
+  "url": "https://talksport.com/football/4451142/james-trafford-transfer-man-city-leeds-newcastle",
+  "title": "James Trafford closes in on transfer to new Premier League club after Newcastle interest",
+  "summary": "",
+  "published": "2026-07-23",
+  "outlet": "talksport.com",
+  "tier": 2
+ },
+ {
+  "url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/man-city-confirm-elliot-anderson-34341357",
+  "title": "Man City confirm Elliot Anderson transfer as new signing speaks out - 'I was absolutely determined'",
+  "summary": "Elliot Anderson has completed his move to Manchester City and the new man has spoken about his hopes for the coming years.",
+  "published": "2026-07-23",
+  "outlet": "manchestereveningnews.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/man-city-fans-puma-jacket-34338642",
+  "title": "Man City fans snap up Puma £75 club jacket for 87p ahead of Premier League",
+  "summary": "The new Premier League season is just weeks away, and as kick off comes as the temperature drops, some fans may need something to keep warm in the stands",
+  "published": "2026-07-23",
+  "outlet": "manchestereveningnews.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/man-city-leeds-transfer-talks-34338888",
+  "title": "Man City star in new talks with Premier League rival as transfer preference clear",
+  "summary": "Manchester City are in talks with Leeds United over selling James Trafford to the Whites this summer, just 12 months since he returned to the Etihad Stadium",
+  "published": "2026-07-23",
+  "outlet": "manchestereveningnews.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/pep-guardiola-italy-england-job-34338087",
+  "title": "Pep Guardiola makes Italy job decision as England learn demands from Man City icon",
+  "summary": "The former Manchester City boss has been in talks over taking over as Italy manager",
+  "published": "2026-07-23",
+  "outlet": "manchestereveningnews.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/man-united-ismaila-sarr-transfer-34336519",
+  "title": "Man United 'make transfer enquiry' for 25-goal forward in fresh attempt at sealing deal",
+  "summary": "Manchester United are eyeing up a move for Crystal Palace's Ismaila Sarr this summer as the Reds look to add more firepower in the attacking department",
+  "published": "2026-07-23",
+  "outlet": "manchestereveningnews.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.birminghammail.co.uk/sport/football/transfer-news/aston-villa-hope-alejandro-garnacho-34340636",
+  "title": "Aston Villa will hope Alejandro Garnacho lives up to first impression he made on Emi Martinez",
+  "summary": "Garnacho has joined Martinez at Villa Park on a season-long loan from Chelsea",
+  "published": "2026-07-23",
+  "outlet": "birminghammail.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.birminghammail.co.uk/sport/football/transfer-news/breaking-aston-villa-complete-alejandro-34336328",
+  "title": "BREAKING: Aston Villa complete Alejandro Garnacho transfer as key details revealed",
+  "summary": "Alejandro Garnacho has joined Aston Villa from Chelsea on loan with a conditional obligation to buy",
+  "published": "2026-07-23",
+  "outlet": "birminghammail.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.birminghammail.co.uk/sport/football/transfer-news/aston-villas-dream-starting-xi-34337734",
+  "title": "Aston Villa's dream starting XI after Alejandro Garnacho transfer",
+  "summary": "Aston Villa's squad is starting to come together for the new season as Alejandro Garnacho completes his move from Chelsea",
+  "published": "2026-07-23",
+  "outlet": "birminghammail.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.standard.co.uk/sport/football/crystal-palace-transfer-news-matsima-lacroix-b1291095.html",
+  "title": "Crystal Palace open talks for Bundesliga star amid Maxence Lacroix exit talks",
+  "summary": "Eagles are looking to strengthen their backline",
+  "published": "2026-07-23",
+  "outlet": "Evening Standard",
+  "tier": 2
+ },
+ {
+  "url": "https://www.standard.co.uk/sport/football/chelsea-fc-transfer-news-disasi-lacroix-crystal-palace-b1291080.html",
+  "title": "Crystal Palace in Axel Disasi talks as Chelsea seek Maxence Lacroix transfer",
+  "summary": "Eagles want to sign French defender, who is free to leave Chelsea, as a replacement for Stamford Bridge-bound centre-back",
+  "published": "2026-07-23",
+  "outlet": "Evening Standard",
+  "tier": 2
+ },
+ {
+  "url": "https://www.standard.co.uk/sport/football/arsenal-fc-transfer-news-tzolis-signs-b1290871.html",
+  "title": "Christos Tzolis: Arsenal confirm £34m transfer for third summer signing",
+  "summary": "Greece international has signed a five-year deal",
+  "published": "2026-07-23",
+  "outlet": "Evening Standard",
+  "tier": 2
+ },
+ {
+  "url": "https://www.standard.co.uk/sport/football/chelsea-fc-transfer-news-alex-scott-bid-b1290900.html",
+  "title": "Chelsea handed major Alex Scott transfer boost after £64m bid is rejected by Bournemouth",
+  "summary": "Bournemouth are desperate to keep hold of their star midfielder, who has rejected a new contract offer",
+  "published": "2026-07-23",
+  "outlet": "Evening Standard",
+  "tier": 2
+ },
+ {
+  "url": "https://www.standard.co.uk/sport/football/arsenal-fc-new-adidas-away-kit-leaked-release-date-b1290737.html",
+  "title": "Arsenal: Leaked images of new Adidas away kit and release date as fans praise 'absolutely incredible' offer",
+  "summary": "Arsenal are continuing their partnership with Adidas",
+  "published": "2026-07-23",
+  "outlet": "Evening Standard",
+  "tier": 2
+ },
+ {
+  "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/everton-linked-move-celtic-world-34340573",
+  "title": "Everton linked with move for Celtic and World Cup star as right-back search goes on",
+  "summary": "Celtic and Canada right-back Alistair Johnston is reportedly wanted by Everton, who have been linked with a host of players in that position so far this summer",
+  "published": "2026-07-23",
+  "outlet": "liverpoolecho.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-transfers-maghnes-akliouche-psg-34339630",
+  "title": "Maghnes Akliouche's behaviour comes to light after Liverpool approach for PSG target",
+  "summary": "Liverpool made an approach for Monaco's Maghnes Akliouche during the summer transfer window",
+  "published": "2026-07-23",
+  "outlet": "liverpoolecho.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-transfer-plan-barcola-diomande-34339182",
+  "title": "Liverpool transfer plan for two marquee signings takes major twist with PSG set for huge deal",
+  "summary": "Liverpool are eyeing moves for Bradley Barcola and Yan Diomande in the summer transfer window.",
+  "published": "2026-07-23",
+  "outlet": "liverpoolecho.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/everton-five-big-transfer-decisions-34337812",
+  "title": "Everton have five big transfer decisions to make with one exit inevitable",
+  "summary": "Everton have seven first-team squad members in the final of the year of their contracts and will have a lot to think about if bids are forthcoming this summer",
+  "published": "2026-07-23",
+  "outlet": "liverpoolecho.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/rio-ngumoha-explains-crazy-phone-34337751",
+  "title": "Rio Ngumoha explains 'crazy' phone call and offers Liverpool solution to Andoni Iraola problem",
+  "summary": "Liverpool youngster Rio Ngumoha has reflected on his experience with England and how he can help Andoni Iraola",
+  "published": "2026-07-23",
+  "outlet": "liverpoolecho.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-defender-completes-unexpected-transfer-34337519",
+  "title": "Liverpool defender completes unexpected transfer after double red card setback",
+  "summary": "Liverpool teenage centre-back Amara Nallo will spend the rest of the year on loan at Finnish side HJK Helsinki",
+  "published": "2026-07-23",
+  "outlet": "liverpoolecho.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/agent-explains-top-young-everton-34335650",
+  "title": "Agent explains why top young Everton talent decided to leave",
+  "summary": "Demi Akarakiri was offered a new contract by Everton but has instead signed for Serie A side Cagliari",
+  "published": "2026-07-23",
+  "outlet": "liverpoolecho.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-transfer-news-jones-gakpo-34325018",
+  "title": "Liverpool could raise £215m with huge sales this summer as more homegrown stars eye exit",
+  "summary": "Liverpool's transfer prospects may rest on several significant sales if they wish to in any way mimic their eye-watering expense of 2025 this summer",
+  "published": "2026-07-23",
+  "outlet": "liverpoolecho.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.chroniclelive.co.uk/sport/football/football-news/newcastle-united-james-trafford-transfer-34338447",
+  "title": "Newcastle United’s James Trafford transfer stance as Leeds United 'hold encouraging talks'",
+  "summary": "Newcastle United agreed a deal to sign James Trafford last summer, before Manchester City swooped in",
+  "published": "2026-07-23",
+  "outlet": "chroniclelive.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.chroniclelive.co.uk/sport/football/transfer-news/newcastle-united-close-fourth-signing-34337544",
+  "title": "Newcastle United close in on fourth signing of the summer as Monaco midfielder jets in for medical",
+  "summary": "Newcastle's midfield search could be set for a conclusion as the Magpies close in on a deal for Aladji Bamba",
+  "published": "2026-07-23",
+  "outlet": "chroniclelive.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.chroniclelive.co.uk/sport/football/transfer-news/tottenham-hotspur-make-lucas-bergvall-34337015",
+  "title": "Tottenham Hotspur make Lucas Bergvall decision as Newcastle United learn transfer preference",
+  "summary": "Newcastle have been linked with a move for the Sweden international midfielder",
+  "published": "2026-07-23",
+  "outlet": "chroniclelive.co.uk",
+  "tier": 2
+ },
+ {
+  "url": "https://www.independent.co.uk/sport/football/kevin-keegan-newcastle-united-motorcycle-auction-b3020457.html",
+  "title": "Kevin Keegan’s Harley-Davidson raises thousands for cancer charity days after his death",
+  "summary": "The one-off Sportster features a completely bespoke livery inspired by Keegan’s time at Newcastle United",
+  "published": "2026-07-23",
+  "outlet": "The Independent",
+  "tier": 2
+ },
+ {
+  "url": "https://www.independent.co.uk/sport/football/kevin-keegan-death-newcastle-liverpool-tribute-b3020439.html",
+  "title": "Newcastle United and Liverpool in talks over Kevin Keegan tribute for Premier League opener",
+  "summary": "The Ballon d’Or winner was a cult hero at both Premier League clubs",
+  "published": "2026-07-23",
+  "outlet": "The Independent",
+  "tier": 2
+ },
+ {
+  "url": "https://www.independent.co.uk/sport/football/elliot-anderson-man-city-transfer-news-b3020275.html",
+  "title": "Elliot Anderson seals Man City move – and takes swipe at Manchester United",
+  "summary": "Anderson has joined from Nottingham Forest in a £116m deal",
+  "published": "2026-07-23",
+  "outlet": "The Independent",
+  "tier": 2
+ },
+ {
+  "url": "https://www.independent.co.uk/sport/football/james-trafford-leeds-man-city-transfer-news-b3020418.html",
+  "title": "Leeds open talks with Man City over England international",
+  "summary": "James Trafford could leave the Etihad Stadium in search of regular football",
+  "published": "2026-07-23",
+  "outlet": "The Independent",
+  "tier": 2
+ },
+ {
+  "url": "https://www.independent.co.uk/sport/football/transfer-news-live-arsenal-man-utd-liverpool-b3019980.html",
+  "title": "Transfer news LIVE: Man Utd agree midfielder terms, Arsenal identify new targets after injury blow, Liverpool hijack PSG bid",
+  "summary": "Arenal have confirmed that Saliba has been ruled out for an extended period with a back injury, with Ezri Konsa and John Stones possible targets",
+  "published": "2026-07-23",
+  "outlet": "The Independent",
+  "tier": 2
+ },
+ {
+  "url": "https://www.espn.com/soccer/story/_/id/49433223/elliot-anderson-completes-move-manchester-city-nottingham-forest",
+  "title": "Anderson completes move to Man City from Forest",
+  "summary": "Manchester City have completed the signing of Elliot Anderson from Nottingham Forest, the club have confirmed.",
+  "published": "2026-07-23",
+  "outlet": "ESPN",
+  "tier": 2
+ },
+ {
+  "url": "https://www.espn.com/soccer/story/_/id/49429999/alejandro-garnacho-joins-aston-villa-loan-chelsea",
+  "title": "Garnacho joins Aston Villa on loan from Chelsea",
+  "summary": "Alejandro Garnacho has joined Aston Villa on loan from Chelsea ahead of the new Premier League season.",
+  "published": "2026-07-23",
+  "outlet": "ESPN",
+  "tier": 2
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15991157/Aston-Villa-plough-Chelseas-Nicolas-Jackson-Morgan-Rogers-medical-ahead-117m-deal-Stamford-Bridge.html",
+  "title": "Aston Villa plough on with move for Chelsea's Nicolas Jackson... as Morgan Rogers has his medical ahead of £117m deal at Stamford Bridge",
+  "summary": "Daily Mail Sport reported on Saturday that Jackson has come up in conversation during negotiations over Morgan Rogers' £117million sale.",
+  "published": "2026-07-20",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15994277/West-Hams-accept-68m-bid-Al-Hilal-Crysencio-Summerville-Premier-League-clubs-unlikely-compete-price.html",
+  "title": "West Ham accept £60m bid from Al-Hilal for Crysencio Summerville... with Premier League clubs now unlikely to compete at that price",
+  "summary": "Al-Hilal have agreed a £68million deal with West Ham for winger Crysencio Summerville.",
+  "published": "2026-07-21",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15992019/Man-United-Arsenal-Chelsea-target-Alex-Scott-turns-new-Bournemouth-contract-WINDOW-WATCH.html",
+  "title": "Morgan Rogers completes record move to Chelsea, West Ham agree £60m fee to sell Crysencio Summerville to Al-Hilal and Ipswich have £10m bid for Daizen Maeda accepted by Celtic: WINDOW WATCH",
+  "summary": "It's that time of the year again - the transfer window is now open until September 1 and it's sure to be a busy period with clubs looking to make big signings ahead of next season.",
+  "published": "2026-07-21",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15994711/Morgan-Rogers-insists-Chelsea-Londons-biggest-club-completes-117m-expensive-English-player-Blues-hijacked-Arsenals-chase.html",
+  "title": "Morgan Rogers insists Chelsea are London's biggest club as he completes £117m move to become most expensive English player EVER... after Blues hijacked Arsenal's chase",
+  "summary": "Gunners sources claim they were only interested in the 23-year-old for a maximum £80m, but Chelsea quickly struck their deal with Villa to make him their most expensive signing.",
+  "published": "2026-07-21",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15994347/Chelsea-ponder-summer-England-centre-John-Stones-32-Man-City-exit.html",
+  "title": "Chelsea consider shock move for England centre back John Stones, 32, after his Man City exit - and have £64m bid for Alex Scott rejected by Bournemouth",
+  "summary": "The 32-year-old central defender is available on a free this summer, and is now enjoying downtime after representing England at the World Cup, including starting in their semi-final exit to Argentina.",
+  "published": "2026-07-21",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15994317/Liverpool-receive-offer-minority-stake-consortium-led-Amit-Bhatia-Reds-value-past-4-5BILLION-businessman-quitting-role-QPR-owner.html",
+  "title": "Liverpool receive offer for minority stake from consortium led by Amit Bhatia which could take Reds' value past £4.5BILLION - with businessman quitting role as QPR co-owner",
+  "summary": "British-Indian businessman Amit Bhatia is part of a consortium in talks to buy a small stake in Liverpool that could take the club's value to north of £4.5billion.",
+  "published": "2026-07-21",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15994049/Aston-Villa-propose-loan-obligation-buy-Alejandro-Garnacho-Chelsea-wanting-40m-permanent-deal.html",
+  "title": "Aston Villa expected to land Chelsea's Alejandro Garnacho on loan with obligation to buy... after asking about ex-Man United winger during negotiations over Morgan Rogers' £117m move to Stamford Bridge",
+  "summary": "The club made enquiries during conversations over Morgan Rogers' £117m move. The England star has now signed a contract at Stamford Bridge.",
+  "published": "2026-07-21",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15993677/Alexis-Mac-Allister-father-firmly-denies-Real-Madrid-talks-Liverpool-star-Spanish-giants.html",
+  "title": "Alexis Mac Allister's father firmly denies Real Madrid talks amid speculation Liverpool star had 'offered himself' to Spanish giants",
+  "summary": "Alexis Mac Allister's father has firmly shut down speculation of a potential move for his son to Real Madrid, according to reports.",
+  "published": "2026-07-21",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15991685/Chelsea-step-pursuit-Crystal-Palace-star-Maxence-Lacroix-Eagles-demand-60m-fee-club-chiefs-meeting-New-York-ahead-World-Cup-final-wantaway-defender.html",
+  "title": "Chelsea step up pursuit for Crystal Palace star Maxence Lacroix as Eagles demand £60m fee - with club chiefs meeting in New York ahead of World Cup final over wantaway defender",
+  "summary": "SIMON JONES: Palace have been holding out for maximum profit on the France international defender who is ready to leave this window.",
+  "published": "2026-07-21",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15991081/Kevin-Keegan-dead-75-Football-legend-passes-away-following-battle-cancer.html",
+  "title": "Kevin Keegan dead at 75: Football legend passes away following battle with cancer as devastated family pay heartbreaking tribute to England icon",
+  "summary": "The England and Newcastle legend was diagnosed with stage four stomach cancer in January, having been admitted to hospital with abdominal problems.",
+  "published": "2026-07-21",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15995221/jeff-bezos-liverpool-investment-talks.html",
+  "title": "Jeff Bezos 'holds talks about investing in Liverpool' as Amazon founder - and world's fourth richest man worth $257BILLION - considers joining bid for Premier League giants",
+  "summary": "British-Indian businessman Amit Bhatia is leading a group of financiers which is in talks to make a 'strategic minority investment' in Liverpool.",
+  "published": "2026-07-22",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15997507/Man-United-close-snatching-two-Man-City-hot-prospects-continue-investment-young-talent.html",
+  "title": "Man United close in on snatching two teenage prospects from rivals Man City as part of Sir Jim Ratcliffe's drive to step up investment in youth",
+  "summary": "CHRIS WHEELER: Earlier this week, United agreed a deal worth £4million plus up to another £4m in add-ons with Tottenham for winger Tynan Thompson subject to the player's registration.",
+  "published": "2026-07-22",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15997415/Aston-Villa-agree-Alejandro-Garnacho-deal-Ex-Man-United-star-leaves-Chelsea-loan-conditional-obligation-buy.html",
+  "title": "Aston Villa agree Alejandro Garnacho deal: Ex-Man United star leaves Chelsea on loan with conditional obligation to buy",
+  "summary": "SIMON JONES: The Argentina international has travelled to Birmingham today to complete his medical and will sign a four year contract once the move becomes permanent.",
+  "published": "2026-07-22",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15997599/Rodri-pushing-sign-Real-Madrid-Man-City-spark-midfield-merry-round-involving-Man-United-target.html",
+  "title": "Revealed: Rodri is pushing to sign for Real Madrid - and move from Man City could spark a midfield merry-go-round involving Man United target",
+  "summary": "City have already signed Elliot Anderson and are working on a deal for Lille's Ayyoub Bouaddi, mindful that Rodri and his representatives have still to accept terms on a new contract offered in April.",
+  "published": "2026-07-22",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15996731/Former-England-stars-son-18-joins-Arsenal-persuaded-snub-bitter-north-London-rivals-Tottenham.html",
+  "title": "It's Sol Campbell 2.0! Former England star's son, 18, joins Arsenal after young defender snubbed contract offer at north London rivals Tottenham",
+  "summary": "The 18-year-old turned down a professional deal at Spurs earlier this year and had offers from Chelsea, Manchester City, Everton, Bayern Munich, Borussia Dortmund, Leverkusen and Monaco.",
+  "published": "2026-07-22",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15997363/Spurs-fans-fume-Mateus-Fernandes-wondergoal-channel-coverage-pre-season-friendly.html",
+  "title": "Spurs fans fume at missing £85m new star Mateus Fernandes' wondergoal on 'pure garbage' in-house channel's coverage of pre-season friendly",
+  "summary": "Fans wanted to watch Tottenham's first pre-season match against MK Dons needed to tune in to their channel SPURSPLAY, which is showing their pre-season matches.",
+  "published": "2026-07-22",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15997003/arsenal-bruno-guimaraes-transfer-chelsea-rogers.html",
+  "title": "Arsenal transfer briefing: Why the Bruno Guimaraes deal could be hijacked, blow in Bradley Barcola chase, La Liga stars on radar, latest on Bournemouth duo and major William Saliba injury update",
+  "summary": "Arsenal are effectively being told 'to put up or shut up' in their pursuit of Newcastle United midfielder Bruno Guimaraes.",
+  "published": "2026-07-22",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15996341/Italy-set-break-bank-Pep-Guardiola-nations-football-president-confirms-talks-legendary-former-Man-City-boss.html",
+  "title": "Italy set to 'break the bank' for Pep Guardiola as nation's football president confirms talks with legendary former Man City boss",
+  "summary": "Guardiola is currently out of work after leaving Man City at the end of last season following 10 incredible years in England where he won 20 trophies.",
+  "published": "2026-07-22",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://metro.co.uk/2026/07/22/man-utd-make-bombshell-transfer-bid-world-cup-hero-29199403",
+  "title": "Man Utd make ‘bombshell’ transfer bid for World Cup hero",
+  "summary": "",
+  "published": "2026-07-22",
+  "outlet": "metro.co.uk",
+  "tier": 3
+ },
+ {
+  "url": "https://metro.co.uk/2026/07/22/alex-scott-stance-chelsea-transfer-chelsea-reject-64m-offer-29198878",
+  "title": "Alex Scott stance on Chelsea transfer after Bournemouth reject £64m offer",
+  "summary": "",
+  "published": "2026-07-22",
+  "outlet": "metro.co.uk",
+  "tier": 3
+ },
+ {
+  "url": "https://metro.co.uk/2026/07/22/chelsea-urged-hijack-man-utd-arsenal-move-51m-transfer-target-top-player-29197937",
+  "title": "‘Top player’ – Chelsea urged to hijack Man Utd and Arsenal move for £51m transfer target",
+  "summary": "",
+  "published": "2026-07-22",
+  "outlet": "metro.co.uk",
+  "tier": 3
+ },
+ {
+  "url": "https://metro.co.uk/2026/07/22/mikel-arteta-warned-28m-arsenal-star-demand-transfer-exit-wants-play-29189747",
+  "title": "‘Wants to play’ – Mikel Arteta warned that £28m Arsenal star could demand transfer exit",
+  "summary": "",
+  "published": "2026-07-22",
+  "outlet": "metro.co.uk",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15999393/Leeds-hold-talks-Man-City-England-goalkeeper-James-Trafford-just-year-joined-record-31m.html",
+  "title": "Leeds in advanced talks with Man City over £35m deal for England goalkeeper James Trafford - just a year after he joined for record £31m",
+  "summary": "Newcastle United, who have spoken to City in recent weeks about Trafford and tried previously to sign him, are now exploring other options.",
+  "published": "2026-07-23",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-16000287/Chelsea-Bromley-friendly-Pedro-Gittens-Emegha.html",
+  "title": "Joao Pedro gets off the mark in pre-season as Chelsea triumph 3-0 in behind-closed-doors friendly - with Jamie Gittens and summer signing from Strasbourg also on target",
+  "summary": "Daily Mail Sport has been told the scoreline was 3-0 to the Premier League club, with Joao Pedro, Jamie Gittens and Emmanuel Emegha all on the scoresheet.",
+  "published": "2026-07-23",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15999677/Marcus-Rashford-snubbed-Barcelona-LaLiga-giants-sign-highly-rated-forward-Anthony-Gordons-70m-leaving-Man-United-outcasts-dream-tatters.html",
+  "title": "Marcus Rashford is snubbed again by Barcelona as LaLiga giants sign ANOTHER highly-rated forward after Anthony Gordon's £70m move - leaving Man United outcast's 'dream' move in tatters",
+  "summary": "Several clubs including Arsenal, Tottenham and Real Madrid have been linked with Rashford, yet it is unclear what the future holds for him.",
+  "published": "2026-07-23",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15996143/Tonali-Fernandes-Spurs-185m.html",
+  "title": "How Sandro Tonali and Mateus Fernandes proved in just 45 minutes that this is a whole new Tottenham this season - and why £185m duo's new team-mates could barely believe their eyes",
+  "summary": "BOBBY MANZI: If first impressions are anything to go by, then Tottenham Hotspur should get used to controlling midfield.",
+  "published": "2026-07-23",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15999495/Man-City-Elliot-Anderson-Nottingham-Forest-signing.html",
+  "title": "Elliot Anderson aims dig at Man United after sealing £116m move to Man City as he declares: 'I've joined the kings of Manchester'",
+  "summary": "Anderson, 23, joins City on a five-year deal, signing a contract until the summer of 2031, and becomes the second most expensive British transfer.",
+  "published": "2026-07-23",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15997771/Inside-Jeff-Bezos-bid-buy-Liverpool.html",
+  "title": "Inside Jeff Bezos' bid to buy into Liverpool: The role the Amazon billionaire could play, what 'super smart' £1.35bn investment means for transfer business, how it affects FSG - and what happens next",
+  "summary": "LEWIS STEELE IN CHICAGO: As soon as the news emerged that Jeff Bezos was interested in forming part of a consortium to buy a stake in Liverpool FC, the jokes began.",
+  "published": "2026-07-23",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.dailymail.com/sport/football/article-15999943/West-Ham-transfer-news-defenders-midfielders-Bowen-Kretinsky.html",
+  "title": "West Ham transfer briefing: The four centre backs and three midfielders on shortlist in post-Sullivan overhaul, how Daniel Kretinsky convinced Jarrod Bowen to stay and the five stars heading for the exit",
+  "summary": "The West Ham overhaul is long overdue but now relegation to the second tier, and the financial constraints that come with it, have forced their hand, while a change in owners could well see it through.",
+  "published": "2026-07-23",
+  "outlet": "dailymail.com",
+  "tier": 3
+ },
+ {
+  "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-news-live-guimaraes-34336795",
+  "title": "Arsenal transfer news LIVE: Bruno Guimaraes 'bid', deal confirmed, Diomande plan, Barcola race",
+  "summary": "The latest Arsenal transfer news, including live updates on Bradley Barcola, Bruno Guimaraes, Christos Tzolis, Kerim Alajbegovic, Mika Godts, Yan Diomande and more",
+  "published": "2026-07-23",
+  "outlet": "football.london",
+  "tier": 3
+ },
+ {
+  "url": "https://www.football.london/arsenal-fc/transfer-news/nico-williams-agent-provides-transfer-34339270",
+  "title": "Nico Williams' agent provides transfer update as Arsenal enquire about £94m Liverpool target",
+  "summary": "Andrea Berta has wrapped up a few deals this summer, but the Arsenal sporting director is yet to significantly bolster Mikel Arteta's starting lineup.",
+  "published": "2026-07-23",
+  "outlet": "football.london",
+  "tier": 3
+ },
+ {
+  "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-news-christos-tzolis-34339611",
+  "title": "Christos Tzolis first words after Arsenal transfer as 'goals and assists' pledge made",
+  "summary": "Arsenal have signed Christos Tzolis for £34million from Club Brugge and the Greece international understood to have signed a five-year contract with the Gunners",
+  "published": "2026-07-23",
+  "outlet": "football.london",
+  "tier": 3
+ },
+ {
+  "url": "https://www.football.london/chelsea-fc/transfer-news/chelsea-fc-transfer-news-squad-34338184",
+  "title": "Chelsea announce signing of 18-year-old star after eye-catching breakthrough season",
+  "summary": "Chelsea have signed another talented teenager who enjoyed a breakthrough season last term, which evidently caught the Blues' eye and led to them snapping him up",
+  "published": "2026-07-23",
+  "outlet": "football.london",
+  "tier": 3
+ },
+ {
+  "url": "https://www.football.london/west-ham-united-fc/transfer-news/dylan-lawlor-west-ham-transfer-34337335",
+  "title": "Dylan Lawlor West Ham transfer latest as fresh Cardiff City rumours emerge",
+  "summary": "Dylan Lawlor has been the subject of intense transfer speculation in recent weeks, with West Ham United among the clubs interested in the Cardiff City defender",
+  "published": "2026-07-23",
+  "outlet": "football.london",
+  "tier": 3
+ },
+ {
+  "url": "https://www.football.london/tottenham-hotspur-fc/transfer-news/guglielmo-vicario-tottenham-future-latest-34337139",
+  "title": "Guglielmo Vicario Tottenham future latest amid transfer exit talk and pre-season injury",
+  "summary": "Guglielmo Vicario continues to be linked with an exit from Tottenham Hotspur",
+  "published": "2026-07-23",
+  "outlet": "football.london",
+  "tier": 3
+ },
+ {
+  "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-news-live-christos-34322546",
+  "title": "Arsenal transfer news: William Saliba statement, Bruno Guimaraes latest, Alex Scott bid",
+  "summary": "All the latest Arsenal transfer news and gossip as Mikel Arteta and Andrea Berta look to build a squad capable of competing on all four fronts next season",
+  "published": "2026-07-23",
+  "outlet": "football.london",
+  "tier": 3
+ },
+ {
+  "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-already-been-given-man-34334851",
+  "title": "Arsenal have already been given Man City transfer warning as worry grows over Bruno Guimaraes",
+  "summary": "Arsenal have been warned what can happen this transfer window if they do not move ambitiously enough for their top targets amid worry over Bruno Guimaraes",
+  "published": "2026-07-23",
+  "outlet": "football.london",
+  "tier": 3
+ },
+ {
+  "url": "https://www.football.london/arsenal-fc/news/arsenal-injury-news-saliba-timber-34336533",
+  "title": "Saliba, Timber, White - Arsenal injury news and return dates as Girona match edges nearer",
+  "summary": "football.london take a look at the latest Arsenal injury news and return dates ahead of Mikel Arteta's side kicking off their pre-season campaign",
+  "published": "2026-07-23",
+  "outlet": "football.london",
+  "tier": 3
+ },
+ {
+  "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-latest-newcastle-contact-over-34334994",
+  "title": "Arsenal latest: Newcastle contact over Bruno Guimaraes as transfer offer knocked back",
+  "summary": "Arsenal have already made two signings this summer and are expected to dip back into the market",
+  "published": "2026-07-23",
+  "outlet": "football.london",
+  "tier": 3
+ },
+ {
+  "url": "https://www.football.london/arsenal-fc/news/arsenal-transfers-barcola-alvarez-guimaraes-34325315",
+  "title": "Managing Arsenal – Dream Morgan Rogers alternative signs and £80m double transfer dilemma solved",
+  "summary": "Arsenal can still rescue their summer transfer window by moving quickly for several key targets",
+  "published": "2026-07-23",
+  "outlet": "football.london",
+  "tier": 3
+ },
+ {
+  "url": "https://www.mirror.co.uk/sport/football/transfer-news/manchester-united-pull-out-alex-37468970",
+  "title": "Manchester United pull out of Alex Scott transfer race after learning asking price",
+  "summary": "Manchester United had been keen on Bournemouth midfielder Alex Scott who has impressed with the Cherries and is being tipped for a big-money summer move",
+  "published": "2026-07-23",
+  "outlet": "The Mirror",
+  "tier": 3
+ },
+ {
+  "url": "https://www.mirror.co.uk/sport/football/news/liverpool-transfers-maghnes-akliouche-monaco-37468424",
+  "title": "Jurgen Klopp favourite has told Andoni Iraola all about Liverpool target Maghnes Akliouche",
+  "summary": "Liverpool made an approach for Monaco's Maghnes Akliouche earlier in the transfer window",
+  "published": "2026-07-23",
+  "outlet": "The Mirror",
+  "tier": 3
+ },
+ {
+  "url": "https://www.mirror.co.uk/sport/football/news/argentina-world-cup-losers-macallister-37467637",
+  "title": "Argentina were rotten, violent losers but Liverpool star must now use his misplaced anger",
+  "summary": "Argentina midfielder Alexis Mac Allister claimed other countries have been rejoicing in his country's loss to Spain in the final but Andoni Iraola will be more interested in seeing how it affects his club form",
+  "published": "2026-07-23",
+  "outlet": "The Mirror",
+  "tier": 3
+ },
+ {
+  "url": "https://www.mirror.co.uk/sport/football/news/tottenham-man-utd-fernandes-goal-37466490",
+  "title": "Mateus Fernandes shows Man Utd what they're missing with screamer on Spurs debut",
+  "summary": "Mateus Fernandes was linked to Manchester United this summer but the former West Ham man opted for a move to Spurs instead and has kicked off his career in North London in style",
+  "published": "2026-07-23",
+  "outlet": "The Mirror",
+  "tier": 3
+ },
+ {
+  "url": "https://www.mirror.co.uk/sport/football/transfer-news/liverpool-transfer-news-maghnes-akliouche-37466255",
+  "title": "Maghnes Akliouche's transfer intention clear as Liverpool approach for star confirmed",
+  "summary": "Liverpool have made an enquiry over AS Monaco winger Maghnes Akliouche, who is reportedly open to a Premier League move",
+  "published": "2026-07-23",
+  "outlet": "The Mirror",
+  "tier": 3
+ },
+ {
+  "url": "https://metro.co.uk/2026/07/23/crystal-palace-ask-forgotten-chelsea-defender-maxence-lacroix-talks-29207484",
+  "title": "Crystal Palace ask for forgotten Chelsea defender in Maxence Lacroix talks",
+  "summary": "",
+  "published": "2026-07-23",
+  "outlet": "metro.co.uk",
+  "tier": 3
+ },
+ {
+  "url": "https://metro.co.uk/2026/07/23/man-utd-backed-sign-51m-arsenal-transfer-target-better-declan-rice-29205387",
+  "title": "Man Utd backed to sign £51m Arsenal transfer target who is ‘better than Declan Rice’",
+  "summary": "",
+  "published": "2026-07-23",
+  "outlet": "metro.co.uk",
+  "tier": 3
+ },
+ {
+  "url": "https://metro.co.uk/2026/07/23/arsenal-talks-hijack-move-102m-star-psg-move-stalls-29206729",
+  "title": "Arsenal in talks to hijack move for £102m star as PSG move stalls",
+  "summary": "",
+  "published": "2026-07-23",
+  "outlet": "metro.co.uk",
+  "tier": 3
+ },
+ {
+  "url": "https://metro.co.uk/2026/07/23/arsenal-add-25m-former-man-utd-star-transfer-shortlist-29202925",
+  "title": "Arsenal add £25m former Manchester United star to transfer shortlist",
+  "summary": "",
+  "published": "2026-07-23",
+  "outlet": "metro.co.uk",
+  "tier": 3
+ },
+ {
+  "url": "https://www.caughtoffside.com/2026/07/23/arsenal-are-ready-to-break-the-bank-for-23-g-a-world-cup-breakout-star",
+  "title": "Arsenal are ready to break the bank for 23-G/A World Cup breakout star",
+  "summary": "Yan Diomande continues to be linked with a move away from German club RB Leipzig this summer. According to a report from BILD (h/t SportWitness), Arsenal are interested in signing the player, and they have indicated a desire to pay a substantial amount of money for the 19-year-old. Earlier this summer, Liverpool wanted to sign [&#8230;] The post Arsenal are ready to break the bank for 23-G/A World Cup breakout star appeared first on CaughtOffside .",
+  "published": "2026-07-23",
+  "outlet": "CaughtOffside",
+  "tier": 3
+ },
+ {
+  "url": "https://www.caughtoffside.com/2026/07/23/tottenham-could-launch-move-for-brazilian-attacker-with-17-goals-9-assists",
+  "title": "Tottenham could launch move for Brazilian attacker with 17 goals & 9 assists",
+  "summary": "Tottenham Hotspur are reportedly interested in signing the Coritiba winger Lucas Ronier. Multiple clubs are keeping tabs on the 21-year-old attacker, and it remains to be seen whether Tottenham decides to make a move for him. They need more quality on the flanks, and the 20-year-old will add pace, flair, and unpredictability to the team. [&#8230;] The post Tottenham could launch move for Brazilian attacker with 17 goals &#038; 9 assists appeared first on CaughtOffside .",
+  "published": "2026-07-23",
+  "outlet": "CaughtOffside",
+  "tier": 3
+ },
+ {
+  "url": "https://www.caughtoffside.com/2026/07/23/chelsea-and-man-united-are-battling-for-a-bargain-17-million-defensive-signing",
+  "title": "Chelsea and Man United are battling for a bargain £17 million defensive signing",
+  "summary": "Chelsea and Manchester United are reportedly interested in signing Archie Brown from Fenerbahce. According to a report from Sabah, the two Premier League clubs want to sign the 24-year-old left back, and it remains to be seen whether they follow up with an official offer to get the deal done. Brown will cost €20 million, [&#8230;] The post Chelsea and Man United are battling for a bargain £17 million defensive signing appeared first on CaughtOffside .",
+  "published": "2026-07-23",
+  "outlet": "CaughtOffside",
+  "tier": 3
+ },
+ {
+  "url": "https://www.caughtoffside.com/2026/07/23/arsenal-closer-to-bruno-guimaraes-transfer",
+  "title": "Deal now close: Arsenal putting finishing touches on potential £80m transfer",
+  "summary": "Arsenal are reportedly getting closer with their transfer pursuit of Newcastle United midfielder Bruno Guimaraes. The Brazil international has long been linked with the Gunners after shining at St James&#8217; Park, and it seems things may finally be progressing towards a conclusion. There are a variety of updates coming in, with the Evening Standard reporting [&#8230;] The post Deal now close: Arsenal putting finishing touches on potential £80m transfer appeared first on CaughtOffside .",
+  "published": "2026-07-23",
+  "outlet": "CaughtOffside",
+  "tier": 3
+ },
+ {
+  "url": "https://www.caughtoffside.com/2026/07/23/arsenal-officially-announce-christos-tzolis-signing",
+  "title": "Done deal: Arsenal announce new signing as club chief praises “outstanding” arrival",
+  "summary": "Arsenal have officially announced the signing of Christos Tzolis from Club Brugge, with Andrea Berta praising the club&#8217;s new addition. The Greece international is Arsenal&#8217;s second signing of the summer following the deal for backup goalkeeper Illan Meslier, and it looks like the first really exciting addition to Mikel Arteta&#8217;s squad. DOWNLOAD THE OFFICIAL CAUGHTOFFSIDE [&#8230;] The post Done deal: Arsenal announce new signing as club chief praises &#8220;outstanding&#8221; arrival appeared first on CaughtOffside .",
+  "published": "2026-07-23",
+  "outlet": "CaughtOffside",
+  "tier": 3
+ }
 ]

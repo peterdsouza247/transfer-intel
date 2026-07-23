@@ -49,6 +49,11 @@ jobs:
 
       - run: pip install -r scripts/requirements.txt
 
+      # Per-club editions are off until you set the repository variable
+      # DIGEST_SEGMENTS to 'true'. They are only worth sending once the list
+      # is big enough that a Newcastle subscriber would rather not read about
+      # Everton, and each one needs a Kit tag named after the club. Before
+      # that they are six broadcasts a day to nobody.
       - name: Build the editions
         env:
           NEWSLETTER_API_KEY: ${{ secrets.NEWSLETTER_API_KEY }}
@@ -58,7 +63,7 @@ jobs:
             --out build/digest \
             --state logs/digest-state.json \
             --sent-log logs/digest-sent.json \
-            --segments \
+            ${{ vars.DIGEST_SEGMENTS == 'true' && '--segments' || '' }} \
             ${{ (github.event_name == 'schedule' || inputs.send) && '--send' || '' }} \
             ${{ inputs.force && '--force' || '' }}
 

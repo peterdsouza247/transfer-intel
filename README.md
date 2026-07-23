@@ -150,6 +150,7 @@ transfer-intel/
     run_digest.py         the daily email
     render_site.py        phase 7
     check_ingest.py       fails the run when ingestion produced nothing
+    check_feeds.py        tests feeds and candidates, live vs stale vs dead
     draft_claims.py       drafts manual claims for a human to correct
     add_candidates.py     promotes a detected candidate into a tracked deal
     check_site.py         post-build sanity check

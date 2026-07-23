@@ -221,6 +221,18 @@ def resolve(
     for claim in claims:
         article = by_url.get(claim.article_url)
         if article is None:
+            # A claim pointing at an article nobody supplied. From a model
+            # this cannot happen: the URL is filled in from the batch. From a
+            # hand-written or drafted claims file it happens constantly, via a
+            # truncated paste or an article removed from the set afterwards,
+            # and dropping it silently means a claim you took the trouble to
+            # write produces nothing and says nothing about why.
+            unresolved.append({
+                "reason": "no article in this run has that url, so the claim "
+                          "has no source, date or tier to attach to",
+                "player": claim.player,
+                "url": claim.article_url,
+            })
             continue
         if not claim.usable:
             continue

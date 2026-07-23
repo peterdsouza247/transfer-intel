@@ -203,6 +203,11 @@ def main() -> int:
     ap.add_argument("--articles", type=Path, default=Path("build/articles.json"))
     ap.add_argument("--data", type=Path, default=Path("data.json"))
     ap.add_argument("--out", type=Path, default=Path("manual/claims.json"))
+    ap.add_argument("--out-articles", type=Path,
+                    default=Path("manual/articles.json"),
+                    help="the articles these claims refer to, written as a "
+                         "matched pair so a claim cannot reference an article "
+                         "the next run does not have")
     ap.add_argument("--min-stage", default="interest",
                     help="drop drafts below this stage, default interest")
     args = ap.parse_args()
@@ -237,12 +242,28 @@ def main() -> int:
     args.out.write_text(json.dumps(drafts, indent=1, ensure_ascii=False),
                         encoding="utf-8")
 
+    # The articles these claims point at, written alongside them.
+    #
+    # This used to be left to the operator, and it was the single most
+    # confusing step in the manual routine: `run_ingest --claims` needs the
+    # articles to attach a source, date and tier to each claim, so a claims
+    # file whose URLs are not in the article set produces nothing at all. The
+    # two files are one unit and are now written as one.
+    kept = {d["article_url"] for d in drafts}
+    pair = [a.model_dump(mode="json") for a in articles if a.url in kept]
+    args.out_articles.write_text(
+        json.dumps(pair, indent=1, ensure_ascii=False), encoding="utf-8")
+
     complete = sum(
         1 for d in drafts
         if d["player"] and d["from_club"] and d["to_club"]
     )
-    print(f"{len(drafts)} draft claim(s) written to {args.out} "
+    print(f"{len(drafts)} draft claim(s) written to {args.out}, "
+          f"and the {len(pair)} article(s) they cite to {args.out_articles} "
           f"({skipped} article(s) below --min-stage).")
+    print("Keep the two in step: if you delete a claim, its article can stay, "
+          "but a claim\nwhose article is missing resolves to nothing and is "
+          "reported as unresolved.")
     print(f"{complete} look complete; all of them still need reading.")
     print("\nEvery entry has `_draft: true` and a `_review` list. run_ingest "
           "will refuse\nthe file until you have deleted those two keys from "

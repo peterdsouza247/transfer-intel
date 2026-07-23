@@ -13,8 +13,10 @@ no transfer signal before a token is spent.
 here was wrong.** It was based on a sample of general BBC football headlines,
 where one story in nine was about a transfer, and predicted a cut of roughly
 85 percent. On the feeds actually configured in `sources.py` the real figure
-is closer to 16 percent, because several of them are transfer-specific
-already: Sky's 12040 is the transfer centre feed, not general football. The
+is closer to 16 percent, because the feeds carry more transfer news
+than a general football feed would. Note that Sky's 12040 is their general
+football news id, not the transfer centre, despite what an earlier version of
+this file claimed. The
 filter is still worth having, and it is worth less than first claimed.
 
 Recall is unaffected and is the number that matters: it keeps 100 percent of

@@ -30,7 +30,13 @@ samples, add the missing word to `TRANSFER_TERMS` in `prefilter.py`.
 python scripts/draft_claims.py --articles build/articles.json --data data.json
 ```
 
-This writes `manual/claims.json` by pattern matching: known club names in
+This writes **both** `manual/claims.json` and `manual/articles.json`, as a
+matched pair. The pair matters: `run_ingest --claims` needs the articles to
+attach a source, date and tier to each claim, so a claim whose article is
+missing resolves to nothing. If that happens the run now says so rather than
+skipping it quietly.
+
+It drafts by pattern matching: known club names in
 order of appearance, a stage from keyword hints, a fee from any currency
 figure, and a player from capitalised runs that are not clubs. It gets most
 headlines right and says so when it does not.
@@ -161,6 +167,16 @@ upstream fault rewriting the site in one run.
 
 **New signings still missing.** Check `build/candidates.md`. They are almost
 certainly sitting there waiting for step 3.
+
+**"N claim(s) could not be resolved."** A claim's `article_url` is not in
+`manual/articles.json`. Usually a hand-edited claim, or an article deleted
+from the set after the claim was written. Let `draft_claims.py` write both
+files and this cannot happen.
+
+**Feeds returning mostly irrelevant news.** Run `python
+scripts/check_feeds.py` to see which respond and how much each contributes
+after filtering. A feed that fails every day should be removed from
+`sources.py` rather than left producing a warning nobody reads.
 
 **A club dashboard is empty.** The club name in the deal does not exactly
 match a key in `clubs`. `canonical_club` should prevent this; if it does not,

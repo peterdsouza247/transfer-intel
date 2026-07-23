@@ -14,12 +14,68 @@ from urllib.parse import urlsplit
 #: Feeds polled by phase 1. Add to this rather than scraping anything.
 #: Transfermarkt is deliberately absent: it blocks datacenter IPs, so it
 #: cannot work from a GitHub runner.
+#: Sky's 12040 is the general football news id, not the transfer centre, so
+#: it carries match reports and women's football alongside transfers. That is
+#: what the prefilter is for. Feeds are cheap to poll and the filter is cheap
+#: to run, so breadth here is the right trade.
+#:
+#: Run `python scripts/check_feeds.py` to see which of these actually respond
+#: and how much each contributes before adding or removing any.
 FEEDS: list[tuple[str, str]] = [
     ("https://feeds.bbci.co.uk/sport/football/rss.xml", "BBC Sport"),
     ("https://www.theguardian.com/football/rss", "The Guardian"),
     ("https://www.skysports.com/rss/12040", "Sky Sports"),
-    ("https://www.football365.com/feed", "Football365"),
-    ("https://www.telegraph.co.uk/football/rss.xml", "Telegraph"),
+    ("https://www.dailymail.co.uk/sport/football/index.rss", "Daily Mail"),   # 55 kept
+    ("https://talksport.com/football/feed/", "talkSPORT"),   # 32 kept
+    ("https://www.manchestereveningnews.co.uk/sport/football/?service=rss", "Manchester Evening News"),   # 21 kept
+    ("https://www.birminghammail.co.uk/sport/football/?service=rss", "Birmingham Mail"),   # 21 kept
+    ("https://www.standard.co.uk/sport/football/rss", "Standard"),   # 20 kept
+    ("https://www.football.london/?service=rss", "football.london"),   # 20 kept
+    ("https://www.mirror.co.uk/sport/football/?service=rss", "Mirror"),   # 17 kept
+    ("https://www.liverpoolecho.co.uk/sport/football/?service=rss", "Liverpool Echo"),   # 17 kept
+    ("https://www.chroniclelive.co.uk/sport/football/?service=rss", "Chronicle Live"),   # 17 kept
+    ("https://metro.co.uk/sport/football/feed/", "Metro"),   # 15 kept
+    ("https://www.independent.co.uk/sport/football/rss", "Independent"),   # 10 kept
+    ("https://www.caughtoffside.com/feed/", "CaughtOffside"),   # 10 kept
+    ("https://www.espn.com/espn/rss/soccer/news", "ESPN"),   # 9 kept
+]
+
+#: Removed 23 July 2026, both confirmed by check_feeds.py:
+#:   Football365, https://www.football365.com/feed
+#:     no response at all
+#:   Telegraph, https://www.telegraph.co.uk/football/rss.xml
+#:     responded with 120 articles, none newer than the window. A feed
+#:     serving stale content is worse than one that fails: it raises no
+#:     warning, parses cleanly, and contributes nothing.
+#: Their DOMAIN_TIER entries stay, because both still appear as sources in
+#: articles other outlets link to.
+
+#: Feeds worth trying, none of them verified from here. Publishers move and
+#: retire RSS constantly, so this is a list of addresses to test rather than a
+#: list of feeds that work.
+#:
+#:     python scripts/check_feeds.py --candidates
+#:
+#: That prints, for each one, whether it responds and how many transfer
+#: articles it actually contributes after filtering, then gives you the exact
+#: lines to paste into FEEDS and DOMAIN_TIER above.
+CANDIDATE_FEEDS: list[tuple[str, str, int]] = [
+    # (url, name, tier it would be given)
+    ("https://www.teamtalk.com/feed", "TEAMtalk", 2),
+#    ("https://talksport.com/football/feed/", "talkSPORT", 2),
+#    ("https://www.independent.co.uk/sport/football/rss", "Independent", 2),
+#    ("https://www.standard.co.uk/sport/football/rss", "Standard", 2),
+#    ("https://metro.co.uk/sport/football/feed/", "Metro", 3),
+#    ("https://www.mirror.co.uk/sport/football/?service=rss", "Mirror", 3),
+#    ("https://www.dailymail.co.uk/sport/football/index.rss", "Daily Mail", 3),
+    ("https://www.90min.com/posts.rss", "90min", 3),
+#    ("https://www.caughtoffside.com/feed/", "CaughtOffside", 3),
+#    ("https://www.football.london/?service=rss", "football.london", 3),
+#    ("https://www.manchestereveningnews.co.uk/sport/football/?service=rss", "Manchester Evening News", 2),
+#    ("https://www.liverpoolecho.co.uk/sport/football/?service=rss", "Liverpool Echo", 2),
+#    ("https://www.chroniclelive.co.uk/sport/football/?service=rss", "Chronicle Live", 2),
+#    ("https://www.birminghammail.co.uk/sport/football/?service=rss", "Birmingham Mail", 2),
+#    ("https://www.espn.com/espn/rss/soccer/news", "ESPN", 2),
 ]
 
 #: Tier 1 is a journalist whose word moves a market. Tier 2 is an established
@@ -38,6 +94,11 @@ DOMAIN_TIER: dict[str, int] = {
     "independent.co.uk": 2,
     "standard.co.uk": 2,
     "espn.com": 2,
+    "talksport.com": 2,
+    "liverpoolecho.co.uk": 2,
+    "chroniclelive.co.uk": 2,
+    "manchestereveningnews.co.uk": 2,
+    "birminghammail.co.uk": 2,
     "goal.com": 3,
     "mirror.co.uk": 3,
     "thesun.co.uk": 3,
@@ -48,6 +109,8 @@ DOMAIN_TIER: dict[str, int] = {
     "abola.pt": 3,
     "marca.com": 3,
     "sport.es": 3,
+    "football.london": 3,
+    "metro.co.uk": 3,
 }
 
 DEFAULT_TIER = 3

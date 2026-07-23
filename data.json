@@ -4,7 +4,7 @@
     "tagline": "believe less, know more",
     "deadline": "2026-09-01T22:00:00Z",
     "deadlineLabel": "Window closes 1 Sep, 23:00 BST",
-    "updated": "Jul 23, 2026",
+    "updated": "Jul 24, 2026",
     "site": {
       "baseUrl": "https://peterdsouza247.github.io/transfer-intel",
       "title": "TransferIntel",
@@ -60,9 +60,49 @@
           "fee_gbp_m": 116.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.manchestereveningnews.co.uk/sport/football/transfer-news/man-city-confirm-elliot-anderson-34341357",
+          "source": "manchestereveningnews.co.uk",
+          "tier": 2,
+          "date": "2026-07-23",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": "completes move",
+          "official": false
+        },
+        {
+          "url": "https://www.independent.co.uk/sport/football/elliot-anderson-man-city-transfer-news-b3020275.html",
+          "source": "The Independent",
+          "tier": 2,
+          "date": "2026-07-23",
+          "claim": "completed",
+          "fee_gbp_m": 116.0,
+          "marker": "has joined",
+          "official": false
+        },
+        {
+          "url": "https://www.espn.com/soccer/story/_/id/49433223/elliot-anderson-completes-move-manchester-city-nottingham-forest",
+          "source": "ESPN",
+          "tier": 2,
+          "date": "2026-07-23",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": "completes move",
+          "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-15999495/Man-City-Elliot-Anderson-Nottingham-Forest-signing.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-07-23",
+          "claim": "completed",
+          "fee_gbp_m": 116.0,
+          "marker": "joins",
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-08",
+      "last_verified_at": "2026-07-23",
       "completion_marker": "hand-verified at migration, no fetchable source",
       "completion_source": "Sky Sports",
       "completed_date": "2026-07-08",
@@ -946,7 +986,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 50,
+      "cred": 47,
       "note": "Utd declined buy-back; get >£10m via sell-on clause.",
       "evidence": [
         {
@@ -1038,7 +1078,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 39,
+      "cred": 37,
       "note": "Personal terms agreed; Rayo rejected first bid, second ~£15m in.",
       "evidence": [
         {
@@ -1074,7 +1114,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 39,
+      "cred": 37,
       "note": "Third window Spurs have tried; Romano says he's their 'next big' signing if clubs agree.",
       "evidence": [
         {
@@ -1110,7 +1150,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 25,
+      "cred": 24,
       "note": "Spurs ready to offer £75m and reportedly willing to go higher.",
       "evidence": [
         {
@@ -1146,7 +1186,7 @@
       "date": "Jul 10",
       "tier": 2,
       "src": "Football365",
-      "cred": 22,
+      "cred": 9,
       "note": "Talks smooth but on hold: Palace need a replacement, Lacroix wants his World Cup medal first.",
       "evidence": [
         {
@@ -1158,13 +1198,23 @@
           "fee_gbp_m": 35.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-15991685/Chelsea-step-pursuit-Crystal-Palace-star-Maxence-Lacroix-Eagles-demand-60m-fee-club-chiefs-meeting-New-York-ahead-World-Cup-final-wantaway-defender.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-07-21",
+          "claim": "interest",
+          "fee_gbp_m": 60.0,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-10",
+      "last_verified_at": "2026-07-21",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 35,
+      "base_cred": 15,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1228,7 +1278,7 @@
       "date": "Jul 16",
       "tier": 3,
       "src": "Spanish press",
-      "cred": 43,
+      "cred": 42,
       "note": "Confirmed (auto-updated 2026-07-16). 'Deal agreed' a week ago, then silence. No collapse reported either.",
       "evidence": [
         {
@@ -1264,7 +1314,7 @@
       "date": "Jul 13",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 19,
+      "cred": 18,
       "note": "Arsenal 'pushing' post-World Cup. Would be the striker upgrade, and the fee to match.",
       "evidence": [
         {
@@ -1293,14 +1343,14 @@
       "p": "Christos Tzolis",
       "from": "Club Brugge",
       "to": "Arsenal",
-      "fee": 35.0,
+      "fee": 34.0,
       "age": 24,
       "pos": "LW",
-      "status": "agreed",
+      "status": "medical",
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 60,
+      "cred": 85,
       "note": "Player 'wants' the move; depends on Trossard/Martinelli exits.",
       "evidence": [
         {
@@ -1322,13 +1372,63 @@
           "fee_gbp_m": null,
           "marker": "has signed",
           "official": false
+        },
+        {
+          "url": "https://www.skysports.com/football/news/12040/13564283/arsenal-transfer-news-christos-tzolis-signs-in-34m-deal-from-club-brugge-as-replacement-for-leandro-trossard",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-07-23",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": "announce the signing",
+          "official": false
+        },
+        {
+          "url": "https://www.theguardian.com/football/2026/jul/23/arsenal-sign-greece-forward-christos-tzolis-from-club-brugge-for-34m",
+          "source": "The Guardian",
+          "tier": 2,
+          "date": "2026-07-23",
+          "claim": "completed",
+          "fee_gbp_m": 34.0,
+          "marker": "has signed",
+          "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/arsenal-fc-transfer-news-tzolis-signs-b1290871.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-07-23",
+          "claim": "completed",
+          "fee_gbp_m": 34.0,
+          "marker": "has signed",
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-news-christos-tzolis-34339611",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-07-23",
+          "claim": "completed",
+          "fee_gbp_m": 34.0,
+          "marker": "has signed",
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/07/23/arsenal-officially-announce-christos-tzolis-signing",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-07-23",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": "announce the signing",
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-22",
+      "last_verified_at": "2026-07-23",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 60,
+      "base_cred": 100,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1339,14 +1439,14 @@
       "p": "Bruno Guimarães",
       "from": "Newcastle",
       "to": "Arsenal",
-      "fee": 90.0,
+      "fee": 70.0,
       "age": 28,
       "pos": "CM",
-      "status": "rumor",
+      "status": "talks",
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 18,
+      "cred": 43,
       "note": "Has told Newcastle he wants out but won't force it. No bid yet; it needs to start with an 8.",
       "evidence": [
         {
@@ -1358,13 +1458,63 @@
           "fee_gbp_m": 90.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.bbc.co.uk/sport/football/articles/cpq8lpj530po",
+          "source": "BBC Sport",
+          "tier": 1,
+          "date": "2026-07-23",
+          "claim": "talks",
+          "fee_gbp_m": 70.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.chroniclelive.co.uk/sport/football/football-news/bruno-guimaraes-given-newcastle-united-34330969",
+          "source": "chroniclelive.co.uk",
+          "tier": 2,
+          "date": "2026-07-22",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-news-live-guimaraes-34336795",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-07-23",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-latest-newcastle-contact-over-34334994",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-07-23",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/07/23/arsenal-closer-to-bruno-guimaraes-transfer",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-07-23",
+          "claim": "interest",
+          "fee_gbp_m": 80.0,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-12",
+      "last_verified_at": "2026-07-23",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 25,
+      "base_cred": 70,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1418,7 +1568,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 18,
+      "cred": 24,
       "note": "'Top of list' if Diomande→PSG happens. Reports say he prefers London; Arsenal lurking.",
       "evidence": [
         {
@@ -1430,13 +1580,23 @@
           "fee_gbp_m": 80.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-transfer-plan-barcola-diomande-34339182",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-07-23",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-12",
+      "last_verified_at": "2026-07-23",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 25,
+      "base_cred": 35,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1454,7 +1614,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 18,
+      "cred": 17,
       "note": "World Cup breakout with Morocco; background talks only.",
       "evidence": [
         {
@@ -1490,7 +1650,7 @@
       "date": "Jul 12",
       "tier": 3,
       "src": "French press",
-      "cred": 4,
+      "cred": 3,
       "note": "Palace 'strongly interested' after Juventus stalled. Spurs re-signing him also mooted, oddly.",
       "evidence": [
         {
@@ -1526,7 +1686,7 @@
       "date": "Jul 12",
       "tier": 3,
       "src": "Turkish press",
-      "cred": 4,
+      "cred": 3,
       "note": "Personal terms 'agreed' per Turkey; if he were truly available at £35m there'd be a queue.",
       "evidence": [
         {
@@ -1562,7 +1722,7 @@
       "date": "Jul 12",
       "tier": 3,
       "src": "Paper talk",
-      "cred": 4,
+      "cred": 3,
       "note": "He's mid-contract-renewal talks at Forest. Filed under 'agent noise'.",
       "evidence": [
         {
@@ -1881,6 +2041,26 @@
           "claim": "completed",
           "fee_gbp_m": 117.0,
           "marker": "has signed",
+          "official": false
+        },
+        {
+          "url": "https://talksport.com/football/4443886/chelsea-sign-morgan-rogers-british-transfer-record",
+          "source": "talksport.com",
+          "tier": 2,
+          "date": "2026-07-21",
+          "claim": "completed",
+          "fee_gbp_m": 117.0,
+          "marker": "joins",
+          "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-15992019/Man-United-Arsenal-Chelsea-target-Alex-Scott-turns-new-Bournemouth-contract-WINDOW-WATCH.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-07-21",
+          "claim": "completed",
+          "fee_gbp_m": 60.0,
+          "marker": "completes move",
           "official": false
         }
       ],

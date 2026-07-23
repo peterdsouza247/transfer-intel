@@ -147,6 +147,25 @@ than the underlying reporting, which belongs to the outlets cited.
 
 ### Fixed after v1.0
 
+- **Kit rejected every segmented edition.** `subscriber_filter` was sent as an
+  object where Kit wants an array, so the unsegmented digest went out and all
+  six club editions returned 422. The digest also now checks that the tags a
+  segment targets exist before sending, because a filter naming a tag nobody
+  created matches zero subscribers and reports success.
+- Per-club editions are opt-in via the `DIGEST_SEGMENTS` repository variable.
+  On a new list they were six broadcasts a day to nobody.
+- **A claim whose article was missing was dropped silently.** It now appears
+  in `needs_review.json` and in the run output. This was the reason a
+  correct-looking manual ingest produced nothing.
+- `draft_claims.py` writes `manual/articles.json` alongside the claims, as a
+  matched pair. Nothing previously produced that file, so it had to be
+  assembled by hand and was the easiest step in the routine to get wrong.
+- Failing feeds are named, and each feed's article count is reported.
+- `scripts/check_feeds.py` tests configured and candidate feeds, separates a
+  stale feed from a dead one, and prints the lines to paste for any worth
+  adding. Football365 (no response) and the Telegraph (120 articles, none
+  inside the window) were removed on its evidence.
+
 - Two stray dropdowns at the foot of the Rumour Credibility section: an
   orphaned `capture-prefs` block left behind when the second capture form was
   removed. The earlier cleanup caught the form tails and missed this.

@@ -202,13 +202,20 @@ def collect(
     cutoff = today - timedelta(days=max(1, round(window_hours / 24)))
 
     raw_articles: list[Article] = []
-    stats = {"feeds": len(feeds), "feeds_failed": 0, "raw": 0}
-    for url, _name in feeds:
+    stats: dict = {"feeds": len(feeds), "feeds_failed": 0, "raw": 0,
+                   "failed_names": [], "per_feed": {}}
+    for url, name in feeds:
         body = fetcher(url)
         if body is None:
+            # Naming the feed matters. "1 of 5 feeds did not respond" tells
+            # you something is wrong and not which thing, so the dead feed
+            # stays dead: nobody can act on a number.
             stats["feeds_failed"] += 1
+            stats["failed_names"].append(name)
             continue
-        raw_articles.extend(parse_feed(body, today))
+        got = parse_feed(body, today)
+        stats["per_feed"][name] = len(got)
+        raw_articles.extend(got)
 
     stats["raw"] = len(raw_articles)
     fresh = [a for a in raw_articles if cutoff <= a.published <= today]

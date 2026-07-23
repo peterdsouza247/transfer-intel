@@ -114,9 +114,13 @@ def main() -> int:
             today, window_hours=args.window_hours, clubs=known_clubs
         )
         if ingest_stats["feeds_failed"]:
+            names = ", ".join(ingest_stats.get("failed_names") or ["unknown"])
             print(f"warning: {ingest_stats['feeds_failed']} of "
-                  f"{ingest_stats['feeds']} feeds did not respond",
+                  f"{ingest_stats['feeds']} feeds did not respond: {names}",
                   file=sys.stderr)
+        per_feed = ingest_stats.get("per_feed") or {}
+        if per_feed:
+            print("  " + ", ".join(f"{n}: {c}" for n, c in per_feed.items()))
 
     (args.out / "articles.json").write_text(
         json.dumps([a.model_dump(mode="json") for a in articles], indent=2),
@@ -236,6 +240,20 @@ def main() -> int:
         # run would make them invisible to the first run that has a key.
         save_seen(args.seen_cache, seen_cache,
                   [a.url for a in articles], today)
+
+    if unresolved:
+        # Loud, because the commonest cause is a claims file referencing an
+        # article the run does not have, and the symptom otherwise is a
+        # correct-looking run that changes nothing and explains nothing.
+        print(f"\n{len(unresolved)} claim(s) could not be resolved:",
+              file=sys.stderr)
+        for item in unresolved[:8]:
+            print(f"  {item.get('player') or '(no player)'}: {item['reason']}",
+                  file=sys.stderr)
+            if item.get("url"):
+                print(f"    {str(item['url'])[:96]}", file=sys.stderr)
+        print(f"  Full list in {args.out / 'needs_review.json'}\n",
+              file=sys.stderr)
 
     mode = (" (claims supplied)" if args.claims
             else " (dry run, no API key)" if extractor and extractor.dry else "")

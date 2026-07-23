@@ -370,3 +370,48 @@ scraper that promoted deals to `done` on list membership alone, wrote only to
 `data.js`, and pushed straight to `main` with no gate. It was a second,
 independent route to the false-completion defect. `editorial.yml` covers
 everything it did, correctly.
+
+---
+
+## Feeds
+
+Where they live: `FEEDS` in `scripts/transferintel/sources.py`. Adding one is
+two lines, the feed itself and a `DOMAIN_TIER` entry so the pipeline knows
+what the outlet is worth.
+
+Never add a feed you have not tested:
+
+```bash
+python scripts/check_feeds.py --candidates
+```
+
+That tests what is configured plus fifteen candidates, and prints the exact
+lines to paste for any that are worth adding. Run it from your own machine;
+GitHub runners and sandboxes are blocked by some publishers.
+
+Three outcomes, and the middle one hides:
+
+- **dead**, no response
+- **stale**, responds with articles all older than the window. Parses cleanly,
+  raises no warning, contributes nothing, and can sit there for months
+- **live**, fresh articles arriving
+
+The column that matters is **kept**: articles surviving the prefilter. Fifty
+articles a day of which two concern transfers is worth less than six of which
+four do.
+
+### Tier is not a dial
+
+`DOMAIN_TIER` is a standing judgment about an outlet's record, decided once.
+Do not promote an outlet because a deal you believe in would score better
+with it. Only tier 1 and 2 can move a deal along the status ladder, so a tier
+3 addition adds breadth and never authority, which is exactly what a new and
+untested feed should add.
+
+### Removed 23 July 2026
+
+- **Football365**, no response at all.
+- **Telegraph**, 120 articles, none inside the window.
+
+Both keep their `DOMAIN_TIER` entries, because both still appear as sources
+inside articles other outlets link to.

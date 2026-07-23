@@ -1028,3 +1028,171 @@ def test_pitch_numbers_match_the_scoring_code():
     assert f"**{DEFAULT_DECAY.stale_multiplier:.2f}**" in pitch
     assert f"{DEFAULT_CONFIG.confirmed_cred_cap}" in pitch
     assert f"at most {DEFAULT_CONFIG.max_cred_delta_per_run} points" in pitch
+
+
+# ============================================================ 23 July fixes
+
+
+def test_a_claim_with_no_matching_article_is_reported(tmp_path):
+    """It used to be dropped silently.
+
+    A hand-written or drafted claim whose `article_url` is not in the article
+    set has no source, date or tier to attach to. Skipping it quietly means a
+    claim you took the trouble to write produces nothing and explains nothing.
+    """
+    from transferintel.extract import ExtractionStats, resolve
+    from transferintel.models import Article, Claim
+
+    article = Article(url="https://x.test/real", title="t", summary="",
+                      published="2026-07-23", outlet="BBC Sport", tier=1)
+    claim = Claim(is_transfer_claim=True, player="Someone",
+                  from_club="Arsenal", to_club="Chelsea",
+                  reported_stage="talks", article_url="https://x.test/typo")
+    _, _, unresolved = resolve([claim], [article], [], ["Arsenal", "Chelsea"],
+                               ExtractionStats())
+    assert len(unresolved) == 1
+    assert "no article in this run" in unresolved[0]["reason"]
+
+
+def test_drafter_writes_articles_and_claims_as_a_matched_pair(tmp_path):
+    """The manual routine had no step that produced manual/articles.json.
+
+    `run_ingest --claims` needs the articles to attach a source, date and tier
+    to each claim, so a claims file whose URLs are not in the article set
+    resolves to nothing. Leaving that file to be assembled by hand was the
+    single most confusing step in the routine.
+    """
+    import subprocess
+
+    out_c, out_a = tmp_path / "c.json", tmp_path / "a.json"
+    run = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "draft_claims.py"),
+         "--articles", str(ROOT / "fixtures" / "articles.json"),
+         "--data", str(ROOT / "data.json"),
+         "--out", str(out_c), "--out-articles", str(out_a)],
+        capture_output=True, text=True, cwd=str(ROOT))
+    assert run.returncode == 0, run.stderr
+    claims = json.loads(out_c.read_text(encoding="utf-8"))
+    articles = json.loads(out_a.read_text(encoding="utf-8"))
+    urls = {a["url"] for a in articles}
+    assert claims and articles
+    assert all(c["article_url"] in urls for c in claims)
+
+
+def test_kit_segment_filter_is_an_array():
+    """Kit returned 422 "Subscriber filter must be an array" on every club
+    edition while the unsegmented one, which sends no filter, went out fine.
+    So the digest reached everybody and the segments reached nobody."""
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import run_digest
+
+    captured = {}
+
+    def fake_post(url, payload, headers):
+        captured.update(payload)
+        return 201, "{}"
+
+    original, run_digest.post_json = run_digest.post_json, fake_post
+    try:
+        run_digest.send_edition("kit", "k", "s", "b", "Arsenal")
+        assert isinstance(captured["subscriber_filter"], list)
+        assert captured["subscriber_filter"][0]["all"][0]["name"] == "Arsenal"
+        captured.clear()
+        run_digest.send_edition("kit", "k", "s", "b", "all")
+        assert "subscriber_filter" not in captured
+    finally:
+        run_digest.post_json = original
+
+
+@pytest.mark.parametrize("title", [
+    "Chelsea Women sign forward from Arsenal Women",
+    "WSL champions complete signing of midfielder",
+    "Lionesses star joins Manchester City Women",
+    "Women's Super League transfer round-up",
+])
+def test_out_of_scope_coverage_is_dropped(title):
+    """Women's transfer news is real news and is not what this site tracks.
+
+    During a major tournament the general feeds fill with it, it matches every
+    transfer keyword, and left in it drowns the dataset in players no tracked
+    club is signing.
+    """
+    from transferintel.prefilter import in_scope
+    assert not in_scope(_art(title))
+
+
+@pytest.mark.parametrize("title", [
+    "Chelsea sign Morgan Rogers from Aston Villa",
+    "Newcastle chairwoman confirms Guimaraes will stay",
+    "Liverpool complete signing after his agent confirmed terms",
+])
+def test_scope_filter_does_not_overreach(title):
+    """Only explicit markers. No bare "her" or "she", which appear constantly
+    in men's coverage quoting a partner, a chairwoman or a journalist."""
+    from transferintel.prefilter import in_scope
+    assert in_scope(_art(title))
+
+
+def test_failing_feeds_are_named():
+    """"1 of 5 feeds did not respond" says something is wrong and not which
+    thing, so the dead feed stays dead: nobody can act on a number."""
+    from transferintel.ingest import collect
+
+    feeds = [("https://a.test/rss", "Alpha"), ("https://b.test/rss", "Beta")]
+    _, stats = collect(date(2026, 7, 23), feeds=feeds, fetcher=lambda u: None)
+    assert stats["feeds_failed"] == 2
+    assert set(stats["failed_names"]) == {"Alpha", "Beta"}
+
+
+def test_dead_feeds_are_not_polled_but_their_tiers_survive():
+    """Removing a feed must not forget what the outlet is worth.
+
+    Football365 and the Telegraph still appear as sources inside articles
+    other outlets link to, so their tier still has to be known even though
+    neither feed is polled.
+    """
+    from transferintel.sources import DOMAIN_TIER, FEEDS
+
+    polled = {url for url, _ in FEEDS}
+    assert not any("football365" in u or "telegraph" in u for u in polled)
+    assert DOMAIN_TIER["football365.com"] == 2
+    assert DOMAIN_TIER["telegraph.co.uk"] == 2
+
+
+def test_candidate_feeds_are_well_formed():
+    from transferintel.sources import CANDIDATE_FEEDS, FEEDS
+
+    configured = {url for url, _ in FEEDS}
+    for url, name, tier in CANDIDATE_FEEDS:
+        assert url.startswith("https://"), url
+        assert name and tier in (1, 2, 3), name
+        assert url not in configured, f"{name} is already configured"
+
+
+def test_a_stale_feed_is_distinguished_from_a_dead_one():
+    """The Telegraph responded with 120 articles and nothing in the window.
+
+    That is a third state, and the one that hides: it parses cleanly, raises
+    no warning, and contributes nothing to any run.
+    """
+    sys.path.insert(0, str(ROOT / "scripts"))
+    from check_feeds import probe
+
+    old = (
+        b'<?xml version="1.0"?><rss><channel>'
+        b"<item><title>Old transfer story</title>"
+        b"<link>https://x.test/1</link>"
+        b"<pubDate>Mon, 02 Mar 2026 10:00:00 GMT</pubDate></item>"
+        b"</channel></rss>"
+    )
+    import transferintel.ingest as ing
+    original, ing.fetch = ing.fetch, lambda u: old
+    import check_feeds
+    original_cf, check_feeds.fetch = check_feeds.fetch, lambda u: old
+    try:
+        row = probe("https://x.test/rss", "Stale", date(2026, 7, 23), 2)
+        assert row["state"] == "stale"
+        assert row["parsed"] == 1 and row["window"] == 0
+    finally:
+        ing.fetch = original
+        check_feeds.fetch = original_cf
