@@ -45,9 +45,9 @@ Credibility scores are computed in code, not written by a model. A score rises w
 - [Bazoumana Touré, Hoffenheim to Newcastle](https://peterdsouza247.github.io/transfer-intel/deals/toure-hoffenheim-newcastle/): credibility 60/100
 - [Christos Tzolis, Club Brugge to Arsenal](https://peterdsouza247.github.io/transfer-intel/deals/tzolis-club-brugge-arsenal/): credibility 60/100
 - [Mason Greenwood, Marseille to Fenerbahçe](https://peterdsouza247.github.io/transfer-intel/deals/greenwood-marseille-fenerbahce/): credibility 50/100
+- [Álvaro Rodríguez, Elche to Bournemouth](https://peterdsouza247.github.io/transfer-intel/deals/rodriguez-elche-bournemouth/): credibility 43/100
 - [Pep Chavarría, Rayo Vallecano to Chelsea](https://peterdsouza247.github.io/transfer-intel/deals/chavarria-rayo-vallecano-chelsea/): credibility 39/100
 - [Savinho, Man City to Tottenham](https://peterdsouza247.github.io/transfer-intel/deals/savinho-man-city-tottenham/): credibility 39/100
-- [Álvaro Rodríguez, Elche to Bournemouth](https://peterdsouza247.github.io/transfer-intel/deals/rodriguez-elche-bournemouth/): credibility 38/100
 - [Eli Junior Kroupi, Bournemouth to Tottenham](https://peterdsouza247.github.io/transfer-intel/deals/kroupi-bournemouth-tottenham/): credibility 25/100
 - [Maxence Lacroix, Crystal Palace to Chelsea](https://peterdsouza247.github.io/transfer-intel/deals/lacroix-crystal-palace-chelsea/): credibility 22/100
 - [Julián Álvarez, Atlético Madrid to Arsenal](https://peterdsouza247.github.io/transfer-intel/deals/alvarez-atletico-madrid-arsenal/): credibility 19/100

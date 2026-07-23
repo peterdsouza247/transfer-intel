@@ -11,50 +11,6 @@
   "article_url": "https://www.bbc.co.uk/sport/football/articles/c0rdn1p2z45o"
  },
  {
-  "_title": "Australia striker McNamara joins Everton",
-  "is_transfer_claim": true,
-  "player": "Holly McNamara",
-  "from_club": null,
-  "to_club": "Everton",
-  "reported_stage": "completed",
-  "fee_amount": null,
-  "fee_currency": null,
-  "article_url": "https://www.bbc.co.uk/sport/football/articles/c89nxdpyl2eo"
- },
- {
-  "_title": "Tottenham sign France defender Sombath from Lyon",
-  "is_transfer_claim": true,
-  "player": "Alice Sombath",
-  "from_club": null,
-  "to_club": "Tottenham",
-  "reported_stage": "completed",
-  "fee_amount": null,
-  "fee_currency": null,
-  "article_url": "https://www.bbc.co.uk/sport/football/articles/cj03r94g62eo"
- },
- {
-  "_title": "Arsenal make sixth summer signing as Spain keeper Rodriguez joins",
-  "is_transfer_claim": true,
-  "player": "Misa Rodriguez",
-  "from_club": null,
-  "to_club": "Arsenal",
-  "reported_stage": "completed",
-  "fee_amount": null,
-  "fee_currency": null,
-  "article_url": "https://www.bbc.co.uk/sport/football/articles/cz7dq8wrzwjo"
- },
- {
-  "_title": "Newcastle closing in on Liverpool forward Kiernan",
-  "is_transfer_claim": true,
-  "player": "Leanne Kiernan",
-  "from_club": "Liverpool",
-  "to_club": "Newcastle",
-  "reported_stage": "talks",
-  "fee_amount": null,
-  "fee_currency": null,
-  "article_url": "https://www.bbc.co.uk/sport/football/articles/cr49lgg014ko"
- },
- {
   "_title": "Aston Villa agree deal to sign Garnacho",
   "is_transfer_claim": true,
   "player": "Alejandro Garnacho",
@@ -68,23 +24,12 @@
  {
   "_title": "Is Barcola next on Arsenal's list after missing out on Rogers?",
   "is_transfer_claim": true,
-  "player": "BradleyBarcola",
+  "player": "Bradley Barcola",
   "from_club": "PSG",
   "to_club": "Arsenal",
   "reported_stage": "interest",
   "fee_amount": null,
   "fee_currency": null,
   "article_url": "https://www.skysports.com/football/news/12040/13566027/bradley-barcola-arsenal-retain-an-interest-in-paris-saint-germain-forward-after-missing-out-on-morgan-rogers-to-chelsea"
- },
- {
-  "_title": "Liverpool primed for business: Bezos, Bhatia and the next steps at Anfield | Andy Hunter",
-  "is_transfer_claim": true,
-  "player": "Andy Hunter",
-  "from_club": null,
-  "to_club": "Liverpool",
-  "reported_stage": "talks",
-  "fee_amount": null,
-  "fee_currency": null,
-  "article_url": "https://www.theguardian.com/football/2026/jul/22/liverpool-open-talks-over-selling-significant-stake-in-the-club"
  }
 ]
