@@ -218,6 +218,24 @@ def main() -> int:
     print(f"{len(patch.updates)} updates, {len(patch.flags)} flags, "
           f"{notes_written} notes, {len(gate.soft)} gate warnings. "
           f"Patch in {args.out}/patch.md")
+
+    # Flags were reported as a count and nothing else, so "1 flags" scrolled
+    # past and a deal whose evidence said completed sat at `medical` for a day
+    # with no visible reason. A count is not a message.
+    if patch.flags:
+        print("\nHeld back, and why:", file=sys.stderr)
+        for op in patch.flags:
+            print(f"  {op.id}: {op.reason}", file=sys.stderr)
+        print("  These need either more evidence or another run. Nothing is "
+              "wrong.\n", file=sys.stderr)
+
+    if not patch.updates:
+        # The commonest cause by a distance, and the one the run cannot see
+        # for itself: evidence outside the scoring window is treated as
+        # history and moves nothing.
+        print("\nNothing changed. If you expected something to, check that "
+              "--recent-days\n  covers the age of the evidence, and that "
+              "build/needs_review.json is empty.", file=sys.stderr)
     return 0
 
 

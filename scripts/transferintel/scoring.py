@@ -458,14 +458,24 @@ def decide_status(
     movers = [e for e in window if e.tier <= cfg.state_change_min_tier]
 
     # TI-001. A recorded completion marker on a tier 1 source is the strongest
-    # evidence this system can hold, so it is allowed to cross the last rung
-    # in a single run. The one-rung rule exists to stop thin evidence carrying
-    # a deal a long way; it should not make a club's own announcement wait a
-    # day. Deals further back than `medical` still advance one rung and raise
-    # a flag: something that was a rumour yesterday and "signed" today is
+    # evidence this system can hold, so it is allowed to cross the remaining
+    # rungs in a single run. The one-rung rule exists to stop thin evidence
+    # carrying a deal a long way; it should not make a club's own
+    # announcement wait a day.
+    #
+    # The entry point is `agreed` rather than `medical`, because the pipeline
+    # is run once a day. A deal sitting at `agreed` with five tier 1 sources
+    # reporting completion took two daily runs, and therefore two days, to
+    # show as done, by which time the reader had seen it announced everywhere
+    # else. "Fee agreed" means the clubs have settled; completion from there
+    # is the expected next event, not a leap.
+    #
+    # Deals at `rumor` or `talks` still walk one rung at a time and raise a
+    # flag. Something that was a rumour yesterday and "signed" today is
     # either a scoop or a parsing fault, and a human should decide which.
     proofs = [e for e in window if e.tier == 1 and e.confirms_completion]
-    if proofs and deal.status in (Status.medical, Status.confirmed):
+    if proofs and deal.status in (Status.agreed, Status.medical,
+                                  Status.confirmed):
         proofs.sort(key=lambda e: (not e.official, -e.date.toordinal()))
         best = proofs[0]
         return StatusDecision(

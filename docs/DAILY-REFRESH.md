@@ -156,6 +156,12 @@ python scripts/check_site.py && python -m pytest
 
 ## When it looks like nothing happened
 
+**Read what step 4 prints.** It now names anything held back and why, rather
+than reporting a count. "1 flags" scrolling past is how a deal whose evidence
+said completed sat at `medical` for a day with no visible reason.
+
+
+
 **"0 status changes" after a correct claims file.** Almost always
 `--recent-days`. Evidence outside the window is scored as context and moves
 nothing.
@@ -167,6 +173,13 @@ upstream fault rewriting the site in one run.
 
 **New signings still missing.** Check `build/candidates.md`. They are almost
 certainly sitting there waiting for step 3.
+
+**A deal moved, but not as far as the evidence says.** The status ladder
+advances one rung per run, so a deal at `rumor` cannot reach `done` however
+strong the reporting. The exception is a tier 1 completion marker on a deal
+already at `agreed` or beyond, which crosses the rest in one run: the clubs
+have settled terms, so completion is the expected next event rather than a
+leap. Anything held back is now named in the run output.
 
 **"N claim(s) could not be resolved."** A claim's `article_url` is not in
 `manual/articles.json`. Usually a hand-edited claim, or an article deleted

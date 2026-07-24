@@ -147,6 +147,15 @@ than the underlying reporting, which belongs to the outlets cited.
 
 ### Fixed after v1.0
 
+- A deal at `agreed` with tier 1 sources reporting completion needed two
+  daily runs, and therefore two days, to reach `done`. The sanctioned skip
+  now starts at `agreed` rather than `medical`: the clubs have settled terms,
+  so completion from there is the expected next event. `rumor` and `talks`
+  still walk one rung at a time.
+- Flags were reported as a count and nothing else, so a deal held back by the
+  ladder gave no visible reason. They are now printed with the deal and the
+  explanation, and a run that changes nothing says what to check.
+
 - **Kit rejected every segmented edition.** `subscriber_filter` was sent as an
   object where Kit wants an array, so the unsegmented digest went out and all
   six club editions returned 422. The digest also now checks that the tags a

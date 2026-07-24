@@ -1186,7 +1186,7 @@
       "date": "Jul 10",
       "tier": 2,
       "src": "Football365",
-      "cred": 9,
+      "cred": 15,
       "note": "Talks smooth but on hold: Palace need a replacement, Lacroix wants his World Cup medal first.",
       "evidence": [
         {
@@ -1346,11 +1346,11 @@
       "fee": 34.0,
       "age": 24,
       "pos": "LW",
-      "status": "medical",
+      "status": "done",
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 85,
+      "cred": 100,
       "note": "Player 'wants' the move; depends on Trossard/Martinelli exits.",
       "evidence": [
         {
@@ -1425,9 +1425,9 @@
         }
       ],
       "last_verified_at": "2026-07-23",
-      "completion_marker": null,
-      "completion_source": null,
-      "completed_date": null,
+      "completion_marker": "announce the signing",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-07-24",
       "base_cred": 100,
       "collapse_reason": null,
       "collapse_narrative": "",
@@ -1446,7 +1446,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 43,
+      "cred": 68,
       "note": "Has told Newcastle he wants out but won't force it. No bid yet; it needs to start with an 8.",
       "evidence": [
         {
@@ -1568,7 +1568,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 24,
+      "cred": 35,
       "note": "'Top of list' if Diomande→PSG happens. Reports say he prefers London; Arsenal lurking.",
       "evidence": [
         {

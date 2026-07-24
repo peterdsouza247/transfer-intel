@@ -1196,3 +1196,27 @@ def test_a_stale_feed_is_distinguished_from_a_dead_one():
     finally:
         ing.fetch = original
         check_feeds.fetch = original_cf
+
+
+def test_a_completion_from_agreed_lands_in_one_run():
+    """The pipeline runs once a day, so every extra rung costs a day.
+
+    Tzolis sat at `agreed` with five tier 1 sources reporting completion and
+    a recorded marker. Under the old rule that took two daily runs to reach
+    `done`, by which time the reader had seen it announced everywhere else.
+    """
+    d = deal(status=Status.agreed, evidence=[
+        ev(0, 1, Stage.completed, marker="has signed"),
+        ev(0, 1, Stage.completed, source="BBC Sport", marker="joins"),
+    ])
+    assert decide_status(d, TODAY).status is Status.done
+
+
+def test_a_rumour_still_cannot_leap_to_done():
+    """Something that was a rumour yesterday and signed today is either a
+    scoop or a parsing fault, and a human decides which."""
+    d = deal(status=Status.rumor,
+             evidence=[ev(0, 1, Stage.completed, marker="has signed")])
+    decision = decide_status(d, TODAY)
+    assert decision.status is not Status.done
+    assert decision.flag and "one rung per run" in decision.flag
