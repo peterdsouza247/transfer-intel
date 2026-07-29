@@ -141,7 +141,7 @@
   },
   "lacroix-crystal-palace-chelsea": {
     "status": "talks",
-    "cred": 9,
+    "cred": 15,
     "fee": 35.0
   },
   "rogers-aston-villa-arsenal": {
@@ -160,13 +160,13 @@
     "fee": 100.0
   },
   "tzolis-club-brugge-arsenal": {
-    "status": "medical",
-    "cred": 85,
+    "status": "done",
+    "cred": 100,
     "fee": 34.0
   },
   "guimaraes-newcastle-arsenal": {
     "status": "talks",
-    "cred": 43,
+    "cred": 68,
     "fee": 70.0
   },
   "gomes-wolves-man-utd": {
@@ -176,7 +176,7 @@
   },
   "barcola-psg-liverpool": {
     "status": "rumor",
-    "cred": 24,
+    "cred": 35,
     "fee": 80.0
   },
   "bouaddi-lille-man-city": {
