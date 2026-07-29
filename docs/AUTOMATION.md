@@ -55,10 +55,7 @@ worth reading properly.
 
 ## What is still manual, and why
 
-**Merging the pull request.** Deliberate. The gate is a good reviewer and it
-is not an editor. If you would rather it merged itself, enable auto-merge on
-the `auto/editorial` label; the digest at 06:30 UTC reads `main`, so an
-unmerged PR means the morning email describes yesterday.
+**Merging the pull request**, unless you turn that off. See below.
 
 **New deals.** Transfers involving players nobody tracks land in
 `build/candidates.json` and ride along in the PR body. Promoting one needs
@@ -68,6 +65,63 @@ unmerged PR means the morning email describes yesterday.
 **Retiring a deal a player left.** Marking the old record collapsed with a
 `pivot_to` is a judgment about whether a club lost a target or merely went
 quiet. Nothing infers it.
+
+---
+
+## Merging without you
+
+Set the repository variable **`AUTO_MERGE`** to `true`:
+
+**Settings, Secrets and variables, Actions, Variables tab, New repository
+variable.** Name `AUTO_MERGE`, value `true`. Nothing else to configure.
+
+The workflow then squash-merges its own pull request and deletes the branch.
+Set the variable to anything else, or delete it, and you are back to reviewing
+first. The job summary says which mode it ran in every time.
+
+This matters because the digest at 06:30 UTC reads `main`. An unmerged pull
+request means the morning email describes yesterday.
+
+### Why not GitHub's auto-merge feature
+
+Because it cannot work in this repository, and the reason is worth knowing
+before you spend an evening on it.
+
+Auto-merge only appears on a pull request that **cannot be merged
+immediately**, which in practice means branch protection with a required
+status check. And a pull request opened with the default `GITHUB_TOKEN` does
+not trigger `pull_request` workflows, by design, so GitHub does not recurse
+into itself. Put those together and the required check never runs, so the
+pull request sits blocked forever waiting for a check that will never arrive.
+
+The ways around that are all worse: a personal access token stored as a
+secret so the pull request looks like it came from you, or a required review
+that you then have to give by hand, which is the thing you were trying to
+avoid.
+
+Merging from inside the workflow, which is what the `AUTO_MERGE` variable
+does, needs no branch protection, no extra token, and no repository settings
+change.
+
+There is also a behaviour change worth knowing about: since around March 2026
+several users have reported that auto-merge can no longer be armed before the
+requirements are met, only after, which removes most of the point of it. That
+may be fixed by the time you read this. It does not change the analysis above.
+
+### What you give up
+
+A human reading the patch before it goes live rather than after.
+
+The gate is unaffected: it still runs, still fails the build, and still
+refuses to publish a completion without a tier 1 marker. Nothing doubtful gets
+published either way. What changes is only who has looked at it first, and the
+pull request is still created and still holds the full patch, so the audit
+trail is the same.
+
+My honest read: turn it on. The gate is a better reviewer than a person
+skimming a diff at 09:30, and an unread pull request that blocks the digest is
+worse than no review at all. Turn it off again for the week around deadline
+day, when the volume is high and the reporting is least reliable.
 
 ---
 

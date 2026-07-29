@@ -1335,3 +1335,22 @@ def test_the_workflow_commits_everything_it_renders():
     for path in ("data.json", "data.js", "index.html", "sitemap.xml",
                  "feed.xml", "deals/", "clubs/", "og/"):
         assert path in add_paths, f"{path} is rendered but never committed"
+
+
+def test_auto_merge_is_opt_in_and_guarded():
+    """Merging happens in the workflow, not through GitHub's auto-merge.
+
+    Auto-merge only appears on a pull request blocked by something, which
+    means branch protection with a required status check. A pull request
+    opened with the default GITHUB_TOKEN does not trigger `pull_request`
+    workflows, so that check would never run and the pull request would sit
+    blocked forever waiting for it.
+    """
+    workflow = (ROOT / ".github" / "workflows" / "editorial.yml").read_text(
+        encoding="utf-8")
+    assert "vars.AUTO_MERGE == 'true'" in workflow
+    # Never merge when no pull request was opened.
+    assert "steps.pr.outputs.pull-request-number" in workflow
+    # The permissions the merge needs, and no more.
+    assert "pull-requests: write" in workflow
+    assert "contents: write" in workflow

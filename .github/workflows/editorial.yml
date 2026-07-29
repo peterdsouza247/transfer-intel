@@ -120,6 +120,7 @@ jobs:
           cp build/ingest_stats.json "logs/$(date -u +%F)-ingest.json" || true
 
       - name: Open pull request
+        id: pr
         uses: peter-evans/create-pull-request@v6
         with:
           branch: auto/editorial
@@ -152,3 +153,48 @@ jobs:
             og/
             logs/
           delete-branch: true
+
+      # Hands-off operation, opt in by setting the repository variable
+      # AUTO_MERGE to 'true' (Settings, Secrets and variables, Actions,
+      # Variables).
+      #
+      # This merges from inside the workflow rather than using GitHub's
+      # auto-merge feature, because auto-merge cannot work here. It only
+      # appears on a pull request that is blocked by something, which means
+      # branch protection with a required status check, and a pull request
+      # opened with the default GITHUB_TOKEN does not trigger `pull_request`
+      # workflows at all. The required check would never run, and the pull
+      # request would sit blocked forever waiting for it.
+      #
+      # The pull request is still created and still holds the full patch, so
+      # the audit trail is unchanged. What is given up is a human reading the
+      # patch before it goes live rather than after. The gate still runs and
+      # still fails the build, so this does not loosen what can be published,
+      # only who has looked at it first.
+      - name: Merge it
+        if: >-
+          vars.AUTO_MERGE == 'true'
+          && steps.pr.outputs.pull-request-number
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Auto-merging PR #${{ steps.pr.outputs.pull-request-number }}"
+          gh pr merge "${{ steps.pr.outputs.pull-request-number }}" \
+            --squash --delete-branch
+
+      - name: Say what happened
+        if: always() && steps.pr.outputs.pull-request-number
+        run: |
+          {
+            echo "## Editorial refresh"
+            echo
+            echo "PR #${{ steps.pr.outputs.pull-request-number }}: ${{ steps.pr.outputs.pull-request-url }}"
+            if [ "${{ vars.AUTO_MERGE }}" = "true" ]; then
+              echo "Merged automatically. Set the AUTO_MERGE repository"
+              echo "variable to anything else to go back to reviewing first."
+            else
+              echo "Waiting for you to merge it. The digest reads main at"
+              echo "06:30 UTC, so an unmerged PR means today's email"
+              echo "describes yesterday."
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"

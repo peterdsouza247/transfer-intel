@@ -170,6 +170,12 @@ than the underlying reporting, which belongs to the outlets cited.
 
 ### Added after v1.0
 
+- Optional hands-off merging, via the `AUTO_MERGE` repository variable. The
+  workflow squash-merges its own pull request rather than using GitHub's
+  auto-merge, which cannot work here: auto-merge only appears on a pull
+  request blocked by a required status check, and a pull request opened with
+  the default `GITHUB_TOKEN` does not trigger `pull_request` workflows, so
+  that check would never run and the pull request would block forever.
 - `scripts/check_api_key.py`, which proves the key and both models work for
   about a hundredth of a penny, rather than running the whole pipeline to find
   out.
