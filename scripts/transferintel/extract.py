@@ -86,6 +86,15 @@ class ExtractionStats:
     candidates: int = 0
     dropped: list[str] = field(default_factory=list)
 
+    #: What the run actually spent, in tokens. Recorded rather than estimated,
+    #: because the point of the number is to notice the day it changes: a
+    #: filter regression or a feed change can triple the article count and
+    #: nothing else in the output would say so.
+    calls: int = 0
+    input_tokens: int = 0
+    output_tokens: int = 0
+    cache_read_tokens: int = 0
+
 
 # ---------------------------------------------------------------- the model
 
@@ -150,7 +159,7 @@ class ClaimExtractor:
 
             self._client = Anthropic(api_key=key)
 
-    def _call(self, prompt: str) -> str:
+    def _call(self, prompt: str, stats: ExtractionStats | None = None) -> str:
         resp = self._client.messages.create(
             model=self.model,
             max_tokens=self.max_tokens,
@@ -162,6 +171,15 @@ class ClaimExtractor:
             }],
             messages=[{"role": "user", "content": prompt}],
         )
+        if stats is not None:
+            usage = getattr(resp, "usage", None)
+            if usage is not None:
+                stats.calls += 1
+                stats.input_tokens += getattr(usage, "input_tokens", 0) or 0
+                stats.output_tokens += getattr(usage, "output_tokens", 0) or 0
+                stats.cache_read_tokens += (
+                    getattr(usage, "cache_read_input_tokens", 0) or 0
+                )
         return "".join(b.text for b in resp.content if b.type == "text")
 
     def run(self, articles: list[Article], stats: ExtractionStats) -> list[Claim]:
@@ -180,7 +198,8 @@ class ClaimExtractor:
             prompt = build_batch_prompt(batch)
             for attempt in (1, 2):
                 try:
-                    claims.extend(parse_batch_response(self._call(prompt), batch))
+                    claims.extend(
+                        parse_batch_response(self._call(prompt, stats), batch))
                     break
                 except Exception as exc:
                     if attempt == 2:

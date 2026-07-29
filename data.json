@@ -4,7 +4,7 @@
     "tagline": "believe less, know more",
     "deadline": "2026-09-01T22:00:00Z",
     "deadlineLabel": "Window closes 1 Sep, 23:00 BST",
-    "updated": "Jul 24, 2026",
+    "updated": "Jul 29, 2026",
     "site": {
       "baseUrl": "https://peterdsouza247.github.io/transfer-intel",
       "title": "TransferIntel",
@@ -874,7 +874,7 @@
       "date": "Jul 16",
       "tier": 2,
       "src": "Football365",
-      "cred": 80,
+      "cred": 60,
       "note": "Confirmed (auto-updated 2026-07-16). £46m + £4m agreed; Croatia defender's World Cup over, announcement imminent.",
       "evidence": [
         {
@@ -912,7 +912,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 80,
+      "base_cred": 70,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -930,7 +930,7 @@
       "date": "Jul 18",
       "tier": 1,
       "src": "Romano",
-      "cred": 90,
+      "cred": 77,
       "note": "Confirmed (auto-updated 2026-07-18). Villa hijacked Newcastle's agreed deal after his 3-goal World Cup for Switzerland. ~€60m.",
       "evidence": [
         {
@@ -986,7 +986,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 47,
+      "cred": 28,
       "note": "Utd declined buy-back; get >£10m via sell-on clause.",
       "evidence": [
         {
@@ -1022,7 +1022,7 @@
       "date": "Jul 16",
       "tier": 2,
       "src": "Football365 / Romano",
-      "cred": 90,
+      "cred": 77,
       "note": "Confirmed (auto-updated 2026-07-16). Fee agreed (£17-20m reported); personal terms being discussed mid-World Cup.",
       "evidence": [
         {
@@ -1078,7 +1078,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 37,
+      "cred": 22,
       "note": "Personal terms agreed; Rayo rejected first bid, second ~£15m in.",
       "evidence": [
         {
@@ -1114,7 +1114,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 37,
+      "cred": 22,
       "note": "Third window Spurs have tried; Romano says he's their 'next big' signing if clubs agree.",
       "evidence": [
         {
@@ -1150,7 +1150,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 24,
+      "cred": 14,
       "note": "Spurs ready to offer £75m and reportedly willing to go higher.",
       "evidence": [
         {
@@ -1182,12 +1182,12 @@
       "fee": 35.0,
       "age": 26,
       "pos": "CB",
-      "status": "talks",
+      "status": "agreed",
       "date": "Jul 10",
       "tier": 2,
       "src": "Football365",
-      "cred": 15,
-      "note": "Talks smooth but on hold: Palace need a replacement, Lacroix wants his World Cup medal first.",
+      "cred": 40,
+      "note": "Sky agreed the deal on the 24th and a medical was reported the same week, so the fee is settled at around 52m. Held at agreed rather than medical because the ladder moves one rung a run.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:lacroix-crystal-palace-chelsea",
@@ -1208,13 +1208,53 @@
           "fee_gbp_m": 60.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.skysports.com/football/news/11668/13565648/maxence-lacroix-transfer-news-chelsea-agree-deal-to-sign-france-defender-from-crystal-palace",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-07-24",
+          "claim": "agreed",
+          "fee_gbp_m": 52.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.foxsports.com/stories/soccer/chelsea-closing-69-million-deal-france-center-back-maxence-lacroix",
+          "source": "FOX Sports",
+          "tier": 3,
+          "date": "2026-07-24",
+          "claim": "medical",
+          "fee_gbp_m": 52.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.teamtalk.com/chelsea/transfer-news-maxence-lacroix-fabrizio-romano-crystal-palace-here-we-go",
+          "source": "TEAMtalk",
+          "tier": 2,
+          "date": "2026-07-24",
+          "claim": "medical",
+          "fee_gbp_m": 52.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026",
+          "source": "FootballTransfers",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "agreed",
+          "fee_gbp_m": null,
+          "marker": "has signed",
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-21",
+      "last_verified_at": "2026-07-29",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 15,
+      "base_cred": 60,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1314,7 +1354,7 @@
       "date": "Jul 13",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 18,
+      "cred": 10,
       "note": "Arsenal 'pushing' post-World Cup. Would be the striker upgrade, and the fee to match.",
       "evidence": [
         {
@@ -1446,8 +1486,8 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 68,
-      "note": "Has told Newcastle he wants out but won't force it. No bid yet; it needs to start with an 8.",
+      "cred": 43,
+      "note": "Eddie Howe would not guarantee he is still a Newcastle player at the season opener, which is as close to a green light as a manager gets. The score fell anyway: the recent reporting is tier 2, and this measures what is being reported now rather than who is interested.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:guimaraes-newcastle-arsenal",
@@ -1508,13 +1548,23 @@
           "fee_gbp_m": 80.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/07/bruno-guimaraes-arsenal-learn-if-midfielder-will-repeat-isak-saga",
+          "source": "FootballTransfers",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-23",
+      "last_verified_at": "2026-07-29",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 70,
+      "base_cred": 45,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1561,15 +1611,15 @@
       "p": "Bradley Barcola",
       "from": "PSG",
       "to": "Liverpool",
-      "fee": 80.0,
+      "fee": 145.0,
       "age": 23,
       "pos": "LW",
       "status": "rumor",
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 35,
-      "note": "'Top of list' if Diomande→PSG happens. Reports say he prefers London; Arsenal lurking.",
+      "cred": 31,
+      "note": "PSG's valuation is now reported at 145m and Liverpool are said to be looking at alternatives. Still live, but the price is doing the talking.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:barcola-psg-liverpool",
@@ -1590,9 +1640,19 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/07/liverpool-transfer-news-rayan-dream-bradley-barcola-alternative",
+          "source": "FootballTransfers",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "interest",
+          "fee_gbp_m": 145.0,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-23",
+      "last_verified_at": "2026-07-29",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
@@ -1614,7 +1674,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 17,
+      "cred": 10,
       "note": "World Cup breakout with Morocco; background talks only.",
       "evidence": [
         {
@@ -1650,7 +1710,7 @@
       "date": "Jul 12",
       "tier": 3,
       "src": "French press",
-      "cred": 3,
+      "cred": 2,
       "note": "Palace 'strongly interested' after Juventus stalled. Spurs re-signing him also mooted, oddly.",
       "evidence": [
         {
@@ -1686,7 +1746,7 @@
       "date": "Jul 12",
       "tier": 3,
       "src": "Turkish press",
-      "cred": 3,
+      "cred": 2,
       "note": "Personal terms 'agreed' per Turkey; if he were truly available at £35m there'd be a queue.",
       "evidence": [
         {
@@ -1722,7 +1782,7 @@
       "date": "Jul 12",
       "tier": 3,
       "src": "Paper talk",
-      "cred": 3,
+      "cred": 2,
       "note": "He's mid-contract-renewal talks at Forest. Filed under 'agent noise'.",
       "evidence": [
         {
@@ -2115,6 +2175,242 @@
       "completion_source": "Sky Sports",
       "completed_date": "2026-07-22",
       "base_cred": 100,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
+    },
+    {
+      "id": "vinicius-real-madrid-arsenal",
+      "p": "Vinicius Junior",
+      "from": "Real Madrid",
+      "to": "Arsenal",
+      "fee": 0.0,
+      "age": 26,
+      "pos": "LW",
+      "status": "collapsed",
+      "date": "Jul 29",
+      "tier": 1,
+      "src": "Sky Sports",
+      "cred": 0,
+      "note": "Arsenal explored a move while his contract stalled, then Real Madrid moved to keep him. No club-to-club talks were reported at any point.",
+      "evidence": [
+        {
+          "url": "https://www.skysports.com/football/news/11095/13567300/vinicius-jr-transfer-news-real-madrid-to-hold-further-talks-over-brazil-internationals-future-this-week-amid-arsenal-interest",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-07-28",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.skysports.com/football/news/11095/13567839/real-madrid-transfer-news-vinicius-junior-to-stay-at-the-santiago-bernabeu-beyond-this-summer-despite-arsenal-interest",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-07-29",
+          "claim": "collapsed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.espn.com/soccer/story/_/id/49467567/transfer-rumors-news-real-madrid-offer-vinicius-junior-contract-arsenal-interest",
+          "source": "ESPN",
+          "tier": 2,
+          "date": "2026-07-28",
+          "claim": "collapsed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        }
+      ],
+      "last_verified_at": "2026-07-29",
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": 0,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
+    },
+    {
+      "id": "garnacho-chelsea-aston-villa",
+      "p": "Alejandro Garnacho",
+      "from": "Chelsea",
+      "to": "Aston Villa",
+      "fee": 0.0,
+      "age": 22,
+      "pos": "LW",
+      "status": "confirmed",
+      "date": "Jul 29",
+      "tier": 2,
+      "src": "FootballTransfers",
+      "cred": 80,
+      "note": "Loan with a conditional obligation to buy, so the fee lands next summer rather than this one.",
+      "evidence": [
+        {
+          "url": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026",
+          "source": "FootballTransfers",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": "has signed",
+          "official": false
+        }
+      ],
+      "last_verified_at": "2026-07-29",
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": 80,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
+    },
+    {
+      "id": "meslier-leeds-arsenal",
+      "p": "Illan Meslier",
+      "from": "Leeds",
+      "to": "Arsenal",
+      "fee": 0.0,
+      "age": 26,
+      "pos": "GK",
+      "status": "confirmed",
+      "date": "Jul 29",
+      "tier": 2,
+      "src": "FootballTransfers",
+      "cred": 80,
+      "note": "Free transfer. Arsenal add a second keeper without touching the fee budget.",
+      "evidence": [
+        {
+          "url": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026",
+          "source": "FootballTransfers",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": "has signed",
+          "official": false
+        }
+      ],
+      "last_verified_at": "2026-07-29",
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": 80,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
+    },
+    {
+      "id": "darlow-leeds-man-utd",
+      "p": "Karl Darlow",
+      "from": "Leeds",
+      "to": "Man Utd",
+      "fee": 0.0,
+      "age": 35,
+      "pos": "GK",
+      "status": "confirmed",
+      "date": "Jul 29",
+      "tier": 2,
+      "src": "FootballTransfers",
+      "cred": 80,
+      "note": "Free transfer, and United's third addition of the window after Santos and Tielemans.",
+      "evidence": [
+        {
+          "url": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026",
+          "source": "FootballTransfers",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": "has signed",
+          "official": false
+        }
+      ],
+      "last_verified_at": "2026-07-29",
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": 80,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
+    },
+    {
+      "id": "george-chelsea-everton",
+      "p": "Tyrique George",
+      "from": "Chelsea",
+      "to": "Everton",
+      "fee": 0.0,
+      "age": 20,
+      "pos": "LW",
+      "status": "confirmed",
+      "date": "Jul 29",
+      "tier": 2,
+      "src": "FootballTransfers",
+      "cred": 80,
+      "note": "One of three permanent Chelsea sales, alongside Cucurella and Santos, that funded the incomings.",
+      "evidence": [
+        {
+          "url": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026",
+          "source": "FootballTransfers",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": "has signed",
+          "official": false
+        }
+      ],
+      "last_verified_at": "2026-07-29",
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": 80,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
+    },
+    {
+      "id": "salah-liverpool-besiktas",
+      "p": "Mohamed Salah",
+      "from": "Liverpool",
+      "to": "Besiktas",
+      "fee": 0.0,
+      "age": 34,
+      "pos": "RW",
+      "status": "rumor",
+      "date": "Jul 28",
+      "tier": 2,
+      "src": "FootballTransfers",
+      "cred": 35,
+      "note": "Besiktas addressed the speculation publicly, which is not the same as bidding. No fee and no club-to-club talks reported.",
+      "evidence": [
+        {
+          "url": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/07/mohamed-salah-to-besiktas-official-transfer-statement-made",
+          "source": "FootballTransfers",
+          "tier": 2,
+          "date": "2026-07-28",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        }
+      ],
+      "last_verified_at": "2026-07-28",
+      "completion_marker": null,
+      "completion_source": null,
+      "completed_date": null,
+      "base_cred": 35,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,

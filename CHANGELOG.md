@@ -147,6 +147,38 @@ than the underlying reporting, which belongs to the outlets cited.
 
 ### Fixed after v1.0
 
+- **BBC articles were scored tier 3.** The BBC's RSS emits article links under
+  `feeds.bbci.co.uk`, which has no `DOMAIN_TIER` entry, so the most reliable
+  outlet in the feed list got base 15 instead of 55 and could not advance a
+  status or complete a transfer at all. The same article under two hostnames
+  also deduped as two independent sources and paid a corroboration bonus for
+  agreeing with itself. Publisher host aliases are now normalised in
+  `canonical_url`, before tiering and deduping.
+- Every feed host must now have an explicit `DOMAIN_TIER` entry. Adding a feed
+  without one was silent, because an unmapped host falls to tier 3, which is a
+  plausible answer rather than a decided one.
+- **The workflow rendered 71 files and committed three.** `add-paths` listed
+  only `data.json`, `data.js` and `logs/`, so deal pages, club pages, the
+  pre-rendered index, the sitemap, the RSS feed and the Open Graph cards would
+  have frozen the moment the automation started, invisibly, because the
+  browser app reads `data.js` and would have looked fine.
+- **Decay no longer counts toward the volume gate.** At 55 deals, ordinary
+  daily decay alone exceeds the fifteen change limit, so the automated run
+  would have failed the gate every morning on nothing being wrong. A
+  credibility change with no evidence behind it is the calendar moving, not
+  editorial volume. Evidence-driven changes still count.
+
+### Added after v1.0
+
+- `scripts/check_api_key.py`, which proves the key and both models work for
+  about a hundredth of a penny, rather than running the whole pipeline to find
+  out.
+- `scripts/report_cost.py`, which turns the measured token counts into a spend
+  estimate in the job summary. The point is the trend, not the total: a filter
+  regression can triple the article count and the bill is the only place that
+  shows.
+- Extraction now records token usage.
+
 - A deal at `agreed` with tier 1 sources reporting completion needed two
   daily runs, and therefore two days, to reach `done`. The sanctioned skip
   now starts at `agreed` rather than `medical`: the clubs have settled terms,

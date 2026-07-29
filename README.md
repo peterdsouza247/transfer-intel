@@ -24,6 +24,7 @@ Live: https://peterdsouza247.github.io/transfer-intel/
 | [docs/ANALYTICS.md](docs/ANALYTICS.md) | what to measure |
 | [docs/COSTS.md](docs/COSTS.md) | keeping the credit spend down |
 | [docs/CATCHUP.md](docs/CATCHUP.md) | the newest deal is days old, what now |
+| [docs/AUTOMATION.md](docs/AUTOMATION.md) | **turning the scheduled runs on, testing them, and what they cost** |
 | [docs/DAILY-REFRESH.md](docs/DAILY-REFRESH.md) | **the by-hand daily routine, start here if there is no API key** |
 | [docs/MANUAL-INGEST.md](docs/MANUAL-INGEST.md) | the file formats behind that routine |
 | [docs/DISCOVERABILITY.md](docs/DISCOVERABILITY.md) | SEO, pre-rendering, the manual steps |
@@ -151,6 +152,8 @@ transfer-intel/
     render_site.py        phase 7
     check_ingest.py       fails the run when ingestion produced nothing
     check_feeds.py        tests feeds and candidates, live vs stale vs dead
+    check_api_key.py      one tiny call to prove the key and models work
+    report_cost.py        what a run spent, into the job summary
     draft_claims.py       drafts manual claims for a human to correct
     add_candidates.py     promotes a detected candidate into a tracked deal
     check_site.py         post-build sanity check

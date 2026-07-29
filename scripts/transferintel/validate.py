@@ -165,6 +165,7 @@ def check(
     # -- volume ----------------------------------------------------------
 
     editorial = [o for o in updates if o.field not in PROVENANCE_FIELDS]
+    editorial = [o for o in editorial if getattr(o, "driver", "editorial") != "decay"]
     if len(editorial) > cfg.max_updates:
         r.hard.append(
             f"{len(editorial)} updates, limit is {cfg.max_updates}. A day this "

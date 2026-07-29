@@ -231,6 +231,12 @@ def main() -> int:
                 "candidates": stats.candidates,
                 "unresolved": len(unresolved), "dropped": stats.dropped,
             },
+            "extraction": {
+                "calls": stats.calls,
+                "input_tokens": stats.input_tokens,
+                "output_tokens": stats.output_tokens,
+                "cache_read_tokens": stats.cache_read_tokens,
+            },
         }, indent=2),
         encoding="utf-8",
     )

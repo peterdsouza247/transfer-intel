@@ -653,11 +653,19 @@ def score_deal(
                 f"{cfg.max_cred_delta_per_run} point move"
             )
     if breakdown.total != deal.cred:
+        in_window = [e.url for e in recent(deal, today, cfg)]
         ops.append(PatchOp(
             id=deal.id, field="cred",
+            # Nothing in the scoring window means no source said anything, so
+            # whatever moved the number was the calendar. Marking it lets the
+            # volume gate measure editorial activity rather than the passage
+            # of time, which matters more the larger the dataset gets: at 55
+            # deals, ordinary daily decay alone exceeds the fifteen change
+            # limit and would fail the gate every single morning.
+            driver="editorial" if in_window else "decay",
             from_value=deal.cred, to=breakdown.total,
             reason=breakdown.explain(),
-            evidence=[e.url for e in recent(deal, today, cfg)][:3],
+            evidence=in_window[:3],
         ))
 
     silence = days_since_mention(deal, today)

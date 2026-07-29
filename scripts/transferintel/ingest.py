@@ -42,9 +42,40 @@ _TITLE_NOISE = {
 # ---------------------------------------------------------------- fetching
 
 
+#: Hosts a publisher serves the same article from, mapped to the one this
+#: project treats as canonical.
+#:
+#: The BBC's RSS feed emits article links under `feeds.bbci.co.uk` while the
+#: same articles are linked as `bbc.co.uk` everywhere else. Two things went
+#: wrong because of it, both silent:
+#:
+#: 1. `bbci.co.uk` is not in DOMAIN_TIER, so every article arriving from the
+#:    BBC feed was scored **tier 3** rather than tier 1. Base 15 instead of
+#:    55, and, because only tier 1 and 2 can move a deal along the ladder, the
+#:    single most reliable outlet in the feed list could not advance a status
+#:    or complete a transfer at all.
+#: 2. The same article under two hostnames is two urls, so it deduped as two
+#:    independent sources and paid out a corroboration bonus for agreeing with
+#:    itself.
+#:
+#: Normalising the host fixes both, and does it before tiering or deduping
+#: rather than patching each of them separately.
+HOST_ALIASES: dict[str, str] = {
+    "feeds.bbci.co.uk": "www.bbc.co.uk",
+    "bbci.co.uk": "www.bbc.co.uk",
+    "bbc.com": "www.bbc.co.uk",
+    "www.bbc.com": "www.bbc.co.uk",
+    "e0.365dm.com": "www.skysports.com",
+    "amp.theguardian.com": "www.theguardian.com",
+}
+
+
 def canonical_url(url: str) -> str:
     """Strip tracking noise so the same article from two feeds dedupes."""
     parts = urlsplit(url.strip())
+    host = parts.netloc.lower()
+    if host in HOST_ALIASES:
+        parts = parts._replace(netloc=HOST_ALIASES[host])
     query = "&".join(
         q for q in parts.query.split("&")
         if q and not _TRACKING.match(q.split("=")[0])

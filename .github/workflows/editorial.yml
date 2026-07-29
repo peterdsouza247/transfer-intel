@@ -63,6 +63,12 @@ jobs:
       # decay pass. That tolerance is what let a missing API key run silently
       # for days, publishing a green tick and no new deals. This turns that
       # state back into a visible failure.
+      # What the run cost, in the job summary. A number nobody can see is a
+      # number nobody notices growing.
+      - name: Extraction cost
+        if: always()
+        run: python scripts/report_cost.py --stats build/ingest_stats.json
+
       - name: Ingestion health
         run: python scripts/check_ingest.py --stats build/ingest_stats.json
 
@@ -122,8 +128,27 @@ jobs:
           body-path: build/pr.md
           labels: auto/editorial
           commit-message: "chore: daily editorial refresh"
+          # Everything the render step regenerates, not just the data.
+          #
+          # This listed only data.json, data.js and logs/, so the rendered
+          # output was produced on every run and committed on none of it.
+          # The browser app would have kept working, because it reads data.js,
+          # and everything underneath it would have frozen: deal pages, club
+          # pages, the pre-rendered index a crawler sees, the sitemap that
+          # tells Google a new deal exists, the RSS feed, and the Open Graph
+          # cards that make a shared link look like anything. All silent, all
+          # invisible from the PR, because the files were never in the diff.
           add-paths: |
             data.json
             data.js
+            index.html
+            404.html
+            sitemap.xml
+            feed.xml
+            llms.txt
+            deals/
+            clubs/
+            thanks/
+            og/
             logs/
           delete-branch: true

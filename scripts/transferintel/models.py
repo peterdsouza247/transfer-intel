@@ -201,6 +201,12 @@ class PatchOp(BaseModel):
     model_config = ConfigDict(populate_by_name=True)
 
     op: Literal["update", "flag"] = "update"
+    #: What caused this change. `decay` means the calendar moved and nothing
+    #: else did: no source said anything, the arithmetic simply recomputed.
+    #: The volume gate does not count these, for the same reason it does not
+    #: count provenance fields. They are not editorial volume and a day with
+    #: a lot of them is not a day to be suspicious of.
+    driver: Literal["editorial", "decay"] = "editorial"
     id: str
     field: str
     from_value: Any = Field(default=None, alias="from")

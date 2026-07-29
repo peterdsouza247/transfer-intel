@@ -1220,3 +1220,118 @@ def test_a_rumour_still_cannot_leap_to_done():
     decision = decide_status(d, TODAY)
     assert decision.status is not Status.done
     assert decision.flag and "one rung per run" in decision.flag
+
+
+# ============================================================ host aliases
+
+
+def test_bbc_feed_articles_are_tier_one():
+    """The BBC's RSS emits `feeds.bbci.co.uk` article links.
+
+    That host is not in DOMAIN_TIER, so every article arriving from the BBC
+    feed scored tier 3: base 15 rather than 55, and unable to move a deal
+    along the ladder at all, because only tier 1 and 2 can. The single most
+    reliable outlet in the feed list was the one being discounted.
+    """
+    from transferintel.ingest import canonical_url
+    from transferintel.sources import outlet_for, tier_for
+
+    url = canonical_url(
+        "https://feeds.bbci.co.uk/sport/football/articles/cl44m6mpe8eo")
+    assert tier_for(url) == 1
+    assert outlet_for(url) == "BBC Sport"
+
+
+def test_one_article_under_two_hostnames_is_one_source():
+    """Otherwise it deduped as two independent reports and paid out a
+    corroboration bonus for agreeing with itself."""
+    from transferintel.ingest import canonical_url
+
+    assert canonical_url(
+        "https://feeds.bbci.co.uk/sport/football/articles/abc"
+    ) == canonical_url(
+        "https://www.bbc.co.uk/sport/football/articles/abc"
+    )
+
+
+def test_every_configured_feed_host_resolves_to_a_known_tier():
+    """A feed whose articles land on an unmapped host is scored tier 3 by
+    default, silently. Adding a feed without a tier entry is the easy half of
+    a two-part change."""
+    from urllib.parse import urlsplit
+
+    from transferintel.ingest import HOST_ALIASES, canonical_url
+    from transferintel.sources import FEEDS, tier_for
+
+    from transferintel.sources import DOMAIN_TIER
+
+    unmapped = []
+    for url, name in FEEDS:
+        host = urlsplit(url).netloc.lower()
+        host = HOST_ALIASES.get(host, host)
+        for prefix in ("www.", "feeds.", "rss."):
+            if host.startswith(prefix):
+                host = host[len(prefix):]
+        if host not in DOMAIN_TIER:
+            unmapped.append((name, host))
+    assert not unmapped, (
+        "these feeds have no DOMAIN_TIER entry, so their articles score "
+        "tier 3 by default rather than by anyone's decision: "
+        + ", ".join(f"{n} ({h})" for n, h in unmapped)
+    )
+
+
+# ============================================================ automation
+
+
+def test_decay_does_not_consume_the_volume_gate():
+    """The gate exists to catch a fault rewriting the site in one run.
+
+    Decay is deterministic arithmetic on the calendar, not editorial activity,
+    and it recomputes credibility for every non-terminal deal most days. At 22
+    decaying deals that alone exceeds the fifteen change limit, so the daily
+    automated run would have failed the gate every single morning, on nothing
+    being wrong.
+    """
+    from transferintel.models import PatchOp
+    from transferintel.validate import GateConfig, check
+
+    deals = [deal(id=f"d{i}", status=Status.rumor) for i in range(30)]
+    ops = [
+        PatchOp(id=f"d{i}", field="cred", driver="decay",
+                from_value=40, to=38, reason="decayed")
+        for i in range(30)
+    ]
+    result = check(deals, ops, ["Arsenal"], TODAY, GateConfig(max_updates=15))
+    assert result.passed, result.hard
+
+
+def test_evidence_driven_credibility_still_counts():
+    """Only changes with nothing behind them are exempt. A score that moved
+    because somebody reported something is editorial volume."""
+    from transferintel.models import PatchOp
+    from transferintel.validate import GateConfig, check
+
+    deals = [deal(id=f"d{i}", status=Status.rumor) for i in range(30)]
+    ops = [
+        PatchOp(id=f"d{i}", field="cred", driver="editorial",
+                from_value=40, to=60, reason="reported")
+        for i in range(30)
+    ]
+    result = check(deals, ops, ["Arsenal"], TODAY, GateConfig(max_updates=15))
+    assert not result.passed
+
+
+def test_the_workflow_commits_everything_it_renders():
+    """The render step regenerated 71 files and the PR committed three.
+
+    data.js kept the browser app current, so the failure was invisible from
+    the homepage, while every deal page, club page, the pre-rendered index a
+    crawler sees, the sitemap, the feed and the Open Graph cards froze.
+    """
+    workflow = (ROOT / ".github" / "workflows" / "editorial.yml").read_text(
+        encoding="utf-8")
+    add_paths = workflow[workflow.index("add-paths:"):]
+    for path in ("data.json", "data.js", "index.html", "sitemap.xml",
+                 "feed.xml", "deals/", "clubs/", "og/"):
+        assert path in add_paths, f"{path} is rendered but never committed"

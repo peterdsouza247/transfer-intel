@@ -82,6 +82,24 @@ CANDIDATE_FEEDS: list[tuple[str, str, int]] = [
 #: outlet doing real reporting. Tier 3 is everything else, including foreign
 #: press aggregating each other.
 DOMAIN_TIER: dict[str, int] = {
+    # Added 29 July 2026 with the feeds themselves. All tier 3, which is where
+    # they belong: they carry real transfer news and carry a great deal that
+    # is not. Recording them explicitly rather than letting them fall to the
+    # tier 3 default means the tier is a judgment somebody made, and a feed
+    # added without one now fails a test instead of quietly scoring 15.
+    "dailymail.co.uk": 3,
+    "football.london": 3,
+    "mirror.co.uk": 3,
+    "metro.co.uk": 3,
+    "caughtoffside.com": 3,
+    "teamtalk.com": 2,
+    "talksport.com": 2,
+    "independent.co.uk": 2,
+    "standard.co.uk": 2,
+    "manchestereveningnews.co.uk": 2,
+    "liverpoolecho.co.uk": 2,
+    "chroniclelive.co.uk": 2,
+    "birminghammail.co.uk": 2,
     "skysports.com": 1,
     "theathletic.com": 1,
     "nytimes.com": 1,          # The Athletic lives here now
