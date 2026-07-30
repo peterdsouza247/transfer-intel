@@ -1,0 +1,366 @@
+[
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "toure-hoffenheim-newcastle",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 19 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "manzambi-freiburg-aston-villa",
+    "field": "cred",
+    "from": 77,
+    "to": 76,
+    "reason": "base +45, stage +45 = 90, decayed to 76 after 8 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "greenwood-marseille-fenerbahce",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 18 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "trossard-arsenal-besiktas",
+    "field": "cred",
+    "from": 77,
+    "to": 76,
+    "reason": "base +45, stage +45 = 90, decayed to 76 after 8 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "chavarria-rayo-vallecano-chelsea",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 18 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "last_verified_at",
+    "from": "2026-07-12",
+    "to": "2026-07-29",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.bbc.co.uk/sport/football/articles/cx2kqvkwz17o"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 18 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "kroupi-bournemouth-tottenham",
+    "field": "status",
+    "from": "talks",
+    "to": "collapsed",
+    "reason": "Evening Standard reports the move is off",
+    "evidence": [
+      "https://www.standard.co.uk/sport/football/junior-kroupi-arsenal-fc-tottenham-transfer-latest-injury-surgery-b1291750.html",
+      "https://www.mirror.co.uk/sport/football/transfer-news/arsenal-tottenham-transfers-kroupi-injury-37492679"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "kroupi-bournemouth-tottenham",
+    "field": "last_verified_at",
+    "from": "2026-07-12",
+    "to": "2026-07-29",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.standard.co.uk/sport/football/junior-kroupi-arsenal-fc-tottenham-transfer-latest-injury-surgery-b1291750.html",
+      "https://www.independent.co.uk/sport/football/junior-kroupi-injury-bournemouth-transfer-news-b3024074.html"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "kroupi-bournemouth-tottenham",
+    "field": "base_cred",
+    "from": 35,
+    "to": 0,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.standard.co.uk/sport/football/junior-kroupi-arsenal-fc-tottenham-transfer-latest-injury-surgery-b1291750.html"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "kroupi-bournemouth-tottenham",
+    "field": "cred",
+    "from": 14,
+    "to": 0,
+    "reason": "pinned to 0, deal collapsed",
+    "evidence": [
+      "https://www.standard.co.uk/sport/football/junior-kroupi-arsenal-fc-tottenham-transfer-latest-injury-surgery-b1291750.html",
+      "https://www.independent.co.uk/sport/football/junior-kroupi-injury-bournemouth-transfer-news-b3024074.html",
+      "https://www.mirror.co.uk/sport/football/transfer-news/arsenal-tottenham-transfers-kroupi-injury-37492679"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "cred",
+    "from": 40,
+    "to": 60,
+    "reason": "base +35, stage +25 = 60",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "rodriguez-elche-bournemouth",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 14 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "alvarez-atletico-madrid-arsenal",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 17 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "base_cred",
+    "from": 45,
+    "to": 50,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/07/bruno-guimaraes-arsenal-learn-if-midfielder-will-repeat-isak-saga"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "cred",
+    "from": 43,
+    "to": 50,
+    "reason": "base +35, corroboration +5, stage +10 = 50",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/07/bruno-guimaraes-arsenal-learn-if-midfielder-will-repeat-isak-saga",
+      "https://www.chroniclelive.co.uk/sport/football/transfer-news/arsenal-newcastle-transfer-bruno-guimaraes-34364772",
+      "https://www.chroniclelive.co.uk/sport/football/transfer-news/newcastle-uniteds-plan-bruno-guimaraes-34364827"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "status",
+    "from": "rumor",
+    "to": "talks",
+    "reason": "BBC Sport reports the deal has reached talks",
+    "evidence": [
+      "https://www.bbc.co.uk/sport/football/articles/c0qv8wekp7eo",
+      "https://talksport.com/football/4474703/liverpool-bradley-barcola-bid-alternative-transfer-targets",
+      "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-barcola-transfer-update-psg-34373917"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "last_verified_at",
+    "from": "2026-07-29",
+    "to": "2026-07-30",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/07/liverpool-transfer-news-rayan-dream-bradley-barcola-alternative",
+      "https://www.bbc.co.uk/sport/football/articles/c0qv8wekp7eo"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "fee",
+    "from": 145.0,
+    "to": 50.0,
+    "reason": "liverpoolecho.co.uk reports the fee",
+    "evidence": [
+      "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-transfer-news-barcola-talks-34371707"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "base_cred",
+    "from": 35,
+    "to": 80,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/07/liverpool-transfer-news-rayan-dream-bradley-barcola-alternative"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "cred",
+    "from": 31,
+    "to": 56,
+    "reason": "base +55, corroboration +15, stage +10 = 80, capped to a 25 point move",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/07/liverpool-transfer-news-rayan-dream-bradley-barcola-alternative",
+      "https://www.bbc.co.uk/sport/football/articles/c0qv8wekp7eo",
+      "https://talksport.com/football/4474703/liverpool-bradley-barcola-bid-alternative-transfer-targets"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "bouaddi-lille-man-city",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 18 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "muani-psg-crystal-palace",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 18 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "watkins-aston-villa-fenerbahce",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 18 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "williams-nott-m-forest-man-utd",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 18 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "garnacho-chelsea-aston-villa",
+    "field": "fee",
+    "from": 0.0,
+    "to": 43.0,
+    "reason": "birminghammail.co.uk reports the fee",
+    "evidence": [
+      "https://www.birminghammail.co.uk/sport/football/transfer-news/alejandro-garnacho-can-player-aston-34363338"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "garnacho-chelsea-aston-villa",
+    "field": "base_cred",
+    "from": 80,
+    "to": 85,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "garnacho-chelsea-aston-villa",
+    "field": "cred",
+    "from": 80,
+    "to": 85,
+    "reason": "base +35, corroboration +5, stage +45 = 85",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026",
+      "https://www.birminghammail.co.uk/sport/football/transfer-news/alejandro-garnacho-can-player-aston-34363338"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "note",
+    "from": "PSG's valuation is now reported at 145m and Liverpool are said to be looking at alternatives. Still live, but the price is doing the talking.",
+    "to": "Liverpool and PSG remain far apart on valuation, with the gap between the 50m bid and PSG's 145m asking price the real obstacle.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "kroupi-bournemouth-tottenham",
+    "field": "note",
+    "from": "Spurs ready to offer \u00a375m and reportedly willing to go higher.",
+    "to": "Spurs' willingness to spend seventy-five million on an unproven twenty-year-old reveals more about their striker desperation than Kroupi's readiness for the role.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "garnacho-chelsea-aston-villa",
+    "field": "note",
+    "from": "Loan with a conditional obligation to buy, so the fee lands next summer rather than this one.",
+    "to": "Garnacho finally leaves Old Trafford after three years of underperformance, with Villa banking on a change of scenery to unlock his talent.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "note",
+    "from": "Sky agreed the deal on the 24th and a medical was reported the same week, so the fee is settled at around 52m. Held at agreed rather than medical because the ladder moves one rung a run.",
+    "to": "Chelsea addressing centre-back depth with a proven Premier League defender at a reasonable fee.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  }
+]
