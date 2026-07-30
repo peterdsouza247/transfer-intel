@@ -4,7 +4,7 @@
     "tagline": "believe less, know more",
     "deadline": "2026-09-01T22:00:00Z",
     "deadlineLabel": "Window closes 1 Sep, 23:00 BST",
-    "updated": "Jul 29, 2026",
+    "updated": "Jul 30, 2026",
     "site": {
       "baseUrl": "https://peterdsouza247.github.io/transfer-intel",
       "title": "TransferIntel",
@@ -930,7 +930,7 @@
       "date": "Jul 18",
       "tier": 1,
       "src": "Romano",
-      "cred": 77,
+      "cred": 76,
       "note": "Confirmed (auto-updated 2026-07-18). Villa hijacked Newcastle's agreed deal after his 3-goal World Cup for Switzerland. ~€60m.",
       "evidence": [
         {
@@ -1022,7 +1022,7 @@
       "date": "Jul 16",
       "tier": 2,
       "src": "Football365 / Romano",
-      "cred": 77,
+      "cred": 76,
       "note": "Confirmed (auto-updated 2026-07-16). Fee agreed (£17-20m reported); personal terms being discussed mid-World Cup.",
       "evidence": [
         {
@@ -1126,9 +1126,19 @@
           "fee_gbp_m": 60.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.bbc.co.uk/sport/football/articles/cx2kqvkwz17o",
+          "source": "BBC Sport",
+          "tier": 1,
+          "date": "2026-07-29",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-12",
+      "last_verified_at": "2026-07-29",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
@@ -1146,12 +1156,12 @@
       "fee": 75.0,
       "age": 20,
       "pos": "ST",
-      "status": "talks",
+      "status": "collapsed",
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 14,
-      "note": "Spurs ready to offer £75m and reportedly willing to go higher.",
+      "cred": 0,
+      "note": "Spurs' willingness to spend seventy-five million on an unproven twenty-year-old reveals more about their striker desperation than Kroupi's readiness for the role.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:kroupi-bournemouth-tottenham",
@@ -1162,13 +1172,43 @@
           "fee_gbp_m": 75.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/junior-kroupi-arsenal-fc-tottenham-transfer-latest-injury-surgery-b1291750.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "collapsed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.independent.co.uk/sport/football/junior-kroupi-injury-bournemouth-transfer-news-b3024074.html",
+          "source": "The Independent",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/arsenal-tottenham-transfers-kroupi-injury-37492679",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-07-29",
+          "claim": "collapsed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-12",
+      "last_verified_at": "2026-07-29",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 35,
+      "base_cred": 0,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1186,8 +1226,8 @@
       "date": "Jul 10",
       "tier": 2,
       "src": "Football365",
-      "cred": 40,
-      "note": "Sky agreed the deal on the 24th and a medical was reported the same week, so the fee is settled at around 52m. Held at agreed rather than medical because the ladder moves one rung a run.",
+      "cred": 60,
+      "note": "Chelsea addressing centre-back depth with a proven Premier League defender at a reasonable fee.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:lacroix-crystal-palace-chelsea",
@@ -1486,7 +1526,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 43,
+      "cred": 50,
       "note": "Eddie Howe would not guarantee he is still a Newcastle player at the season opener, which is as close to a green light as a manager gets. The score fell anyway: the recent reporting is tier 2, and this measures what is being reported now rather than who is interested.",
       "evidence": [
         {
@@ -1558,13 +1598,53 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.chroniclelive.co.uk/sport/football/transfer-news/arsenal-newcastle-transfer-bruno-guimaraes-34364772",
+          "source": "chroniclelive.co.uk",
+          "tier": 2,
+          "date": "2026-07-28",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.chroniclelive.co.uk/sport/football/transfer-news/newcastle-uniteds-plan-bruno-guimaraes-34364827",
+          "source": "chroniclelive.co.uk",
+          "tier": 2,
+          "date": "2026-07-28",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.chroniclelive.co.uk/sport/football/football-news/eddie-howe-makes-unhealthy-bruno-34374145",
+          "source": "chroniclelive.co.uk",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.chroniclelive.co.uk/sport/football/transfer-news/mikel-arteta-opens-up-arsenal-34373675",
+          "source": "chroniclelive.co.uk",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
       "last_verified_at": "2026-07-29",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 45,
+      "base_cred": 50,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1611,15 +1691,15 @@
       "p": "Bradley Barcola",
       "from": "PSG",
       "to": "Liverpool",
-      "fee": 145.0,
+      "fee": 50.0,
       "age": 23,
       "pos": "LW",
-      "status": "rumor",
+      "status": "talks",
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 31,
-      "note": "PSG's valuation is now reported at 145m and Liverpool are said to be looking at alternatives. Still live, but the price is doing the talking.",
+      "cred": 56,
+      "note": "Liverpool and PSG remain far apart on valuation, with the gap between the 50m bid and PSG's 145m asking price the real obstacle.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:barcola-psg-liverpool",
@@ -1650,13 +1730,173 @@
           "fee_gbp_m": 145.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.bbc.co.uk/sport/football/articles/c0qv8wekp7eo",
+          "source": "BBC Sport",
+          "tier": 1,
+          "date": "2026-07-29",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://talksport.com/football/4474703/liverpool-bradley-barcola-bid-alternative-transfer-targets",
+          "source": "talksport.com",
+          "tier": 2,
+          "date": "2026-07-28",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/barcola-transfer-liverpool-fc-latest-bid-b1291766.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-told-pay-up-want-34370354",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-barcola-transfer-update-psg-34373917",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "talks",
+          "fee_gbp_m": 100.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-set-talks-paris-saint-34372638",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-transfer-latest-bradley-barcola-34371564",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-transfer-news-barcola-talks-34371707",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-07-30",
+          "claim": "talks",
+          "fee_gbp_m": 50.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-attack-barcola-transfer-iraola-34368175",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-07-30",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-16014807/Jamie-Carragher-warns-Bradley-Barcola-NOT-suitable-replacement-Mo-Salah-Liverpools-PSG.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-07-29",
+          "claim": "interest",
+          "fee_gbp_m": 145.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-16013935/liverpool-bradley-barcola-psg-france-bid.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-07-29",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/jamie-carragher-bradley-barcola-transfer-37492838",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-07-29",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/liverpool-transfer-bid-bradley-barcola-37492415",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-07-29",
+          "claim": "talks",
+          "fee_gbp_m": 110.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/07/29/bradley-barcola-stats-liverpool-transfer",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-07-29",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/07/29/liverpool-set-transfer-limit-as-club-demands-record-fee-for-23-year-old-iraola-target",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-07-29",
+          "claim": "talks",
+          "fee_gbp_m": 145.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/news/liverpool-transfer-news-barcola-request-37490062",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-07-30",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-29",
+      "last_verified_at": "2026-07-30",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 35,
+      "base_cred": 80,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -2224,6 +2464,46 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://talksport.com/football/4473827/arsenal-vinicius-junior-transfer-hopes-fade-real-madrid-contract",
+          "source": "talksport.com",
+          "tier": 2,
+          "date": "2026-07-28",
+          "claim": "collapsed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-16011631/Real-Madrid-talks-Vinicius-Jr-transfer-Arsenal.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-07-28",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-vinicius-junior-transfer-madrid-34372305",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-07-29",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/arsenal-transfer-update-vinicius-arteta-37492191",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-07-29",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
       "last_verified_at": "2026-07-29",
@@ -2241,15 +2521,15 @@
       "p": "Alejandro Garnacho",
       "from": "Chelsea",
       "to": "Aston Villa",
-      "fee": 0.0,
+      "fee": 43.0,
       "age": 22,
       "pos": "LW",
       "status": "confirmed",
       "date": "Jul 29",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 80,
-      "note": "Loan with a conditional obligation to buy, so the fee lands next summer rather than this one.",
+      "cred": 85,
+      "note": "Garnacho finally leaves Old Trafford after three years of underperformance, with Villa banking on a change of scenery to unlock his talent.",
       "evidence": [
         {
           "url": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026",
@@ -2260,13 +2540,23 @@
           "fee_gbp_m": null,
           "marker": "has signed",
           "official": false
+        },
+        {
+          "url": "https://www.birminghammail.co.uk/sport/football/transfer-news/alejandro-garnacho-can-player-aston-34363338",
+          "source": "birminghammail.co.uk",
+          "tier": 2,
+          "date": "2026-07-28",
+          "claim": "completed",
+          "fee_gbp_m": 43.0,
+          "marker": null,
+          "official": false
         }
       ],
       "last_verified_at": "2026-07-29",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 80,
+      "base_cred": 85,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
