@@ -1,0 +1,356 @@
+[
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "tonali-newcastle-tottenham",
+    "field": "last_verified_at",
+    "from": "2026-06-24",
+    "to": "2026-07-30",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.bbc.co.uk/sport/football/articles/cz7dlyq1qnwo",
+      "https://www.standard.co.uk/sport/football/tonali-de-zerbi-talks-tottenham-b1291889.html"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "tonali-newcastle-tottenham",
+    "field": "fee",
+    "from": 92.5,
+    "to": 100.0,
+    "reason": "BBC Sport reports the fee",
+    "evidence": [
+      "https://www.bbc.co.uk/sport/football/articles/cz7dlyq1qnwo"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "toure-hoffenheim-newcastle",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 20 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "greenwood-marseille-fenerbahce",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 19 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "chavarria-rayo-vallecano-chelsea",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 19 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "cred",
+    "from": 22,
+    "to": 47,
+    "reason": "base +55 = 55, capped to a 25 point move",
+    "evidence": [
+      "https://www.bbc.co.uk/sport/football/articles/cx2kqvkwz17o"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "status",
+    "from": "agreed",
+    "to": "medical",
+    "reason": "BBC Sport reports the deal has reached medical",
+    "evidence": [
+      "https://www.bbc.co.uk/sport/football/articles/cg4d11g46lpo",
+      "https://www.theguardian.com/football/2026/jul/30/chelsea-crystal-palace-maxence-lacroix-transfer-roundup",
+      "https://talksport.com/football/4459614/chelsea-transfer-news-maxence-lacroix-announced"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "status",
+    "from": null,
+    "to": null,
+    "reason": "evidence claims confirmed but status only advanced to medical, one rung per run",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "last_verified_at",
+    "from": "2026-07-29",
+    "to": "2026-07-30",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026",
+      "https://www.bbc.co.uk/sport/football/articles/cg4d11g46lpo"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "fee",
+    "from": 35.0,
+    "to": 52.0,
+    "reason": "BBC Sport reports the fee",
+    "evidence": [
+      "https://www.bbc.co.uk/sport/football/articles/cg4d11g46lpo"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "base_cred",
+    "from": 60,
+    "to": 100,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "cred",
+    "from": 60,
+    "to": 85,
+    "reason": "base +55, corroboration +15, stage +45 = 100, capped to a 25 point move",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026",
+      "https://www.bbc.co.uk/sport/football/articles/cg4d11g46lpo",
+      "https://www.theguardian.com/football/2026/jul/30/chelsea-crystal-palace-maxence-lacroix-transfer-roundup"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "rodriguez-elche-bournemouth",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 15 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "alvarez-atletico-madrid-arsenal",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 18 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "tzolis-club-brugge-arsenal",
+    "field": "last_verified_at",
+    "from": "2026-07-23",
+    "to": "2026-07-30",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.football.london/arsenal-fc/transfer-news/arsenal-christos-tzolis-paok-norwich-34377624"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "last_verified_at",
+    "from": "2026-07-29",
+    "to": "2026-07-31",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/07/bruno-guimaraes-arsenal-learn-if-midfielder-will-repeat-isak-saga",
+      "https://www.chroniclelive.co.uk/sport/football/transfer-news/arsenal-newcastle-transfer-bruno-guimaraes-34364772"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "fee",
+    "from": 70.0,
+    "to": 80.0,
+    "reason": "BBC Sport reports the fee",
+    "evidence": [
+      "https://www.bbc.co.uk/sport/football/articles/cgewqpp5e57o"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "base_cred",
+    "from": 50,
+    "to": 80,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/07/bruno-guimaraes-arsenal-learn-if-midfielder-will-repeat-isak-saga"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "cred",
+    "from": 50,
+    "to": 75,
+    "reason": "base +55, corroboration +15, stage +10 = 80, capped to a 25 point move",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/07/bruno-guimaraes-arsenal-learn-if-midfielder-will-repeat-isak-saga",
+      "https://www.chroniclelive.co.uk/sport/football/transfer-news/arsenal-newcastle-transfer-bruno-guimaraes-34364772",
+      "https://www.chroniclelive.co.uk/sport/football/transfer-news/newcastle-uniteds-plan-bruno-guimaraes-34364827"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "last_verified_at",
+    "from": "2026-07-30",
+    "to": "2026-07-31",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/07/liverpool-transfer-news-rayan-dream-bradley-barcola-alternative",
+      "https://www.bbc.co.uk/sport/football/articles/c0qv8wekp7eo"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "cred",
+    "from": 56,
+    "to": 80,
+    "reason": "base +55, corroboration +15, stage +10 = 80",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/07/liverpool-transfer-news-rayan-dream-bradley-barcola-alternative",
+      "https://www.bbc.co.uk/sport/football/articles/c0qv8wekp7eo",
+      "https://talksport.com/football/4474703/liverpool-bradley-barcola-bid-alternative-transfer-targets"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "bouaddi-lille-man-city",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 19 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "muani-psg-crystal-palace",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 19 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "watkins-aston-villa-fenerbahce",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 19 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "williams-nott-m-forest-man-utd",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 19 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "senesi-bournemouth-tottenham",
+    "field": "last_verified_at",
+    "from": "2026-06-21",
+    "to": "2026-07-30",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.standard.co.uk/sport/football/senesi-tottenham-sarr-bentancur-b1291894.html"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "note",
+    "from": "Chelsea addressing centre-back depth with a proven Premier League defender at a reasonable fee.",
+    "to": "Lacroix passes his Chelsea medical after Palace accepted their third significant defender departure in as many summers.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "tonali-newcastle-tottenham",
+    "field": "note",
+    "from": "Statement signing of the De Zerbi rebuild after two 17th-place finishes.",
+    "to": "Tottenham paid a British record fee for a midfielder to reshape their midfield depth after years of relying on Sarr and Bissouma.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "note",
+    "from": "Liverpool and PSG remain far apart on valuation, with the gap between the 50m bid and PSG's 145m asking price the real obstacle.",
+    "to": "Liverpool and PSG remain entrenched, with valuations spanning fifty to one hundred forty-five million pounds and no middle ground emerging yet.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "note",
+    "from": "Eddie Howe would not guarantee he is still a Newcastle player at the season opener, which is as close to a green light as a manager gets. The score fell anyway: the recent reporting is tier 2, and this measures what is being reported now rather than who is interested.",
+    "to": "Arsenal moving decisively for Newcastle's midfield lynchpin, but the 80 million price tag sits well above what Howe will accept without a replacement lined up.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "note",
+    "from": "Third window Spurs have tried; Romano says he's their 'next big' signing if clubs agree.",
+    "to": "Tottenham's third attempt at Savinho shows persistence but a credibility score below fifty suggests City have given them little reason to believe a deal is close.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  }
+]
