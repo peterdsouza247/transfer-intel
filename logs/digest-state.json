@@ -7,7 +7,7 @@
   "tonali-newcastle-tottenham": {
     "status": "done",
     "cred": 100,
-    "fee": 92.5
+    "fee": 100.0
   },
   "fernandes-west-ham-tottenham": {
     "status": "done",
@@ -131,7 +131,7 @@
   },
   "savinho-man-city-tottenham": {
     "status": "talks",
-    "cred": 22,
+    "cred": 47,
     "fee": 60.0
   },
   "kroupi-bournemouth-tottenham": {
@@ -140,9 +140,9 @@
     "fee": 75.0
   },
   "lacroix-crystal-palace-chelsea": {
-    "status": "agreed",
-    "cred": 60,
-    "fee": 35.0
+    "status": "medical",
+    "cred": 85,
+    "fee": 52.0
   },
   "rogers-aston-villa-arsenal": {
     "status": "collapsed",
@@ -166,8 +166,8 @@
   },
   "guimaraes-newcastle-arsenal": {
     "status": "talks",
-    "cred": 50,
-    "fee": 70.0
+    "cred": 75,
+    "fee": 80.0
   },
   "gomes-wolves-man-utd": {
     "status": "collapsed",
@@ -176,7 +176,7 @@
   },
   "barcola-psg-liverpool": {
     "status": "talks",
-    "cred": 56,
+    "cred": 80,
     "fee": 50.0
   },
   "bouaddi-lille-man-city": {
