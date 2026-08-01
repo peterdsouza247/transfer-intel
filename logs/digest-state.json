@@ -131,7 +131,7 @@
   },
   "savinho-man-city-tottenham": {
     "status": "talks",
-    "cred": 47,
+    "cred": 55,
     "fee": 60.0
   },
   "kroupi-bournemouth-tottenham": {
@@ -140,8 +140,8 @@
     "fee": 75.0
   },
   "lacroix-crystal-palace-chelsea": {
-    "status": "medical",
-    "cred": 85,
+    "status": "confirmed",
+    "cred": 90,
     "fee": 52.0
   },
   "rogers-aston-villa-arsenal": {
@@ -165,8 +165,8 @@
     "fee": 34.0
   },
   "guimaraes-newcastle-arsenal": {
-    "status": "talks",
-    "cred": 75,
+    "status": "agreed",
+    "cred": 95,
     "fee": 80.0
   },
   "gomes-wolves-man-utd": {
@@ -175,9 +175,9 @@
     "fee": 45.0
   },
   "barcola-psg-liverpool": {
-    "status": "talks",
-    "cred": 80,
-    "fee": 50.0
+    "status": "agreed",
+    "cred": 95,
+    "fee": 140.0
   },
   "bouaddi-lille-man-city": {
     "status": "rumor",
@@ -251,7 +251,7 @@
   },
   "garnacho-chelsea-aston-villa": {
     "status": "confirmed",
-    "cred": 85,
+    "cred": 80,
     "fee": 43.0
   },
   "meslier-leeds-arsenal": {
@@ -271,7 +271,7 @@
   },
   "salah-liverpool-besiktas": {
     "status": "rumor",
-    "cred": 35,
+    "cred": 24,
     "fee": 0.0
   }
 }
