@@ -131,7 +131,7 @@
   },
   "savinho-man-city-tottenham": {
     "status": "talks",
-    "cred": 55,
+    "cred": 30,
     "fee": 60.0
   },
   "kroupi-bournemouth-tottenham": {
@@ -176,7 +176,7 @@
   },
   "barcola-psg-liverpool": {
     "status": "agreed",
-    "cred": 95,
+    "cred": 70,
     "fee": 140.0
   },
   "bouaddi-lille-man-city": {
@@ -251,27 +251,27 @@
   },
   "garnacho-chelsea-aston-villa": {
     "status": "confirmed",
-    "cred": 80,
+    "cred": 67,
     "fee": 43.0
   },
   "meslier-leeds-arsenal": {
     "status": "confirmed",
-    "cred": 80,
+    "cred": 67,
     "fee": 0.0
   },
   "darlow-leeds-man-utd": {
     "status": "confirmed",
-    "cred": 80,
+    "cred": 67,
     "fee": 0.0
   },
   "george-chelsea-everton": {
     "status": "confirmed",
-    "cred": 80,
+    "cred": 67,
     "fee": 0.0
   },
   "salah-liverpool-besiktas": {
     "status": "rumor",
-    "cred": 24,
+    "cred": 23,
     "fee": 0.0
   }
 }
