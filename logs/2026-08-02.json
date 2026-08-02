@@ -1,0 +1,330 @@
+[
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "toure-hoffenheim-newcastle",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 22 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "greenwood-marseille-fenerbahce",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 21 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "chavarria-rayo-vallecano-chelsea",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 21 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "last_verified_at",
+    "from": "2026-07-29",
+    "to": "2026-08-01",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.football.london/tottenham-hotspur-fc/transfer-news/tottenham-transfer-plea-savinho-city-34389968"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "base_cred",
+    "from": 55,
+    "to": 15,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.football.london/tottenham-hotspur-fc/transfer-news/tottenham-transfer-plea-savinho-city-34389968"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "cred",
+    "from": 55,
+    "to": 30,
+    "reason": "base +15 = 15, decayed to 30 after 4 days without movement, capped to a 25 point move",
+    "evidence": [
+      "https://www.football.london/tottenham-hotspur-fc/transfer-news/tottenham-transfer-plea-savinho-city-34389968"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "rodriguez-elche-bournemouth",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 17 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "alvarez-atletico-madrid-arsenal",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 20 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "last_verified_at",
+    "from": "2026-08-01",
+    "to": "2026-08-02",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-transfer-news-barcola-talks-34371707",
+      "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-attack-barcola-transfer-iraola-34368175"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "base_cred",
+    "from": 95,
+    "to": 70,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-transfer-news-barcola-talks-34371707"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "cred",
+    "from": 95,
+    "to": 70,
+    "reason": "base +35, corroboration +10, stage +25 = 70",
+    "evidence": [
+      "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-transfer-news-barcola-talks-34371707",
+      "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-attack-barcola-transfer-iraola-34368175",
+      "https://www.mirror.co.uk/sport/football/news/liverpool-transfer-news-barcola-request-37490062"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "bouaddi-lille-man-city",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 21 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "muani-psg-crystal-palace",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 21 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "watkins-aston-villa-fenerbahce",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 21 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "williams-nott-m-forest-man-utd",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 21 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "vinicius-real-madrid-arsenal",
+    "field": "last_verified_at",
+    "from": "2026-08-01",
+    "to": "2026-08-02",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.dailymail.com/sport/football/article-16019525/real-madrid-vinicius-jr-contract-arsenal.html",
+      "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-agreed-vinicius-junior-34387874"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "garnacho-chelsea-aston-villa",
+    "field": "base_cred",
+    "from": 80,
+    "to": 70,
+    "reason": "credibility before silence decay",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "garnacho-chelsea-aston-villa",
+    "field": "cred",
+    "from": 80,
+    "to": 67,
+    "reason": "base +25, stage +45 = 70, decayed to 67 after 4 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "meslier-leeds-arsenal",
+    "field": "base_cred",
+    "from": 80,
+    "to": 70,
+    "reason": "credibility before silence decay",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "meslier-leeds-arsenal",
+    "field": "cred",
+    "from": 80,
+    "to": 67,
+    "reason": "base +25, stage +45 = 70, decayed to 67 after 4 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "darlow-leeds-man-utd",
+    "field": "base_cred",
+    "from": 80,
+    "to": 70,
+    "reason": "credibility before silence decay",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "darlow-leeds-man-utd",
+    "field": "cred",
+    "from": 80,
+    "to": 67,
+    "reason": "base +25, stage +45 = 70, decayed to 67 after 4 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "george-chelsea-everton",
+    "field": "base_cred",
+    "from": 80,
+    "to": 70,
+    "reason": "credibility before silence decay",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "george-chelsea-everton",
+    "field": "cred",
+    "from": 80,
+    "to": 67,
+    "reason": "base +25, stage +45 = 70, decayed to 67 after 4 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "salah-liverpool-besiktas",
+    "field": "cred",
+    "from": 24,
+    "to": 23,
+    "reason": "base +25 = 25, decayed to 23 after 5 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "note",
+    "from": "Liverpool have finally matched PSG's valuation after weeks of deadlock, securing a generational left winger at peak age.",
+    "to": "Liverpool's record signing arrives at an age where Barcola can anchor their left wing for a decade, addressing a position that has lacked elite consistency since Mane departed.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "garnacho-chelsea-aston-villa",
+    "field": "note",
+    "from": "Garnacho finally leaves Old Trafford after three years of underperformance, with Villa banking on a change of scenery to unlock his talent.",
+    "to": "Villa are spending big on a young winger still searching for consistency, betting Unai Emery can find what Manchester United could not.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "meslier-leeds-arsenal",
+    "field": "note",
+    "from": "Free transfer. Arsenal add a second keeper without touching the fee budget.",
+    "to": "Meslier arrives as a genuine number one option, ending Arsenal's years of cycling through stopgap keepers behind Ramsdale.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "darlow-leeds-man-utd",
+    "field": "note",
+    "from": "Free transfer, and United's third addition of the window after Santos and Tielemans.",
+    "to": "Darlow arrives as experienced backup cover while United continue hunting a long-term number one solution.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "george-chelsea-everton",
+    "field": "note",
+    "from": "One of three permanent Chelsea sales, alongside Cucurella and Santos, that funded the incomings.",
+    "to": "George departs Chelsea after limited opportunity, leaving a winger slot unfilled as the Blues reset their wide attack.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "note",
+    "from": null,
+    "to": null,
+    "reason": "note rewrite failed style checks, previous note kept: more than one sentence: Tottenham pursuing a player Manchester City have shown no real willingness to move, with only football.london reporting ",
+    "evidence": []
+  }
+]
