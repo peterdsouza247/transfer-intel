@@ -1,0 +1,383 @@
+[
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "fernandes-west-ham-tottenham",
+    "field": "last_verified_at",
+    "from": "2026-07-10",
+    "to": "2026-08-02",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.manchestereveningnews.co.uk/sport/football/football-news/mateus-fernandes-tottenham-man-utd-34392675",
+      "https://www.football.london/tottenham-hotspur-fc/transfer-news/mateus-fernandes-tottenham-man-utd-34392995"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "toure-hoffenheim-newcastle",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 23 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "manzambi-freiburg-aston-villa",
+    "field": "last_verified_at",
+    "from": "2026-07-22",
+    "to": "2026-08-02",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.birminghammail.co.uk/sport/football/transfer-news/aston-villa-johan-manzambi-expert-34356540"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "manzambi-freiburg-aston-villa",
+    "field": "base_cred",
+    "from": 90,
+    "to": 80,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.birminghammail.co.uk/sport/football/transfer-news/aston-villa-johan-manzambi-expert-34356540"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "manzambi-freiburg-aston-villa",
+    "field": "cred",
+    "from": 76,
+    "to": 68,
+    "reason": "base +35, stage +45 = 80, decayed to 68 after 12 days without movement",
+    "evidence": [
+      "https://www.birminghammail.co.uk/sport/football/transfer-news/aston-villa-johan-manzambi-expert-34356540"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "greenwood-marseille-fenerbahce",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 22 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "chavarria-rayo-vallecano-chelsea",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 22 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "cred",
+    "from": 30,
+    "to": 15,
+    "reason": "base +15 = 15",
+    "evidence": [
+      "https://www.football.london/tottenham-hotspur-fc/transfer-news/tottenham-transfer-plea-savinho-city-34389968"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "base_cred",
+    "from": 90,
+    "to": 15,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.caughtoffside.com/2026/07/31/crystal-palace-consider-move-for-chelsea-talent-after-losing-key-star"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "cred",
+    "from": 90,
+    "to": 65,
+    "reason": "base +15 = 15, capped to a 25 point move",
+    "evidence": [
+      "https://www.caughtoffside.com/2026/07/31/crystal-palace-consider-move-for-chelsea-talent-after-losing-key-star"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "rodriguez-elche-bournemouth",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 18 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "alvarez-atletico-madrid-arsenal",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 21 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "last_verified_at",
+    "from": "2026-08-01",
+    "to": "2026-08-03",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.chroniclelive.co.uk/sport/football/transfer-news/harvey-barnes-reveals-newcastle-dressing-34379155",
+      "https://www.theguardian.com/football/2026/jul/31/newcastle-bruno-guimaraes-pre-season-camp"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "base_cred",
+    "from": 95,
+    "to": 75,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.chroniclelive.co.uk/sport/football/transfer-news/harvey-barnes-reveals-newcastle-dressing-34379155"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "cred",
+    "from": 95,
+    "to": 75,
+    "reason": "base +35, corroboration +15, stage +25 = 75",
+    "evidence": [
+      "https://www.chroniclelive.co.uk/sport/football/transfer-news/harvey-barnes-reveals-newcastle-dressing-34379155",
+      "https://www.theguardian.com/football/2026/jul/31/newcastle-bruno-guimaraes-pre-season-camp",
+      "https://talksport.com/football/4481978/arsenal-transfer-bruno-guimaraes-newcastle-delay-travel"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "fee",
+    "from": 140.0,
+    "to": 80.0,
+    "reason": "liverpoolecho.co.uk reports the fee",
+    "evidence": [
+      "https://www.liverpoolecho.co.uk/sport/football/transfer-news/bradley-barcola-liverpool-arsenal-transfer-34391500"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "base_cred",
+    "from": 70,
+    "to": 65,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-bradley-barcola-psg-transfer-34378386"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "cred",
+    "from": 70,
+    "to": 65,
+    "reason": "base +35, corroboration +5, stage +25 = 65",
+    "evidence": [
+      "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-bradley-barcola-psg-transfer-34378386",
+      "https://www.standard.co.uk/sport/football/liverpool-fc-transfer-news-barcola-deal-agreed-b1292009.html",
+      "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-fans-make-bradley-barcola-34382293"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "bouaddi-lille-man-city",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 22 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "muani-psg-crystal-palace",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 22 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "watkins-aston-villa-fenerbahce",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 22 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "williams-nott-m-forest-man-utd",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 22 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "garnacho-chelsea-aston-villa",
+    "field": "last_verified_at",
+    "from": "2026-07-29",
+    "to": "2026-08-02",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.manchestereveningnews.co.uk/sport/football/football-news/man-utd-garnacho-chelsea-villa-34392828",
+      "https://www.manchestereveningnews.co.uk/sport/football/football-news/alejandro-garnacho-man-united-chelsea-34392546"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "garnacho-chelsea-aston-villa",
+    "field": "base_cred",
+    "from": 70,
+    "to": 80,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.manchestereveningnews.co.uk/sport/football/football-news/man-utd-garnacho-chelsea-villa-34392828"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "garnacho-chelsea-aston-villa",
+    "field": "cred",
+    "from": 67,
+    "to": 74,
+    "reason": "base +35, stage +45 = 80, decayed to 74 after 5 days without movement",
+    "evidence": [
+      "https://www.manchestereveningnews.co.uk/sport/football/football-news/man-utd-garnacho-chelsea-villa-34392828",
+      "https://www.manchestereveningnews.co.uk/sport/football/football-news/alejandro-garnacho-man-united-chelsea-34392546",
+      "https://www.football.london/chelsea-fc/news/alejandro-garnacho-aims-dig-chelsea-34391572"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "meslier-leeds-arsenal",
+    "field": "cred",
+    "from": 67,
+    "to": 65,
+    "reason": "base +25, stage +45 = 70, decayed to 65 after 5 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "darlow-leeds-man-utd",
+    "field": "cred",
+    "from": 67,
+    "to": 65,
+    "reason": "base +25, stage +45 = 70, decayed to 65 after 5 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "george-chelsea-everton",
+    "field": "cred",
+    "from": 67,
+    "to": 65,
+    "reason": "base +25, stage +45 = 70, decayed to 65 after 5 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "salah-liverpool-besiktas",
+    "field": "cred",
+    "from": 23,
+    "to": 22,
+    "reason": "base +25 = 25, decayed to 22 after 6 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "note",
+    "from": "Arsenal have finally prised Newcastle's midfield anchor loose, addressing their control problem ahead of a title push.",
+    "to": "Arsenal's midfield control problem finds its solution, though Newcastle's reluctance to sell their best player dragged negotiations across an entire week.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "note",
+    "from": "Chelsea's third defensive arrival signals sustained investment in a backline overhaul across consecutive transfer windows.",
+    "to": "Lacroix fills an immediate need after Cole Palmer's injury derailed Chelsea's season, offering proven Premier League experience at a premium price.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "manzambi-freiburg-aston-villa",
+    "field": "note",
+    "from": "Confirmed (auto-updated 2026-07-18). Villa hijacked Newcastle's agreed deal after his 3-goal World Cup for Switzerland. ~\u20ac60m.",
+    "to": "Villa paid elite money for an unproven talent off the back of one tournament, banking on World Cup hype over sustained Bundesliga form.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "note",
+    "from": "Liverpool's record signing arrives at an age where Barcola can anchor their left wing for a decade, addressing a position that has lacked elite consistency since Mane departed.",
+    "to": "Liverpool's record outfield signing fills their most glaring weakness, but the fee's credibility gap suggests PSG initially demanded significantly more than the agreed 80 million.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "note",
+    "from": "Spurs chasing a player City have no intention of selling, as evidenced by their silence beyond acknowledging the interest exists.",
+    "to": "Tottenham pursuing a player Manchester City have shown no serious willingness to part with, despite months of documented interest.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  }
+]

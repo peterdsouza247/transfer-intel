@@ -4,7 +4,7 @@
     "tagline": "believe less, know more",
     "deadline": "2026-09-01T22:00:00Z",
     "deadlineLabel": "Window closes 1 Sep, 23:00 BST",
-    "updated": "Aug 02, 2026",
+    "updated": "Aug 03, 2026",
     "site": {
       "baseUrl": "https://peterdsouza247.github.io/transfer-intel",
       "title": "TransferIntel",
@@ -222,9 +222,39 @@
           "fee_gbp_m": 85.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/mateus-fernandes-tottenham-man-utd-34392675",
+          "source": "manchestereveningnews.co.uk",
+          "tier": 2,
+          "date": "2026-08-02",
+          "claim": "completed",
+          "fee_gbp_m": 85.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/tottenham-hotspur-fc/transfer-news/mateus-fernandes-tottenham-man-utd-34392995",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://metro.co.uk/2026/08/02/mateus-fernandes-reveals-key-reason-snubbed-man-utd-join-tottenham-29280542",
+          "source": "metro.co.uk",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-10",
+      "last_verified_at": "2026-08-02",
       "completion_marker": "hand-verified at migration, no fetchable source",
       "completion_source": "Sky Sports",
       "completed_date": "2026-07-10",
@@ -980,8 +1010,8 @@
       "date": "Jul 18",
       "tier": 1,
       "src": "Romano",
-      "cred": 76,
-      "note": "Confirmed (auto-updated 2026-07-18). Villa hijacked Newcastle's agreed deal after his 3-goal World Cup for Switzerland. ~€60m.",
+      "cred": 68,
+      "note": "Villa paid elite money for an unproven talent off the back of one tournament, banking on World Cup hype over sustained Bundesliga form.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:manzambi-freiburg-aston-villa",
@@ -1012,13 +1042,23 @@
           "fee_gbp_m": null,
           "marker": "joins",
           "official": false
+        },
+        {
+          "url": "https://www.birminghammail.co.uk/sport/football/transfer-news/aston-villa-johan-manzambi-expert-34356540",
+          "source": "birminghammail.co.uk",
+          "tier": 2,
+          "date": "2026-08-02",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": "has signed",
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-22",
+      "last_verified_at": "2026-08-02",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 90,
+      "base_cred": 80,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1164,8 +1204,8 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 30,
-      "note": "Spurs chasing a player City have no intention of selling, as evidenced by their silence beyond acknowledging the interest exists.",
+      "cred": 15,
+      "note": "Tottenham pursuing a player Manchester City have shown no serious willingness to part with, despite months of documented interest.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:savinho-man-city-tottenham",
@@ -1286,8 +1326,8 @@
       "date": "Jul 10",
       "tier": 2,
       "src": "Football365",
-      "cred": 90,
-      "note": "Chelsea's third defensive arrival signals sustained investment in a backline overhaul across consecutive transfer windows.",
+      "cred": 65,
+      "note": "Lacroix fills an immediate need after Cole Palmer's injury derailed Chelsea's season, offering proven Premier League experience at a premium price.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:lacroix-crystal-palace-chelsea",
@@ -1444,7 +1484,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 90,
+      "base_cred": 15,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1696,8 +1736,8 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 95,
-      "note": "Arsenal have finally prised Newcastle's midfield anchor loose, addressing their control problem ahead of a title push.",
+      "cred": 75,
+      "note": "Arsenal's midfield control problem finds its solution, though Newcastle's reluctance to sell their best player dragged negotiations across an entire week.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:guimaraes-newcastle-arsenal",
@@ -2088,13 +2128,73 @@
           "fee_gbp_m": 80.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.chroniclelive.co.uk/sport/football/transfer-news/newcastle-transfer-news-jaissle-guimaraes-34391985",
+          "source": "chroniclelive.co.uk",
+          "tier": 2,
+          "date": "2026-08-02",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-16022821/Kai-Havertz-Arsenal-improve-Premier-League.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "medical",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-news-bruno-guimaraes-34392193",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-news-man-utd-34391406",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/arsenal-bruno-guimaraes-transfer-newcastle-37505900",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/08/03/medical-scheduled-arsenal-make-breakthrough-brazilian",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-08-03",
+          "claim": "medical",
+          "fee_gbp_m": 80.0,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-01",
+      "last_verified_at": "2026-08-03",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 95,
+      "base_cred": 75,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -2141,15 +2241,15 @@
       "p": "Bradley Barcola",
       "from": "PSG",
       "to": "Liverpool",
-      "fee": 140.0,
+      "fee": 80.0,
       "age": 23,
       "pos": "LW",
       "status": "agreed",
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 70,
-      "note": "Liverpool's record signing arrives at an age where Barcola can anchor their left wing for a decade, addressing a position that has lacked elite consistency since Mane departed.",
+      "cred": 65,
+      "note": "Liverpool's record outfield signing fills their most glaring weakness, but the fee's credibility gap suggests PSG initially demanded significantly more than the agreed 80 million.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:barcola-psg-liverpool",
@@ -2470,13 +2570,53 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/bradley-barcola-liverpool-transfer-news-34392515",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-02",
+          "claim": "agreed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/bradley-barcola-liverpool-arsenal-transfer-34391500",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-02",
+          "claim": "interest",
+          "fee_gbp_m": 80.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/liverpool-transfer-barcola-update-psg-37505800",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/08/02/fabrizio-romano-bradley-barcola-liverpool-transfer-update-not-imminent",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
       "last_verified_at": "2026-08-02",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 70,
+      "base_cred": 65,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -3304,6 +3444,16 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/vinicius-jr-arsenal-transfer-realmadrid-34393046",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
       "last_verified_at": "2026-08-02",
@@ -3328,7 +3478,7 @@
       "date": "Jul 29",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 67,
+      "cred": 74,
       "note": "Villa are spending big on a young winger still searching for consistency, betting Unai Emery can find what Manchester United could not.",
       "evidence": [
         {
@@ -3350,13 +3500,53 @@
           "fee_gbp_m": 43.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/man-utd-garnacho-chelsea-villa-34392828",
+          "source": "manchestereveningnews.co.uk",
+          "tier": 2,
+          "date": "2026-08-02",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/alejandro-garnacho-man-united-chelsea-34392546",
+          "source": "manchestereveningnews.co.uk",
+          "tier": 2,
+          "date": "2026-08-02",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/chelsea-fc/news/alejandro-garnacho-aims-dig-chelsea-34391572",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/news/garnacho-chelsea-villa-man-utd-37505750",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": "completes move",
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-29",
+      "last_verified_at": "2026-08-02",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 70,
+      "base_cred": 80,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -3374,7 +3564,7 @@
       "date": "Jul 29",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 67,
+      "cred": 65,
       "note": "Meslier arrives as a genuine number one option, ending Arsenal's years of cycling through stopgap keepers behind Ramsdale.",
       "evidence": [
         {
@@ -3410,7 +3600,7 @@
       "date": "Jul 29",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 67,
+      "cred": 65,
       "note": "Darlow arrives as experienced backup cover while United continue hunting a long-term number one solution.",
       "evidence": [
         {
@@ -3446,7 +3636,7 @@
       "date": "Jul 29",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 67,
+      "cred": 65,
       "note": "George departs Chelsea after limited opportunity, leaving a winger slot unfilled as the Blues reset their wide attack.",
       "evidence": [
         {
@@ -3482,7 +3672,7 @@
       "date": "Jul 28",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 23,
+      "cred": 22,
       "note": "A 34-year-old free transfer rumor with no recent traction suggests Liverpool's contract talks remain private while Besiktas waits to see if Europe's bigger clubs move first.",
       "evidence": [
         {
