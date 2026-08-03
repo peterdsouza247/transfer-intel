@@ -147,6 +147,16 @@ than the underlying reporting, which belongs to the outlets cited.
 
 ### Fixed after v1.0
 
+- **The digest created drafts instead of sending email.** Kit needs
+  `public: true` and a `send_at` timestamp; without them `POST /v4/broadcasts`
+  stores a draft and returns 201 Created, which is indistinguishable from a
+  successful send. The digest recorded twelve consecutive days as sent, the
+  workflow went green each time, and no subscriber received anything.
+- Restored two digest fixes that were lost in a merge: the snapshot now
+  advances only after a successful send, and a dry run no longer consumes it.
+- `scripts/check_digest.py` asks Kit what actually happened: active subscriber
+  count, and whether each recent broadcast was sent or is a draft.
+
 - **BBC articles were scored tier 3.** The BBC's RSS emits article links under
   `feeds.bbci.co.uk`, which has no `DOMAIN_TIER` entry, so the most reliable
   outlet in the feed list got base 15 instead of 55 and could not advance a

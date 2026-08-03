@@ -153,6 +153,7 @@ transfer-intel/
     check_ingest.py       fails the run when ingestion produced nothing
     check_feeds.py        tests feeds and candidates, live vs stale vs dead
     check_api_key.py      one tiny call to prove the key and models work
+    check_digest.py       asks Kit whether the digest actually sent
     report_cost.py        what a run spent, into the job summary
     draft_claims.py       drafts manual claims for a human to correct
     add_candidates.py     promotes a detected candidate into a tracked deal

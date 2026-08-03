@@ -8,6 +8,7 @@ build, and that someone reading the test knows which promise it protects.
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 from datetime import date, timedelta
@@ -1354,3 +1355,67 @@ def test_auto_merge_is_opt_in_and_guarded():
     # The permissions the merge needs, and no more.
     assert "pull-requests: write" in workflow
     assert "contents: write" in workflow
+
+
+# ============================================================ digest sending
+
+
+def _kit_payload(segment="all"):
+    sys.path.insert(0, str(ROOT / "scripts"))
+    import run_digest
+
+    captured = {}
+
+    def fake_post(url, payload, headers):
+        captured.update(payload)
+        return 201, "{}"
+
+    original, run_digest.post_json = run_digest.post_json, fake_post
+    try:
+        run_digest.send_edition("kit", "k", "subject", "body", segment)
+    finally:
+        run_digest.post_json = original
+    return captured
+
+
+def test_kit_broadcasts_are_sent_not_saved_as_drafts():
+    """`POST /v4/broadcasts` returns 201 Created for a draft exactly as it
+    does for a send.
+
+    Without `public` and `send_at` Kit stores the broadcast and delivers
+    nothing. The digest read 201 as success, wrote the date to the sent log so
+    it would not retry, and the workflow went green. Twelve consecutive days
+    were recorded as sent with nobody receiving anything.
+    """
+    payload = _kit_payload()
+    assert payload["public"] is True
+    assert payload["send_at"], "no send_at means Kit keeps it as a draft"
+    # ISO 8601 with a timezone, which is what Kit documents.
+    from datetime import datetime
+    parsed = datetime.fromisoformat(payload["send_at"])
+    assert parsed.tzinfo is not None
+
+
+def test_segmented_editions_are_also_sent():
+    payload = _kit_payload("Arsenal")
+    assert payload["public"] is True and payload["send_at"]
+    assert payload["subscriber_filter"] == [
+        {"all": [{"type": "tag", "name": "Arsenal"}]}
+    ]
+
+
+def test_a_dry_run_does_not_advance_the_snapshot(tmp_path):
+    """Preview then send must deliver the same content, not an empty edition."""
+    import subprocess
+
+    env = dict(os.environ)
+    env.pop("NEWSLETTER_API_KEY", None)
+    state = tmp_path / "state.json"
+    out = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "run_digest.py"),
+         "--data", str(ROOT / "data.json"), "--out", str(tmp_path / "d"),
+         "--state", str(state), "--sent-log", str(tmp_path / "l.json"),
+         "--today", "2026-08-03"],
+        capture_output=True, text=True, env=env, cwd=str(ROOT))
+    assert out.returncode == 0, out.stderr
+    assert not state.exists(), "a dry run must not consume the snapshot"

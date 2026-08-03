@@ -4,7 +4,7 @@
     "tagline": "believe less, know more",
     "deadline": "2026-09-01T22:00:00Z",
     "deadlineLabel": "Window closes 1 Sep, 23:00 BST",
-    "updated": "Jul 29, 2026",
+    "updated": "Aug 03, 2026",
     "site": {
       "baseUrl": "https://peterdsouza247.github.io/transfer-intel",
       "title": "TransferIntel",
@@ -117,7 +117,7 @@
       "p": "Sandro Tonali",
       "from": "Newcastle",
       "to": "Tottenham",
-      "fee": 92.5,
+      "fee": 100.0,
       "age": 26,
       "pos": "CM",
       "status": "done",
@@ -125,7 +125,7 @@
       "tier": 1,
       "src": "Sky Sports",
       "cred": 100,
-      "note": "Statement signing of the De Zerbi rebuild after two 17th-place finishes.",
+      "note": "Tottenham paid a British record fee for a midfielder to reshape their midfield depth after years of relying on Sarr and Bissouma.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:tonali-newcastle-tottenham",
@@ -136,9 +136,59 @@
           "fee_gbp_m": 92.5,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.bbc.co.uk/sport/football/articles/cz7dlyq1qnwo",
+          "source": "BBC Sport",
+          "tier": 1,
+          "date": "2026-07-30",
+          "claim": "completed",
+          "fee_gbp_m": 100.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/tonali-de-zerbi-talks-tottenham-b1291889.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-07-30",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/article-16016957/SANDRO-TONALI-INTERVIEW-Tottenham-new-100m-man-chose-Spurs-Man-City-Roberto-Zerbi.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-07-30",
+          "claim": "completed",
+          "fee_gbp_m": 100.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/tottenham-hotspur-fc/transfer-news/sandro-tonali-roberto-de-zerbi-34374897",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-07-30",
+          "claim": "completed",
+          "fee_gbp_m": 100.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/07/31/roberto-de-zerbi-reveals-how-tottenham-signed-sandro-tonali",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-07-30",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-06-24",
+      "last_verified_at": "2026-07-30",
       "completion_marker": "hand-verified at migration, no fetchable source",
       "completion_source": "Sky Sports",
       "completed_date": "2026-06-24",
@@ -172,9 +222,39 @@
           "fee_gbp_m": 85.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/mateus-fernandes-tottenham-man-utd-34392675",
+          "source": "manchestereveningnews.co.uk",
+          "tier": 2,
+          "date": "2026-08-02",
+          "claim": "completed",
+          "fee_gbp_m": 85.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/tottenham-hotspur-fc/transfer-news/mateus-fernandes-tottenham-man-utd-34392995",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://metro.co.uk/2026/08/02/mateus-fernandes-reveals-key-reason-snubbed-man-utd-join-tottenham-29280542",
+          "source": "metro.co.uk",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-10",
+      "last_verified_at": "2026-08-02",
       "completion_marker": "hand-verified at migration, no fetchable source",
       "completion_source": "Sky Sports",
       "completed_date": "2026-07-10",
@@ -930,8 +1010,8 @@
       "date": "Jul 18",
       "tier": 1,
       "src": "Romano",
-      "cred": 77,
-      "note": "Confirmed (auto-updated 2026-07-18). Villa hijacked Newcastle's agreed deal after his 3-goal World Cup for Switzerland. ~€60m.",
+      "cred": 68,
+      "note": "Villa paid elite money for an unproven talent off the back of one tournament, banking on World Cup hype over sustained Bundesliga form.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:manzambi-freiburg-aston-villa",
@@ -962,13 +1042,23 @@
           "fee_gbp_m": null,
           "marker": "joins",
           "official": false
+        },
+        {
+          "url": "https://www.birminghammail.co.uk/sport/football/transfer-news/aston-villa-johan-manzambi-expert-34356540",
+          "source": "birminghammail.co.uk",
+          "tier": 2,
+          "date": "2026-08-02",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": "has signed",
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-22",
+      "last_verified_at": "2026-08-02",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 90,
+      "base_cred": 80,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1022,7 +1112,7 @@
       "date": "Jul 16",
       "tier": 2,
       "src": "Football365 / Romano",
-      "cred": 77,
+      "cred": 76,
       "note": "Confirmed (auto-updated 2026-07-16). Fee agreed (£17-20m reported); personal terms being discussed mid-World Cup.",
       "evidence": [
         {
@@ -1114,8 +1204,8 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 22,
-      "note": "Third window Spurs have tried; Romano says he's their 'next big' signing if clubs agree.",
+      "cred": 15,
+      "note": "Tottenham pursuing a player Manchester City have shown no serious willingness to part with, despite months of documented interest.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:savinho-man-city-tottenham",
@@ -1126,13 +1216,33 @@
           "fee_gbp_m": 60.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.bbc.co.uk/sport/football/articles/cx2kqvkwz17o",
+          "source": "BBC Sport",
+          "tier": 1,
+          "date": "2026-07-29",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/tottenham-hotspur-fc/transfer-news/tottenham-transfer-plea-savinho-city-34389968",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-01",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-12",
+      "last_verified_at": "2026-08-01",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 55,
+      "base_cred": 15,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1146,12 +1256,12 @@
       "fee": 75.0,
       "age": 20,
       "pos": "ST",
-      "status": "talks",
+      "status": "collapsed",
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 14,
-      "note": "Spurs ready to offer £75m and reportedly willing to go higher.",
+      "cred": 0,
+      "note": "Spurs' willingness to spend seventy-five million on an unproven twenty-year-old reveals more about their striker desperation than Kroupi's readiness for the role.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:kroupi-bournemouth-tottenham",
@@ -1162,13 +1272,43 @@
           "fee_gbp_m": 75.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/junior-kroupi-arsenal-fc-tottenham-transfer-latest-injury-surgery-b1291750.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "collapsed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.independent.co.uk/sport/football/junior-kroupi-injury-bournemouth-transfer-news-b3024074.html",
+          "source": "The Independent",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/arsenal-tottenham-transfers-kroupi-injury-37492679",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-07-29",
+          "claim": "collapsed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-12",
+      "last_verified_at": "2026-07-29",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 35,
+      "base_cred": 0,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1179,15 +1319,15 @@
       "p": "Maxence Lacroix",
       "from": "Crystal Palace",
       "to": "Chelsea",
-      "fee": 35.0,
+      "fee": 52.0,
       "age": 26,
       "pos": "CB",
-      "status": "agreed",
+      "status": "confirmed",
       "date": "Jul 10",
       "tier": 2,
       "src": "Football365",
-      "cred": 40,
-      "note": "Sky agreed the deal on the 24th and a medical was reported the same week, so the fee is settled at around 52m. Held at agreed rather than medical because the ladder moves one rung a run.",
+      "cred": 65,
+      "note": "Lacroix fills an immediate need after Cole Palmer's injury derailed Chelsea's season, offering proven Premier League experience at a premium price.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:lacroix-crystal-palace-chelsea",
@@ -1248,13 +1388,103 @@
           "fee_gbp_m": null,
           "marker": "has signed",
           "official": false
+        },
+        {
+          "url": "https://www.bbc.co.uk/sport/football/articles/cg4d11g46lpo",
+          "source": "BBC Sport",
+          "tier": 1,
+          "date": "2026-07-30",
+          "claim": "completed",
+          "fee_gbp_m": 52.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.theguardian.com/football/2026/jul/30/chelsea-crystal-palace-maxence-lacroix-transfer-roundup",
+          "source": "The Guardian",
+          "tier": 2,
+          "date": "2026-07-30",
+          "claim": "completed",
+          "fee_gbp_m": 52.0,
+          "marker": "has joined",
+          "official": false
+        },
+        {
+          "url": "https://talksport.com/football/4459614/chelsea-transfer-news-maxence-lacroix-announced",
+          "source": "talksport.com",
+          "tier": 2,
+          "date": "2026-07-30",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/chelsea-fc-maxence-lacroix-transfer-first-words-alonso-b1291830.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-07-30",
+          "claim": "completed",
+          "fee_gbp_m": 52.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.independent.co.uk/sport/football/maxence-lacroix-chelsea-transfer-news-crystal-palace-b3024502.html",
+          "source": "The Independent",
+          "tier": 2,
+          "date": "2026-07-30",
+          "claim": "completed",
+          "fee_gbp_m": 52.0,
+          "marker": "completes move",
+          "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-16002701/chelsea-maxence-lacroix-crystal-palace.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-07-30",
+          "claim": "completed",
+          "fee_gbp_m": 52.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/chelsea-fc/transfer-news/chelsea-transfer-maxence-lacroix-alonso-34379220",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-07-30",
+          "claim": "completed",
+          "fee_gbp_m": 52.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/chelsea-fc/transfer-news/breaking-chelsea-lacroix-transfer-confirmed-34349677",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-07-30",
+          "claim": "completed",
+          "fee_gbp_m": 52.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/07/31/crystal-palace-consider-move-for-chelsea-talent-after-losing-key-star",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-07-31",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-29",
+      "last_verified_at": "2026-07-31",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 60,
+      "base_cred": 15,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1462,9 +1692,29 @@
           "fee_gbp_m": null,
           "marker": "announce the signing",
           "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-christos-tzolis-paok-norwich-34377624",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-07-30",
+          "claim": "completed",
+          "fee_gbp_m": 34.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/news/christos-tzolis-causes-immediate-stir-34383654",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-07-31",
+          "claim": "completed",
+          "fee_gbp_m": 34.0,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-23",
+      "last_verified_at": "2026-07-31",
       "completion_marker": "announce the signing",
       "completion_source": "Sky Sports",
       "completed_date": "2026-07-24",
@@ -1479,15 +1729,15 @@
       "p": "Bruno Guimarães",
       "from": "Newcastle",
       "to": "Arsenal",
-      "fee": 70.0,
+      "fee": 80.0,
       "age": 28,
       "pos": "CM",
-      "status": "talks",
+      "status": "agreed",
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 43,
-      "note": "Eddie Howe would not guarantee he is still a Newcastle player at the season opener, which is as close to a green light as a manager gets. The score fell anyway: the recent reporting is tier 2, and this measures what is being reported now rather than who is interested.",
+      "cred": 75,
+      "note": "Arsenal's midfield control problem finds its solution, though Newcastle's reluctance to sell their best player dragged negotiations across an entire week.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:guimaraes-newcastle-arsenal",
@@ -1558,13 +1808,393 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.chroniclelive.co.uk/sport/football/transfer-news/arsenal-newcastle-transfer-bruno-guimaraes-34364772",
+          "source": "chroniclelive.co.uk",
+          "tier": 2,
+          "date": "2026-07-28",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.chroniclelive.co.uk/sport/football/transfer-news/newcastle-uniteds-plan-bruno-guimaraes-34364827",
+          "source": "chroniclelive.co.uk",
+          "tier": 2,
+          "date": "2026-07-28",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.chroniclelive.co.uk/sport/football/football-news/eddie-howe-makes-unhealthy-bruno-34374145",
+          "source": "chroniclelive.co.uk",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.chroniclelive.co.uk/sport/football/transfer-news/mikel-arteta-opens-up-arsenal-34373675",
+          "source": "chroniclelive.co.uk",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.bbc.co.uk/sport/football/articles/cgewqpp5e57o",
+          "source": "BBC Sport",
+          "tier": 1,
+          "date": "2026-07-30",
+          "claim": "interest",
+          "fee_gbp_m": 80.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/arsenal-fc-transfer-news-bruno-guimaraes-deal-close-b1291885.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-07-30",
+          "claim": "talks",
+          "fee_gbp_m": 75.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.chroniclelive.co.uk/sport/football/transfer-news/harvey-barnes-reveals-newcastle-dressing-34379155",
+          "source": "chroniclelive.co.uk",
+          "tier": 2,
+          "date": "2026-07-31",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-look-set-hit-key-34379611",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-07-30",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/guimaraes-arsenal-transfer-howe-newcastle-34377194",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-07-30",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-guimaraes-newcastle-howe-34375538",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-07-30",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-news-bruno-guimaraes-34375207",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-07-30",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/bruno-guimaraes-comments-explain-eddie-34375345",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-07-30",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-news-bruno-guimarares-34375461",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-07-30",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/eddie-howe-newcastle-arsenal-guimaraes-34374781",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-07-30",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/arsenal-bruno-guimaraes-transfer-newcastle-37496400",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-07-30",
+          "claim": "talks",
+          "fee_gbp_m": 80.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/07/30/arsenal-christos-tzolis-transfer-strategy-bruno-guimaraes",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-07-30",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.theguardian.com/football/2026/jul/31/newcastle-bruno-guimaraes-pre-season-camp",
+          "source": "The Guardian",
+          "tier": 2,
+          "date": "2026-07-31",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://talksport.com/football/4481978/arsenal-transfer-bruno-guimaraes-newcastle-delay-travel",
+          "source": "talksport.com",
+          "tier": 2,
+          "date": "2026-07-31",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/bruno-guimaraes-arsenal-fc-transfer-news-newcastle-b1291940.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-07-31",
+          "claim": "agreed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.chroniclelive.co.uk/sport/football/football-news/newcastle-united-bruno-guimaraes-transfer-34381359",
+          "source": "chroniclelive.co.uk",
+          "tier": 2,
+          "date": "2026-07-31",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-16020197/Arsenal-agree-deal-Newcastle-Bruno-Guimaraes-worth-77m-plus-add-ons-plan-medical-week.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-07-31",
+          "claim": "medical",
+          "fee_gbp_m": 77.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-guimaraes-77m-arteta-34387040",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-07-31",
+          "claim": "medical",
+          "fee_gbp_m": 77.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/news/bruno-guimaraes-newcastle-howe-arsenal-37501755",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-07-31",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://metro.co.uk/2026/07/31/arsenal-reach-transfer-agreement-newcastle-sign-bruno-guimaraes-29267391",
+          "source": "metro.co.uk",
+          "tier": 3,
+          "date": "2026-07-31",
+          "claim": "agreed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/08/01/bruno-guimaraes-instagram-message",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-08-01",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.chroniclelive.co.uk/sport/football/transfer-news/bruno-guimaraes-arsenal-transfer-only-34383663",
+          "source": "chroniclelive.co.uk",
+          "tier": 2,
+          "date": "2026-08-01",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/bruno-guimaraes-arsenal-transfer-news-34390665",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-01",
+          "claim": "medical",
+          "fee_gbp_m": 80.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-norgaard-bruno-guimaraes-34390007",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-01",
+          "claim": "agreed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-complete-bruno-guimaraes-transfer-34389236",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-01",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/arsenal-transfer-agreement-bruno-guimaraes-37503697",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-01",
+          "claim": "agreed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://metro.co.uk/2026/08/01/arsenal-reach-full-agreement-newcastle-bruno-guimaraes-transfer-29275457",
+          "source": "metro.co.uk",
+          "tier": 3,
+          "date": "2026-08-01",
+          "claim": "agreed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/08/01/arsenal-close-in-on-statement-transfer-as-medical-scheduled-for-monday",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-08-01",
+          "claim": "medical",
+          "fee_gbp_m": 80.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.chroniclelive.co.uk/sport/football/transfer-news/newcastle-transfer-news-jaissle-guimaraes-34391985",
+          "source": "chroniclelive.co.uk",
+          "tier": 2,
+          "date": "2026-08-02",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-16022821/Kai-Havertz-Arsenal-improve-Premier-League.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "medical",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-news-bruno-guimaraes-34392193",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-news-man-utd-34391406",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/arsenal-bruno-guimaraes-transfer-newcastle-37505900",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/08/03/medical-scheduled-arsenal-make-breakthrough-brazilian",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-08-03",
+          "claim": "medical",
+          "fee_gbp_m": 80.0,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-29",
+      "last_verified_at": "2026-08-03",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 45,
+      "base_cred": 75,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1611,15 +2241,15 @@
       "p": "Bradley Barcola",
       "from": "PSG",
       "to": "Liverpool",
-      "fee": 145.0,
+      "fee": 80.0,
       "age": 23,
       "pos": "LW",
-      "status": "rumor",
+      "status": "agreed",
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 31,
-      "note": "PSG's valuation is now reported at 145m and Liverpool are said to be looking at alternatives. Still live, but the price is doing the talking.",
+      "cred": 65,
+      "note": "Liverpool's record outfield signing fills their most glaring weakness, but the fee's credibility gap suggests PSG initially demanded significantly more than the agreed 80 million.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:barcola-psg-liverpool",
@@ -1650,13 +2280,343 @@
           "fee_gbp_m": 145.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.bbc.co.uk/sport/football/articles/c0qv8wekp7eo",
+          "source": "BBC Sport",
+          "tier": 1,
+          "date": "2026-07-29",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://talksport.com/football/4474703/liverpool-bradley-barcola-bid-alternative-transfer-targets",
+          "source": "talksport.com",
+          "tier": 2,
+          "date": "2026-07-28",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/barcola-transfer-liverpool-fc-latest-bid-b1291766.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-told-pay-up-want-34370354",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-barcola-transfer-update-psg-34373917",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "talks",
+          "fee_gbp_m": 100.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-set-talks-paris-saint-34372638",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-transfer-latest-bradley-barcola-34371564",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-07-29",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-transfer-news-barcola-talks-34371707",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-07-30",
+          "claim": "talks",
+          "fee_gbp_m": 50.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-attack-barcola-transfer-iraola-34368175",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-07-30",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-16014807/Jamie-Carragher-warns-Bradley-Barcola-NOT-suitable-replacement-Mo-Salah-Liverpools-PSG.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-07-29",
+          "claim": "interest",
+          "fee_gbp_m": 145.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-16013935/liverpool-bradley-barcola-psg-france-bid.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-07-29",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/jamie-carragher-bradley-barcola-transfer-37492838",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-07-29",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/liverpool-transfer-bid-bradley-barcola-37492415",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-07-29",
+          "claim": "talks",
+          "fee_gbp_m": 110.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/07/29/bradley-barcola-stats-liverpool-transfer",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-07-29",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/07/29/liverpool-set-transfer-limit-as-club-demands-record-fee-for-23-year-old-iraola-target",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-07-29",
+          "claim": "talks",
+          "fee_gbp_m": 145.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/news/liverpool-transfer-news-barcola-request-37490062",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-07-30",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-transfer-bradley-barcola-carragher-34377769",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-07-30",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/rio-ngumoha-drops-new-role-34376111",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-07-30",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/bradley-barcola-liverpool-transfer-latest-34374672",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-07-30",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.independent.co.uk/sport/football/bradley-barcola-liverpool-transfer-news-psg-b3024736.html",
+          "source": "The Independent",
+          "tier": 2,
+          "date": "2026-07-30",
+          "claim": "interest",
+          "fee_gbp_m": 145.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-bradley-barcola-psg-transfer-34378386",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-07-31",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/liverpool-fc-transfer-news-barcola-deal-agreed-b1292009.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-07-31",
+          "claim": "agreed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-fans-make-bradley-barcola-34382293",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-07-31",
+          "claim": "talks",
+          "fee_gbp_m": 140.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-transfer-news-bradley-barcola-34378875",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-01",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-transfer-news-bradley-barcola-34388987",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-01",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-bradley-barcola-transfer-psg-34388905",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-01",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-bradley-barcola-transfer-psg-34389535",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-02",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-bradley-barcola-line-up-34383254",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-02",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/news/liverpool-bradley-barcola-transfer-psg-37503125",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/bradley-barcola-liverpool-transfer-news-34392515",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-02",
+          "claim": "agreed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/bradley-barcola-liverpool-arsenal-transfer-34391500",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-02",
+          "claim": "interest",
+          "fee_gbp_m": 80.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/liverpool-transfer-barcola-update-psg-37505800",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/08/02/fabrizio-romano-bradley-barcola-liverpool-transfer-update-not-imminent",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-29",
+      "last_verified_at": "2026-08-02",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 35,
+      "base_cred": 65,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1902,9 +2862,19 @@
           "fee_gbp_m": 0.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/senesi-tottenham-sarr-bentancur-b1291894.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-07-30",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-06-21",
+      "last_verified_at": "2026-07-30",
       "completion_marker": "hand-verified at migration, no fetchable source",
       "completion_source": "Sky Sports",
       "completed_date": "2026-06-21",
@@ -2122,9 +3092,29 @@
           "fee_gbp_m": 60.0,
           "marker": "completes move",
           "official": false
+        },
+        {
+          "url": "https://talksport.com/football/4481843/cole-palmer-celebration-morgan-rogers-chelsea",
+          "source": "talksport.com",
+          "tier": 2,
+          "date": "2026-07-31",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": "joins",
+          "official": false
+        },
+        {
+          "url": "https://www.birminghammail.co.uk/sport/football/football-news/cole-palmer-gives-morgan-rogers-34382634",
+          "source": "birminghammail.co.uk",
+          "tier": 2,
+          "date": "2026-07-31",
+          "claim": "completed",
+          "fee_gbp_m": 117.0,
+          "marker": "has joined",
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-21",
+      "last_verified_at": "2026-07-31",
       "completion_marker": "completes move",
       "completion_source": "ESPN",
       "completed_date": "2026-07-22",
@@ -2224,9 +3214,249 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://talksport.com/football/4473827/arsenal-vinicius-junior-transfer-hopes-fade-real-madrid-contract",
+          "source": "talksport.com",
+          "tier": 2,
+          "date": "2026-07-28",
+          "claim": "collapsed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-16011631/Real-Madrid-talks-Vinicius-Jr-transfer-Arsenal.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-07-28",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-vinicius-junior-transfer-madrid-34372305",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-07-29",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/arsenal-transfer-update-vinicius-arteta-37492191",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-07-29",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-16019525/real-madrid-vinicius-jr-contract-arsenal.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-07-31",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-agreed-vinicius-junior-34387874",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-07-31",
+          "claim": "medical",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/vinicius-jr-transfer-momentum-shifts-34387053",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-07-31",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-vinicius-transfer-real-madrid-34384693",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-07-31",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/news/vinicius-jr-arsenal-transfer-latest-37501672",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-07-31",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/vinicius-arsenal-real-madrid-transfer-37500663",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-07-31",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://metro.co.uk/2026/07/31/real-madrid-issue-ultimatum-vinicius-junior-arsenal-approach-29267805",
+          "source": "metro.co.uk",
+          "tier": 3,
+          "date": "2026-07-31",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/07/31/arsenal-agree-personal-terms-vinicius-junior-real-madrid",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-07-31",
+          "claim": "agreed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/news/arsenal-latest-vinicius-jr-receives-34385255",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-01",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/news/arsenal-transfers-vinicius-guimaraes-offer-37500202",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-01",
+          "claim": "agreed",
+          "fee_gbp_m": 77.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/arsenal-fc-transfer-news-vinicius-jr-arteta-b1292083.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-01",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/vinicius-jr-real-madrid-contract-arsenal-fc-transfer-latest-b1292049.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-01",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.independent.co.uk/sport/football/arsenal-vinicius-junior-real-madrid-transfer-news-b3025767.html",
+          "source": "The Independent",
+          "tier": 2,
+          "date": "2026-08-01",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-16022311/mikel-arteta-vincius-junior-ambitious-arsenal.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-08-01",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-news-vinicius-jr-34390747",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-01",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-news-vinicius-alvarez-34390166",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-01",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/vinicius-jr-arsenal-transfer-timeline-34389750",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-01",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://metro.co.uk/2026/08/01/vinicius-jr-responds-arsenal-transfer-interest-real-madrid-ultimatum-29274250",
+          "source": "metro.co.uk",
+          "tier": 3,
+          "date": "2026-08-01",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/08/02/arsenal-receive-encouragement-to-sign-vinicius",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/vinicius-jr-arsenal-transfer-realmadrid-34393046",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-29",
+      "last_verified_at": "2026-08-02",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
@@ -2241,15 +3471,15 @@
       "p": "Alejandro Garnacho",
       "from": "Chelsea",
       "to": "Aston Villa",
-      "fee": 0.0,
+      "fee": 43.0,
       "age": 22,
       "pos": "LW",
       "status": "confirmed",
       "date": "Jul 29",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 80,
-      "note": "Loan with a conditional obligation to buy, so the fee lands next summer rather than this one.",
+      "cred": 74,
+      "note": "Villa are spending big on a young winger still searching for consistency, betting Unai Emery can find what Manchester United could not.",
       "evidence": [
         {
           "url": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026",
@@ -2260,9 +3490,59 @@
           "fee_gbp_m": null,
           "marker": "has signed",
           "official": false
+        },
+        {
+          "url": "https://www.birminghammail.co.uk/sport/football/transfer-news/alejandro-garnacho-can-player-aston-34363338",
+          "source": "birminghammail.co.uk",
+          "tier": 2,
+          "date": "2026-07-28",
+          "claim": "completed",
+          "fee_gbp_m": 43.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/man-utd-garnacho-chelsea-villa-34392828",
+          "source": "manchestereveningnews.co.uk",
+          "tier": 2,
+          "date": "2026-08-02",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/alejandro-garnacho-man-united-chelsea-34392546",
+          "source": "manchestereveningnews.co.uk",
+          "tier": 2,
+          "date": "2026-08-02",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/chelsea-fc/news/alejandro-garnacho-aims-dig-chelsea-34391572",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/news/garnacho-chelsea-villa-man-utd-37505750",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-02",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": "completes move",
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-29",
+      "last_verified_at": "2026-08-02",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
@@ -2284,8 +3564,8 @@
       "date": "Jul 29",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 80,
-      "note": "Free transfer. Arsenal add a second keeper without touching the fee budget.",
+      "cred": 65,
+      "note": "Meslier arrives as a genuine number one option, ending Arsenal's years of cycling through stopgap keepers behind Ramsdale.",
       "evidence": [
         {
           "url": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026",
@@ -2302,7 +3582,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 80,
+      "base_cred": 70,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -2320,8 +3600,8 @@
       "date": "Jul 29",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 80,
-      "note": "Free transfer, and United's third addition of the window after Santos and Tielemans.",
+      "cred": 65,
+      "note": "Darlow arrives as experienced backup cover while United continue hunting a long-term number one solution.",
       "evidence": [
         {
           "url": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026",
@@ -2338,7 +3618,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 80,
+      "base_cred": 70,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -2356,8 +3636,8 @@
       "date": "Jul 29",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 80,
-      "note": "One of three permanent Chelsea sales, alongside Cucurella and Santos, that funded the incomings.",
+      "cred": 65,
+      "note": "George departs Chelsea after limited opportunity, leaving a winger slot unfilled as the Blues reset their wide attack.",
       "evidence": [
         {
           "url": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026",
@@ -2374,7 +3654,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 80,
+      "base_cred": 70,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -2392,8 +3672,8 @@
       "date": "Jul 28",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 35,
-      "note": "Besiktas addressed the speculation publicly, which is not the same as bidding. No fee and no club-to-club talks reported.",
+      "cred": 22,
+      "note": "A 34-year-old free transfer rumor with no recent traction suggests Liverpool's contract talks remain private while Besiktas waits to see if Europe's bigger clubs move first.",
       "evidence": [
         {
           "url": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/07/mohamed-salah-to-besiktas-official-transfer-statement-made",
@@ -2410,7 +3690,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 35,
+      "base_cred": 25,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,

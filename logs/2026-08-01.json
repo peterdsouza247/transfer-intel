@@ -1,0 +1,402 @@
+[
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "toure-hoffenheim-newcastle",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 21 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "greenwood-marseille-fenerbahce",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 20 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "chavarria-rayo-vallecano-chelsea",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 20 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "cred",
+    "from": 47,
+    "to": 55,
+    "reason": "base +55 = 55",
+    "evidence": [
+      "https://www.bbc.co.uk/sport/football/articles/cx2kqvkwz17o"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "status",
+    "from": "medical",
+    "to": "confirmed",
+    "reason": "BBC Sport reports the deal is done, no announcement yet",
+    "evidence": [
+      "https://www.bbc.co.uk/sport/football/articles/cg4d11g46lpo"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "last_verified_at",
+    "from": "2026-07-30",
+    "to": "2026-07-31",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026",
+      "https://www.bbc.co.uk/sport/football/articles/cg4d11g46lpo"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "base_cred",
+    "from": 100,
+    "to": 90,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "cred",
+    "from": 85,
+    "to": 90,
+    "reason": "base +55, corroboration +15, stage +45 = 90",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026",
+      "https://www.bbc.co.uk/sport/football/articles/cg4d11g46lpo",
+      "https://www.theguardian.com/football/2026/jul/30/chelsea-crystal-palace-maxence-lacroix-transfer-roundup"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "rodriguez-elche-bournemouth",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 16 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "alvarez-atletico-madrid-arsenal",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 19 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "tzolis-club-brugge-arsenal",
+    "field": "last_verified_at",
+    "from": "2026-07-30",
+    "to": "2026-07-31",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.football.london/arsenal-fc/transfer-news/arsenal-christos-tzolis-paok-norwich-34377624",
+      "https://www.football.london/arsenal-fc/news/christos-tzolis-causes-immediate-stir-34383654"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "status",
+    "from": "talks",
+    "to": "agreed",
+    "reason": "Evening Standard reports the deal has reached agreed",
+    "evidence": [
+      "https://www.standard.co.uk/sport/football/bruno-guimaraes-arsenal-fc-transfer-news-newcastle-b1291940.html"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "last_verified_at",
+    "from": "2026-07-31",
+    "to": "2026-08-01",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/07/bruno-guimaraes-arsenal-learn-if-midfielder-will-repeat-isak-saga",
+      "https://www.chroniclelive.co.uk/sport/football/football-news/eddie-howe-makes-unhealthy-bruno-34374145"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "base_cred",
+    "from": 80,
+    "to": 95,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/07/bruno-guimaraes-arsenal-learn-if-midfielder-will-repeat-isak-saga"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "cred",
+    "from": 75,
+    "to": 95,
+    "reason": "base +55, corroboration +15, stage +25 = 95",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/07/bruno-guimaraes-arsenal-learn-if-midfielder-will-repeat-isak-saga",
+      "https://www.chroniclelive.co.uk/sport/football/football-news/eddie-howe-makes-unhealthy-bruno-34374145",
+      "https://www.chroniclelive.co.uk/sport/football/transfer-news/mikel-arteta-opens-up-arsenal-34373675"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "status",
+    "from": "talks",
+    "to": "agreed",
+    "reason": "Evening Standard reports the deal has reached agreed",
+    "evidence": [
+      "https://www.standard.co.uk/sport/football/liverpool-fc-transfer-news-barcola-deal-agreed-b1292009.html"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "last_verified_at",
+    "from": "2026-07-31",
+    "to": "2026-08-01",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/07/liverpool-transfer-news-rayan-dream-bradley-barcola-alternative",
+      "https://www.bbc.co.uk/sport/football/articles/c0qv8wekp7eo"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "fee",
+    "from": 50.0,
+    "to": 140.0,
+    "reason": "liverpoolecho.co.uk reports the fee",
+    "evidence": [
+      "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-fans-make-bradley-barcola-34382293"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "base_cred",
+    "from": 80,
+    "to": 95,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/07/liverpool-transfer-news-rayan-dream-bradley-barcola-alternative"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "cred",
+    "from": 80,
+    "to": 95,
+    "reason": "base +55, corroboration +15, stage +25 = 95",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/07/liverpool-transfer-news-rayan-dream-bradley-barcola-alternative",
+      "https://www.bbc.co.uk/sport/football/articles/c0qv8wekp7eo",
+      "https://www.standard.co.uk/sport/football/barcola-transfer-liverpool-fc-latest-bid-b1291766.html"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "bouaddi-lille-man-city",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 20 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "muani-psg-crystal-palace",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 20 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "watkins-aston-villa-fenerbahce",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 20 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "williams-nott-m-forest-man-utd",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 20 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "rogers-aston-villa-chelsea",
+    "field": "last_verified_at",
+    "from": "2026-07-21",
+    "to": "2026-07-31",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://talksport.com/football/4481843/cole-palmer-celebration-morgan-rogers-chelsea",
+      "https://www.birminghammail.co.uk/sport/football/football-news/cole-palmer-gives-morgan-rogers-34382634"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "vinicius-real-madrid-arsenal",
+    "field": "last_verified_at",
+    "from": "2026-07-29",
+    "to": "2026-08-01",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.skysports.com/football/news/11095/13567839/real-madrid-transfer-news-vinicius-junior-to-stay-at-the-santiago-bernabeu-beyond-this-summer-despite-arsenal-interest",
+      "https://www.football.london/arsenal-fc/transfer-news/arsenal-vinicius-junior-transfer-madrid-34372305"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "garnacho-chelsea-aston-villa",
+    "field": "base_cred",
+    "from": 85,
+    "to": 80,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "garnacho-chelsea-aston-villa",
+    "field": "cred",
+    "from": 85,
+    "to": 80,
+    "reason": "base +35, stage +45 = 80",
+    "evidence": [
+      "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "salah-liverpool-besiktas",
+    "field": "base_cred",
+    "from": 35,
+    "to": 25,
+    "reason": "credibility before silence decay",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "salah-liverpool-besiktas",
+    "field": "cred",
+    "from": 35,
+    "to": 24,
+    "reason": "base +25 = 25, decayed to 24 after 4 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "note",
+    "from": "Lacroix passes his Chelsea medical after Palace accepted their third significant defender departure in as many summers.",
+    "to": "Chelsea's third defensive arrival signals sustained investment in a backline overhaul across consecutive transfer windows.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "note",
+    "from": "Liverpool and PSG remain entrenched, with valuations spanning fifty to one hundred forty-five million pounds and no middle ground emerging yet.",
+    "to": "Liverpool have finally matched PSG's valuation after weeks of deadlock, securing a generational left winger at peak age.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "note",
+    "from": "Arsenal moving decisively for Newcastle's midfield lynchpin, but the 80 million price tag sits well above what Howe will accept without a replacement lined up.",
+    "to": "Arsenal have finally prised Newcastle's midfield anchor loose, addressing their control problem ahead of a title push.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "note",
+    "from": "Tottenham's third attempt at Savinho shows persistence but a credibility score below fifty suggests City have given them little reason to believe a deal is close.",
+    "to": "Spurs chasing a player City have no intention of selling, as evidenced by their silence beyond acknowledging the interest exists.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "salah-liverpool-besiktas",
+    "field": "note",
+    "from": "Besiktas addressed the speculation publicly, which is not the same as bidding. No fee and no club-to-club talks reported.",
+    "to": "A 34-year-old free transfer rumor with no recent traction suggests Liverpool's contract talks remain private while Besiktas waits to see if Europe's bigger clubs move first.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  }
+]

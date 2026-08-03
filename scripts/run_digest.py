@@ -23,7 +23,7 @@ import os
 import sys
 import urllib.error
 import urllib.request
-from datetime import date
+from datetime import date, datetime, timezone
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -85,7 +85,27 @@ def send_edition(provider: str, api_key: str, subject: str, body: str,
             {"Authorization": f"Token {api_key}"},
         )
     if provider == "kit":
-        payload: dict = {"subject": subject, "content": body}
+        # `public` and `send_at` are what make this an email rather than a
+        # draft, and their absence is silent.
+        #
+        # POST /v4/broadcasts returns 201 Created either way. Without these
+        # two fields Kit creates the broadcast and leaves it sitting in the
+        # account unsent, so the run logged "sent (201)", the workflow went
+        # green, the sent-log recorded the date so it would not retry, and no
+        # subscriber received anything. Kit's own documentation is the only
+        # place that says so: to save a draft set public false, to send set
+        # public true and provide send_at.
+        #
+        # send_at is now rather than a future time, which Kit treats as send
+        # immediately. Scheduling it forward would put the digest in a queue
+        # this code cannot see or cancel.
+        payload: dict = {
+            "subject": subject,
+            "content": body,
+            "public": True,
+            "send_at": datetime.now(timezone.utc).replace(
+                microsecond=0).isoformat(),
+        }
         if segment != "all":
             # Kit wants an array of filter groups, not a single group. Sending
             # the bare object returned 422 "Subscriber filter must be an
@@ -165,13 +185,21 @@ def main() -> int:
         flag = " (quiet)" if edition.is_quiet else ""
         print(f"  {path.name}: {subject}{flag}")
 
-    if not args.send:
-        print("Dry run. Nothing sent. Re-run with --send to deliver.")
-        # The snapshot is still written: the next dry run should show the day's
-        # changes once, not the same ones forever.
+    def commit_state() -> None:
+        """Move the comparison point forward.
+
+        Only after subscribers have actually received the changes. The
+        snapshot is the record of what has been reported, so advancing it on a
+        run that sent nothing deletes a day of news: tomorrow diffs against a
+        state nobody was ever told about.
+        """
         args.state.parent.mkdir(parents=True, exist_ok=True)
         args.state.write_text(json.dumps(dg.snapshot(deals), indent=2),
                               encoding="utf-8")
+
+    if not args.send:
+        print("Dry run. Nothing sent, and the comparison snapshot is "
+              "unchanged. Re-run with --send to deliver.")
         return 0
 
     if dg.already_sent(args.sent_log, today) and not args.force:
@@ -180,9 +208,23 @@ def main() -> int:
         return 0
 
     api_key = os.environ.get("NEWSLETTER_API_KEY", "")
-    if not api_key or not provider:
-        print("NEWSLETTER_API_KEY or config.newsletter.provider is missing. "
-              "Editions were written but nothing was sent.", file=sys.stderr)
+    if not provider and not news.get("action"):
+        print("No newsletter provider configured, so nothing was sent. "
+              "Set config.newsletter.provider in data.json to enable the "
+              "digest. See docs/NEWSLETTER.md.")
+        return 0
+
+    missing = []
+    if not api_key:
+        missing.append("the NEWSLETTER_API_KEY repository secret is not set")
+    if not provider:
+        missing.append("config.newsletter.provider is empty in data.json")
+    if missing:
+        print("Nothing was sent because " + ", and ".join(missing) + ".",
+              file=sys.stderr)
+        print(f"The {len(written)} edition(s) were still written to "
+              f"{args.out} and the snapshot is unchanged, so today's changes "
+              "will appear in the next successful send.", file=sys.stderr)
         return 1
 
     # Preflight. A club segment targets a Kit tag of the same name, and the
@@ -220,9 +262,11 @@ def main() -> int:
 
     if failures == 0:
         dg.mark_sent(args.sent_log, today)
-    args.state.parent.mkdir(parents=True, exist_ok=True)
-    args.state.write_text(json.dumps(dg.snapshot(deals), indent=2),
-                          encoding="utf-8")
+        commit_state()
+    else:
+        print(f"{failures} of {len(written)} editions failed. The snapshot "
+              "is unchanged, so their contents roll into the next run.",
+              file=sys.stderr)
     return 1 if failures else 0
 
 
