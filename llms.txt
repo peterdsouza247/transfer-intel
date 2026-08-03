@@ -2,7 +2,7 @@
 
 > Premier League transfer rumours scored 0 to 100 for credibility, with transparent value-for-money verdicts on confirmed fees.
 
-Window: Premier League · Summer Window 2026. Last updated: Aug 02, 2026.
+Window: Premier League · Summer Window 2026. Last updated: Aug 03, 2026.
 
 ## Method
 
@@ -40,22 +40,22 @@ Credibility scores are computed in code, not written by a model. A score rises w
 - [Kieran Trippier, Newcastle to Wolves](https://peterdsouza247.github.io/transfer-intel/deals/trippier-newcastle-wolves/): credibility 100/100
 - [Morgan Rogers, Aston Villa to Chelsea](https://peterdsouza247.github.io/transfer-intel/deals/rogers-aston-villa-chelsea/): credibility 100/100
 - [Joao Gomes, Wolves to Aston Villa](https://peterdsouza247.github.io/transfer-intel/deals/gomes-wolves-aston-villa/): credibility 100/100
-- [Bruno Guimarães, Newcastle to Arsenal](https://peterdsouza247.github.io/transfer-intel/deals/guimaraes-newcastle-arsenal/): credibility 95/100
-- [Maxence Lacroix, Crystal Palace to Chelsea](https://peterdsouza247.github.io/transfer-intel/deals/lacroix-crystal-palace-chelsea/): credibility 90/100
-- [Johan Manzambi, Freiburg to Aston Villa](https://peterdsouza247.github.io/transfer-intel/deals/manzambi-freiburg-aston-villa/): credibility 76/100
 - [Leandro Trossard, Arsenal to Beşiktaş](https://peterdsouza247.github.io/transfer-intel/deals/trossard-arsenal-besiktas/): credibility 76/100
-- [Bradley Barcola, PSG to Liverpool](https://peterdsouza247.github.io/transfer-intel/deals/barcola-psg-liverpool/): credibility 70/100
-- [Alejandro Garnacho, Chelsea to Aston Villa](https://peterdsouza247.github.io/transfer-intel/deals/garnacho-chelsea-aston-villa/): credibility 67/100
-- [Illan Meslier, Leeds to Arsenal](https://peterdsouza247.github.io/transfer-intel/deals/meslier-leeds-arsenal/): credibility 67/100
-- [Karl Darlow, Leeds to Man Utd](https://peterdsouza247.github.io/transfer-intel/deals/darlow-leeds-man-utd/): credibility 67/100
-- [Tyrique George, Chelsea to Everton](https://peterdsouza247.github.io/transfer-intel/deals/george-chelsea-everton/): credibility 67/100
+- [Bruno Guimarães, Newcastle to Arsenal](https://peterdsouza247.github.io/transfer-intel/deals/guimaraes-newcastle-arsenal/): credibility 75/100
+- [Alejandro Garnacho, Chelsea to Aston Villa](https://peterdsouza247.github.io/transfer-intel/deals/garnacho-chelsea-aston-villa/): credibility 74/100
+- [Johan Manzambi, Freiburg to Aston Villa](https://peterdsouza247.github.io/transfer-intel/deals/manzambi-freiburg-aston-villa/): credibility 68/100
+- [Maxence Lacroix, Crystal Palace to Chelsea](https://peterdsouza247.github.io/transfer-intel/deals/lacroix-crystal-palace-chelsea/): credibility 65/100
+- [Bradley Barcola, PSG to Liverpool](https://peterdsouza247.github.io/transfer-intel/deals/barcola-psg-liverpool/): credibility 65/100
+- [Illan Meslier, Leeds to Arsenal](https://peterdsouza247.github.io/transfer-intel/deals/meslier-leeds-arsenal/): credibility 65/100
+- [Karl Darlow, Leeds to Man Utd](https://peterdsouza247.github.io/transfer-intel/deals/darlow-leeds-man-utd/): credibility 65/100
+- [Tyrique George, Chelsea to Everton](https://peterdsouza247.github.io/transfer-intel/deals/george-chelsea-everton/): credibility 65/100
 - [Bazoumana Touré, Hoffenheim to Newcastle](https://peterdsouza247.github.io/transfer-intel/deals/toure-hoffenheim-newcastle/): credibility 60/100
 - [Luka Vusković, Tottenham to Brighton](https://peterdsouza247.github.io/transfer-intel/deals/vuskovic-tottenham-brighton/): credibility 60/100
 - [Álvaro Rodríguez, Elche to Bournemouth](https://peterdsouza247.github.io/transfer-intel/deals/rodriguez-elche-bournemouth/): credibility 42/100
-- [Savinho, Man City to Tottenham](https://peterdsouza247.github.io/transfer-intel/deals/savinho-man-city-tottenham/): credibility 30/100
 - [Mason Greenwood, Marseille to Fenerbahçe](https://peterdsouza247.github.io/transfer-intel/deals/greenwood-marseille-fenerbahce/): credibility 28/100
-- [Mohamed Salah, Liverpool to Besiktas](https://peterdsouza247.github.io/transfer-intel/deals/salah-liverpool-besiktas/): credibility 23/100
 - [Pep Chavarría, Rayo Vallecano to Chelsea](https://peterdsouza247.github.io/transfer-intel/deals/chavarria-rayo-vallecano-chelsea/): credibility 22/100
+- [Mohamed Salah, Liverpool to Besiktas](https://peterdsouza247.github.io/transfer-intel/deals/salah-liverpool-besiktas/): credibility 22/100
+- [Savinho, Man City to Tottenham](https://peterdsouza247.github.io/transfer-intel/deals/savinho-man-city-tottenham/): credibility 15/100
 - [Julián Álvarez, Atlético Madrid to Arsenal](https://peterdsouza247.github.io/transfer-intel/deals/alvarez-atletico-madrid-arsenal/): credibility 10/100
 - [Ayyoub Bouaddi, Lille to Man City](https://peterdsouza247.github.io/transfer-intel/deals/bouaddi-lille-man-city/): credibility 10/100
 - [Randal Kolo Muani, PSG to Crystal Palace](https://peterdsouza247.github.io/transfer-intel/deals/muani-psg-crystal-palace/): credibility 2/100
