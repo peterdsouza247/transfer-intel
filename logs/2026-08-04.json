@@ -1,0 +1,476 @@
+[
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "toure-hoffenheim-newcastle",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 24 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "manzambi-freiburg-aston-villa",
+    "field": "cred",
+    "from": 68,
+    "to": 80,
+    "reason": "base +35, stage +45 = 80",
+    "evidence": [
+      "https://www.birminghammail.co.uk/sport/football/transfer-news/aston-villa-johan-manzambi-expert-34356540"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "greenwood-marseille-fenerbahce",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 23 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "chavarria-rayo-vallecano-chelsea",
+    "field": "last_verified_at",
+    "from": "2026-07-12",
+    "to": "2026-08-03",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.caughtoffside.com/2026/08/03/chelsea-agree-e25-million-move-as-new-signing-prepares-for-medical"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "chavarria-rayo-vallecano-chelsea",
+    "field": "base_cred",
+    "from": 55,
+    "to": 15,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.caughtoffside.com/2026/08/03/chelsea-agree-e25-million-move-as-new-signing-prepares-for-medical"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "chavarria-rayo-vallecano-chelsea",
+    "field": "cred",
+    "from": 22,
+    "to": 6,
+    "reason": "base +15 = 15, decayed to 6 after 23 days without movement",
+    "evidence": [
+      "https://www.caughtoffside.com/2026/08/03/chelsea-agree-e25-million-move-as-new-signing-prepares-for-medical"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "chavarria-rayo-vallecano-chelsea",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 23 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "base_cred",
+    "from": 15,
+    "to": 90,
+    "reason": "credibility before silence decay",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "cred",
+    "from": 65,
+    "to": 87,
+    "reason": "base +45, stage +45 = 90, decayed to 87 after 4 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "rodriguez-elche-bournemouth",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 19 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "alvarez-atletico-madrid-arsenal",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 22 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "tzolis-club-brugge-arsenal",
+    "field": "last_verified_at",
+    "from": "2026-07-31",
+    "to": "2026-08-03",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.independent.co.uk/sport/football/arsenal-tzolis-premier-league-title-man-city-liverpool-b3026357.html",
+      "https://www.dailymail.com/sport/football/article-16024319/Arsenal-CHRISTOS-TZOLIS-Alexis-Sanchez-Norwich.html"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "last_verified_at",
+    "from": "2026-08-03",
+    "to": "2026-08-04",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.caughtoffside.com/2026/08/01/bruno-guimaraes-instagram-message",
+      "https://www.chroniclelive.co.uk/sport/football/transfer-news/bruno-guimaraes-arsenal-transfer-only-34383663"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "fee",
+    "from": 80.0,
+    "to": 70.0,
+    "reason": "The Guardian reports the fee",
+    "evidence": [
+      "https://www.theguardian.com/football/2026/aug/03/premier-league-transfer-newcastle-reject-first-bid-arsenal-bruno-guimaraes"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "base_cred",
+    "from": 75,
+    "to": 60,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.caughtoffside.com/2026/08/01/bruno-guimaraes-instagram-message"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "cred",
+    "from": 75,
+    "to": 60,
+    "reason": "base +35, corroboration +15, stage +10 = 60",
+    "evidence": [
+      "https://www.caughtoffside.com/2026/08/01/bruno-guimaraes-instagram-message",
+      "https://www.chroniclelive.co.uk/sport/football/transfer-news/bruno-guimaraes-arsenal-transfer-only-34383663",
+      "https://www.football.london/arsenal-fc/transfer-news/bruno-guimaraes-arsenal-transfer-news-34390665"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "last_verified_at",
+    "from": "2026-08-02",
+    "to": "2026-08-04",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-transfer-news-bradley-barcola-34378875",
+      "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-transfer-news-bradley-barcola-34388987"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "base_cred",
+    "from": 65,
+    "to": 60,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-transfer-news-bradley-barcola-34378875"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "cred",
+    "from": 65,
+    "to": 60,
+    "reason": "base +35, stage +25 = 60",
+    "evidence": [
+      "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-transfer-news-bradley-barcola-34378875",
+      "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-transfer-news-bradley-barcola-34388987",
+      "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-bradley-barcola-transfer-psg-34388905"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "bouaddi-lille-man-city",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 23 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "muani-psg-crystal-palace",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 23 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "watkins-aston-villa-fenerbahce",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 23 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "williams-nott-m-forest-man-utd",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 23 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "rogers-aston-villa-chelsea",
+    "field": "last_verified_at",
+    "from": "2026-07-31",
+    "to": "2026-08-04",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.dailymail.com/sport/football/article-16024865/xabi-alonso-chelsea-player-selection.html",
+      "https://www.football.london/chelsea-fc/news/morgan-rogers-takes-xabi-alonso-34396437"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "vinicius-real-madrid-arsenal",
+    "field": "status",
+    "from": "collapsed",
+    "to": "talks",
+    "reason": "BBC Sport reports the deal is live again",
+    "evidence": [
+      "https://www.bbc.co.uk/sport/football/articles/ckge3g8dl95o"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "vinicius-real-madrid-arsenal",
+    "field": "status",
+    "from": null,
+    "to": null,
+    "reason": "collapsed deal revived, confirm before merging",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "vinicius-real-madrid-arsenal",
+    "field": "last_verified_at",
+    "from": "2026-08-02",
+    "to": "2026-08-04",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.football.london/arsenal-fc/news/arsenal-latest-vinicius-jr-receives-34385255",
+      "https://www.mirror.co.uk/sport/football/news/arsenal-transfers-vinicius-guimaraes-offer-37500202"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "vinicius-real-madrid-arsenal",
+    "field": "base_cred",
+    "from": 0,
+    "to": 80,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.football.london/arsenal-fc/news/arsenal-latest-vinicius-jr-receives-34385255"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "vinicius-real-madrid-arsenal",
+    "field": "cred",
+    "from": 0,
+    "to": 25,
+    "reason": "base +55, corroboration +10, stage +10, pivot pressure +5 = 80, capped to a 25 point move",
+    "evidence": [
+      "https://www.football.london/arsenal-fc/news/arsenal-latest-vinicius-jr-receives-34385255",
+      "https://www.mirror.co.uk/sport/football/news/arsenal-transfers-vinicius-guimaraes-offer-37500202",
+      "https://www.standard.co.uk/sport/football/arsenal-fc-transfer-news-vinicius-jr-arteta-b1292083.html"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "garnacho-chelsea-aston-villa",
+    "field": "last_verified_at",
+    "from": "2026-08-02",
+    "to": "2026-08-03",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.manchestereveningnews.co.uk/sport/football/football-news/man-utd-garnacho-chelsea-villa-34392828",
+      "https://www.manchestereveningnews.co.uk/sport/football/football-news/alejandro-garnacho-man-united-chelsea-34392546"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "garnacho-chelsea-aston-villa",
+    "field": "base_cred",
+    "from": 80,
+    "to": 85,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.manchestereveningnews.co.uk/sport/football/football-news/man-utd-garnacho-chelsea-villa-34392828"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "garnacho-chelsea-aston-villa",
+    "field": "cred",
+    "from": 74,
+    "to": 85,
+    "reason": "base +35, corroboration +5, stage +45 = 85",
+    "evidence": [
+      "https://www.manchestereveningnews.co.uk/sport/football/football-news/man-utd-garnacho-chelsea-villa-34392828",
+      "https://www.manchestereveningnews.co.uk/sport/football/football-news/alejandro-garnacho-man-united-chelsea-34392546",
+      "https://www.football.london/chelsea-fc/news/alejandro-garnacho-aims-dig-chelsea-34391572"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "meslier-leeds-arsenal",
+    "field": "cred",
+    "from": 65,
+    "to": 62,
+    "reason": "base +25, stage +45 = 70, decayed to 62 after 6 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "darlow-leeds-man-utd",
+    "field": "cred",
+    "from": 65,
+    "to": 62,
+    "reason": "base +25, stage +45 = 70, decayed to 62 after 6 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "george-chelsea-everton",
+    "field": "cred",
+    "from": 65,
+    "to": 62,
+    "reason": "base +25, stage +45 = 70, decayed to 62 after 6 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "salah-liverpool-besiktas",
+    "field": "cred",
+    "from": 22,
+    "to": 21,
+    "reason": "base +25 = 25, decayed to 21 after 7 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "vinicius-real-madrid-arsenal",
+    "field": "note",
+    "from": "Arsenal explored a move while his contract stalled, then Real Madrid moved to keep him. No club-to-club talks were reported at any point.",
+    "to": "BBC Sport's claims lack corroboration from any Real Madrid source, and the credibility score reflects how little substance exists behind the noise.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "note",
+    "from": "Arsenal's midfield control problem finds its solution, though Newcastle's reluctance to sell their best player dragged negotiations across an entire week.",
+    "to": "Arsenal finally landed the midfield upgrade Arteta wanted, though fee claims ranged from 34m to 80m across a chaotic forty-eight hours.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "garnacho-chelsea-aston-villa",
+    "field": "note",
+    "from": "Villa are spending big on a young winger still searching for consistency, betting Unai Emery can find what Manchester United could not.",
+    "to": "Garnacho leaves Old Trafford after just eighteen months, a stunning indictment of Ten Hag's recruitment and man-management.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "manzambi-freiburg-aston-villa",
+    "field": "note",
+    "from": "Villa paid elite money for an unproven talent off the back of one tournament, banking on World Cup hype over sustained Bundesliga form.",
+    "to": "Villa's Champions League ambitions justify the gamble on a 20-year-old with one elite tournament behind him rather than proven Bundesliga consistency.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "note",
+    "from": "Lacroix fills an immediate need after Cole Palmer's injury derailed Chelsea's season, offering proven Premier League experience at a premium price.",
+    "to": "Lacroix represents Chelsea's third center-back signing in eighteen months, suggesting internal confusion about their defensive blueprint rather than genuine progress.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "chavarria-rayo-vallecano-chelsea",
+    "field": "note",
+    "from": "Personal terms agreed; Rayo rejected first bid, second ~\u00a315m in.",
+    "to": "Chelsea's valuation and Rayo's asking price have drifted apart, with one source now citing a higher figure than the initial bid.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  }
+]
