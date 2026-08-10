@@ -4,7 +4,7 @@
     "tagline": "believe less, know more",
     "deadline": "2026-09-01T22:00:00Z",
     "deadlineLabel": "Window closes 1 Sep, 23:00 BST",
-    "updated": "Aug 09, 2026",
+    "updated": "Aug 10, 2026",
     "site": {
       "baseUrl": "https://peterdsouza247.github.io/transfer-intel",
       "title": "TransferIntel",
@@ -1020,7 +1020,7 @@
       "date": "Jul 18",
       "tier": 1,
       "src": "Romano",
-      "cred": 77,
+      "cred": 76,
       "note": "Villa's Champions League ambitions justify the gamble on a 20-year-old with one elite tournament behind him rather than proven Bundesliga consistency.",
       "evidence": [
         {
@@ -1178,7 +1178,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 51,
+      "cred": 49,
       "note": "Chelsea's pursuit has stalled at a modest fee, suggesting either patience or a pivot to other left-back targets emerging in the window.",
       "evidence": [
         {
@@ -1624,8 +1624,8 @@
       "date": "Jul 13",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 6,
-      "note": "Arsenal 'pushing' post-World Cup. Would be the striker upgrade, and the fee to match.",
+      "cred": 15,
+      "note": "Tier 3 outlets cycling the same story with conflicting fees signal Arsenal have not moved beyond casual interest.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:alvarez-atletico-madrid-arsenal",
@@ -1836,7 +1836,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 87,
+      "cred": 90,
       "note": "Arsenal have upgraded their midfield engine by taking Newcastle's best player, a statement of intent that proves Arteta can now compete for immediate silverware.",
       "evidence": [
         {
@@ -2748,9 +2748,19 @@
           "fee_gbp_m": 75.0,
           "marker": "has signed",
           "official": false
+        },
+        {
+          "url": "https://talksport.com/football/4501325/bruno-guimaraes-alexander-isak-arsenal-newcastle-transfer",
+          "source": "talksport.com",
+          "tier": 2,
+          "date": "2026-08-09",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-08",
+      "last_verified_at": "2026-08-09",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
@@ -2801,15 +2811,15 @@
       "p": "Bradley Barcola",
       "from": "PSG",
       "to": "Liverpool",
-      "fee": 100.0,
+      "fee": 47.0,
       "age": 23,
       "pos": "LW",
       "status": "agreed",
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 67,
-      "note": "Liverpool have paid a premium for a player PSG built their attack around, betting on youth and potential over proven production.",
+      "cred": 42,
+      "note": "Liverpool are paying PSG's asking price for a winger who has delivered one elite season in five years at the club.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:barcola-psg-liverpool",
@@ -3250,13 +3260,33 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-transfer-bradley-barcola-torres-34428694",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-09",
+          "claim": "interest",
+          "fee_gbp_m": 47.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-bradley-barcola-transfer-psg-34429138",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-10",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-05",
+      "last_verified_at": "2026-08-10",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 70,
+      "base_cred": 35,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -3620,9 +3650,19 @@
           "fee_gbp_m": 0.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-16039467/Jose-Mourinho-lays-Bernardo-Silvas-fitness-Real-Madrid-debut-tells-Man-City-legend-improve.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-08-09",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-01",
+      "last_verified_at": "2026-08-09",
       "completion_marker": "hand-verified at migration, no fetchable source",
       "completion_source": "Sky Sports",
       "completed_date": "2026-07-01",
@@ -4388,7 +4428,7 @@
       "date": "Jul 29",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 65,
+      "cred": 62,
       "note": "Villa have secured a winger with Premier League pedigree while Chelsea shift deadwood, a rare efficient move in an otherwise chaotic window.",
       "evidence": [
         {
@@ -4612,7 +4652,7 @@
       "date": "Jul 28",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 17,
+      "cred": 16,
       "note": "A 34-year-old free transfer rumor with no recent traction suggests Liverpool's contract talks remain private while Besiktas waits to see if Europe's bigger clubs move first.",
       "evidence": [
         {
