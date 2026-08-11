@@ -4,7 +4,7 @@
     "tagline": "believe less, know more",
     "deadline": "2026-09-01T22:00:00Z",
     "deadlineLabel": "Window closes 1 Sep, 23:00 BST",
-    "updated": "Aug 10, 2026",
+    "updated": "Aug 11, 2026",
     "site": {
       "baseUrl": "https://peterdsouza247.github.io/transfer-intel",
       "title": "TransferIntel",
@@ -1178,7 +1178,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 49,
+      "cred": 47,
       "note": "Chelsea's pursuit has stalled at a modest fee, suggesting either patience or a pivot to other left-back targets emerging in the window.",
       "evidence": [
         {
@@ -1624,8 +1624,8 @@
       "date": "Jul 13",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 15,
-      "note": "Tier 3 outlets cycling the same story with conflicting fees signal Arsenal have not moved beyond casual interest.",
+      "cred": 35,
+      "note": "Arsenal's interest lacks substance when tier 3 outlets contradict each other on fees and only one tier 2 source has mentioned it.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:alvarez-atletico-madrid-arsenal",
@@ -1666,13 +1666,43 @@
           "fee_gbp_m": 85.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/arsenal-fc-transfer-news-julian-alvarez-b1292949.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-10",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/julian-alvarez-arsenal-transfer-barcelona-34432819",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-10",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/arsenal-julian-alvarez-transfer-atletico-37534156",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-10",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-09",
+      "last_verified_at": "2026-08-10",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 15,
+      "base_cred": 35,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -2758,9 +2788,19 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/when-will-bruno-guimaraes-make-arsenal-fc-debut-b1292913.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-10",
+          "claim": "completed",
+          "fee_gbp_m": 75.0,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-09",
+      "last_verified_at": "2026-08-10",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
@@ -2818,7 +2858,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 42,
+      "cred": 45,
       "note": "Liverpool are paying PSG's asking price for a winger who has delivered one elite season in five years at the club.",
       "evidence": [
         {
@@ -3280,13 +3320,43 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/bradley-barcola-liverpool-transfer-psg-34436136",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-10",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/bradley-barcola-liverpool-psg-transfer-34435452",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-10",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/bradley-barcola-arsenal-transfer-liverpool-34434644",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-10",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
       "last_verified_at": "2026-08-10",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 35,
+      "base_cred": 45,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -3300,12 +3370,12 @@
       "fee": 40.0,
       "age": 18,
       "pos": "CM",
-      "status": "rumor",
+      "status": "talks",
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 10,
-      "note": "World Cup breakout with Morocco; background talks only.",
+      "cred": 26,
+      "note": "City moving early on a teenager with one eye on midfield depth beyond this cycle, though 40 million still feels steep for a player with minimal elite experience.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:bouaddi-lille-man-city",
@@ -3316,13 +3386,23 @@
           "fee_gbp_m": 40.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.skysports.com/football/news/12040/13571742/man-city-transfer-news-talks-ongoing-with-lilles-ayyoub-bouaddi-but-rodri-to-barcelona-talks-inactive-with-enzo-fernandez-also-an-option",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-08-10",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-12",
+      "last_verified_at": "2026-08-10",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 25,
+      "base_cred": 65,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -4404,9 +4484,19 @@
           "fee_gbp_m": null,
           "marker": "has signed",
           "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/arsenal-vinicius-junior-future-mikel-37535610",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-10",
+          "claim": "collapsed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-08",
+      "last_verified_at": "2026-08-10",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
@@ -4428,7 +4518,7 @@
       "date": "Jul 29",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 62,
+      "cred": 60,
       "note": "Villa have secured a winger with Premier League pedigree while Chelsea shift deadwood, a rare efficient move in an otherwise chaotic window.",
       "evidence": [
         {
@@ -4652,7 +4742,7 @@
       "date": "Jul 28",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 16,
+      "cred": 15,
       "note": "A 34-year-old free transfer rumor with no recent traction suggests Liverpool's contract talks remain private while Besiktas waits to see if Europe's bigger clubs move first.",
       "evidence": [
         {
