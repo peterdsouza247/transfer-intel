@@ -4,7 +4,7 @@
     "tagline": "believe less, know more",
     "deadline": "2026-09-01T22:00:00Z",
     "deadlineLabel": "Window closes 1 Sep, 23:00 BST",
-    "updated": "Aug 11, 2026",
+    "updated": "Aug 12, 2026",
     "site": {
       "baseUrl": "https://peterdsouza247.github.io/transfer-intel",
       "title": "TransferIntel",
@@ -288,9 +288,19 @@
           "fee_gbp_m": 69.3,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.chroniclelive.co.uk/sport/football/football-news/anthony-gordon-barcelona-newcastle-united-34436543",
+          "source": "chroniclelive.co.uk",
+          "tier": 2,
+          "date": "2026-08-11",
+          "claim": "completed",
+          "fee_gbp_m": 69.3,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-06-28",
+      "last_verified_at": "2026-08-11",
       "completion_marker": "hand-verified at migration, no fetchable source",
       "completion_source": "Sky Sports",
       "completed_date": "2026-06-28",
@@ -1178,7 +1188,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 47,
+      "cred": 45,
       "note": "Chelsea's pursuit has stalled at a modest fee, suggesting either patience or a pivot to other left-back targets emerging in the window.",
       "evidence": [
         {
@@ -1234,8 +1244,8 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 15,
-      "note": "One source at tier 3 credibility claiming talks does not match the silence from both clubs on a deal of this scale.",
+      "cred": 40,
+      "note": "Spurs chasing a £60m winger after months of silence suggests either wishful thinking or a negotiation too early to confirm.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:savinho-man-city-tottenham",
@@ -1282,7 +1292,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 15,
+      "base_cred": 55,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1866,7 +1876,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 90,
+      "cred": 85,
       "note": "Arsenal have upgraded their midfield engine by taking Newcastle's best player, a statement of intent that proves Arteta can now compete for immediate silverware.",
       "evidence": [
         {
@@ -2798,13 +2808,23 @@
           "fee_gbp_m": 75.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/arsenal-transfer-bruno-guimaraes-newcastle-37537440",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-11",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-10",
+      "last_verified_at": "2026-08-11",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 90,
+      "base_cred": 85,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -2858,7 +2878,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 45,
+      "cred": 50,
       "note": "Liverpool are paying PSG's asking price for a winger who has delivered one elite season in five years at the club.",
       "evidence": [
         {
@@ -3350,13 +3370,83 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-bradley-barcola-transfer-enrique-34441506",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-11",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-transfer-news-bradley-barcola-34441066",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-11",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.independent.co.uk/sport/football/bradley-barcola-liverpool-transfer-psg-luis-enrique-b3031297.html",
+          "source": "The Independent",
+          "tier": 2,
+          "date": "2026-08-11",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/bradley-barcola-liverpool-transfer-leaves-34439458",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-12",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-bradley-barcola-psg-transfer-34441658",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-12",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-sent-clear-message-over-34440278",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-12",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/news/liverpool-bradley-barcola-psg-transfer-37539973",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-12",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-10",
+      "last_verified_at": "2026-08-12",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 45,
+      "base_cred": 50,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -3374,8 +3464,8 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 26,
-      "note": "City moving early on a teenager with one eye on midfield depth beyond this cycle, though 40 million still feels steep for a player with minimal elite experience.",
+      "cred": 51,
+      "note": "City's midfield overhaul is reaching into Ligue 1's academy tier, signalling either desperation for depth or faith in a prospect most Premier League clubs haven't yet moved on.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:bouaddi-lille-man-city",
@@ -4494,9 +4584,19 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://metro.co.uk/2026/08/11/vinicius-juniors-camp-send-message-arsenal-failed-transfer-29352201",
+          "source": "metro.co.uk",
+          "tier": 3,
+          "date": "2026-08-11",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-10",
+      "last_verified_at": "2026-08-11",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
@@ -4742,7 +4842,7 @@
       "date": "Jul 28",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 15,
+      "cred": 10,
       "note": "A 34-year-old free transfer rumor with no recent traction suggests Liverpool's contract talks remain private while Besiktas waits to see if Europe's bigger clubs move first.",
       "evidence": [
         {
