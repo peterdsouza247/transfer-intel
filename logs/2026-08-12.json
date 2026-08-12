@@ -1,0 +1,297 @@
+[
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "gordon-newcastle-barcelona",
+    "field": "last_verified_at",
+    "from": "2026-06-28",
+    "to": "2026-08-11",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.chroniclelive.co.uk/sport/football/football-news/anthony-gordon-barcelona-newcastle-united-34436543"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "toure-hoffenheim-newcastle",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 32 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "vuskovic-tottenham-brighton",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 21 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "greenwood-marseille-fenerbahce",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 31 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "trossard-arsenal-besiktas",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 21 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "chavarria-rayo-vallecano-chelsea",
+    "field": "cred",
+    "from": 47,
+    "to": 45,
+    "reason": "base +45, stage +10 = 55, decayed to 45 after 8 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "base_cred",
+    "from": 15,
+    "to": 55,
+    "reason": "credibility before silence decay",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "savinho-man-city-tottenham",
+    "field": "cred",
+    "from": 15,
+    "to": 40,
+    "reason": "base +45, stage +10 = 55, decayed to 40 after 4 days without movement, capped to a 25 point move",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "rodriguez-elche-bournemouth",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 27 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "last_verified_at",
+    "from": "2026-08-10",
+    "to": "2026-08-11",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://talksport.com/football/4501325/bruno-guimaraes-alexander-isak-arsenal-newcastle-transfer",
+      "https://www.standard.co.uk/sport/football/when-will-bruno-guimaraes-make-arsenal-fc-debut-b1292913.html"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "base_cred",
+    "from": 90,
+    "to": 85,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://talksport.com/football/4501325/bruno-guimaraes-alexander-isak-arsenal-newcastle-transfer"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "cred",
+    "from": 90,
+    "to": 85,
+    "reason": "base +35, corroboration +5, stage +45 = 85",
+    "evidence": [
+      "https://talksport.com/football/4501325/bruno-guimaraes-alexander-isak-arsenal-newcastle-transfer",
+      "https://www.standard.co.uk/sport/football/when-will-bruno-guimaraes-make-arsenal-fc-debut-b1292913.html",
+      "https://www.mirror.co.uk/sport/football/transfer-news/arsenal-transfer-bruno-guimaraes-newcastle-37537440"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "last_verified_at",
+    "from": "2026-08-10",
+    "to": "2026-08-12",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-transfer-bradley-barcola-torres-34428694",
+      "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-bradley-barcola-transfer-psg-34429138"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "base_cred",
+    "from": 45,
+    "to": 50,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-transfer-bradley-barcola-torres-34428694"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "cred",
+    "from": 45,
+    "to": 50,
+    "reason": "base +35, corroboration +5, stage +10 = 50",
+    "evidence": [
+      "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-transfer-bradley-barcola-torres-34428694",
+      "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-bradley-barcola-transfer-psg-34429138",
+      "https://www.liverpoolecho.co.uk/sport/football/transfer-news/bradley-barcola-liverpool-transfer-psg-34436136"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "bouaddi-lille-man-city",
+    "field": "cred",
+    "from": 26,
+    "to": 51,
+    "reason": "base +55, stage +10 = 65, capped to a 25 point move",
+    "evidence": [
+      "https://www.skysports.com/football/news/12040/13571742/man-city-transfer-news-talks-ongoing-with-lilles-ayyoub-bouaddi-but-rodri-to-barcelona-talks-inactive-with-enzo-fernandez-also-an-option"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "muani-psg-crystal-palace",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 31 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "watkins-aston-villa-fenerbahce",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 31 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "williams-nott-m-forest-man-utd",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 31 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "vinicius-real-madrid-arsenal",
+    "field": "last_verified_at",
+    "from": "2026-08-10",
+    "to": "2026-08-11",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.mirror.co.uk/sport/football/transfer-news/arsenal-vinicius-junior-future-mikel-37535610",
+      "https://metro.co.uk/2026/08/11/vinicius-juniors-camp-send-message-arsenal-failed-transfer-29352201"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "meslier-leeds-arsenal",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 14 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "darlow-leeds-man-utd",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 14 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "george-chelsea-everton",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 14 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "salah-liverpool-besiktas",
+    "field": "cred",
+    "from": 15,
+    "to": 10,
+    "reason": "base +25 = 25, decayed to 10 after 15 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "salah-liverpool-besiktas",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 15 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "bouaddi-lille-man-city",
+    "field": "note",
+    "from": "City moving early on a teenager with one eye on midfield depth beyond this cycle, though 40 million still feels steep for a player with minimal elite experience.",
+    "to": "City's midfield overhaul is reaching into Ligue 1's academy tier, signalling either desperation for depth or faith in a prospect most Premier League clubs haven't yet moved on.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "note",
+    "from": "One source at tier 3 credibility claiming talks does not match the silence from both clubs on a deal of this scale.",
+    "to": "Spurs chasing a \u00a360m winger after months of silence suggests either wishful thinking or a negotiation too early to confirm.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  }
+]
