@@ -125,13 +125,13 @@
     "fee": 17.0
   },
   "chavarria-rayo-vallecano-chelsea": {
-    "status": "talks",
-    "cred": 45,
-    "fee": 15.0
+    "status": "agreed",
+    "cred": 70,
+    "fee": 16.0
   },
   "savinho-man-city-tottenham": {
     "status": "talks",
-    "cred": 40,
+    "cred": 51,
     "fee": 60.0
   },
   "kroupi-bournemouth-tottenham": {
@@ -166,7 +166,7 @@
   },
   "guimaraes-newcastle-arsenal": {
     "status": "confirmed",
-    "cred": 85,
+    "cred": 80,
     "fee": 75.0
   },
   "gomes-wolves-man-utd": {
@@ -176,12 +176,12 @@
   },
   "barcola-psg-liverpool": {
     "status": "agreed",
-    "cred": 50,
+    "cred": 65,
     "fee": 47.0
   },
   "bouaddi-lille-man-city": {
     "status": "talks",
-    "cred": 51,
+    "cred": 65,
     "fee": 40.0
   },
   "muani-psg-crystal-palace": {
