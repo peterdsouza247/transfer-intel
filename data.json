@@ -4,7 +4,7 @@
     "tagline": "believe less, know more",
     "deadline": "2026-09-01T22:00:00Z",
     "deadlineLabel": "Window closes 1 Sep, 23:00 BST",
-    "updated": "Aug 12, 2026",
+    "updated": "Aug 13, 2026",
     "site": {
       "baseUrl": "https://peterdsouza247.github.io/transfer-intel",
       "title": "TransferIntel",
@@ -298,9 +298,19 @@
           "fee_gbp_m": 69.3,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.chroniclelive.co.uk/sport/football/transfer-news/anthony-gordon-barcelona-number-newcastle-34444125",
+          "source": "chroniclelive.co.uk",
+          "tier": 2,
+          "date": "2026-08-12",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-11",
+      "last_verified_at": "2026-08-12",
       "completion_marker": "hand-verified at migration, no fetchable source",
       "completion_source": "Sky Sports",
       "completed_date": "2026-06-28",
@@ -1181,15 +1191,15 @@
       "p": "Pep Chavarría",
       "from": "Rayo Vallecano",
       "to": "Chelsea",
-      "fee": 15.0,
+      "fee": 16.0,
       "age": 28,
       "pos": "LB",
-      "status": "talks",
+      "status": "agreed",
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 45,
-      "note": "Chelsea's pursuit has stalled at a modest fee, suggesting either patience or a pivot to other left-back targets emerging in the window.",
+      "cred": 70,
+      "note": "Chelsea have finally settled on a low-cost left-back solution after months of window inactivity at the position.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:chavarria-rayo-vallecano-chelsea",
@@ -1220,13 +1230,43 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.bbc.co.uk/sport/football/articles/cvg0rw84xk9o",
+          "source": "BBC Sport",
+          "tier": 1,
+          "date": "2026-08-12",
+          "claim": "completed",
+          "fee_gbp_m": 16.0,
+          "marker": "joins",
+          "official": false
+        },
+        {
+          "url": "https://www.independent.co.uk/sport/football/pep-chavarria-chelsea-signing-marc-cucurella-b3031664.html",
+          "source": "The Independent",
+          "tier": 2,
+          "date": "2026-08-12",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-16046599/chelsea-sign-pep-chavarria-cucurella-replacement-newcastle-amar-dedic.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-08-12",
+          "claim": "completed",
+          "fee_gbp_m": 16.3,
+          "marker": "has signed",
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-04",
+      "last_verified_at": "2026-08-12",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 55,
+      "base_cred": 100,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1244,8 +1284,8 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 40,
-      "note": "Spurs chasing a £60m winger after months of silence suggests either wishful thinking or a negotiation too early to confirm.",
+      "cred": 51,
+      "note": "Spurs' silence on this one since talks began suggests City are content to keep him, or the asking price has exhausted the summer's goodwill.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:savinho-man-city-tottenham",
@@ -1876,7 +1916,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 85,
+      "cred": 80,
       "note": "Arsenal have upgraded their midfield engine by taking Newcastle's best player, a statement of intent that proves Arteta can now compete for immediate silverware.",
       "evidence": [
         {
@@ -2824,7 +2864,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 85,
+      "base_cred": 80,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -2878,8 +2918,8 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 50,
-      "note": "Liverpool are paying PSG's asking price for a winger who has delivered one elite season in five years at the club.",
+      "cred": 65,
+      "note": "Liverpool have secured their left winger for the next phase under their new manager, betting heavily on Barcola's potential to replicate his 2024-25 form consistently.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:barcola-psg-liverpool",
@@ -3440,13 +3480,33 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-bradley-barcola-psg-transfer-34444123",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-12",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-transfer-bradley-barcola-psg-34443521",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-12",
+          "claim": "agreed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
       "last_verified_at": "2026-08-12",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 50,
+      "base_cred": 65,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -3464,8 +3524,8 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 51,
-      "note": "City's midfield overhaul is reaching into Ligue 1's academy tier, signalling either desperation for depth or faith in a prospect most Premier League clubs haven't yet moved on.",
+      "cred": 65,
+      "note": "City's midfield overhaul is now reaching into Ligue 1's academy tier, suggesting either desperation for depth or genuine conviction in a prospect most rivals haven't pursued.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:bouaddi-lille-man-city",
@@ -4594,9 +4654,19 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/vinicius-jr-arsenal-fc-transfer-news-b1293149.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-12",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-11",
+      "last_verified_at": "2026-08-12",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
