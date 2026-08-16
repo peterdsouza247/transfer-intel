@@ -4,7 +4,7 @@
     "tagline": "believe less, know more",
     "deadline": "2026-09-01T22:00:00Z",
     "deadlineLabel": "Window closes 1 Sep, 23:00 BST",
-    "updated": "Aug 13, 2026",
+    "updated": "Aug 16, 2026",
     "site": {
       "baseUrl": "https://peterdsouza247.github.io/transfer-intel",
       "title": "TransferIntel",
@@ -1198,7 +1198,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 70,
+      "cred": 67,
       "note": "Chelsea have finally settled on a low-cost left-back solution after months of window inactivity at the position.",
       "evidence": [
         {
@@ -1266,7 +1266,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 100,
+      "base_cred": 70,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1284,7 +1284,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 51,
+      "cred": 45,
       "note": "Spurs' silence on this one since talks began suggests City are content to keep him, or the asking price has exhausted the summer's goodwill.",
       "evidence": [
         {
@@ -1674,8 +1674,8 @@
       "date": "Jul 13",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 35,
-      "note": "Arsenal's interest lacks substance when tier 3 outlets contradict each other on fees and only one tier 2 source has mentioned it.",
+      "cred": 22,
+      "note": "Arsenal have not moved on this since low-credibility noise faded weeks ago, suggesting either a non-starter or a problem with Álvarez's wage demands.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:alvarez-atletico-madrid-arsenal",
@@ -1752,7 +1752,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 35,
+      "base_cred": 25,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1916,7 +1916,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 80,
+      "cred": 83,
       "note": "Arsenal have upgraded their midfield engine by taking Newcastle's best player, a statement of intent that proves Arteta can now compete for immediate silverware.",
       "evidence": [
         {
@@ -2864,7 +2864,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 80,
+      "base_cred": 90,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -2918,8 +2918,8 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 65,
-      "note": "Liverpool have secured their left winger for the next phase under their new manager, betting heavily on Barcola's potential to replicate his 2024-25 form consistently.",
+      "cred": 53,
+      "note": "Liverpool's move for a 23-year-old left winger signals they are not waiting on Salah's future to reshape their attack.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:barcola-psg-liverpool",
@@ -3500,13 +3500,113 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://talksport.com/football/4512825/bradley-barcola-liverpool-transfer-psg-cut-price",
+          "source": "talksport.com",
+          "tier": 2,
+          "date": "2026-08-14",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-bradley-barcola-psg-transfer-34463232",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-14",
+          "claim": "interest",
+          "fee_gbp_m": 47.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/liverpool-fc-barcola-transfer-latest-godts-b1293541.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-15",
+          "claim": "talks",
+          "fee_gbp_m": 47.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/liverpool-fc-barcola-transfer-news-torres-b1293492.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-15",
+          "claim": "interest",
+          "fee_gbp_m": 42.7,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-transfer-barcola-psg-gakpo-34465153",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-15",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/andoni-iraola-makes-liverpool-vow-34464455",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-15",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-bradley-barcola-transfer-iraola-34461080",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-15",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/liverpool-transfer-bradley-barcola-gakpo-37556293",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-15",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/08/15/liverpool-could-finally-land-20-g-a-sensation-after-selling-club-complete-key-signing",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-08-15",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/news/liverpool-transfers-bradley-barcola-psg-37555759",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-16",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-12",
+      "last_verified_at": "2026-08-16",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 65,
+      "base_cred": 55,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -3524,8 +3624,8 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 65,
-      "note": "City's midfield overhaul is now reaching into Ligue 1's academy tier, suggesting either desperation for depth or genuine conviction in a prospect most rivals haven't pursued.",
+      "cred": 40,
+      "note": "City are exploring a teenager with minimal senior experience while their midfield depth remains unresolved heading into the season.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:bouaddi-lille-man-city",
@@ -3546,13 +3646,43 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-16055499/Man-City-Ayyoub-Bouaddi-transfer-Rodri-Barcelona.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-08-15",
+          "claim": "talks",
+          "fee_gbp_m": 85.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/bouaddi-transfer-man-city-arsenal-37556394",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-15",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-news-bouaddi-city-34465883",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-16",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-10",
+      "last_verified_at": "2026-08-16",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 65,
+      "base_cred": 15,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -4688,8 +4818,8 @@
       "date": "Jul 29",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 60,
-      "note": "Villa have secured a winger with Premier League pedigree while Chelsea shift deadwood, a rare efficient move in an otherwise chaotic window.",
+      "cred": 35,
+      "note": "Chelsea's academy winger exit confirms Villa's spending power while raising questions about Enzo Maresca's actual squad plans.",
       "evidence": [
         {
           "url": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026",
@@ -4780,13 +4910,23 @@
           "fee_gbp_m": 43.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/news/alejandro-garnacho-ex-mansion-villa-37555439",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-15",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-04",
+      "last_verified_at": "2026-08-15",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 70,
+      "base_cred": 15,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
