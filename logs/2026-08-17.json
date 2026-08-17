@@ -1,0 +1,316 @@
+[
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "toure-hoffenheim-newcastle",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 37 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "vuskovic-tottenham-brighton",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 26 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "manzambi-freiburg-aston-villa",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 15 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "greenwood-marseille-fenerbahce",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 36 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "trossard-arsenal-besiktas",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 26 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "chavarria-rayo-vallecano-chelsea",
+    "field": "cred",
+    "from": 67,
+    "to": 65,
+    "reason": "base +45, stage +25 = 70, decayed to 65 after 5 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "last_verified_at",
+    "from": "2026-08-08",
+    "to": "2026-08-16",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.football.london/tottenham-hotspur-fc/transfer-news/savinho-tottenham-transfer-man-city-34467360",
+      "https://www.caughtoffside.com/2026/08/16/tottenham-agree-deal-with-attacking-star-as-85m-transfer-moves-closer"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "base_cred",
+    "from": 55,
+    "to": 15,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.football.london/tottenham-hotspur-fc/transfer-news/savinho-tottenham-transfer-man-city-34467360"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "cred",
+    "from": 45,
+    "to": 20,
+    "reason": "base +15 = 15, decayed to 20 after 9 days without movement, capped to a 25 point move",
+    "evidence": [
+      "https://www.football.london/tottenham-hotspur-fc/transfer-news/savinho-tottenham-transfer-man-city-34467360",
+      "https://www.caughtoffside.com/2026/08/16/tottenham-agree-deal-with-attacking-star-as-85m-transfer-moves-closer"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 17 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "rodriguez-elche-bournemouth",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 32 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "alvarez-atletico-madrid-arsenal",
+    "field": "cred",
+    "from": 22,
+    "to": 21,
+    "reason": "base +25 = 25, decayed to 21 after 7 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "tzolis-club-brugge-arsenal",
+    "field": "last_verified_at",
+    "from": "2026-08-04",
+    "to": "2026-08-16",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.standard.co.uk/sport/football/mikel-arteta-hails-arsenal-summer-signing-who-b1293586.html"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "cred",
+    "from": 83,
+    "to": 80,
+    "reason": "base +45, stage +45 = 90, decayed to 80 after 6 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "fee",
+    "from": 47.0,
+    "to": 90.0,
+    "reason": "liverpoolecho.co.uk reports the fee",
+    "evidence": [
+      "https://www.liverpoolecho.co.uk/sport/football/football-news/bradley-barcola-transfer-liverpool-psg-34464998"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "cred",
+    "from": 53,
+    "to": 55,
+    "reason": "base +35, corroboration +10, stage +10 = 55",
+    "evidence": [
+      "https://talksport.com/football/4512825/bradley-barcola-liverpool-transfer-psg-cut-price",
+      "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-bradley-barcola-psg-transfer-34463232",
+      "https://www.standard.co.uk/sport/football/liverpool-fc-barcola-transfer-latest-godts-b1293541.html"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "bouaddi-lille-man-city",
+    "field": "base_cred",
+    "from": 15,
+    "to": 35,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.dailymail.com/sport/football/article-16055499/Man-City-Ayyoub-Bouaddi-transfer-Rodri-Barcelona.html"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "bouaddi-lille-man-city",
+    "field": "cred",
+    "from": 40,
+    "to": 35,
+    "reason": "base +35 = 35",
+    "evidence": [
+      "https://www.dailymail.com/sport/football/article-16055499/Man-City-Ayyoub-Bouaddi-transfer-Rodri-Barcelona.html",
+      "https://www.mirror.co.uk/sport/football/transfer-news/bouaddi-transfer-man-city-arsenal-37556394",
+      "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-news-bouaddi-city-34465883"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "muani-psg-crystal-palace",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 36 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "watkins-aston-villa-fenerbahce",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 36 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "williams-nott-m-forest-man-utd",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 36 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "garnacho-chelsea-aston-villa",
+    "field": "cred",
+    "from": 35,
+    "to": 15,
+    "reason": "base +15 = 15",
+    "evidence": [
+      "https://www.mirror.co.uk/sport/football/news/alejandro-garnacho-ex-mansion-villa-37555439"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "meslier-leeds-arsenal",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 19 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "darlow-leeds-man-utd",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 19 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "george-chelsea-everton",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 19 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "salah-liverpool-besiktas",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 20 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "note",
+    "from": "Liverpool's move for a 23-year-old left winger signals they are not waiting on Salah's future to reshape their attack.",
+    "to": "Liverpool have agreed to pay 90 million for a player tier 2 sources valued at half that just days earlier, suggesting PSG held firm on their asking price.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "note",
+    "from": "Spurs' silence on this one since talks began suggests City are content to keep him, or the asking price has exhausted the summer's goodwill.",
+    "to": "Spurs chasing a winger City value at 85m while running down the clock with 20 credibility suggests either serious lowball or a briefing exercise.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "garnacho-chelsea-aston-villa",
+    "field": "note",
+    "from": "Chelsea's academy winger exit confirms Villa's spending power while raising questions about Enzo Maresca's actual squad plans.",
+    "to": "Villa's willingness to pay 43 million for a winger Chelsea deemed surplus suggests Emery's recruitment still outpaces his managerial peers.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  }
+]
