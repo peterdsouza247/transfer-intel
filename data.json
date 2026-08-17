@@ -4,7 +4,7 @@
     "tagline": "believe less, know more",
     "deadline": "2026-09-01T22:00:00Z",
     "deadlineLabel": "Window closes 1 Sep, 23:00 BST",
-    "updated": "Aug 16, 2026",
+    "updated": "Aug 17, 2026",
     "site": {
       "baseUrl": "https://peterdsouza247.github.io/transfer-intel",
       "title": "TransferIntel",
@@ -1198,7 +1198,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 67,
+      "cred": 65,
       "note": "Chelsea have finally settled on a low-cost left-back solution after months of window inactivity at the position.",
       "evidence": [
         {
@@ -1284,8 +1284,8 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 45,
-      "note": "Spurs' silence on this one since talks began suggests City are content to keep him, or the asking price has exhausted the summer's goodwill.",
+      "cred": 20,
+      "note": "Spurs chasing a winger City value at 85m while running down the clock with 20 credibility suggests either serious lowball or a briefing exercise.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:savinho-man-city-tottenham",
@@ -1326,13 +1326,33 @@
           "fee_gbp_m": 60.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.football.london/tottenham-hotspur-fc/transfer-news/savinho-tottenham-transfer-man-city-34467360",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-16",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/08/16/tottenham-agree-deal-with-attacking-star-as-85m-transfer-moves-closer",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-08-16",
+          "claim": "talks",
+          "fee_gbp_m": 85.0,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-08",
+      "last_verified_at": "2026-08-16",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 55,
+      "base_cred": 15,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1674,7 +1694,7 @@
       "date": "Jul 13",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 22,
+      "cred": 21,
       "note": "Arsenal have not moved on this since low-credibility noise faded weeks ago, suggesting either a non-starter or a problem with Álvarez's wage demands.",
       "evidence": [
         {
@@ -1892,9 +1912,19 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/mikel-arteta-hails-arsenal-summer-signing-who-b1293586.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-16",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-04",
+      "last_verified_at": "2026-08-16",
       "completion_marker": "announce the signing",
       "completion_source": "Sky Sports",
       "completed_date": "2026-07-24",
@@ -1916,7 +1946,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 83,
+      "cred": 80,
       "note": "Arsenal have upgraded their midfield engine by taking Newcastle's best player, a statement of intent that proves Arteta can now compete for immediate silverware.",
       "evidence": [
         {
@@ -2911,15 +2941,15 @@
       "p": "Bradley Barcola",
       "from": "PSG",
       "to": "Liverpool",
-      "fee": 47.0,
+      "fee": 90.0,
       "age": 23,
       "pos": "LW",
       "status": "agreed",
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 53,
-      "note": "Liverpool's move for a 23-year-old left winger signals they are not waiting on Salah's future to reshape their attack.",
+      "cred": 55,
+      "note": "Liverpool have agreed to pay 90 million for a player tier 2 sources valued at half that just days earlier, suggesting PSG held firm on their asking price.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:barcola-psg-liverpool",
@@ -3600,6 +3630,56 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/liverpool-fc-transfer-news-psg-barcola-b1293594.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-16",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/breaking-liverpool-transfer-news-barcola-34468177",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-16",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/bradley-barcola-transfer-liverpool-psg-34464998",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-16",
+          "claim": "interest",
+          "fee_gbp_m": 90.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/enrique-psg-liverpool-barcola-mbaye-37558707",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-16",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/liverpool-transfer-news-barcola-mbaye-37557480",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-16",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
       "last_verified_at": "2026-08-16",
@@ -3624,7 +3704,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 40,
+      "cred": 35,
       "note": "City are exploring a teenager with minimal senior experience while their midfield depth remains unresolved heading into the season.",
       "evidence": [
         {
@@ -3676,13 +3756,23 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/maresca-man-city-transfer-plan-bouaddi-b1293589.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-16",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
       "last_verified_at": "2026-08-16",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 15,
+      "base_cred": 35,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -4818,8 +4908,8 @@
       "date": "Jul 29",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 35,
-      "note": "Chelsea's academy winger exit confirms Villa's spending power while raising questions about Enzo Maresca's actual squad plans.",
+      "cred": 15,
+      "note": "Villa's willingness to pay 43 million for a winger Chelsea deemed surplus suggests Emery's recruitment still outpaces his managerial peers.",
       "evidence": [
         {
           "url": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026",
