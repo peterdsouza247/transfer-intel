@@ -4,7 +4,7 @@
     "tagline": "believe less, know more",
     "deadline": "2026-09-01T22:00:00Z",
     "deadlineLabel": "Window closes 1 Sep, 23:00 BST",
-    "updated": "Aug 17, 2026",
+    "updated": "Aug 18, 2026",
     "site": {
       "baseUrl": "https://peterdsouza247.github.io/transfer-intel",
       "title": "TransferIntel",
@@ -308,9 +308,19 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.chroniclelive.co.uk/sport/football/football-news/newcastle-united-anthony-gordon-barcelona-34469111",
+          "source": "chroniclelive.co.uk",
+          "tier": 2,
+          "date": "2026-08-17",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-12",
+      "last_verified_at": "2026-08-17",
       "completion_marker": "hand-verified at migration, no fetchable source",
       "completion_source": "Sky Sports",
       "completed_date": "2026-06-28",
@@ -1198,7 +1208,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 65,
+      "cred": 62,
       "note": "Chelsea have finally settled on a low-cost left-back solution after months of window inactivity at the position.",
       "evidence": [
         {
@@ -1284,7 +1294,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 20,
+      "cred": 15,
       "note": "Spurs chasing a winger City value at 85m while running down the clock with 20 credibility suggests either serious lowball or a briefing exercise.",
       "evidence": [
         {
@@ -1694,7 +1704,7 @@
       "date": "Jul 13",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 21,
+      "cred": 20,
       "note": "Arsenal have not moved on this since low-credibility noise faded weeks ago, suggesting either a non-starter or a problem with Álvarez's wage demands.",
       "evidence": [
         {
@@ -1946,8 +1956,8 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 80,
-      "note": "Arsenal have upgraded their midfield engine by taking Newcastle's best player, a statement of intent that proves Arteta can now compete for immediate silverware.",
+      "cred": 68,
+      "note": "Arsenal's midfield ambitions finally materialized in late summer, ending months of pursuit with Newcastle's reluctant sale of their captain and best player.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:guimaraes-newcastle-arsenal",
@@ -2888,13 +2898,23 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.chroniclelive.co.uk/sport/football/football-news/bruno-guimaraes-arsenal-newcastle-update-34472958",
+          "source": "chroniclelive.co.uk",
+          "tier": 2,
+          "date": "2026-08-17",
+          "claim": "completed",
+          "fee_gbp_m": 75.0,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-11",
+      "last_verified_at": "2026-08-17",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 90,
+      "base_cred": 80,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -2948,8 +2968,8 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 55,
-      "note": "Liverpool have agreed to pay 90 million for a player tier 2 sources valued at half that just days earlier, suggesting PSG held firm on their asking price.",
+      "cred": 65,
+      "note": "Liverpool paid the full 90 million PSG demanded, abandoning the lower valuations tier 2 sources cited just days earlier.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:barcola-psg-liverpool",
@@ -3680,13 +3700,73 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/liverpool-fc-transfer-update-barcola-mbaye-latest-b1293627.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-17",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-transfer-news-latest-mbaye-34474171",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-17",
+          "claim": "agreed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/liverpool-transfer-latest-ibrahim-mbaye-37562368",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-17",
+          "claim": "agreed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/08/17/agreement-expected-as-liverpool-push-to-submit-new-offer-for-20-g-a-sensation",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-08-17",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/08/17/23-year-old-liverpool-target-agrees-personal-terms-as-euro-giants-drop-asking-price",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-08-17",
+          "claim": "agreed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/news/liverpool-psg-bradley-barcola-transfer-37561510",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-18",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-16",
+      "last_verified_at": "2026-08-18",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 55,
+      "base_cred": 65,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -3704,8 +3784,8 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 35,
-      "note": "City are exploring a teenager with minimal senior experience while their midfield depth remains unresolved heading into the season.",
+      "cred": 45,
+      "note": "City's midfield rebuild is pivoting toward raw potential over immediate solutions, a gamble that suggests limited progress on established targets.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:bouaddi-lille-man-city",
@@ -3766,13 +3846,23 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/man-city-transfer-news-bouaddi-rodri-b1293655.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-17",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-16",
+      "last_verified_at": "2026-08-17",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 35,
+      "base_cred": 45,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -3826,8 +3916,8 @@
       "date": "Jul 12",
       "tier": 3,
       "src": "Turkish press",
-      "cred": 2,
-      "note": "Personal terms 'agreed' per Turkey; if he were truly available at £35m there'd be a queue.",
+      "cred": 14,
+      "note": "Villa would laugh at 35m for a 30-year-old striker who scored 19 league goals last season and has three years left on his deal.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:watkins-aston-villa-fenerbahce",
@@ -3838,13 +3928,23 @@
           "fee_gbp_m": 35.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.birminghammail.co.uk/sport/football/transfer-news/ollie-watkins-transfer-latest-saudi-34471567",
+          "source": "birminghammail.co.uk",
+          "tier": 2,
+          "date": "2026-08-17",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-12",
+      "last_verified_at": "2026-08-17",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 5,
+      "base_cred": 35,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
