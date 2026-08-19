@@ -4,7 +4,7 @@
     "tagline": "believe less, know more",
     "deadline": "2026-09-01T22:00:00Z",
     "deadlineLabel": "Window closes 1 Sep, 23:00 BST",
-    "updated": "Aug 18, 2026",
+    "updated": "Aug 19, 2026",
     "site": {
       "baseUrl": "https://peterdsouza247.github.io/transfer-intel",
       "title": "TransferIntel",
@@ -318,9 +318,19 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.chroniclelive.co.uk/sport/football/football-news/anthony-gordon-barcelona-shirt-number-34475537",
+          "source": "chroniclelive.co.uk",
+          "tier": 2,
+          "date": "2026-08-18",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": "completes move",
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-17",
+      "last_verified_at": "2026-08-18",
       "completion_marker": "hand-verified at migration, no fetchable source",
       "completion_source": "Sky Sports",
       "completed_date": "2026-06-28",
@@ -1208,7 +1218,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 62,
+      "cred": 60,
       "note": "Chelsea have finally settled on a low-cost left-back solution after months of window inactivity at the position.",
       "evidence": [
         {
@@ -1294,8 +1304,8 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 15,
-      "note": "Spurs chasing a winger City value at 85m while running down the clock with 20 credibility suggests either serious lowball or a briefing exercise.",
+      "cred": 40,
+      "note": "City's asking price has fallen from 85m to 60m in two weeks, suggesting either Spurs' persistence or a clearer exit path than existed before.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:savinho-man-city-tottenham",
@@ -1356,13 +1366,33 @@
           "fee_gbp_m": 85.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/tottenham-transfer-news-savinho-latest-b1293822.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-18",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/tottenham-hotspur-fc/transfer-news/tottenham-transfer-news-live-savinho-34474637",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-18",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-16",
+      "last_verified_at": "2026-08-18",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 15,
+      "base_cred": 45,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1704,7 +1734,7 @@
       "date": "Jul 13",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 20,
+      "cred": 27,
       "note": "Arsenal have not moved on this since low-credibility noise faded weeks ago, suggesting either a non-starter or a problem with Álvarez's wage demands.",
       "evidence": [
         {
@@ -1776,13 +1806,53 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/arsenal-fc-transfer-news-alvarez-atletico-fc-barcelona-b1293796.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-18",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/julian-alvarez-arsenal-transfer-simeone-34476589",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-18",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/news/julian-alvarez-arsenal-transfer-simeone-37564313",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-18",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/08/18/mikel-arteta-calls-29-g-a-phenomenon-to-convince-him-over-arsenal-transfer",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-08-18",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-10",
+      "last_verified_at": "2026-08-18",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 25,
+      "base_cred": 35,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1956,8 +2026,8 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 68,
-      "note": "Arsenal's midfield ambitions finally materialized in late summer, ending months of pursuit with Newcastle's reluctant sale of their captain and best player.",
+      "cred": 80,
+      "note": "Arsenal's midfield finally secured its long-term anchor, prying Newcastle's captain away for 75 million after years of interest.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:guimaraes-newcastle-arsenal",
@@ -3760,9 +3830,49 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/liverpool-fc-barcola-transfer-news-mbaye-b1293804.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-18",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/liverpool-fc-transfer-news-barcola-mbaye-b1293749.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-18",
+          "claim": "agreed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-psg-bradley-barcola-transfer-34473754",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-18",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/news/liverpool-barcola-transfer-rio-ngumoha-37564982",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-19",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-18",
+      "last_verified_at": "2026-08-19",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
@@ -3916,8 +4026,8 @@
       "date": "Jul 12",
       "tier": 3,
       "src": "Turkish press",
-      "cred": 14,
-      "note": "Villa would laugh at 35m for a 30-year-old striker who scored 19 league goals last season and has three years left on his deal.",
+      "cred": 35,
+      "note": "A 30-year-old striker with 19 league goals last season has no business in Turkey regardless of fee, and Villa know it.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:watkins-aston-villa-fenerbahce",
@@ -5008,8 +5118,8 @@
       "date": "Jul 29",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 15,
-      "note": "Villa's willingness to pay 43 million for a winger Chelsea deemed surplus suggests Emery's recruitment still outpaces his managerial peers.",
+      "cred": 40,
+      "note": "Villa paid 43 million for a winger Chelsea couldn't fit in, exposing the gap between Emery's ambition and the squad he inherited.",
       "evidence": [
         {
           "url": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026",
@@ -5116,7 +5226,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 15,
+      "base_cred": 70,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
