@@ -4,7 +4,7 @@
     "tagline": "believe less, know more",
     "deadline": "2026-09-01T22:00:00Z",
     "deadlineLabel": "Window closes 1 Sep, 23:00 BST",
-    "updated": "Aug 19, 2026",
+    "updated": "Aug 20, 2026",
     "site": {
       "baseUrl": "https://peterdsouza247.github.io/transfer-intel",
       "title": "TransferIntel",
@@ -1218,7 +1218,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 60,
+      "cred": 57,
       "note": "Chelsea have finally settled on a low-cost left-back solution after months of window inactivity at the position.",
       "evidence": [
         {
@@ -1304,8 +1304,8 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 40,
-      "note": "City's asking price has fallen from 85m to 60m in two weeks, suggesting either Spurs' persistence or a clearer exit path than existed before.",
+      "cred": 65,
+      "note": "Spurs are testing City's resolve on a winger they've already loaned out twice, banking on Guardiola's patience wearing thin.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:savinho-man-city-tottenham",
@@ -1386,13 +1386,43 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.skysports.com/football/news/12040/13574823/tottenham-transfer-news-spurs-target-man-city-duo-savinho-and-marmoush-as-search-for-three-new-forwards-gathers-pace",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-08-19",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://talksport.com/football/4524532/tottenham-man-city-transfer-savinho-omar-marmoush",
+          "source": "talksport.com",
+          "tier": 2,
+          "date": "2026-08-19",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/08/19/tottenham-savinho-omar-marmoush-man-city-transfer",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-08-19",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-18",
+      "last_verified_at": "2026-08-19",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 45,
+      "base_cred": 75,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1734,8 +1764,8 @@
       "date": "Jul 13",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 27,
-      "note": "Arsenal have not moved on this since low-credibility noise faded weeks ago, suggesting either a non-starter or a problem with Álvarez's wage demands.",
+      "cred": 35,
+      "note": "Evening Standard's repeated interest claims lack corroboration from higher-tier sources, suggesting Arsenal coverage rather than genuine deal momentum.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:alvarez-atletico-madrid-arsenal",
@@ -1846,9 +1876,29 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/arsenal-fc-transfer-news-alvarez-squad-today-b1293970.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-19",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/arsenal-fc-transfer-news-alvarez-b1293939.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-19",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-18",
+      "last_verified_at": "2026-08-19",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
@@ -3031,7 +3081,7 @@
       "p": "Bradley Barcola",
       "from": "PSG",
       "to": "Liverpool",
-      "fee": 90.0,
+      "fee": 140.0,
       "age": 23,
       "pos": "LW",
       "status": "agreed",
@@ -3039,7 +3089,7 @@
       "tier": 2,
       "src": "Football365",
       "cred": 65,
-      "note": "Liverpool paid the full 90 million PSG demanded, abandoning the lower valuations tier 2 sources cited just days earlier.",
+      "note": "Liverpool's pursuit of PSG's left winger signals intent to finally upgrade a position that has been a weakness since Salah moved inside.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:barcola-psg-liverpool",
@@ -3870,9 +3920,39 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/bradley-barcola-liverpool-transfer-salah-34486279",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-19",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-barcola-transfer-rio-nguomha-34479364",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-19",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/psgs-bradley-barcola-transfer-demand-34485103",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-20",
+          "claim": "talks",
+          "fee_gbp_m": 140.0,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-19",
+      "last_verified_at": "2026-08-20",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
@@ -4120,9 +4200,19 @@
           "fee_gbp_m": 34.9,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/man-utd-ederson-medical-failed-37571309",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-19",
+          "claim": "collapsed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-10",
+      "last_verified_at": "2026-08-19",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
@@ -5094,9 +5184,29 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/what-jose-mourinho-told-vinicius-34482168",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-19",
+          "claim": "collapsed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://metro.co.uk/2026/08/19/jose-mourinho-reveals-said-vinicius-junior-convince-snub-arsenal-29411530",
+          "source": "metro.co.uk",
+          "tier": 3,
+          "date": "2026-08-19",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-12",
+      "last_verified_at": "2026-08-19",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
@@ -5118,8 +5228,8 @@
       "date": "Jul 29",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 40,
-      "note": "Villa paid 43 million for a winger Chelsea couldn't fit in, exposing the gap between Emery's ambition and the squad he inherited.",
+      "cred": 65,
+      "note": "Garnacho's move completes Villa's overhaul of the left flank, but Chelsea's willingness to sell raises questions about his long-term ceiling.",
       "evidence": [
         {
           "url": "https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026",
