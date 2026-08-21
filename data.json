@@ -4,7 +4,7 @@
     "tagline": "believe less, know more",
     "deadline": "2026-09-01T22:00:00Z",
     "deadlineLabel": "Window closes 1 Sep, 23:00 BST",
-    "updated": "Aug 20, 2026",
+    "updated": "Aug 21, 2026",
     "site": {
       "baseUrl": "https://peterdsouza247.github.io/transfer-intel",
       "title": "TransferIntel",
@@ -1218,7 +1218,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 57,
+      "cred": 55,
       "note": "Chelsea have finally settled on a low-cost left-back solution after months of window inactivity at the position.",
       "evidence": [
         {
@@ -1304,8 +1304,8 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 65,
-      "note": "Spurs are testing City's resolve on a winger they've already loaned out twice, banking on Guardiola's patience wearing thin.",
+      "cred": 75,
+      "note": "Spurs are circling a City winger stuck in loans limbo, testing whether Guardiola will finally cut loose after two seasons away.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:savinho-man-city-tottenham",
@@ -1416,9 +1416,19 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/08/21/savinho-tottenham-deal-update",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-08-21",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-19",
+      "last_verified_at": "2026-08-21",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
@@ -1896,9 +1906,39 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/arsenal-fc-transfer-news-julian-alvarez-boost-b1294080.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-20",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-atletico-madrid-julian-alvarez-34493801",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-20",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/atletico-madrid-julian-alvarez-arsenal-37576062",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-20",
+          "claim": "agreed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-19",
+      "last_verified_at": "2026-08-20",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
@@ -2076,8 +2116,8 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 80,
-      "note": "Arsenal's midfield finally secured its long-term anchor, prying Newcastle's captain away for 75 million after years of interest.",
+      "cred": 55,
+      "note": "Arsenal paid premier league prices for a 28-year-old midfielder when depth and youth were supposed to be the window's theme.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:guimaraes-newcastle-arsenal",
@@ -3028,13 +3068,23 @@
           "fee_gbp_m": 75.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-16066949/Bruno-Guimaraes-Arsenal-Newcastle-Craig-Hope.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-08-20",
+          "claim": "completed",
+          "fee_gbp_m": 75.0,
+          "marker": "has signed",
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-17",
+      "last_verified_at": "2026-08-20",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 80,
+      "base_cred": 15,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -3950,6 +4000,16 @@
           "fee_gbp_m": 140.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/liverpool-fc-transfer-news-barcola-minteh-b1294129.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-20",
+          "claim": "interest",
+          "fee_gbp_m": 50.0,
+          "marker": null,
+          "official": false
         }
       ],
       "last_verified_at": "2026-08-20",
@@ -3974,8 +4034,8 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 45,
-      "note": "City's midfield rebuild is pivoting toward raw potential over immediate solutions, a gamble that suggests limited progress on established targets.",
+      "cred": 53,
+      "note": "City's silence on Bouaddi since initial contact suggests they've moved priority elsewhere, or Lille's asking price has stalled what looked like a straightforward academy raid.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:bouaddi-lille-man-city",
@@ -4052,7 +4112,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 45,
+      "base_cred": 55,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -4106,8 +4166,8 @@
       "date": "Jul 12",
       "tier": 3,
       "src": "Turkish press",
-      "cred": 35,
-      "note": "A 30-year-old striker with 19 league goals last season has no business in Turkey regardless of fee, and Villa know it.",
+      "cred": 24,
+      "note": "Deal has cooled entirely; Watkins staying put suggests Villa rejected Turkish interest as beneath their valuation and ambition.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:watkins-aston-villa-fenerbahce",
@@ -4134,7 +4194,7 @@
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 35,
+      "base_cred": 25,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -5228,7 +5288,7 @@
       "date": "Jul 29",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 65,
+      "cred": 62,
       "note": "Garnacho's move completes Villa's overhaul of the left flank, but Chelsea's willingness to sell raises questions about his long-term ceiling.",
       "evidence": [
         {

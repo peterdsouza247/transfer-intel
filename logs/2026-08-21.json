@@ -1,0 +1,308 @@
+[
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "toure-hoffenheim-newcastle",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 41 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "vuskovic-tottenham-brighton",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 30 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "manzambi-freiburg-aston-villa",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 19 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "greenwood-marseille-fenerbahce",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 40 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "trossard-arsenal-besiktas",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 30 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "chavarria-rayo-vallecano-chelsea",
+    "field": "cred",
+    "from": 57,
+    "to": 55,
+    "reason": "base +45, stage +25 = 70, decayed to 55 after 9 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "last_verified_at",
+    "from": "2026-08-19",
+    "to": "2026-08-21",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.standard.co.uk/sport/football/tottenham-transfer-news-savinho-latest-b1293822.html",
+      "https://www.football.london/tottenham-hotspur-fc/transfer-news/tottenham-transfer-news-live-savinho-34474637"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "cred",
+    "from": 65,
+    "to": 75,
+    "reason": "base +55, corroboration +10, stage +10 = 75",
+    "evidence": [
+      "https://www.standard.co.uk/sport/football/tottenham-transfer-news-savinho-latest-b1293822.html",
+      "https://www.football.london/tottenham-hotspur-fc/transfer-news/tottenham-transfer-news-live-savinho-34474637",
+      "https://www.skysports.com/football/news/12040/13574823/tottenham-transfer-news-spurs-target-man-city-duo-savinho-and-marmoush-as-search-for-three-new-forwards-gathers-pace"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 21 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "rodriguez-elche-bournemouth",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 36 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "alvarez-atletico-madrid-arsenal",
+    "field": "last_verified_at",
+    "from": "2026-08-19",
+    "to": "2026-08-20",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.standard.co.uk/sport/football/arsenal-fc-transfer-news-alvarez-atletico-fc-barcelona-b1293796.html",
+      "https://www.football.london/arsenal-fc/transfer-news/julian-alvarez-arsenal-transfer-simeone-34476589"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "last_verified_at",
+    "from": "2026-08-17",
+    "to": "2026-08-20",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.dailymail.com/sport/football/article-16066949/Bruno-Guimaraes-Arsenal-Newcastle-Craig-Hope.html"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "base_cred",
+    "from": 80,
+    "to": 15,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.dailymail.com/sport/football/article-16066949/Bruno-Guimaraes-Arsenal-Newcastle-Craig-Hope.html"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "cred",
+    "from": 80,
+    "to": 55,
+    "reason": "base +15 = 15, decayed to 55 after 4 days without movement, capped to a 25 point move",
+    "evidence": [
+      "https://www.dailymail.com/sport/football/article-16066949/Bruno-Guimaraes-Arsenal-Newcastle-Craig-Hope.html"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "bouaddi-lille-man-city",
+    "field": "base_cred",
+    "from": 45,
+    "to": 55,
+    "reason": "credibility before silence decay",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "bouaddi-lille-man-city",
+    "field": "cred",
+    "from": 45,
+    "to": 53,
+    "reason": "base +45, stage +10 = 55, decayed to 53 after 4 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "muani-psg-crystal-palace",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 40 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "watkins-aston-villa-fenerbahce",
+    "field": "base_cred",
+    "from": 35,
+    "to": 25,
+    "reason": "credibility before silence decay",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "watkins-aston-villa-fenerbahce",
+    "field": "cred",
+    "from": 35,
+    "to": 24,
+    "reason": "base +25 = 25, decayed to 24 after 4 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "williams-nott-m-forest-man-utd",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 40 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "garnacho-chelsea-aston-villa",
+    "field": "cred",
+    "from": 65,
+    "to": 62,
+    "reason": "base +25, stage +45 = 70, decayed to 62 after 6 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "meslier-leeds-arsenal",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 23 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "darlow-leeds-man-utd",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 23 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "george-chelsea-everton",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 23 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "salah-liverpool-besiktas",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 24 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "note",
+    "from": "Arsenal's midfield finally secured its long-term anchor, prying Newcastle's captain away for 75 million after years of interest.",
+    "to": "Arsenal paid premier league prices for a 28-year-old midfielder when depth and youth were supposed to be the window's theme.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "note",
+    "from": "Spurs are testing City's resolve on a winger they've already loaned out twice, banking on Guardiola's patience wearing thin.",
+    "to": "Spurs are circling a City winger stuck in loans limbo, testing whether Guardiola will finally cut loose after two seasons away.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "bouaddi-lille-man-city",
+    "field": "note",
+    "from": "City's midfield rebuild is pivoting toward raw potential over immediate solutions, a gamble that suggests limited progress on established targets.",
+    "to": "City's silence on Bouaddi since initial contact suggests they've moved priority elsewhere, or Lille's asking price has stalled what looked like a straightforward academy raid.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "watkins-aston-villa-fenerbahce",
+    "field": "note",
+    "from": "A 30-year-old striker with 19 league goals last season has no business in Turkey regardless of fee, and Villa know it.",
+    "to": "Deal has cooled entirely; Watkins staying put suggests Villa rejected Turkish interest as beneath their valuation and ambition.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  }
+]
