@@ -4,7 +4,7 @@
     "tagline": "believe less, know more",
     "deadline": "2026-09-01T22:00:00Z",
     "deadlineLabel": "Window closes 1 Sep, 23:00 BST",
-    "updated": "Aug 21, 2026",
+    "updated": "Aug 22, 2026",
     "site": {
       "baseUrl": "https://peterdsouza247.github.io/transfer-intel",
       "title": "TransferIntel",
@@ -1218,7 +1218,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 55,
+      "cred": 52,
       "note": "Chelsea have finally settled on a low-cost left-back solution after months of window inactivity at the position.",
       "evidence": [
         {
@@ -1297,15 +1297,15 @@
       "p": "Savinho",
       "from": "Man City",
       "to": "Tottenham",
-      "fee": 60.0,
+      "fee": 75.0,
       "age": 22,
       "pos": "RW",
-      "status": "talks",
+      "status": "collapsed",
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 75,
-      "note": "Spurs are circling a City winger stuck in loans limbo, testing whether Guardiola will finally cut loose after two seasons away.",
+      "cred": 0,
+      "note": "Tier 1 sources diverged sharply on August 21st, with BBC claiming agreement while Manchester Evening News reported collapse, leaving the deal's true status unclear.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:savinho-man-city-tottenham",
@@ -1426,13 +1426,93 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.bbc.co.uk/sport/football/articles/cwyl0r8g4lwo",
+          "source": "BBC Sport",
+          "tier": 1,
+          "date": "2026-08-21",
+          "claim": "agreed",
+          "fee_gbp_m": 75.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.theguardian.com/football/2026/aug/21/tottenham-hotspur-close-on-deals-for-manchester-city-savinho-omar-marmoush",
+          "source": "The Guardian",
+          "tier": 2,
+          "date": "2026-08-21",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.manchestereveningnews.co.uk/sport/football/football-news/enzo-maresca-gives-omar-marmoush-34497549",
+          "source": "manchestereveningnews.co.uk",
+          "tier": 2,
+          "date": "2026-08-21",
+          "claim": "collapsed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/tottenham-transfer-news-savinho-marmoush-gakpo-b1294167.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-21",
+          "claim": "medical",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/savinho-tottenham-debut-when-b1294166.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-21",
+          "claim": "completed",
+          "fee_gbp_m": 85.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.independent.co.uk/sport/football/savinho-tottenham-man-city-transfer-news-marmoush-b3036918.html",
+          "source": "The Independent",
+          "tier": 2,
+          "date": "2026-08-21",
+          "claim": "agreed",
+          "fee_gbp_m": 85.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-16070419/Roberto-Zerbi-Tottenham-transfer-news-Premier-League.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-08-21",
+          "claim": "agreed",
+          "fee_gbp_m": 85.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-16069135/Tottenham-finally-agree-75m-deal-Savinho-one-year-initial-bid-Man-City-winger-taking-Spurs-summer-spend-past-300M.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-08-21",
+          "claim": "agreed",
+          "fee_gbp_m": 85.0,
+          "marker": null,
+          "official": false
         }
       ],
       "last_verified_at": "2026-08-21",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 75,
+      "base_cred": 0,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -1774,8 +1854,8 @@
       "date": "Jul 13",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 35,
-      "note": "Evening Standard's repeated interest claims lack corroboration from higher-tier sources, suggesting Arsenal coverage rather than genuine deal momentum.",
+      "cred": 60,
+      "note": "Sky Sports backing the interest narrative this week elevates the story beyond Evening Standard repetition, but a hundred million for a striker Arsenal already have alternatives for remains structurally unlikely.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:alvarez-atletico-madrid-arsenal",
@@ -1936,13 +2016,63 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.skysports.com/football/news/12040/13575656/arsenal-transfer-news-atletico-madrid-finally-shift-julian-alvarez-position-and-now-willing-to-sell-striker-to-the-gunners-paper-talk",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-08-21",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.skysports.com/football/news/12040/13575645/arsenal-transfer-news-julian-alvarez-would-add-magic-to-gunners-frontline-says-gary-neville-as-he-urges-them-to-sign-atletico-madrid-striker",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-08-21",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/arsenal-fc-transfer-prediction-alvarez-neville-b1294283.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-21",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://metro.co.uk/2026/08/21/atletico-madrid-send-message-julian-alvarez-arsenal-transfer-approach-29433547",
+          "source": "metro.co.uk",
+          "tier": 3,
+          "date": "2026-08-21",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/08/21/arsenal-have-made-contact-to-sign-20-goal-ace-direct-meeting-held-in-london",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-08-21",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-20",
+      "last_verified_at": "2026-08-21",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 35,
+      "base_cred": 60,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -2116,8 +2246,8 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 55,
-      "note": "Arsenal paid premier league prices for a 28-year-old midfielder when depth and youth were supposed to be the window's theme.",
+      "cred": 30,
+      "note": "Arsenal overpaid for a 28-year-old midfielder when their stated priority was building depth on the cheap.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:guimaraes-newcastle-arsenal",
@@ -3138,8 +3268,8 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 65,
-      "note": "Liverpool's pursuit of PSG's left winger signals intent to finally upgrade a position that has been a weakness since Salah moved inside.",
+      "cred": 50,
+      "note": "Liverpool's willingness to spend 140m on a left winger suggests they've accepted that Salah's best years are behind him offensively.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:barcola-psg-liverpool",
@@ -4010,13 +4140,23 @@
           "fee_gbp_m": 50.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/transfer-news/liverpool-transfer-news-bradley-barcola-34496977",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-21",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-20",
+      "last_verified_at": "2026-08-21",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 65,
+      "base_cred": 50,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -4034,7 +4174,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 53,
+      "cred": 51,
       "note": "City's silence on Bouaddi since initial contact suggests they've moved priority elsewhere, or Lille's asking price has stalled what looked like a straightforward academy raid.",
       "evidence": [
         {
@@ -4166,8 +4306,8 @@
       "date": "Jul 12",
       "tier": 3,
       "src": "Turkish press",
-      "cred": 24,
-      "note": "Deal has cooled entirely; Watkins staying put suggests Villa rejected Turkish interest as beneath their valuation and ambition.",
+      "cred": 49,
+      "note": "Fenerbahçe's late-window pursuit of a 30-year-old striker suggests they are scrambling for depth rather than a marquee signing.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:watkins-aston-villa-fenerbahce",
@@ -4188,13 +4328,33 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.bbc.co.uk/sport/football/articles/c9v4wj07e8eo",
+          "source": "BBC Sport",
+          "tier": 1,
+          "date": "2026-08-21",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.independent.co.uk/sport/football/ollie-watkins-emi-martinez-unai-emery-aston-villa-b3037195.html",
+          "source": "The Independent",
+          "tier": 2,
+          "date": "2026-08-21",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-17",
+      "last_verified_at": "2026-08-21",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 25,
+      "base_cred": 60,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -5288,7 +5448,7 @@
       "date": "Jul 29",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 62,
+      "cred": 60,
       "note": "Garnacho's move completes Villa's overhaul of the left flank, but Chelsea's willingness to sell raises questions about his long-term ceiling.",
       "evidence": [
         {
