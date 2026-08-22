@@ -126,13 +126,13 @@
   },
   "chavarria-rayo-vallecano-chelsea": {
     "status": "agreed",
-    "cred": 55,
+    "cred": 52,
     "fee": 16.0
   },
   "savinho-man-city-tottenham": {
-    "status": "talks",
-    "cred": 75,
-    "fee": 60.0
+    "status": "collapsed",
+    "cred": 0,
+    "fee": 75.0
   },
   "kroupi-bournemouth-tottenham": {
     "status": "collapsed",
@@ -156,7 +156,7 @@
   },
   "alvarez-atletico-madrid-arsenal": {
     "status": "rumor",
-    "cred": 35,
+    "cred": 60,
     "fee": 100.0
   },
   "tzolis-club-brugge-arsenal": {
@@ -166,7 +166,7 @@
   },
   "guimaraes-newcastle-arsenal": {
     "status": "confirmed",
-    "cred": 55,
+    "cred": 30,
     "fee": 75.0
   },
   "gomes-wolves-man-utd": {
@@ -176,12 +176,12 @@
   },
   "barcola-psg-liverpool": {
     "status": "agreed",
-    "cred": 65,
+    "cred": 50,
     "fee": 140.0
   },
   "bouaddi-lille-man-city": {
     "status": "talks",
-    "cred": 53,
+    "cred": 51,
     "fee": 40.0
   },
   "muani-psg-crystal-palace": {
@@ -191,7 +191,7 @@
   },
   "watkins-aston-villa-fenerbahce": {
     "status": "rumor",
-    "cred": 24,
+    "cred": 49,
     "fee": 35.0
   },
   "williams-nott-m-forest-man-utd": {
@@ -251,7 +251,7 @@
   },
   "garnacho-chelsea-aston-villa": {
     "status": "confirmed",
-    "cred": 62,
+    "cred": 60,
     "fee": 43.0
   },
   "meslier-leeds-arsenal": {
