@@ -1,0 +1,339 @@
+[
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "gordon-newcastle-barcelona",
+    "field": "last_verified_at",
+    "from": "2026-08-18",
+    "to": "2026-08-24",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.chroniclelive.co.uk/sport/football/transfer-news/newcastle-united-anthony-gordon-barcelona-34507752"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "toure-hoffenheim-newcastle",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 45 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "vuskovic-tottenham-brighton",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 34 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "manzambi-freiburg-aston-villa",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 23 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "greenwood-marseille-fenerbahce",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 44 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "trossard-arsenal-besiktas",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 34 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "chavarria-rayo-vallecano-chelsea",
+    "field": "cred",
+    "from": 47,
+    "to": 45,
+    "reason": "base +45, stage +25 = 70, decayed to 45 after 13 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "fee",
+    "from": 75.0,
+    "to": 85.0,
+    "reason": "The Independent reports the fee",
+    "evidence": [
+      "https://www.independent.co.uk/sport/football/omar-marsmouh-savinho-man-city-tottenham-transfer-b3037738.html"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 25 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "rodriguez-elche-bournemouth",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 40 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "alvarez-atletico-madrid-arsenal",
+    "field": "last_verified_at",
+    "from": "2026-08-24",
+    "to": "2026-08-25",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://talksport.com/football/4530614/arsenal-julian-alvarez-atletico-madrid-transfer-latest",
+      "https://www.standard.co.uk/sport/football/arsenal-fc-alvarez-transfer-latest-arteta-talks-b1294314.html"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "alvarez-atletico-madrid-arsenal",
+    "field": "base_cred",
+    "from": 80,
+    "to": 60,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://talksport.com/football/4530614/arsenal-julian-alvarez-atletico-madrid-transfer-latest"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "alvarez-atletico-madrid-arsenal",
+    "field": "cred",
+    "from": 80,
+    "to": 60,
+    "reason": "base +35, corroboration +15, stage +10 = 60",
+    "evidence": [
+      "https://talksport.com/football/4530614/arsenal-julian-alvarez-atletico-madrid-transfer-latest",
+      "https://www.standard.co.uk/sport/football/arsenal-fc-alvarez-transfer-latest-arteta-talks-b1294314.html",
+      "https://www.standard.co.uk/sport/football/arsenal-fc-julian-alvarez-transfer-news-atletico-b1294299.html"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "cred",
+    "from": 40,
+    "to": 65,
+    "reason": "base +45, stage +45 = 90, decayed to 65 after 5 days without movement, capped to a 25 point move",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "base_cred",
+    "from": 45,
+    "to": 35,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.liverpoolecho.co.uk/sport/football/transfer-news/bradley-barcola-liverpool-transfer-update-34502198"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "cred",
+    "from": 45,
+    "to": 35,
+    "reason": "base +35 = 35",
+    "evidence": [
+      "https://www.liverpoolecho.co.uk/sport/football/transfer-news/bradley-barcola-liverpool-transfer-update-34502198",
+      "https://www.liverpoolecho.co.uk/sport/football/transfer-news/bradley-barcola-liverpool-psg-transfer-34495649",
+      "https://www.mirror.co.uk/sport/football/news/liverpool-bradley-barcola-psg-transfer-37583666"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "bouaddi-lille-man-city",
+    "field": "cred",
+    "from": 51,
+    "to": 60,
+    "reason": "base +35, stage +25 = 60",
+    "evidence": [
+      "https://www.independent.co.uk/sport/football/ayyoub-bouaddi-man-city-transfer-fee-latest-b3037751.html"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "muani-psg-crystal-palace",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 44 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "watkins-aston-villa-fenerbahce",
+    "field": "last_verified_at",
+    "from": "2026-08-21",
+    "to": "2026-08-24",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.bbc.co.uk/sport/football/articles/cq63ry9q6jzo"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "watkins-aston-villa-fenerbahce",
+    "field": "base_cred",
+    "from": 60,
+    "to": 55,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.bbc.co.uk/sport/football/articles/cq63ry9q6jzo"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "watkins-aston-villa-fenerbahce",
+    "field": "cred",
+    "from": 60,
+    "to": 53,
+    "reason": "base +55 = 55, decayed to 53 after 4 days without movement",
+    "evidence": [
+      "https://www.bbc.co.uk/sport/football/articles/cq63ry9q6jzo"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "williams-nott-m-forest-man-utd",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 44 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "meslier-leeds-arsenal",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 27 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "darlow-leeds-man-utd",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 27 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "george-chelsea-everton",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 27 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "salah-liverpool-besiktas",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 28 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "alvarez-atletico-madrid-arsenal",
+    "field": "note",
+    "from": "Arsenal pursuing a proven finisher at a premium price suggests frustration with their attacking depth rather than confidence in existing options.",
+    "to": "Arsenal testing Atl\u00e9tico's resolve on a player they value heavily, with fee noise ranging from 85m to 130m suggesting neither side has anchored yet.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "bouaddi-lille-man-city",
+    "field": "note",
+    "from": "City's willingness to spend 84 million on an eighteen-year-old midfielder signals deep concern about Rodri's injury layoff and midfield depth going forward.",
+    "to": "City's bet on an eighteen-year-old midfielder at Rodri's replacement price reveals how serious the Rodri injury threat has become.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "note",
+    "from": "Liverpool's willingness to spend 140m on a left winger suggests they've accepted that Salah's best years are behind him offensively.",
+    "to": "Liverpool's low-tier sources claiming a deal is agreed, while mid-tier outlets report only interest, suggest confusion rather than imminent completion.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "note",
+    "from": "Arsenal paid elite fees for a 28-year-old midfielder when their window strategy had emphasized budget efficiency and youth development.",
+    "to": "Arsenal's midfield rebuild now costs 75m for a player Newcastle signed for 40m two years ago, a premium that reflects desperation more than value.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "note",
+    "from": "The source chaos, from BBC's 75m agreed to Evening Standard's 85m completed, reflects either a genuine collapse or reporting breakdown at the deal's critical moment.",
+    "to": "City's asking price always exceeded what Tottenham were willing to pay, and the gap never closed despite weeks of negotiation.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  }
+]
