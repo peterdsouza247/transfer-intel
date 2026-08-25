@@ -4,7 +4,7 @@
     "tagline": "believe less, know more",
     "deadline": "2026-09-01T22:00:00Z",
     "deadlineLabel": "Window closes 1 Sep, 23:00 BST",
-    "updated": "Aug 24, 2026",
+    "updated": "Aug 25, 2026",
     "site": {
       "baseUrl": "https://peterdsouza247.github.io/transfer-intel",
       "title": "TransferIntel",
@@ -328,9 +328,19 @@
           "fee_gbp_m": null,
           "marker": "completes move",
           "official": false
+        },
+        {
+          "url": "https://www.chroniclelive.co.uk/sport/football/transfer-news/newcastle-united-anthony-gordon-barcelona-34507752",
+          "source": "chroniclelive.co.uk",
+          "tier": 2,
+          "date": "2026-08-24",
+          "claim": "completed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-18",
+      "last_verified_at": "2026-08-24",
       "completion_marker": "hand-verified at migration, no fetchable source",
       "completion_source": "Sky Sports",
       "completed_date": "2026-06-28",
@@ -1218,7 +1228,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 47,
+      "cred": 45,
       "note": "Chelsea have finally settled on a low-cost left-back solution after months of window inactivity at the position.",
       "evidence": [
         {
@@ -1297,7 +1307,7 @@
       "p": "Savinho",
       "from": "Man City",
       "to": "Tottenham",
-      "fee": 75.0,
+      "fee": 85.0,
       "age": 22,
       "pos": "RW",
       "status": "collapsed",
@@ -1305,7 +1315,7 @@
       "tier": 1,
       "src": "Romano",
       "cred": 0,
-      "note": "The source chaos, from BBC's 75m agreed to Evening Standard's 85m completed, reflects either a genuine collapse or reporting breakdown at the deal's critical moment.",
+      "note": "City's asking price always exceeded what Tottenham were willing to pay, and the gap never closed despite weeks of negotiation.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:savinho-man-city-tottenham",
@@ -1864,8 +1874,8 @@
       "date": "Jul 13",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 80,
-      "note": "Arsenal pursuing a proven finisher at a premium price suggests frustration with their attacking depth rather than confidence in existing options.",
+      "cred": 60,
+      "note": "Arsenal testing Atlético's resolve on a player they value heavily, with fee noise ranging from 85m to 130m suggesting neither side has anchored yet.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:alvarez-atletico-madrid-arsenal",
@@ -2296,13 +2306,143 @@
           "fee_gbp_m": 85.0,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.theguardian.com/football/2026/aug/24/football-transfer-rumour-mill-julian-alvarez-arsenal-booed-atletico",
+          "source": "The Guardian",
+          "tier": 2,
+          "date": "2026-08-24",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://talksport.com/football/4533763/arsenal-julian-alvarez-barcelona-atletico-transfer",
+          "source": "talksport.com",
+          "tier": 2,
+          "date": "2026-08-24",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/arsenal-fc-transfer-news-alvarez-yildiz-martinelli-b1294427.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-24",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/arsenal-fc-transfer-news-alvarez-asking-price-b1294436.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-24",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.independent.co.uk/sport/football/arsenal-julian-alvarez-atletico-madrid-transfer-news-b3038139.html",
+          "source": "The Independent",
+          "tier": 2,
+          "date": "2026-08-24",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.dailymail.com/sport/football/article-16075763/Julian-Alvarez-Atletico-Madrid-Arsenal-Barcelona-Gyokeres.html",
+          "source": "dailymail.com",
+          "tier": 3,
+          "date": "2026-08-24",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-julian-alvarez-transfer-atletico-34509381",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-24",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-handed-julian-alvarez-transfer-34509882",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-24",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/arsenal-transfer-julian-alvarez-arteta-37587909",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-24",
+          "claim": "interest",
+          "fee_gbp_m": 130.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/08/24/julian-alvarez-stance-emerges-as-arsenal-keep-pushing-for-dream-move",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-08-24",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/news/arsenal-latest-julian-alvarez-demand-34510887",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-25",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/news/pep-guardiola-already-gave-mikel-34508159",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-25",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/news/arsenal-transfer-news-julian-alvarez-37587361",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-25",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-24",
+      "last_verified_at": "2026-08-25",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 80,
+      "base_cred": 60,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -2476,8 +2616,8 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 40,
-      "note": "Arsenal paid elite fees for a 28-year-old midfielder when their window strategy had emphasized budget efficiency and youth development.",
+      "cred": 65,
+      "note": "Arsenal's midfield rebuild now costs 75m for a player Newcastle signed for 40m two years ago, a premium that reflects desperation more than value.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:guimaraes-newcastle-arsenal",
@@ -3498,8 +3638,8 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 45,
-      "note": "Liverpool's willingness to spend 140m on a left winger suggests they've accepted that Salah's best years are behind him offensively.",
+      "cred": 35,
+      "note": "Liverpool's low-tier sources claiming a deal is agreed, while mid-tier outlets report only interest, suggest confusion rather than imminent completion.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:barcola-psg-liverpool",
@@ -4410,13 +4550,33 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/08/24/player-and-his-agents-confident-of-completing-transfer-to-liverpool-after-major-breakthrough",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-08-24",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/08/24/report-liverpool-now-hopeful-of-completing-20-g-a-signing-this-week",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-08-24",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
       "last_verified_at": "2026-08-24",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 45,
+      "base_cred": 35,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -4434,8 +4594,8 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 51,
-      "note": "City's willingness to spend 84 million on an eighteen-year-old midfielder signals deep concern about Rodri's injury layoff and midfield depth going forward.",
+      "cred": 60,
+      "note": "City's bet on an eighteen-year-old midfielder at Rodri's replacement price reveals how serious the Rodri injury threat has become.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:bouaddi-lille-man-city",
@@ -4576,7 +4736,7 @@
       "date": "Jul 12",
       "tier": 3,
       "src": "Turkish press",
-      "cred": 60,
+      "cred": 53,
       "note": "Fenerbahçe circling a 30-year-old Villa fringe player hints at desperation rather than ambition in their striker search.",
       "evidence": [
         {
@@ -4618,13 +4778,23 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.bbc.co.uk/sport/football/articles/cq63ry9q6jzo",
+          "source": "BBC Sport",
+          "tier": 1,
+          "date": "2026-08-24",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-21",
+      "last_verified_at": "2026-08-24",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 60,
+      "base_cred": 55,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
