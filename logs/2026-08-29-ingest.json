@@ -1,0 +1,57 @@
+{
+  "date": "2026-08-29",
+  "dry_run": false,
+  "claims_supplied": false,
+  "filter": {
+    "seen": 285,
+    "kept": 203,
+    "cut_rate": 0.288,
+    "no_signal": 72,
+    "dead_path": 5,
+    "seen_before": 1
+  },
+  "ingest": {
+    "feeds": 16,
+    "feeds_failed": 0,
+    "raw": 558,
+    "failed_names": [],
+    "per_feed": {
+      "BBC Sport": 85,
+      "The Guardian": 62,
+      "Sky Sports": 20,
+      "Daily Mail": 150,
+      "talkSPORT": 0,
+      "Manchester Evening News": 25,
+      "Birmingham Mail": 25,
+      "Standard": 36,
+      "football.london": 25,
+      "Mirror": 25,
+      "Liverpool Echo": 25,
+      "Chronicle Live": 25,
+      "Metro": 30,
+      "Independent": 15,
+      "CaughtOffside": 10,
+      "ESPN": 0
+    },
+    "in_window": 424,
+    "deduped": 402,
+    "relevant": 285
+  },
+  "extract": {
+    "articles": 203,
+    "batches": 11,
+    "parse_failures": 0,
+    "claims": 203,
+    "usable": 93,
+    "resolved": 30,
+    "candidates": 27,
+    "unresolved": 22,
+    "dropped": []
+  },
+  "extraction": {
+    "calls": 11,
+    "input_tokens": 17415,
+    "output_tokens": 16872,
+    "cache_read_tokens": 0
+  }
+}

@@ -1,0 +1,483 @@
+[
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "gordon-newcastle-barcelona",
+    "field": "last_verified_at",
+    "from": "2026-08-24",
+    "to": "2026-08-28",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.chroniclelive.co.uk/sport/football/football-news/anthony-gordon-barcelona-spanish-media-34531181"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "toure-hoffenheim-newcastle",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 49 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "vuskovic-tottenham-brighton",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 38 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "manzambi-freiburg-aston-villa",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 27 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "greenwood-marseille-fenerbahce",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 48 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "trossard-arsenal-besiktas",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 38 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "chavarria-rayo-vallecano-chelsea",
+    "field": "cred",
+    "from": 42,
+    "to": 28,
+    "reason": "base +45, stage +25 = 70, decayed to 28 after 17 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "chavarria-rayo-vallecano-chelsea",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 17 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "base_cred",
+    "from": 100,
+    "to": 55,
+    "reason": "credibility before silence decay",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "savinho-man-city-tottenham",
+    "field": "cred",
+    "from": 25,
+    "to": 50,
+    "reason": "base +45, stage +10 = 55, decayed to 50 after 4 days without movement, capped to a 25 point move",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 29 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "rodriguez-elche-bournemouth",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 44 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "alvarez-atletico-madrid-arsenal",
+    "field": "last_verified_at",
+    "from": "2026-08-26",
+    "to": "2026-08-29",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.mirror.co.uk/sport/football/news/arsenal-transfer-news-julian-alvarez-37587893",
+      "https://www.standard.co.uk/sport/football/arsenal-fc-transfer-news-alvarez-henry-b1295094.html"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "alvarez-atletico-madrid-arsenal",
+    "field": "base_cred",
+    "from": 80,
+    "to": 35,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.mirror.co.uk/sport/football/news/arsenal-transfer-news-julian-alvarez-37587893"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "alvarez-atletico-madrid-arsenal",
+    "field": "cred",
+    "from": 80,
+    "to": 55,
+    "reason": "base +35 = 35, capped to a 25 point move",
+    "evidence": [
+      "https://www.mirror.co.uk/sport/football/news/arsenal-transfer-news-julian-alvarez-37587893",
+      "https://www.standard.co.uk/sport/football/arsenal-fc-transfer-news-alvarez-henry-b1295094.html",
+      "https://www.dailymail.com/sport/football/article-16085399/Arsenal-given-major-boost-pursuit-128m-Julian-Alvarez-Atletico-chief-insists-never-negotiate-Barcelona-left-DIGUSTED-clubs-pursuit-star.html"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "last_verified_at",
+    "from": "2026-08-20",
+    "to": "2026-08-29",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.chroniclelive.co.uk/sport/football/football-news/newcastle-united-guimaraes-shearer-isak-34527068"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "base_cred",
+    "from": 90,
+    "to": 60,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.chroniclelive.co.uk/sport/football/football-news/newcastle-united-guimaraes-shearer-isak-34527068"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "cred",
+    "from": 80,
+    "to": 55,
+    "reason": "base +35, stage +25 = 60, decayed to 55 after 9 days without movement, capped to a 25 point move",
+    "evidence": [
+      "https://www.chroniclelive.co.uk/sport/football/football-news/newcastle-united-guimaraes-shearer-isak-34527068"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "status",
+    "from": "agreed",
+    "to": "medical",
+    "reason": "Evening Standard reports the deal has reached medical",
+    "evidence": [
+      "https://www.standard.co.uk/sport/football/barcola-liverpool-fc-shirt-number-confirmed-b1295092.html",
+      "https://www.liverpoolecho.co.uk/sport/football/football-news/bradley-barcola-liverpool-transfer-gerrard-34538309"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "status",
+    "from": null,
+    "to": null,
+    "reason": "evidence claims confirmed but status only advanced to medical, one rung per run",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "last_verified_at",
+    "from": "2026-08-26",
+    "to": "2026-08-29",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.mirror.co.uk/sport/football/news/liverpool-bradley-barcola-psg-transfer-37591256",
+      "https://www.bbc.co.uk/sport/football/articles/c5ywgjnnn74o"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "fee",
+    "from": 145.0,
+    "to": 123.0,
+    "reason": "BBC Sport reports the fee",
+    "evidence": [
+      "https://www.bbc.co.uk/sport/football/articles/c5ywgjnnn74o"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "base_cred",
+    "from": 75,
+    "to": 100,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.mirror.co.uk/sport/football/news/liverpool-bradley-barcola-psg-transfer-37591256"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "cred",
+    "from": 60,
+    "to": 85,
+    "reason": "base +55, corroboration +15, stage +45 = 100, capped to a 25 point move",
+    "evidence": [
+      "https://www.mirror.co.uk/sport/football/news/liverpool-bradley-barcola-psg-transfer-37591256",
+      "https://www.bbc.co.uk/sport/football/articles/c5ywgjnnn74o",
+      "https://www.skysports.com/football/news/12040/13578446/bradley-barcola-set-to-sign-liverpool-contract-to-2031-after-psg-agree-transfer-worth-up-to-123m"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "bouaddi-lille-man-city",
+    "field": "base_cred",
+    "from": 60,
+    "to": 70,
+    "reason": "credibility before silence decay",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "bouaddi-lille-man-city",
+    "field": "cred",
+    "from": 60,
+    "to": 62,
+    "reason": "base +45, stage +25 = 70, decayed to 62 after 6 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "muani-psg-crystal-palace",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 48 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "watkins-aston-villa-fenerbahce",
+    "field": "status",
+    "from": "rumor",
+    "to": "collapsed",
+    "reason": "The Independent reports the move is off",
+    "evidence": [
+      "https://www.independent.co.uk/sport/football/ollie-watkins-aston-villa-unai-emery-transfer-b3041046.html"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "watkins-aston-villa-fenerbahce",
+    "field": "last_verified_at",
+    "from": "2026-08-25",
+    "to": "2026-08-28",
+    "reason": "a source reasserted the deal on this date",
+    "evidence": [
+      "https://www.birminghammail.co.uk/sport/football/football-news/aston-villa-ollie-watkins-agbonlahor-34525446",
+      "https://www.independent.co.uk/sport/football/ollie-watkins-aston-villa-unai-emery-transfer-b3041046.html"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "watkins-aston-villa-fenerbahce",
+    "field": "base_cred",
+    "from": 60,
+    "to": 0,
+    "reason": "credibility before silence decay",
+    "evidence": [
+      "https://www.birminghammail.co.uk/sport/football/football-news/aston-villa-ollie-watkins-agbonlahor-34525446"
+    ]
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "watkins-aston-villa-fenerbahce",
+    "field": "cred",
+    "from": 60,
+    "to": 0,
+    "reason": "pinned to 0, deal collapsed",
+    "evidence": [
+      "https://www.birminghammail.co.uk/sport/football/football-news/aston-villa-ollie-watkins-agbonlahor-34525446",
+      "https://www.independent.co.uk/sport/football/ollie-watkins-aston-villa-unai-emery-transfer-b3041046.html"
+    ]
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "williams-nott-m-forest-man-utd",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 48 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "garnacho-chelsea-aston-villa",
+    "field": "base_cred",
+    "from": 80,
+    "to": 70,
+    "reason": "credibility before silence decay",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "garnacho-chelsea-aston-villa",
+    "field": "cred",
+    "from": 68,
+    "to": 67,
+    "reason": "base +25, stage +45 = 70, decayed to 67 after 4 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "meslier-leeds-arsenal",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 31 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "darlow-leeds-man-utd",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 31 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "george-chelsea-everton",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 31 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "salah-liverpool-besiktas",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 32 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "barcola-psg-liverpool",
+    "field": "note",
+    "from": "Liverpool and PSG are negotiating hard on structure, with tier-one outlets reporting talks while lower tiers claim agreement, suggesting a deal framework exists but payment terms remain contested.",
+    "to": "Liverpool's \u00a3123m gamble on a 23-year-old winger who has never played outside France, now hinging on medical clearance.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "watkins-aston-villa-fenerbahce",
+    "field": "note",
+    "from": "Fenerbah\u00e7e circling a 30-year-old Villa fringe player hints at desperation rather than ambition in their striker search.",
+    "to": "A collapsed move for an injury-prone striker at 30 suggests Fenerbah\u00e7e overestimated both Villa's willingness to sell and Watkins' fitness profile.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "alvarez-atletico-madrid-arsenal",
+    "field": "note",
+    "from": "Arsenal's 128m bid suggests they've moved past testing and now want \u00c1lvarez badly enough to meet Atl\u00e9tico's valuation in full.",
+    "to": "Arsenal's willingness to breach 120m suggests they view \u00c1lvarez as their final forward signing, not a stopgap while chasing other targets.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "note",
+    "from": "Arsenal have spent 75m on a midfielder Newcastle bought for 40m, signaling midfield desperation when other targets proved unattainable.",
+    "to": "Arsenal paid 75m for a midfielder Newcastle acquired for 40m, exposing how quickly their summer targets dried up.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "chavarria-rayo-vallecano-chelsea",
+    "field": "note",
+    "from": "Chelsea have finally settled on a low-cost left-back solution after months of window inactivity at the position.",
+    "to": "Chelsea's pursuit has stalled since agreement, suggesting either structural hold-ups or a shift in priority at left-back.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "editorial",
+    "id": "savinho-man-city-tottenham",
+    "field": "note",
+    "from": "City's valuation finally met Tottenham's ceiling after weeks of stalling, though fee discrepancies across outlets suggest the structure remains unclear.",
+    "to": "Tottenham's pursuit has stalled at the valuation stage, leaving City's asking price and Spurs' spending appetite at an impasse.",
+    "reason": "regenerated after the deal moved",
+    "evidence": []
+  }
+]
