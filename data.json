@@ -4,7 +4,7 @@
     "tagline": "believe less, know more",
     "deadline": "2026-09-01T22:00:00Z",
     "deadlineLabel": "Window closes 1 Sep, 23:00 BST",
-    "updated": "Aug 29, 2026",
+    "updated": "Aug 30, 2026",
     "site": {
       "baseUrl": "https://peterdsouza247.github.io/transfer-intel",
       "title": "TransferIntel",
@@ -186,9 +186,19 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.chroniclelive.co.uk/sport/football/transfer-news/newcastle-united-tottenham-sandro-tonali-34539870",
+          "source": "chroniclelive.co.uk",
+          "tier": 2,
+          "date": "2026-08-29",
+          "claim": "completed",
+          "fee_gbp_m": 100.0,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-30",
+      "last_verified_at": "2026-08-29",
       "completion_marker": "hand-verified at migration, no fetchable source",
       "completion_source": "Sky Sports",
       "completed_date": "2026-06-24",
@@ -1324,7 +1334,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 50,
+      "cred": 51,
       "note": "Tottenham's pursuit has stalled at the valuation stage, leaving City's asking price and Spurs' spending appetite at an impasse.",
       "evidence": [
         {
@@ -1924,7 +1934,7 @@
       "date": "Jul 13",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 55,
+      "cred": 50,
       "note": "Arsenal's willingness to breach 120m suggests they view Álvarez as their final forward signing, not a stopgap while chasing other targets.",
       "evidence": [
         {
@@ -2616,13 +2626,73 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://talksport.com/football/4546046/julian-alvarez-arsenal-transfer-update-mikel-arteta",
+          "source": "talksport.com",
+          "tier": 2,
+          "date": "2026-08-29",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/arsenal-fc-transfer-news-alvarez-arteta-b1295103.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-29",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://metro.co.uk/2026/08/29/arsenal-chances-signing-julian-alvarez-rated-atletico-madrid-set-new-deadline-29489958",
+          "source": "metro.co.uk",
+          "tier": 3,
+          "date": "2026-08-29",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/news/arsenal-transfer-news-julian-alvarez-34538812",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-30",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/news/arsenal-transfer-news-julian-alvarez-37606505",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-30",
+          "claim": "talks",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/08/30/sources-arsenal-explore-shock-move-for-generational-talent-to-boost-title-bid",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-08-30",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-29",
+      "last_verified_at": "2026-08-30",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 35,
+      "base_cred": 50,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -2796,7 +2866,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 55,
+      "cred": 60,
       "note": "Arsenal paid 75m for a midfielder Newcastle acquired for 40m, exposing how quickly their summer targets dried up.",
       "evidence": [
         {
@@ -3824,12 +3894,12 @@
       "fee": 123.0,
       "age": 23,
       "pos": "LW",
-      "status": "medical",
+      "status": "confirmed",
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 85,
-      "note": "Liverpool's £123m gamble on a 23-year-old winger who has never played outside France, now hinging on medical clearance.",
+      "cred": 90,
+      "note": "Liverpool's record outlay on a 23-year-old winger represents their biggest statement since Salah, betting Barcola can replicate his Paris form in the Premier League.",
       "evidence": [
         {
           "url": "urn:transferintel:seed:barcola-psg-liverpool",
@@ -4990,13 +5060,93 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.bbc.co.uk/sport/football/articles/ceqewejnpr3o",
+          "source": "BBC Sport",
+          "tier": 1,
+          "date": "2026-08-30",
+          "claim": "completed",
+          "fee_gbp_m": 123.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://talksport.com/football/4541742/liverpool-finalising-bradley-barcola-120m-transfer-deal-psg",
+          "source": "talksport.com",
+          "tier": 2,
+          "date": "2026-08-28",
+          "claim": "agreed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/andoni-iraola-gives-liverpool-transfer-34538284",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-29",
+          "claim": "talks",
+          "fee_gbp_m": 123.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.standard.co.uk/sport/football/liverpool-fc-bradley-barcola-medical-psg-b1295160.html",
+          "source": "Evening Standard",
+          "tier": 2,
+          "date": "2026-08-30",
+          "claim": "medical",
+          "fee_gbp_m": 123.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-transfer-news-barcola-fernandez-34538988",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-30",
+          "claim": "medical",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.independent.co.uk/sport/football/transfer-news-live-arsenal-liverpool-barcola-alvarez-man-utd-chelsea-b3041705.html",
+          "source": "The Independent",
+          "tier": 2,
+          "date": "2026-08-30",
+          "claim": "agreed",
+          "fee_gbp_m": 100.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/liverpool-transfers-bradley-barcola-iraola-37607314",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-29",
+          "claim": "completed",
+          "fee_gbp_m": 123.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/news/liverpool-transfer-news-barcola-fernandez-37606555",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-30",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-29",
+      "last_verified_at": "2026-08-30",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
-      "base_cred": 100,
+      "base_cred": 90,
       "collapse_reason": null,
       "collapse_narrative": "",
       "pivot_from": null,
@@ -5014,7 +5164,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 62,
+      "cred": 60,
       "note": "City's bet on an eighteen-year-old midfielder at Rodri's replacement price reveals how serious the Rodri injury threat has become.",
       "evidence": [
         {
@@ -6338,7 +6488,7 @@
       "date": "Jul 29",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 67,
+      "cred": 65,
       "note": "Villa have secured their third left-sided attacker in two years, suggesting either previous recruitment missteps or a systematic philosophy shift.",
       "evidence": [
         {
