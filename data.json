@@ -4,7 +4,7 @@
     "tagline": "believe less, know more",
     "deadline": "2026-09-01T22:00:00Z",
     "deadlineLabel": "Window closes 1 Sep, 23:00 BST",
-    "updated": "Aug 30, 2026",
+    "updated": "Aug 31, 2026",
     "site": {
       "baseUrl": "https://peterdsouza247.github.io/transfer-intel",
       "title": "TransferIntel",
@@ -1334,7 +1334,7 @@
       "date": "Jul 12",
       "tier": 1,
       "src": "Romano",
-      "cred": 51,
+      "cred": 49,
       "note": "Tottenham's pursuit has stalled at the valuation stage, leaving City's asking price and Spurs' spending appetite at an impasse.",
       "evidence": [
         {
@@ -1652,9 +1652,19 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.caughtoffside.com/2026/08/31/sources-arsenal-make-generational-talent-top-target",
+          "source": "CaughtOffside",
+          "tier": 3,
+          "date": "2026-08-31",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-07-29",
+      "last_verified_at": "2026-08-31",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
@@ -2686,9 +2696,29 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-news-julian-alvarez-34543206",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-30",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.football.london/arsenal-fc/transfer-news/arsenal-transfer-news-julian-alvarez-34544970",
+          "source": "football.london",
+          "tier": 3,
+          "date": "2026-08-31",
+          "claim": "interest",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-30",
+      "last_verified_at": "2026-08-31",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
@@ -5140,9 +5170,59 @@
           "fee_gbp_m": null,
           "marker": null,
           "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/virgil-van-dijk-reacts-123m-34541572",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-30",
+          "claim": "agreed",
+          "fee_gbp_m": 123.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.independent.co.uk/sport/football/liverpool-virgil-van-dijk-barcola-transfer-news-b3041736.html",
+          "source": "The Independent",
+          "tier": 2,
+          "date": "2026-08-30",
+          "claim": "agreed",
+          "fee_gbp_m": 123.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.liverpoolecho.co.uk/sport/football/football-news/liverpool-transfer-news-barcola-sarr-34542228",
+          "source": "liverpoolecho.co.uk",
+          "tier": 2,
+          "date": "2026-08-31",
+          "claim": "agreed",
+          "fee_gbp_m": null,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/transfer-news/liverpool-transfers-deadline-day-gakpo-37609947",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-31",
+          "claim": "completed",
+          "fee_gbp_m": 123.0,
+          "marker": null,
+          "official": false
+        },
+        {
+          "url": "https://www.mirror.co.uk/sport/football/news/liverpool-transfer-news-barcola-sarr-37608470",
+          "source": "The Mirror",
+          "tier": 3,
+          "date": "2026-08-31",
+          "claim": "agreed",
+          "fee_gbp_m": 50.0,
+          "marker": null,
+          "official": false
         }
       ],
-      "last_verified_at": "2026-08-30",
+      "last_verified_at": "2026-08-31",
       "completion_marker": null,
       "completion_source": null,
       "completed_date": null,
@@ -5164,7 +5244,7 @@
       "date": "Jul 12",
       "tier": 2,
       "src": "Football365",
-      "cred": 60,
+      "cred": 57,
       "note": "City's bet on an eighteen-year-old midfielder at Rodri's replacement price reveals how serious the Rodri injury threat has become.",
       "evidence": [
         {
@@ -6488,7 +6568,7 @@
       "date": "Jul 29",
       "tier": 2,
       "src": "FootballTransfers",
-      "cred": 65,
+      "cred": 62,
       "note": "Villa have secured their third left-sided attacker in two years, suggesting either previous recruitment missteps or a systematic philosophy shift.",
       "evidence": [
         {
