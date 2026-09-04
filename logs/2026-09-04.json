@@ -1,0 +1,172 @@
+[
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "toure-hoffenheim-newcastle",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 55 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "vuskovic-tottenham-brighton",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 44 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "manzambi-freiburg-aston-villa",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 33 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "greenwood-marseille-fenerbahce",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 54 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "trossard-arsenal-besiktas",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 44 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "chavarria-rayo-vallecano-chelsea",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 23 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "savinho-man-city-tottenham",
+    "field": "cred",
+    "from": 43,
+    "to": 41,
+    "reason": "base +45, stage +10 = 55, decayed to 41 after 10 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "lacroix-crystal-palace-chelsea",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 35 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "rodriguez-elche-bournemouth",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 50 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "guimaraes-newcastle-arsenal",
+    "field": "cred",
+    "from": 83,
+    "to": 80,
+    "reason": "base +45, stage +45 = 90, decayed to 80 after 6 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "update",
+    "driver": "decay",
+    "id": "bouaddi-lille-man-city",
+    "field": "cred",
+    "from": 50,
+    "to": 47,
+    "reason": "base +45, stage +25 = 70, decayed to 47 after 12 days without movement",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "muani-psg-crystal-palace",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 54 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "williams-nott-m-forest-man-utd",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 54 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "meslier-leeds-arsenal",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 37 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "darlow-leeds-man-utd",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 37 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "george-chelsea-everton",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 37 days, consider deleting",
+    "evidence": []
+  },
+  {
+    "op": "flag",
+    "driver": "editorial",
+    "id": "salah-liverpool-besiktas",
+    "field": "_stale",
+    "from": null,
+    "to": null,
+    "reason": "no mention in 38 days, consider deleting",
+    "evidence": []
+  }
+]
