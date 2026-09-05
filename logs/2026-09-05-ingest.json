@@ -1,0 +1,65 @@
+{
+  "date": "2026-09-05",
+  "dry_run": false,
+  "claims_supplied": false,
+  "filter": {
+    "seen": 308,
+    "kept": 134,
+    "cut_rate": 0.565,
+    "no_signal": 99,
+    "dead_path": 5,
+    "seen_before": 60
+  },
+  "ingest": {
+    "feeds": 16,
+    "feeds_failed": 0,
+    "raw": 656,
+    "failed_names": [],
+    "per_feed": {
+      "BBC Sport": 86,
+      "The Guardian": 59,
+      "Sky Sports": 20,
+      "Daily Mail": 150,
+      "talkSPORT": 100,
+      "Manchester Evening News": 25,
+      "Birmingham Mail": 25,
+      "Standard": 38,
+      "football.london": 25,
+      "Mirror": 25,
+      "Liverpool Echo": 25,
+      "Chronicle Live": 25,
+      "Metro": 30,
+      "Independent": 13,
+      "CaughtOffside": 10,
+      "ESPN": 0
+    },
+    "in_window": 478,
+    "deduped": 454,
+    "relevant": 308
+  },
+  "extract": {
+    "articles": 134,
+    "batches": 7,
+    "parse_failures": 7,
+    "claims": 0,
+    "usable": 0,
+    "resolved": 0,
+    "candidates": 0,
+    "unresolved": 0,
+    "dropped": [
+      "batch of 20 failed: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",
+      "batch of 20 failed: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",
+      "batch of 20 failed: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",
+      "batch of 20 failed: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",
+      "batch of 20 failed: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",
+      "batch of 20 failed: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",
+      "batch of 14 failed: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}"
+    ]
+  },
+  "extraction": {
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cache_read_tokens": 0
+  }
+}
