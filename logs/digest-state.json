@@ -131,7 +131,7 @@
   },
   "savinho-man-city-tottenham": {
     "status": "talks",
-    "cred": 37,
+    "cred": 35,
     "fee": 75.0
   },
   "kroupi-bournemouth-tottenham": {
@@ -176,12 +176,12 @@
   },
   "barcola-psg-liverpool": {
     "status": "confirmed",
-    "cred": 83,
+    "cred": 80,
     "fee": 123.0
   },
   "bouaddi-lille-man-city": {
     "status": "agreed",
-    "cred": 42,
+    "cred": 28,
     "fee": 84.0
   },
   "muani-psg-crystal-palace": {
