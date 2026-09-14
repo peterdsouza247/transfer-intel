@@ -1,0 +1,61 @@
+{
+  "date": "2026-09-14",
+  "dry_run": false,
+  "claims_supplied": false,
+  "filter": {
+    "seen": 256,
+    "kept": 49,
+    "cut_rate": 0.809,
+    "no_signal": 171,
+    "dead_path": 9,
+    "seen_before": 25
+  },
+  "ingest": {
+    "feeds": 16,
+    "feeds_failed": 0,
+    "raw": 605,
+    "failed_names": [],
+    "per_feed": {
+      "BBC Sport": 68,
+      "The Guardian": 66,
+      "Sky Sports": 20,
+      "Daily Mail": 150,
+      "talkSPORT": 67,
+      "Manchester Evening News": 25,
+      "Birmingham Mail": 25,
+      "Standard": 24,
+      "football.london": 25,
+      "Mirror": 25,
+      "Liverpool Echo": 25,
+      "Chronicle Live": 25,
+      "Metro": 30,
+      "Independent": 20,
+      "CaughtOffside": 10,
+      "ESPN": 0
+    },
+    "in_window": 434,
+    "deduped": 418,
+    "relevant": 256
+  },
+  "extract": {
+    "articles": 49,
+    "batches": 3,
+    "parse_failures": 3,
+    "claims": 0,
+    "usable": 0,
+    "resolved": 0,
+    "candidates": 0,
+    "unresolved": 0,
+    "dropped": [
+      "batch of 20 failed: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",
+      "batch of 20 failed: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}",
+      "batch of 9 failed: Error code: 401 - {'type': 'error', 'error': {'type': 'authentication_error', 'message': 'API key is invalid.'}, 'request_id': None}"
+    ]
+  },
+  "extraction": {
+    "calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "cache_read_tokens": 0
+  }
+}
