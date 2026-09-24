@@ -572,9 +572,24 @@ function section(name, fn){
    curve does to the score. The numbers come from the pipeline; this only
    presents them. */
 const DECAY = {grace:3, stale:14, mid:0.60, floor:0.40};
+function updateISO(d){
+  return d.last_verified_at || (d.evidence && d.evidence.length
+    ? d.evidence.map(e=>e.date).filter(Boolean).sort().slice(-1)[0] : null);
+}
+function displayUpdateDate(d){
+  const iso=updateISO(d);
+  if(!iso) return d.date || "";
+  const parsed=new Date(iso+"T00:00:00Z");
+  return Number.isNaN(parsed.getTime()) ? (d.date || iso)
+    : parsed.toLocaleDateString("en-GB",{day:"numeric",month:"short",timeZone:"UTC"});
+}
+function updateDateKey(d){
+  const iso=updateISO(d);
+  const parsed=iso ? Date.parse(iso+"T00:00:00Z") : NaN;
+  return Number.isNaN(parsed) ? dateKey(d.date) : parsed;
+}
 function daysQuiet(d){
-  const anchor = d.last_verified_at || (d.evidence && d.evidence.length
-    ? d.evidence.map(e=>e.date).sort().slice(-1)[0] : null);
+  const anchor=updateISO(d);
   if(!anchor) return null;
   const ms = Date.now() - new Date(anchor+"T00:00:00Z").getTime();
   return Math.max(0, Math.floor(ms/864e5));
@@ -775,7 +790,7 @@ section("pulse", function(){
   }
   const FEED_SORTS={
     active: (a,b)=>RANK[a.status]-RANK[b.status]||b.fee-a.fee||a.p.localeCompare(b.p),
-    recent: (a,b)=>dateKey(b.date)-dateKey(a.date)||b.fee-a.fee,
+    recent: (a,b)=>updateDateKey(b)-updateDateKey(a)||b.fee-a.fee,
     fee:    (a,b)=>b.fee-a.fee||a.p.localeCompare(b.p),
     cred:   (a,b)=>b.cred-a.cred||a.p.localeCompare(b.p),
     quiet:  (a,b)=>(daysQuiet(b)??-1)-(daysQuiet(a)??-1)||a.p.localeCompare(b.p)
@@ -794,7 +809,7 @@ section("pulse", function(){
   $("#feed").innerHTML = feed.map(d=>`
     <div class="item">
       <span class="dot" style="background:${stage(d).c}"></span>
-      <span class="when">${d.date}</span>
+      <span class="when">${displayUpdateDate(d)}</span>
       <div class="what">
         <b>${d.p}</b>${posTag(d)} · ${d.from} → ${d.to} · ${fmt(d.fee)}
         <span class="pill" style="background:${stage(d).c}22;color:${stage(d).c}">${stage(d).l}</span>
