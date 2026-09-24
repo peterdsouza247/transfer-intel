@@ -581,7 +581,7 @@ function displayUpdateDate(d){
   if(!iso) return d.date || "";
   const parsed=new Date(iso+"T00:00:00Z");
   return Number.isNaN(parsed.getTime()) ? (d.date || iso)
-    : parsed.toLocaleDateString("en-GB",{day:"numeric",month:"short",timeZone:"UTC"});
+    : parsed.toLocaleDateString("en-US",{day:"numeric",month:"short",timeZone:"UTC"});
 }
 function updateDateKey(d){
   const iso=updateISO(d);
