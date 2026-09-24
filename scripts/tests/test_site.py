@@ -6,6 +6,7 @@ import json
 import re
 import subprocess
 import sys
+from datetime import date
 import xml.dom.minidom
 from pathlib import Path
 
@@ -47,6 +48,34 @@ def text_of(path: Path) -> str:
     s = re.sub(r"<(script|style)[^>]*>.*?</\1>", "", s, flags=re.S | re.I)
     s = re.sub(r"<[^>]+>", " ", s)
     return re.sub(r"\s+", " ", s)
+
+
+def test_latest_verified_date_drives_visible_updates():
+    deal = load_deals()[0].model_copy(
+        update={"last_verified_at": date(2026, 8, 22)}
+    )
+    assert site.display_update_date(deal) == "Aug 22"
+    assert "Aug 22" in site.render_feed_items([deal])
+    assert "updated Aug 22" in site.render_deal_list(
+        [deal], site.SiteConfig(base_url=BASE)
+    )
+
+
+def test_recent_feed_uses_verification_date_not_legacy_date():
+    first, second = load_deals()[:2]
+    first = first.model_copy(
+        update={"date": "Jun 1", "last_verified_at": date(2026, 9, 2)}
+    )
+    second = second.model_copy(
+        update={"date": "Jul 31", "last_verified_at": date(2026, 8, 31)}
+    )
+    assert site.feed_order([second, first], "recent")[0].id == first.id
+
+
+def test_browser_feed_uses_the_same_verified_date(rendered):
+    html = (rendered / "index.html").read_text(encoding="utf-8")
+    assert "${displayUpdateDate(d)}" in html
+    assert "updateDateKey(b)-updateDateKey(a)" in html
 
 
 # ---------------------------------------------------------- HTML injection
