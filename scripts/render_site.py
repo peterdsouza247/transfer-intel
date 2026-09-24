@@ -151,6 +151,18 @@ def main() -> int:
     document = site.inject_into(document, "rumorlist", site.render_deal_list(deals, cfg))
     document = site.inject_into(document, "clubgrid", site.render_club_grid(clubs, deals, cfg))
     document = site.inject_into(document, "funnel", site.render_funnel(deals))
+    source_records = site.source_records(deals)
+    document = site.inject_into(
+        document, "source-kpis", site.render_source_kpis(source_records)
+    )
+    document = site.inject_into(
+        document, "journalist-table-body",
+        site.render_source_rows(source_records["journalist"]),
+    )
+    document = site.inject_into(
+        document, "publication-table-body",
+        site.render_source_rows(source_records["publication"]),
+    )
     # TI-002. The verdicts table is pre-rendered from the same collection the
     # scatter chart uses, so a crawler sees the rows and, more usefully, the
     # build can count them. A table that silently renders zero rows is the
