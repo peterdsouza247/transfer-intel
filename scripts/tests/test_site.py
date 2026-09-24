@@ -132,6 +132,16 @@ def test_the_index_gains_real_text_for_a_crawler_without_javascript(rendered):
     assert not any(d.p in before for d in load_deals())
 
 
+def test_source_index_is_pre_rendered_and_auditable(rendered):
+    html = (rendered / "index.html").read_text(encoding="utf-8")
+    visible = text_of(rendered / "index.html")
+    assert "Source Credibility Index" in visible
+    assert "Sky Sports" in visible
+    assert "two hypothetical hits and two hypothetical misses" in visible
+    assert re.search(r'id="publication-table-body">\s*<tr>', html)
+    assert re.search(r'id="journalist-table-body">', html)
+
+
 def test_every_deal_and_club_has_its_own_url(rendered):
     raw = json.loads((FIX / "data.json").read_text())
     for deal in load_deals():
@@ -239,6 +249,8 @@ def test_llms_txt_states_the_method_not_just_the_links(rendered):
     txt = (rendered / "llms.txt").read_text(encoding="utf-8")
     assert "## Method" in txt
     assert "not predictions" in txt
+    assert "## Source credibility" in txt
+    assert "(hits + 2) / (resolved calls + 4)" in txt
     for deal in load_deals():
         assert deal.p in txt
 
