@@ -555,6 +555,7 @@ def render_deal_list(deals: Iterable[Deal], cfg: SiteConfig) -> str:
     rows = []
     for d in deals:
         status = d.status.value if hasattr(d.status, "value") else str(d.status)
+        updated = display_update_date(d)
         rows.append(
             f'<article class="rumor" id="deal-{e(d.id)}">'
             f'<div class="cred {cred_class(d.cred)}" aria-label="Credibility {d.cred} of 100">'
@@ -565,7 +566,7 @@ def render_deal_list(deals: Iterable[Deal], cfg: SiteConfig) -> str:
             f'<p class="meta">{e(STATUS_LABEL.get(status, status))}'
             f"{f' · £{d.fee:g}m' if d.fee else ''}"
             f"{f' · {e(d.src)}' if d.src else ''}"
-            f"{f' · updated {e(d.date)}' if d.date else ''}"
+            f"{f' · updated {e(updated)}' if updated else ''}"
             f"{source_anchor(d)}</p>"
             f"{f'<p class=\"note\">{e(d.note)}</p>' if d.note else ''}"
             "</div></article>"
@@ -634,6 +635,33 @@ def display_date_key(label: str) -> tuple[int, int]:
         return (month, 0)
 
 
+def latest_update_date(deal: Deal) -> date | None:
+    """The newest evidence-backed date readers should see.
+
+    The date field is a legacy label for when tracking began. The editorial
+    pipeline advances last_verified_at as sources reassert a deal, so showing
+    date made current records look frozen in July.
+    """
+    return deal.last_verified_at or max(
+        (item.date for item in deal.evidence), default=None
+    )
+
+
+def display_update_date(deal: Deal) -> str:
+    latest = latest_update_date(deal)
+    if latest is None:
+        return deal.date or ""
+    return f"{latest.strftime('%b')} {latest.day}"
+
+
+def update_date_key(deal: Deal) -> tuple[int, int, int]:
+    latest = latest_update_date(deal)
+    if latest is not None:
+        return (latest.year, latest.month, latest.day)
+    month, day = display_date_key(deal.date)
+    return (0, month, day)
+
+
 def feed_order(deals: Iterable[Deal], mode: str = "active") -> list[Deal]:
     """Order the pulse feed. Must match the `FEED_SORTS` table in index.html.
 
@@ -644,7 +672,7 @@ def feed_order(deals: Iterable[Deal], mode: str = "active") -> list[Deal]:
     """
     rows = list(deals)
     if mode == "recent":
-        return sorted(rows, key=lambda d: (display_date_key(d.date), d.fee or 0),
+        return sorted(rows, key=lambda d: (update_date_key(d), d.fee or 0),
                       reverse=True)
     if mode == "fee":
         return sorted(rows, key=lambda d: (-(d.fee or 0), d.p))
@@ -663,7 +691,7 @@ def render_feed_items(deals: list[Deal], mode: str = "active",
     items = []
     for d in feed_order(deals, mode)[:limit]:
         items.append(
-            f'<div class="item"><div class="when">{e(d.date or "")}</div>'
+            f'<div class="item"><div class="when">{e(display_update_date(d))}</div>'
             f'<div class="what"><b>{e(d.p)}</b>{pos_badge(d)} '
             f'<span class="meta">{e(deal_sentence(d))}'
             f'{source_anchor(d)}</span></div></div>'
@@ -939,7 +967,7 @@ def render_deal_page(cfg: SiteConfig, deal: Deal, updated_iso: str, updated: str
 <tr><th>Reported fee</th><td>{f"£{deal.fee:g}m" if deal.fee else "Undisclosed"}</td></tr>
 <tr><th>Status</th><td>{e(STATUS_LABEL.get(status, status))}</td></tr>
 <tr><th>Credibility</th><td>{deal.cred} / 100</td></tr>
-<tr><th>Last updated</th><td>{e(deal.date or updated)}</td></tr>
+<tr><th>Last updated</th><td>{e(display_update_date(deal) or updated)}</td></tr>
 </table>
 <h2>Where the score comes from</h2>
 <p>Credibility is computed, not written. The score rises with the tier of the
