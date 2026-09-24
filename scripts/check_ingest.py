@@ -107,6 +107,26 @@ def main() -> int:
             "the feeds have changed format."
         )
 
+    # A model/API error can look like a quiet day: articles were fetched, but
+    # every extraction batch was dropped and no claim reached the scorer.
+    # This must stop the publish step rather than merely add a note.
+    dropped = extract.get("dropped") or []
+    failures = extract.get("parse_failures", 0) or 0
+    batches = extract.get("batches", 0) or 0
+    if any("authentication_error" in str(error) or "API key is invalid" in str(error)
+           for error in dropped):
+        problems.append(
+            "**Extraction authentication failed.** The Anthropic API rejected "
+            "the repository's ANTHROPIC_API_KEY. Replace that Actions secret "
+            "with a valid key, then rerun Editorial refresh."
+        )
+    elif articles and batches and failures >= batches and claims == 0:
+        problems.append(
+            f"**Every extraction batch failed ({failures}/{batches}).** "
+            "No claims reached the site. Inspect the Ingest and extract log "
+            "and the dropped errors in build/ingest_stats.json."
+        )
+
     if problems:
         lines += ["### Problems", ""] + [f"- {p}" for p in problems]
         summary("\n".join(lines))
