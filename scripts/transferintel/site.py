@@ -13,7 +13,7 @@ So the order of work here is deliberate:
 1. Pre-render the real content into the existing containers. The site's own
    JavaScript overwrites them on load, so the browser experience is
    unchanged and the crawler experience goes from nothing to everything.
-2. Give the content URLs. One page with four tabs is one indexable document,
+2. Give the content URLs. One page with five tabs is one indexable document,
    and "Arsenal transfer spend" has nowhere to land. Club and deal pages turn
    one thin URL into dozens of specific ones.
 3. Only then, the plumbing: sitemap, robots, feed, structured data.
@@ -34,6 +34,7 @@ from typing import Iterable
 
 from .entities import fold_for_slug
 from .models import Deal, Evidence
+from .source_stats import SourceRecord, source_records
 
 # The generated head block is delimited at both ends so a rerun can remove
 # exactly what the previous run added, leaving the author's own whitespace and
@@ -95,8 +96,8 @@ class SiteConfig:
     base_url: str = ""
     title: str = "TransferIntel"
     description: str = (
-        "Premier League transfer rumours scored 0 to 100 for credibility, "
-        "with transparent value-for-money verdicts on confirmed fees."
+        "Premier League transfer rumours and their sources scored for "
+        "credibility, with transparent value-for-money verdicts."
     )
     author: str = "Peter Brendan"
     twitter: str = ""
@@ -574,6 +575,56 @@ def render_deal_list(deals: Iterable[Deal], cfg: SiteConfig) -> str:
     return "\n".join(rows)
 
 
+
+def source_score_class(score: int | None) -> str:
+    if score is None:
+        return "source-unrated"
+    if score >= 70:
+        return "source-high"
+    if score >= 50:
+        return "source-mid"
+    return "source-low"
+
+
+def render_source_rows(records: Iterable[SourceRecord]) -> str:
+    rows = []
+    for record in records:
+        score = record.credibility
+        rate = record.hit_rate
+        rows.append(
+            "<tr>"
+            f"<td><b>{e(record.name)}</b></td>"
+            f'<td><span class="source-score {source_score_class(score)}">'
+            f"{score if score is not None else '—'}</span></td>"
+            f"<td>{f'{rate}%' if rate is not None else '—'}</td>"
+            f"<td>{record.hits}</td>"
+            f"<td>{record.misses}</td>"
+            f"<td>{record.resolved}</td>"
+            f"<td>{record.unresolved}</td>"
+            "</tr>"
+        )
+    if not rows:
+        return '<tr class="empty"><td colspan="7">No attributable calls yet.</td></tr>'
+    return "\n".join(rows)
+
+
+def render_source_kpis(records: dict[str, list[SourceRecord]]) -> str:
+    all_records = records["publication"] + records["journalist"]
+    measured = sum(record.resolved > 0 for record in all_records)
+    resolved = sum(record.resolved for record in all_records)
+    hits = sum(record.hits for record in all_records)
+    unresolved = sum(record.unresolved for record in all_records)
+    return "".join([
+        f'<div class="kpi"><div class="v">{measured}</div>'
+        '<div class="l">Sources with resolved calls</div></div>',
+        f'<div class="kpi"><div class="v">{resolved}</div>'
+        '<div class="l">Resolved source calls</div></div>',
+        f'<div class="kpi"><div class="v">{hits}</div>'
+        '<div class="l">Calls that became transfers</div></div>',
+        f'<div class="kpi"><div class="v">{unresolved}</div>'
+        '<div class="l">Unresolved calls, not penalised</div></div>',
+    ])
+
 def render_club_grid(clubs: dict, deals: list[Deal], cfg: SiteConfig) -> str:
     cards = []
     for club in sorted(clubs):
@@ -726,8 +777,8 @@ def jsonld_dataset(cfg: SiteConfig, raw: dict, deals: list[Deal], updated: str) 
         "name": f"{cfg.title}: {window} transfer credibility index".strip(),
         "description": (
             f"{len(deals)} tracked Premier League transfers, each scored 0 to 100 "
-            "for credibility from source tier and corroboration, with fee and "
-            "status history."
+            "for credibility from source tier and corroboration, with fee, "
+            "status and source-performance history."
         ),
         "url": cfg.url("/"),
         "creator": {"@type": "Person", "name": cfg.author},
@@ -738,6 +789,8 @@ def jsonld_dataset(cfg: SiteConfig, raw: dict, deals: list[Deal], updated: str) 
             {"@type": "PropertyValue", "name": "credibility", "minValue": 0, "maxValue": 100},
             {"@type": "PropertyValue", "name": "status"},
             {"@type": "PropertyValue", "name": "fee", "unitText": "GBP millions"},
+            {"@type": "PropertyValue", "name": "source credibility",
+             "minValue": 0, "maxValue": 100},
         ],
     }
 
@@ -1168,9 +1221,30 @@ def render_llms_txt(cfg: SiteConfig, deals: list[Deal], raw: dict, updated: str)
         "source. Scores are an assessment of how well supported a claim is. They are "
         "not predictions and not betting advice.",
         "",
+        "## Source credibility",
+        "",
+        "A source gets one call per transfer, regardless of repeat coverage. "
+        "Completed moves are hits, collapsed moves are misses, and unresolved "
+        "calls are excluded from accuracy. The ranking is the transparent "
+        "confidence-adjusted rate (hits + 2) / (resolved calls + 4).",
+        "",
+    ]
+    records = source_records(deals)
+    for record in records["journalist"] + records["publication"]:
+        score = record.credibility
+        rate = record.hit_rate
+        lines.append(
+            f"- {record.name}: credibility {score if score is not None else 'unrated'}, "
+            f"hit rate {f'{rate}%' if rate is not None else 'unrated'}, "
+            f"{record.hits} hits, {record.misses} misses, "
+            f"{record.unresolved} unresolved"
+        )
+    lines += [
+        "",
         "## Pages",
         "",
-        f"- [Window index]({cfg.url('/')}): every tracked deal, funnel and club summary",
+        f"- [Window index]({cfg.url('/')}): every tracked deal, source index, "
+        "funnel and club summary",
     ]
     for d in sorted(deals, key=lambda x: -x.cred):
         lines.append(
