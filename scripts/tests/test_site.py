@@ -73,7 +73,7 @@ def test_recent_feed_uses_verification_date_not_legacy_date():
 
 
 def test_browser_feed_uses_the_same_verified_date(rendered):
-    html = (rendered / "index.html").read_text(encoding="utf-8")
+    html = (ROOT.parent / "index.html").read_text(encoding="utf-8")
     assert "${displayUpdateDate(d)}" in html
     assert "updateDateKey(b)-updateDateKey(a)" in html
 
@@ -133,13 +133,36 @@ def test_the_index_gains_real_text_for_a_crawler_without_javascript(rendered):
 
 
 def test_source_index_is_pre_rendered_and_auditable(rendered):
-    html = (rendered / "index.html").read_text(encoding="utf-8")
-    visible = text_of(rendered / "index.html")
+    # The production template has the index; the legacy crawler fixture does not.
+    html = (ROOT.parent / "index.html").read_text(encoding="utf-8")
+    visible = text_of(ROOT.parent / "index.html")
     assert "Source Credibility Index" in visible
     assert "Sky Sports" in visible
     assert "two hypothetical hits and two hypothetical misses" in visible
     assert re.search(r'id="publication-table-body">\s*<tr>', html)
     assert re.search(r'id="journalist-table-body">', html)
+
+
+def test_transfer_digest_starts_collapsed():
+    html = site.render_capture_form(
+        site.SiteConfig(newsletter_action="https://example.com/subscribe"),
+        [], "top",
+    )
+    shell = re.search(r'<details class="capture-shell"(?P<attrs>[^>]*)>', html)
+    assert shell
+    assert "open" not in shell.group("attrs").split()
+
+
+def test_archived_window_links_and_source_data_stay_self_contained():
+    archive = ROOT.parent / "windows" / "2026-summer"
+    html = (archive / "index.html").read_text(encoding="utf-8")
+    raw = json.loads((archive / "data.json").read_text(encoding="utf-8"))
+    embedded = (archive / "data.js").read_text(encoding="utf-8")
+    assert raw["config"]["archived"] is True
+    assert "window.TRANSFER_DATA = " + json.dumps(raw, ensure_ascii=False) in embedded
+    assert 'href="https://peterdsouza247.github.io/transfer-intel/"' in html
+    assert "/windows/2026-summer/deals/fernandez-chelsea-man-city/" in html
+    assert (archive / "deals" / "fernandez-chelsea-man-city" / "index.html").exists()
 
 
 def test_every_deal_and_club_has_its_own_url(rendered):

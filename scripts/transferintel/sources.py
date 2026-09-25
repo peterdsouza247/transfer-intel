@@ -105,6 +105,7 @@ DOMAIN_TIER: dict[str, int] = {
     "nytimes.com": 1,          # The Athletic lives here now
     "bbc.co.uk": 1,
     "bbc.com": 1,
+    "reuters.com": 1,
     "theguardian.com": 2,
     "telegraph.co.uk": 2,
     "football365.com": 2,
@@ -140,6 +141,7 @@ OUTLET_NAMES: dict[str, str] = {
     "nytimes.com": "The Athletic",
     "bbc.co.uk": "BBC Sport",
     "bbc.com": "BBC Sport",
+    "reuters.com": "Reuters",
     "theguardian.com": "The Guardian",
     "telegraph.co.uk": "Telegraph",
     "football365.com": "Football365",

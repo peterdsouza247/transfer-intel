@@ -134,6 +134,7 @@ class Deal(BaseModel):
     from_club: str = Field(alias="from")
     to: str
     fee: float = Field(ge=0)
+    loan: bool = False
     age: int = Field(ge=14, le=45)
     pos: str
     status: Status

@@ -64,6 +64,18 @@ def test_post_resolution_followups_and_collapse_reports_are_not_tips():
     assert (rows["Daily Mail"].hits, rows["Daily Mail"].misses) == (0, 1)
 
 
+def test_completion_day_reports_are_not_retroactive_predictions():
+    deals = [
+        deal("done", "done", [
+            evidence("The Guardian", "interest", "2026-08-12"),
+            evidence("Sky Sports", "completed", "2026-09-01"),
+        ], completed="2026-09-01"),
+    ]
+    rows = {row.name: row for row in source_records(deals)["publication"]}
+    assert rows["The Guardian"].hits == 1
+    assert "Sky Sports" not in rows
+
+
 def test_smoothed_score_rewards_evidence_not_one_lucky_call():
     many = [
         deal(f"hit-{i}", "done", [evidence("Sky Sports", "talks", "2026-07-01")],
@@ -76,4 +88,3 @@ def test_smoothed_score_rewards_evidence_not_one_lucky_call():
     ], verified="2026-07-03"))
     rows = {row.name: row for row in source_records(many)["publication"]}
     assert rows["Sky Sports"].credibility > rows["BBC Sport"].credibility
-

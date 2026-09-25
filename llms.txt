@@ -1,6 +1,6 @@
 # TransferIntel
 
-> Premier League transfer rumours scored 0 to 100 for credibility, with transparent value-for-money verdicts on confirmed fees.
+> Premier League transfer rumours and their sources scored for credibility, with transparent value-for-money verdicts.
 
 Window: Premier League · Summer Window 2026. Last updated: Sep 24, 2026.
 
@@ -8,9 +8,34 @@ Window: Premier League · Summer Window 2026. Last updated: Sep 24, 2026.
 
 Credibility scores are computed in code, not written by a model. A score rises with the tier of the outlets reporting a claim and with independent corroboration, and decays when a deal goes quiet. Only tier 1 and tier 2 outlets can advance a deal's status. A completed transfer requires a tier 1 source. Scores are an assessment of how well supported a claim is. They are not predictions and not betting advice.
 
+## Source credibility
+
+A source gets one call per transfer, regardless of repeat coverage. Completed moves are hits, collapsed moves are misses, and unresolved calls are excluded from accuracy. The ranking is the transparent confidence-adjusted rate (hits + 2) / (resolved calls + 4).
+
+- Fabrizio Romano: credibility 60, hit rate 100%, 1 hits, 0 misses, 3 unresolved
+- FootballTransfers: credibility 50, hit rate 50%, 1 hits, 1 misses, 4 unresolved
+- The Guardian: credibility 50, hit rate 50%, 1 hits, 1 misses, 3 unresolved
+- Daily Mail: credibility 40, hit rate 0%, 0 hits, 1 misses, 5 unresolved
+- Evening Standard: credibility 40, hit rate 0%, 0 hits, 1 misses, 5 unresolved
+- CaughtOffside: credibility 40, hit rate 0%, 0 hits, 1 misses, 4 unresolved
+- football.london: credibility 40, hit rate 0%, 0 hits, 1 misses, 4 unresolved
+- Sky Sports: credibility 40, hit rate 0%, 0 hits, 1 misses, 4 unresolved
+- BBC Sport: credibility 40, hit rate 0%, 0 hits, 1 misses, 3 unresolved
+- talkSPORT: credibility 40, hit rate 0%, 0 hits, 1 misses, 3 unresolved
+- The Mirror: credibility 40, hit rate 0%, 0 hits, 1 misses, 3 unresolved
+- Metro: credibility 40, hit rate 0%, 0 hits, 1 misses, 1 unresolved
+- Birmingham Mail: credibility 40, hit rate 0%, 0 hits, 1 misses, 0 unresolved
+- The Telegraph: credibility 40, hit rate 0%, 0 hits, 1 misses, 0 unresolved
+- Football365: credibility 33, hit rate 0%, 0 hits, 2 misses, 4 unresolved
+- The Independent: credibility 33, hit rate 0%, 0 hits, 2 misses, 4 unresolved
+- Chronicle Live: credibility unrated, hit rate unrated, 0 hits, 0 misses, 1 unresolved
+- FOX Sports: credibility unrated, hit rate unrated, 0 hits, 0 misses, 1 unresolved
+- Liverpool Echo: credibility unrated, hit rate unrated, 0 hits, 0 misses, 1 unresolved
+- TEAMtalk: credibility unrated, hit rate unrated, 0 hits, 0 misses, 1 unresolved
+
 ## Pages
 
-- [Window index](https://peterdsouza247.github.io/transfer-intel/): every tracked deal, funnel and club summary
+- [Window index](https://peterdsouza247.github.io/transfer-intel/): every tracked deal, source index, funnel and club summary
 - [Elliot Anderson, Nott'm Forest to Man City](https://peterdsouza247.github.io/transfer-intel/deals/anderson-nott-m-forest-man-city/): credibility 100/100
 - [Sandro Tonali, Newcastle to Tottenham](https://peterdsouza247.github.io/transfer-intel/deals/tonali-newcastle-tottenham/): credibility 100/100
 - [Mateus Fernandes, West Ham to Tottenham](https://peterdsouza247.github.io/transfer-intel/deals/fernandes-west-ham-tottenham/): credibility 100/100
@@ -40,6 +65,20 @@ Credibility scores are computed in code, not written by a model. A score rises w
 - [Kieran Trippier, Newcastle to Wolves](https://peterdsouza247.github.io/transfer-intel/deals/trippier-newcastle-wolves/): credibility 100/100
 - [Morgan Rogers, Aston Villa to Chelsea](https://peterdsouza247.github.io/transfer-intel/deals/rogers-aston-villa-chelsea/): credibility 100/100
 - [Joao Gomes, Wolves to Aston Villa](https://peterdsouza247.github.io/transfer-intel/deals/gomes-wolves-aston-villa/): credibility 100/100
+- [Enzo Fernández, Chelsea to Man City](https://peterdsouza247.github.io/transfer-intel/deals/fernandez-chelsea-man-city/): credibility 100/100
+- [Mykhailo Mudryk, Chelsea to Tottenham](https://peterdsouza247.github.io/transfer-intel/deals/mudryk-chelsea-tottenham/): credibility 100/100
+- [Malick Fofana, Lyon to Sunderland](https://peterdsouza247.github.io/transfer-intel/deals/fofana-lyon-sunderland/): credibility 100/100
+- [Nick Woltemade, Newcastle to Juventus](https://peterdsouza247.github.io/transfer-intel/deals/woltemade-newcastle-juventus/): credibility 100/100
+- [Matias Fernandez-Pardo, Lille to Newcastle](https://peterdsouza247.github.io/transfer-intel/deals/fernandez-pardo-lille-newcastle/): credibility 100/100
+- [Taylor Harwood-Bellis, Southampton to Aston Villa](https://peterdsouza247.github.io/transfer-intel/deals/harwood-bellis-southampton-aston-villa/): credibility 100/100
+- [Iliman Ndiaye, Everton to Man City](https://peterdsouza247.github.io/transfer-intel/deals/ndiaye-everton-man-city/): credibility 100/100
+- [Kevin Danso, Tottenham to Sunderland](https://peterdsouza247.github.io/transfer-intel/deals/danso-tottenham-sunderland/): credibility 100/100
+- [Robert Sánchez, Chelsea to Como](https://peterdsouza247.github.io/transfer-intel/deals/sanchez-chelsea-como/): credibility 100/100
+- [Tosin Adarabioyo, Chelsea to Tottenham](https://peterdsouza247.github.io/transfer-intel/deals/adarabioyo-chelsea-tottenham/): credibility 100/100
+- [Ibrahim Mbaye, Paris St-Germain to Aston Villa](https://peterdsouza247.github.io/transfer-intel/deals/mbaye-psg-aston-villa/): credibility 100/100
+- [Ethan Nwaneri, Arsenal to Dortmund](https://peterdsouza247.github.io/transfer-intel/deals/nwaneri-arsenal-dortmund/): credibility 100/100
+- [Gabriel Jesus, Arsenal to Barcelona](https://peterdsouza247.github.io/transfer-intel/deals/jesus-arsenal-barcelona/): credibility 100/100
+- [Beto, Everton to Fiorentina](https://peterdsouza247.github.io/transfer-intel/deals/beto-everton-fiorentina/): credibility 100/100
 - [Johan Manzambi, Freiburg to Aston Villa](https://peterdsouza247.github.io/transfer-intel/deals/manzambi-freiburg-aston-villa/): credibility 76/100
 - [Leandro Trossard, Arsenal to Beşiktaş](https://peterdsouza247.github.io/transfer-intel/deals/trossard-arsenal-besiktas/): credibility 76/100
 - [Maxence Lacroix, Crystal Palace to Chelsea](https://peterdsouza247.github.io/transfer-intel/deals/lacroix-crystal-palace-chelsea/): credibility 76/100

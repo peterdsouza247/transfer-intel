@@ -102,6 +102,9 @@ def main() -> int:
 
     written: list[Path] = []
     entries: list[tuple[str, str, str]] = [("/", updated_iso, "daily")]
+    if not (raw.get("config") or {}).get("archived"):
+        for archive in (raw.get("config") or {}).get("archives", []):
+            entries.append((f"windows/{archive['slug']}/", updated_iso, "monthly"))
 
     # -- 1. the index, pre-rendered ---------------------------------------
     document = args.template.read_text(encoding="utf-8")
@@ -144,6 +147,25 @@ def main() -> int:
         ),
     )
     document = site.inject_head(document, head)
+    windows = (raw.get("config") or {}).get("archives", [])
+    is_archive = bool((raw.get("config") or {}).get("archived"))
+    home = cfg.base_url.split("/windows/", 1)[0] if is_archive else cfg.base_url
+    links = ([f'<a href="{site.e(home)}/">Current window</a>']
+             if is_archive else
+             ['<strong aria-current="page">Current window</strong>'])
+    for item in windows:
+        slug = item["slug"]
+        label = item["name"]
+        url = f"{home}/windows/{slug}/"
+        links.append(
+            f'<strong aria-current="page">{site.e(label)}</strong>'
+            if is_archive and cfg.base_url.rstrip("/") == url.rstrip("/")
+            else f'<a href="{site.e(url)}">{site.e(label)}</a>'
+        )
+    document = site.inject_into(
+        document, "window-links",
+        '<span>Browse windows:</span> ' + " · ".join(links),
+    )
 
     # The site's own JavaScript overwrites these containers on load, so the
     # browser experience is unchanged and a crawler that never runs a script
@@ -197,6 +219,11 @@ def main() -> int:
 
     (out / "index.html").write_text(document, encoding="utf-8")
     written.append(out / "index.html")
+    # The browser must read exactly the same dataset used by the static pages.
+    (out / "data.js").write_text(
+        "window.TRANSFER_DATA = " + json.dumps(raw, ensure_ascii=False) + ";\n",
+        encoding="utf-8",
+    )
 
     # -- 2. deal pages -----------------------------------------------------
     for deal in deals:

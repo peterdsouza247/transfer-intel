@@ -350,7 +350,7 @@ def test_nav_buttons_carry_both_label_lengths():
 
 def test_active_tab_is_announced_not_just_coloured():
     html = (ROOT / "index.html").read_text(encoding="utf-8")
-    assert html.count('role="tab"') == 4
+    assert html.count('role="tab"') == 5
     assert 'aria-selected="true"' in html
     assert "setAttribute(\"aria-selected\"" in html
 
@@ -529,7 +529,7 @@ def test_display_dates_sort_chronologically():
 def test_feed_recent_puts_undated_deals_last():
     _, deals = _load_site_data()
     ordered = site.feed_order(deals, "recent")
-    keys = [site.display_date_key(d.date) for d in ordered]
+    keys = [site.display_date_key(site.display_update_date(d)) for d in ordered]
     assert keys == sorted(keys, reverse=True)
 
 
@@ -544,8 +544,9 @@ def test_sortable_headers_are_reachable_and_announced():
     """A sortable header that is only a click target excludes keyboard and
     screen reader users from the feature entirely."""
     html = (ROOT / "index.html").read_text(encoding="utf-8")
+    value_table = html.split('<table id="valtable">', 1)[1].split("</table>", 1)[0]
     headers = re.findall(r'<th data-sort="(\w+)" aria-sort="(\w+)">'
-                         r'<button type="button">', html)
+                         r'<button type="button">', value_table)
     assert len(headers) == 6
     # Exactly one column carries the initial sort, and it is the one the
     # build actually rendered.
@@ -892,12 +893,13 @@ def test_no_orphaned_form_markup_in_the_page():
     html = (ROOT / "index.html").read_text(encoding="utf-8")
     markup = html[:html.index("<script>\nconst DATA")]
     assert markup.count("<form") == markup.count("</form>") == 1
-    assert markup.count("<details") == markup.count("</details>") == 1
+    assert markup.count("<details") == markup.count("</details>") == 2
     assert markup.count("<div") == markup.count("</div>")
     # The give-away strings, each of which must appear exactly once.
     for phrase in ("Double opt-in", "Get the digest",
-                   "Only want certain clubs", "The daily transfer digest"):
+                   "Only want certain clubs"):
         assert markup.count(phrase) == 1, f"{phrase!r} x{markup.count(phrase)}"
+    assert markup.count("The daily transfer digest") == 2  # summary and form
 
 
 # ============================================================ draft claims

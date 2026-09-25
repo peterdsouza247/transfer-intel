@@ -1,0 +1,1407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="google-site-verification" content="MaydcgCHQv8aYlBuguDstL2j9MVl0z6E80e-pye_H-c" />
+<title>Transfer Intel: Premier League Window</title>
+<style>
+  :root{
+    --bg:#0b0e14; --panel:#131824; --panel2:#1a2132; --border:#232c42;
+    --text:#e8ecf4; --muted:#8a94ab; --accent:#4f9cff; --green:#3ddc84;
+    --amber:#ffb454; --red:#ff5d5d; --purple:#b98aff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,-apple-system,sans-serif;line-height:1.5}
+  a{color:var(--accent)}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+
+  header{background:linear-gradient(135deg,#101527 0%,#0b0e14 60%);border-bottom:1px solid var(--border);padding:28px 0 0}
+  .brand{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .brand h1{font-size:26px;letter-spacing:-.5px}
+  .brand h1 span{color:var(--accent)}
+  .brand .tag{color:var(--muted);font-size:13px}
+  .headbar{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;padding-bottom:16px}
+  .countdown{text-align:right}
+  .countdown .lbl{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px}
+  .countdown .clock{font-size:22px;font-weight:700;font-variant-numeric:tabular-nums;color:var(--amber)}
+
+  nav{background:var(--bg);border-bottom:1px solid var(--border)}
+  .navinner{display:flex;gap:4px;overflow-x:auto}
+  /* Full labels on desktop, short ones in the bottom bar. Both are real
+     text, so the button's accessible name is always the visible one. */
+  nav .ico{margin-right:6px}
+  nav .brief{display:none}
+  nav button{background:none;border:none;color:var(--muted);font-size:14px;font-weight:600;padding:12px 18px;cursor:pointer;border-bottom:3px solid transparent;white-space:nowrap}
+  nav button.active{color:var(--text);border-bottom-color:var(--accent)}
+  nav button:hover{color:var(--text)}
+
+  main{padding:24px 0 60px}
+
+  /* TI-003. On a phone these five "tabs" swapped panels inside the viewport,
+     so there genuinely was nothing below the fold and no reason for a reader
+     to believe otherwise. The reported symptom was "vertical scroll is not
+     discoverable"; the cause was that there was nothing to discover.
+     Below 860px every section is on the page at once and the nav scrolls to
+     it. Desktop keeps tabs, where the viewport is tall enough for a panel to
+     earn its place. Nothing anywhere sets a fixed viewport height. */
+  .tab{display:none}
+  .tab.active{display:block}
+  html{scroll-behavior:smooth}
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+  /* Horizontal rails must not swallow a vertical swipe. */
+  nav,.navinner,.railscroll{touch-action:pan-x pan-y}
+
+  @media(max-width:860px){
+    .tab{display:block;scroll-margin-top:14px}
+    .tab+.tab{border-top:1px solid var(--border);margin-top:28px;padding-top:24px}
+
+    /* The nav is pinned to the bottom of the viewport, not the top.
+       Two reasons. It has to stay reachable: with the sections stacked, a
+       reader who taps the second tab and wants the first one back should not
+       have to scroll the whole page up to find the control. And on a phone
+       the bottom of the screen is where the thumb already is, which is why
+       every native app puts its tab bar there.
+
+       It previously tried to do this with position:sticky while sitting
+       inside <header>. Sticky is bounded by its containing block, and the
+       header is only as tall as its own contents, so the nav scrolled away
+       with it and there was nothing to stick to. The element now sits
+       directly under <body>. */
+    nav{position:fixed;left:0;right:0;bottom:0;top:auto;z-index:30;
+        border-top:1px solid var(--border);border-bottom:none;
+        background:rgba(11,14,20,.94);backdrop-filter:blur(10px);
+        padding-bottom:env(safe-area-inset-bottom,0)}
+    .navinner{padding:0 8px;justify-content:space-between}
+    nav button{border-bottom:none;border-top:3px solid transparent;
+      font-size:11px;font-weight:600;padding:9px 6px 8px;flex:1 1 0;
+      display:flex;flex-direction:column;align-items:center;gap:3px;
+      text-align:center;white-space:normal;line-height:1.15;min-width:0}
+    nav button.active{border-bottom-color:transparent;
+      border-top-color:var(--accent)}
+    nav .ico{margin-right:0;font-size:15px;line-height:1}
+    nav .full{display:none}
+    nav .brief{display:block}
+    /* Clear the bar so the footer and the last capture form stay reachable. */
+    body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0))}
+    /* A section ending exactly on a card edge reads as the end of the page.
+       The fade leaves the next item visibly cut off instead. */
+    .cue{-webkit-mask-image:linear-gradient(to bottom,#000 85%,transparent);
+         mask-image:linear-gradient(to bottom,#000 85%,transparent)}
+  }
+  h2{font-size:19px;margin-bottom:4px}
+  .sub{color:var(--muted);font-size:13px;margin-bottom:18px}
+
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:24px}
+  .kpi{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px}
+  .kpi .v{font-size:24px;font-weight:800}
+  .kpi .l{font-size:12px;color:var(--muted)}
+
+  .panel{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:18px;margin-bottom:20px}
+
+  .funnel{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+  .stagechip{flex:1;min-width:120px;background:var(--panel2);border:1px solid var(--border);border-radius:10px;padding:10px 12px;text-align:center}
+  .stagechip .n{font-size:20px;font-weight:800}
+  .feed .item{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid var(--border)}
+  .feed .item:last-child{border-bottom:none}
+  .dot{width:10px;height:10px;border-radius:50%;margin-top:7px;flex-shrink:0}
+  .feed .when{color:var(--muted);font-size:12px;width:64px;flex-shrink:0;padding-top:3px}
+  .feed .what b{font-size:14.5px}
+  .feed .what .meta{font-size:12.5px;color:var(--muted)}
+  .pill{display:inline-block;font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px;margin-left:6px;vertical-align:1px}
+
+  .controls{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+  select,input[type=text]{background:var(--panel2);border:1px solid var(--border);color:var(--text);padding:8px 12px;border-radius:8px;font-size:13px}
+  .rumor{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:12px;display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:center}
+  .cred{width:64px;height:64px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;font-size:18px;border:4px solid}
+  .cred small{font-size:9px;font-weight:600;color:var(--muted)}
+  .rumor h3{font-size:15.5px}
+  .rumor .why{font-size:13px;color:var(--muted);margin-top:4px}
+  .srcline{font-size:12px;margin-top:6px}
+  .tier{font-weight:700;padding:1px 7px;border-radius:5px;font-size:10.5px;margin-right:6px}
+  .t1{background:rgba(61,220,132,.15);color:var(--green)}
+  .t2{background:rgba(255,180,84,.15);color:var(--amber)}
+  .t3{background:rgba(255,93,93,.15);color:var(--red)}
+
+  .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:10px 0}
+  .legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px}
+  table{width:100%;border-collapse:collapse;font-size:13.5px}
+  th{text-align:left;color:var(--muted);font-size:11.5px;text-transform:uppercase;letter-spacing:.6px;padding:8px 10px;border-bottom:1px solid var(--border)}
+  td{padding:9px 10px;border-bottom:1px solid var(--border)}
+  tr:last-child td{border-bottom:none}
+  tr.clickable{cursor:pointer}
+  tr.clickable:hover{background:var(--panel2)}
+  .verdict{font-weight:700;font-size:12px;padding:2px 9px;border-radius:20px}
+  .v-bargain{background:rgba(61,220,132,.15);color:var(--green)}
+  .v-fair{background:rgba(79,156,255,.15);color:var(--accent)}
+  .v-premium{background:rgba(255,180,84,.15);color:var(--amber)}
+  .v-overpay{background:rgba(255,93,93,.15);color:var(--red)}
+  #scatter{width:100%;height:auto}
+
+  .clubgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+  .club{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px;cursor:pointer;transition:border-color .15s}
+  .club:hover{border-color:var(--accent)}
+  .club h3{font-size:15px;display:flex;justify-content:space-between;align-items:center}
+  .net{font-size:13px;font-weight:700}
+  .club .row{display:flex;justify-content:space-between;font-size:12.5px;color:var(--muted);margin-top:6px}
+  .club .row b{color:var(--text)}
+  #clubdetail{display:none}
+  .back{background:none;border:1px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:8px;cursor:pointer;font-size:13px;margin-bottom:14px}
+  .back:hover{color:var(--text)}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:720px){.twocol{grid-template-columns:1fr}.rumor{grid-template-columns:52px 1fr}.cred{width:52px;height:52px;font-size:15px}}
+  ul.deal-list{list-style:none}
+  ul.deal-list li{padding:7px 0;border-bottom:1px solid var(--border);font-size:13.5px;display:flex;justify-content:space-between;gap:10px}
+  ul.deal-list li:last-child{border-bottom:none}
+  ul.deal-list .fee{color:var(--muted);white-space:nowrap}
+  .needbox{background:var(--panel2);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:12px 14px;font-size:13.5px;margin-top:12px}
+
+  footer{border-top:1px solid var(--border);padding:20px 0;color:var(--muted);font-size:12px}
+  .note{font-size:12px;color:var(--muted);margin-top:10px}
+  .window-links{font-size:13px;color:var(--muted);padding:0 0 13px}
+  .window-links a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+  .window-links strong{color:var(--text);font-weight:600}
+
+  /* TI-010: email capture */
+  .capture-shell{background:var(--panel2);border:1px solid var(--border);
+    border-radius:12px;margin:18px 0 0;overflow:hidden}
+  .capture-shell>summary{display:flex;align-items:center;justify-content:space-between;
+    gap:12px;padding:14px 18px;cursor:pointer;list-style:none}
+  .capture-shell>summary::-webkit-details-marker{display:none}
+  .capture-shell>summary::before{content:"+";color:var(--accent);font-weight:800}
+  .capture-shell[open]>summary::before{content:"−"}
+  .capture-shell>summary strong{font-size:15px;flex:1}
+  .capture-shell>summary span{font-size:12px;color:var(--muted)}
+  .capture-shell[open]>summary{border-bottom:1px solid var(--border)}
+  .capture{background:var(--panel2);border:1px solid var(--border);
+    border-radius:12px;padding:18px;margin:20px 0}
+  .capture h3{font-size:16px;margin-bottom:4px}
+  .capture p{font-size:13px;color:var(--muted);margin-bottom:12px}
+  .capture-row{display:flex;gap:8px;flex-wrap:wrap}
+  .capture input[type=email]{flex:1 1 220px;background:var(--bg);
+    border:1px solid var(--border);color:var(--text);padding:11px 13px;
+    border-radius:8px;font-size:14px}
+  .capture button{background:var(--accent);border:none;color:#04121f;
+    font-weight:700;padding:11px 20px;border-radius:8px;cursor:pointer;
+    font-size:14px}
+  .capture button:hover{filter:brightness(1.08)}
+  .capture-prefs{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+  .capture-prefs label{font-size:12px;color:var(--muted);
+    display:flex;flex-direction:column;gap:5px}
+  .capture-small{font-size:11.5px;margin:10px 0 0}
+  #capture-top .capture{margin:0;border:0;border-radius:0}
+  .capture-more{margin-top:12px}
+  .capture-more summary{cursor:pointer;font-size:12px;color:var(--muted);
+    list-style:none}
+  .capture-more summary::-webkit-details-marker{display:none}
+  .capture-more summary::before{content:"+ ";font-weight:700}
+  .capture-more[open] summary::before{content:"- "}
+  .capture-more summary:hover{color:var(--text)}
+
+  /* On mobile every section is stacked, so three capture forms meant meeting
+     the same ask three times on one scroll. That reads as nagging, and a
+     reader who has already declined once does not need asking again on the
+     way to the footer. One form, at the top, where it is seen before the
+     content rather than instead of it. */
+  @media(max-width:860px){
+    #capture-top .capture{margin:0;padding:14px}
+    #capture-top .capture h3{font-size:15px}
+    #capture-top .capture p{font-size:12.5px;margin-bottom:10px}
+  }
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;
+    clip:rect(0 0 0 0);white-space:nowrap}
+
+  /* TI-020: silence is information, so it gets a badge */
+  .stale{background:rgba(138,148,171,.18);color:var(--muted);font-weight:700;
+    font-size:10px;padding:2px 7px;border-radius:20px;margin-left:6px;
+    text-transform:uppercase;letter-spacing:.5px}
+  .decayline{font-size:11.5px;color:var(--muted);margin-top:4px}
+
+  /* TI-013: clubs with nothing tracked stop being interleaved */
+  .quiet-group{margin-top:18px}
+  .quiet-group summary{cursor:pointer;color:var(--muted);font-size:13px;
+    padding:10px 0}
+  .sortbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;
+    margin-bottom:14px}
+  .sortbar span{font-size:12px;color:var(--muted)}
+  tr.empty td{color:var(--muted);text-align:center;padding:18px 10px}
+
+  /* Sortable table headers. The whole header is a button so it is reachable
+     by keyboard and announced as interactive; aria-sort carries the current
+     state for screen readers, and the arrow is drawn from that same
+     attribute so the two can never disagree. */
+  th[data-sort]{padding:0}
+  th[data-sort] button{all:unset;display:block;width:100%;box-sizing:border-box;
+    padding:11px 12px;cursor:pointer;font:inherit;color:var(--muted);
+    font-size:11.5px;text-transform:uppercase;letter-spacing:.6px}
+  th[data-sort] button:hover{color:var(--text)}
+  th[data-sort] button:focus-visible{outline:2px solid var(--accent);
+    outline-offset:-2px}
+  th[data-sort] button::after{content:"";opacity:.35;margin-left:6px}
+  th[aria-sort="ascending"] button::after{content:"\2191";opacity:1}
+  th[aria-sort="descending"] button::after{content:"\2193";opacity:1}
+  th[aria-sort="none"] button::after{content:"\2195"}
+  th[aria-sort="ascending"] button,th[aria-sort="descending"] button{
+    color:var(--accent)}
+  .move{color:var(--muted)}
+  .pos{display:inline-block;background:var(--panel2);border:1px solid var(--border);
+    color:var(--muted);font-size:10px;font-weight:700;letter-spacing:.5px;
+    padding:1px 5px;border-radius:4px;margin-left:6px;vertical-align:2px}
+  .srclink{color:var(--accent);text-decoration:none;font-size:11.5px;
+    white-space:nowrap}
+  .srclink:hover{text-decoration:underline}
+
+  /* Post-window source accountability */
+  .source-method{border-left:3px solid var(--accent)}
+  .source-method p{font-size:13px;color:var(--muted);margin-top:6px}
+  .source-method code{color:var(--text);background:var(--bg);padding:2px 6px;
+    border-radius:5px}
+  .source-panel-head{display:flex;justify-content:space-between;gap:12px;
+    align-items:baseline;flex-wrap:wrap;margin-bottom:8px}
+  .source-panel-head p{font-size:12px;color:var(--muted)}
+  .source-score{display:inline-flex;min-width:38px;justify-content:center;
+    font-weight:800;padding:3px 9px;border-radius:20px}
+  .source-high{background:rgba(61,220,132,.15);color:var(--green)}
+  .source-mid{background:rgba(255,180,84,.15);color:var(--amber)}
+  .source-low{background:rgba(255,93,93,.15);color:var(--red)}
+  .source-unrated{background:rgba(138,148,171,.18);color:var(--muted)}
+  .source-table td:not(:first-child),.source-table th:not(:first-child){
+    text-align:right;font-variant-numeric:tabular-nums}
+  .source-table th:not(:first-child) button{text-align:right}
+  .source-table td:first-child{min-width:170px}
+  .source-caveat{font-size:11.5px;color:var(--muted);margin-top:10px}
+  @media(max-width:720px){
+    .source-table{min-width:680px}
+    .source-method code{display:inline-block;margin-top:4px}
+  }
+</style>
+<!-- generated by scripts/render_site.py, do not hand edit -->
+<meta name="description" content="Premier League transfer rumours and their sources scored for credibility, with transparent value-for-money verdicts.">
+<link rel="canonical" href="https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TransferIntel">
+<meta property="og:title" content="TransferIntel: Premier League transfer rumours scored for credibility">
+<meta property="og:description" content="Premier League transfer rumours and their sources scored for credibility, with transparent value-for-money verdicts.">
+<meta property="og:url" content="https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/og/default.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="TransferIntel: Premier League transfer rumours scored for credibility">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TransferIntel: Premier League transfer rumours scored for credibility">
+<meta name="twitter:description" content="Premier League transfer rumours and their sources scored for credibility, with transparent value-for-money verdicts.">
+<meta name="twitter:image" content="https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/og/default.png">
+<meta name="twitter:site" content="@peterdwrites">
+<meta name="author" content="Peter Brendan">
+<meta property="article:modified_time" content="2026-09-25">
+<link rel="alternate" type="application/rss+xml" title="TransferIntel updates" href="/transfer-intel/windows/2026-summer/feed.xml">
+<link rel="icon" href="/transfer-intel/windows/2026-summer/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#0b0e14">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"TransferIntel","url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/","description":"Premier League transfer rumours and their sources scored for credibility, with transparent value-for-money verdicts.","inLanguage":"en-GB","author":{"@type":"Person","name":"Peter Brendan"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"TransferIntel: Premier League · Summer Window 2026 transfer credibility index","description":"69 tracked Premier League transfers, each scored 0 to 100 for credibility from source tier and corroboration, with fee, status and source-performance history.","url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/","creator":{"@type":"Person","name":"Peter Brendan"},"dateModified":"2026-09-25","isAccessibleForFree":true,"license":"https://creativecommons.org/licenses/by/4.0/","variableMeasured":[{"@type":"PropertyValue","name":"credibility","minValue":0,"maxValue":100},{"@type":"PropertyValue","name":"status"},{"@type":"PropertyValue","name":"fee","unitText":"GBP millions"},{"@type":"PropertyValue","name":"source credibility","minValue":0,"maxValue":100}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":1,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/anderson-nott-m-forest-man-city/","name":"Elliot Anderson: Nott'm Forest to Man City"},{"@type":"ListItem","position":2,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/tonali-newcastle-tottenham/","name":"Sandro Tonali: Newcastle to Tottenham"},{"@type":"ListItem","position":3,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/fernandes-west-ham-tottenham/","name":"Mateus Fernandes: West Ham to Tottenham"},{"@type":"ListItem","position":4,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/gordon-newcastle-barcelona/","name":"Anthony Gordon: Newcastle to Barcelona"},{"@type":"ListItem","position":5,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/jacquet-rennes-liverpool/","name":"Jeremy Jacquet: Rennes to Liverpool"},{"@type":"ListItem","position":6,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/hecke-brighton-tottenham/","name":"Jan Paul van Hecke: Brighton to Tottenham"},{"@type":"ListItem","position":7,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/cucurella-chelsea-real-madrid/","name":"Marc Cucurella: Chelsea to Real Madrid"},{"@type":"ListItem","position":8,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/santos-chelsea-man-utd/","name":"Andrey Santos: Chelsea to Man Utd"},{"@type":"ListItem","position":9,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/quenda-sporting-cp-chelsea/","name":"Geovany Quenda: Sporting CP to Chelsea"},{"@type":"ListItem","position":10,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/palestra-atalanta-chelsea/","name":"Marco Palestra: Atalanta to Chelsea"},{"@type":"ListItem","position":11,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/toure-hoffenheim-newcastle/","name":"Bazoumana Touré: Hoffenheim to Newcastle"},{"@type":"ListItem","position":12,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/hojlund-man-utd-napoli/","name":"Rasmus Højlund: Man Utd to Napoli"},{"@type":"ListItem","position":13,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/tielemans-aston-villa-man-utd/","name":"Youri Tielemans: Aston Villa to Man Utd"},{"@type":"ListItem","position":14,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/hincapie-leverkusen-arsenal/","name":"Piero Hincapié: Leverkusen to Arsenal"},{"@type":"ListItem","position":15,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/munoz-osasuna-liverpool/","name":"Victor Muñoz: Osasuna to Liverpool"},{"@type":"ListItem","position":16,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/hackney-middlesbrough-everton/","name":"Hayden Hackney: Middlesbrough to Everton"},{"@type":"ListItem","position":17,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/rohl-freiburg-everton/","name":"Merlin Röhl: Freiburg to Everton"},{"@type":"ListItem","position":18,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/yohanna-aik-brighton/","name":"Zadok Yohanna: AIK to Brighton"},{"@type":"ListItem","position":19,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/malen-aston-villa-roma/","name":"Donyell Malen: Aston Villa to Roma"},{"@type":"ListItem","position":20,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/jaouen-reims-newcastle/","name":"Ewen Jaouen: Reims to Newcastle"},{"@type":"ListItem","position":21,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/schuster-rb-salzburg-brentford/","name":"Jannik Schuster: RB Salzburg to Brentford"},{"@type":"ListItem","position":22,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/vuskovic-tottenham-brighton/","name":"Luka Vusković: Tottenham to Brighton"},{"@type":"ListItem","position":23,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/manzambi-freiburg-aston-villa/","name":"Johan Manzambi: Freiburg to Aston Villa"},{"@type":"ListItem","position":24,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/greenwood-marseille-fenerbahce/","name":"Mason Greenwood: Marseille to Fenerbahçe"},{"@type":"ListItem","position":25,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/trossard-arsenal-besiktas/","name":"Leandro Trossard: Arsenal to Beşiktaş"},{"@type":"ListItem","position":26,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/chavarria-rayo-vallecano-chelsea/","name":"Pep Chavarría: Rayo Vallecano to Chelsea"},{"@type":"ListItem","position":27,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/savinho-man-city-tottenham/","name":"Savinho: Man City to Tottenham"},{"@type":"ListItem","position":28,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/kroupi-bournemouth-tottenham/","name":"Eli Junior Kroupi: Bournemouth to Tottenham"},{"@type":"ListItem","position":29,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/lacroix-crystal-palace-chelsea/","name":"Maxence Lacroix: Crystal Palace to Chelsea"},{"@type":"ListItem","position":30,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/rogers-aston-villa-arsenal/","name":"Morgan Rogers: Aston Villa to Arsenal"},{"@type":"ListItem","position":31,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/rodriguez-elche-bournemouth/","name":"Álvaro Rodríguez: Elche to Bournemouth"},{"@type":"ListItem","position":32,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/alvarez-atletico-madrid-arsenal/","name":"Julián Álvarez: Atlético Madrid to Arsenal"},{"@type":"ListItem","position":33,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/tzolis-club-brugge-arsenal/","name":"Christos Tzolis: Club Brugge to Arsenal"},{"@type":"ListItem","position":34,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/guimaraes-newcastle-arsenal/","name":"Bruno Guimarães: Newcastle to Arsenal"},{"@type":"ListItem","position":35,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/gomes-wolves-man-utd/","name":"João Gomes: Wolves to Man Utd"},{"@type":"ListItem","position":36,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/barcola-psg-liverpool/","name":"Bradley Barcola: PSG to Liverpool"},{"@type":"ListItem","position":37,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/bouaddi-lille-man-city/","name":"Ayyoub Bouaddi: Lille to Man City"},{"@type":"ListItem","position":38,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/muani-psg-crystal-palace/","name":"Randal Kolo Muani: PSG to Crystal Palace"},{"@type":"ListItem","position":39,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/watkins-aston-villa-fenerbahce/","name":"Ollie Watkins: Aston Villa to Fenerbahçe"},{"@type":"ListItem","position":40,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/williams-nott-m-forest-man-utd/","name":"Neco Williams: Nott'm Forest to Man Utd"},{"@type":"ListItem","position":41,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/ederson-atalanta-man-utd/","name":"Éderson: Atalanta to Man Utd"},{"@type":"ListItem","position":42,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/robertson-liverpool-tottenham/","name":"Andy Robertson: Liverpool to Tottenham"},{"@type":"ListItem","position":43,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/senesi-bournemouth-tottenham/","name":"Marcos Senesi: Bournemouth to Tottenham"},{"@type":"ListItem","position":44,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/dubravka-burnley-tottenham/","name":"Martín Dúbravka: Burnley to Tottenham"},{"@type":"ListItem","position":45,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/konate-liverpool-real-madrid/","name":"Ibrahima Konaté: Liverpool to Real Madrid"},{"@type":"ListItem","position":46,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/silva-man-city-real-madrid/","name":"Bernardo Silva: Man City to Real Madrid"},{"@type":"ListItem","position":47,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/trippier-newcastle-wolves/","name":"Kieran Trippier: Newcastle to Wolves"},{"@type":"ListItem","position":48,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/rogers-aston-villa-chelsea/","name":"Morgan Rogers: Aston Villa to Chelsea"},{"@type":"ListItem","position":49,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/gomes-wolves-aston-villa/","name":"Joao Gomes: Wolves to Aston Villa"},{"@type":"ListItem","position":50,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/vinicius-real-madrid-arsenal/","name":"Vinicius Junior: Real Madrid to Arsenal"},{"@type":"ListItem","position":51,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/garnacho-chelsea-aston-villa/","name":"Alejandro Garnacho: Chelsea to Aston Villa"},{"@type":"ListItem","position":52,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/meslier-leeds-arsenal/","name":"Illan Meslier: Leeds to Arsenal"},{"@type":"ListItem","position":53,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/darlow-leeds-man-utd/","name":"Karl Darlow: Leeds to Man Utd"},{"@type":"ListItem","position":54,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/george-chelsea-everton/","name":"Tyrique George: Chelsea to Everton"},{"@type":"ListItem","position":55,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/salah-liverpool-besiktas/","name":"Mohamed Salah: Liverpool to Besiktas"},{"@type":"ListItem","position":56,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/fernandez-chelsea-man-city/","name":"Enzo Fernández: Chelsea to Man City"},{"@type":"ListItem","position":57,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/mudryk-chelsea-tottenham/","name":"Mykhailo Mudryk: Chelsea to Tottenham"},{"@type":"ListItem","position":58,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/fofana-lyon-sunderland/","name":"Malick Fofana: Lyon to Sunderland"},{"@type":"ListItem","position":59,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/woltemade-newcastle-juventus/","name":"Nick Woltemade: Newcastle to Juventus"},{"@type":"ListItem","position":60,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/fernandez-pardo-lille-newcastle/","name":"Matias Fernandez-Pardo: Lille to Newcastle"},{"@type":"ListItem","position":61,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/harwood-bellis-southampton-aston-villa/","name":"Taylor Harwood-Bellis: Southampton to Aston Villa"},{"@type":"ListItem","position":62,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/ndiaye-everton-man-city/","name":"Iliman Ndiaye: Everton to Man City"},{"@type":"ListItem","position":63,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/danso-tottenham-sunderland/","name":"Kevin Danso: Tottenham to Sunderland"},{"@type":"ListItem","position":64,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/sanchez-chelsea-como/","name":"Robert Sánchez: Chelsea to Como"},{"@type":"ListItem","position":65,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/adarabioyo-chelsea-tottenham/","name":"Tosin Adarabioyo: Chelsea to Tottenham"},{"@type":"ListItem","position":66,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/mbaye-psg-aston-villa/","name":"Ibrahim Mbaye: Paris St-Germain to Aston Villa"},{"@type":"ListItem","position":67,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/nwaneri-arsenal-dortmund/","name":"Ethan Nwaneri: Arsenal to Dortmund"},{"@type":"ListItem","position":68,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/jesus-arsenal-barcelona/","name":"Gabriel Jesus: Arsenal to Barcelona"},{"@type":"ListItem","position":69,"url":"https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/deals/beto-everton-fiorentina/","name":"Beto: Everton to Fiorentina"}]}</script>
+<!-- /generated -->
+</head>
+<body>
+<div style="background:#131824;border-bottom:1px solid #232c42;font-size:12.5px;
+  color:#8a94ab;text-align:center;padding:7px 14px">
+  <b style="color:#4f9cff">TransferIntel</b> · Premier League window analytics with
+  credibility scoring and value verdicts · peterbrendanwrites@gmail.com · © 2026 Peter Brendan
+</div>
+<header>
+  <div class="wrap">
+    <div class="headbar">
+      <div class="brand">
+        <h1>Transfer<span>Intel</span></h1>
+        <span class="tag" id="window-tag"></span>
+      </div>
+      <div class="countdown">
+        <div class="lbl" id="deadline-lbl"></div>
+        <div class="clock" id="clock">...</div>
+      </div>
+    </div>
+    <div class="window-links" id="window-links"><span>Browse windows:</span> <a href="https://peterdsouza247.github.io/transfer-intel/">Current window</a> · <strong aria-current="page">Summer 2026 archive</strong></div>
+  </div>
+</header>
+
+<div class="wrap"><div id="capture-top"><details class="capture-shell">
+  <summary><strong>The daily transfer digest</strong><span>Get the email</span></summary>
+  <form class="capture" method="post"
+      action="https://app.kit.com/forms/9707763/subscriptions"
+      data-placement="top" data-ti-event="newsletter_submit">
+  <h3>The daily transfer digest</h3>
+  <p>Every morning: what actually moved, and what was noise. One email a day while the window is open, and it stops when it closes.</p>
+  <div class="capture-row">
+    <label class="visually-hidden" for="email-top">Email address</label>
+    <input id="email-top" type="email" name="email_address" required
+           autocomplete="email" placeholder="you@example.com">
+    <button type="submit">Get the digest</button>
+  </div>
+  <details class="capture-more">
+    <summary>Only want certain clubs?</summary>
+      <div class="capture-prefs">
+        <label>Clubs
+          <select name="fields[clubs]" multiple size="4"
+                  aria-label="Clubs to follow, leave unset for all">
+            <option value="all" selected>All clubs</option>
+            <option value="Arsenal">Arsenal</option><option value="Aston Villa">Aston Villa</option><option value="Bournemouth">Bournemouth</option><option value="Brighton">Brighton</option><option value="Chelsea">Chelsea</option><option value="Crystal Palace">Crystal Palace</option><option value="Everton">Everton</option><option value="Liverpool">Liverpool</option><option value="Man City">Man City</option><option value="Man Utd">Man Utd</option><option value="Newcastle">Newcastle</option><option value="Nott&#x27;m Forest">Nott&#x27;m Forest</option><option value="Sunderland">Sunderland</option><option value="Tottenham">Tottenham</option><option value="West Ham">West Ham</option>
+          </select>
+        </label>
+        <label>Minimum credibility
+          <select name="fields[threshold]">
+            <option value="0" selected>Anything tracked</option>
+            <option value="40">40 and above</option>
+            <option value="60">60 and above</option>
+            <option value="80">80 and above</option>
+            <option value="confirmed">Confirmed only</option>
+          </select>
+        </label>
+      </div>
+  </details>
+  <input type="hidden" name="redirect" value="https://peterdsouza247.github.io/transfer-intel/windows/2026-summer/thanks/">
+  <p class="capture-small">Double opt-in. One click to unsubscribe. No ads,
+  no list sharing.</p>
+</form>
+</details></div></div>
+
+<nav id="tabnav" aria-label="Sections">
+  <div class="wrap navinner" role="tablist">
+    <button class="active" data-tab="pulse" role="tab" aria-selected="true"><span class="ico" aria-hidden="true">⚡</span><span class="full">Window Pulse</span><span class="brief">Pulse</span></button>
+    <button data-tab="rumors" role="tab" aria-selected="false"><span class="ico" aria-hidden="true">🔍</span><span class="full">Rumour Credibility</span><span class="brief">Rumours</span></button>
+    <button data-tab="sources" role="tab" aria-selected="false"><span class="ico" aria-hidden="true">📊</span><span class="full">Source Index</span><span class="brief">Sources</span></button>
+    <button data-tab="value" role="tab" aria-selected="false"><span class="ico" aria-hidden="true">💰</span><span class="full">Value Analytics</span><span class="brief">Value</span></button>
+    <button data-tab="clubs" role="tab" aria-selected="false"><span class="ico" aria-hidden="true">🏟</span><span class="full">Club Dashboards</span><span class="brief">Clubs</span></button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+  <section id="pulse" class="tab active">
+    <h2>Window Pulse</h2>
+    <p class="sub">Every deal tracked through its lifecycle: rumor → talks → agreed → medical → done. <span id="updated-pulse"></span></p>
+    <div class="cards" id="pulse-kpis"></div>
+    <div class="funnel" id="funnel"><div class="stagechip"><div class="n">3</div><div>Rumour</div></div>
+<div class="stagechip"><div class="n">1</div><div>In talks</div></div>
+<div class="stagechip"><div class="n">3</div><div>Fee agreed</div></div>
+<div class="stagechip"><div class="n">0</div><div>Medical booked</div></div>
+<div class="stagechip"><div class="n">12</div><div>Confirmed pending announcement</div></div>
+<div class="stagechip"><div class="n">43</div><div>Completed</div></div>
+<div class="stagechip"><div class="n">7</div><div>Collapsed</div></div></div>
+    <div class="sortbar">
+      <span>Feed order</span>
+      <select id="f-feedsort">
+        <option value="active">Most active</option>
+        <option value="recent">Most recent</option>
+        <option value="fee">Biggest fee</option>
+        <option value="cred">Most credible</option>
+        <option value="quiet">Longest quiet</option>
+      </select>
+    </div>
+    <div class="panel feed" id="feed"><div class="item"><div class="when">Jul 22</div><div class="what"><b>Morgan Rogers</b><span class="pos">AM</span> <span class="meta">Morgan Rogers, AM, age 24, from Aston Villa to Arsenal for a reported £130m. Status: Collapsed. Credibility 0 out of 100, based on Telegraph / F365. <a class="srclink" href="https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/02/premier-league-2026-summer-transfers-done-deals-all-completed-confirmed-signings-official" target="_blank" rel="noopener nofollow">FootballTransfers &#8599;</a></span></div></div>
+<div class="item"><div class="when">Sep 1</div><div class="what"><b>Julián Álvarez</b><span class="pos">ST</span> <span class="meta">Julián Álvarez, ST, age 26, from Atlético Madrid to Arsenal for a reported £128m. Status: Collapsed. Credibility 0 out of 100, based on FootballTransfers. <a class="srclink" href="https://www.skysports.com/football/news/12040/13579965/arsenal-fail-to-sign-julian-alvarez-and-with-no-elite-attacker-in-are-mikel-artetas-team-short-in-the-forward-options" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></span></div></div>
+<div class="item"><div class="when">Aug 19</div><div class="what"><b>Vinicius Junior</b><span class="pos">LW</span> <span class="meta">Vinicius Junior, LW, age 26, from Real Madrid to Arsenal for a reported £128m. Status: Collapsed. Credibility 0 out of 100, based on Sky Sports. <a class="srclink" href="https://www.bbc.co.uk/sport/football/articles/ckge3g8dl95o" target="_blank" rel="noopener nofollow">BBC Sport &#8599;</a></span></div></div>
+<div class="item"><div class="when">Aug 31</div><div class="what"><b>Eli Junior Kroupi</b><span class="pos">ST</span> <span class="meta">Eli Junior Kroupi, ST, age 20, from Bournemouth to Tottenham for a reported £75m. Status: Collapsed. Credibility 0 out of 100, based on Football365. <a class="srclink" href="https://www.standard.co.uk/sport/football/junior-kroupi-arsenal-fc-tottenham-transfer-latest-injury-surgery-b1291750.html" target="_blank" rel="noopener nofollow">Evening Standard &#8599;</a></span></div></div>
+<div class="item"><div class="when">Jul 11</div><div class="what"><b>João Gomes</b><span class="pos">CM</span> <span class="meta">João Gomes, CM, age 25, from Wolves to Man Utd for a reported £45m. Status: Collapsed. Credibility 0 out of 100, based on Football365.</span></div></div>
+<div class="item"><div class="when">Aug 28</div><div class="what"><b>Ollie Watkins</b><span class="pos">ST</span> <span class="meta">Ollie Watkins, ST, age 30, from Aston Villa to Fenerbahçe for a reported £35m. Status: Collapsed. Credibility 0 out of 100, based on Turkish press. <a class="srclink" href="https://www.bbc.co.uk/sport/football/articles/cq63ry9q6jzo" target="_blank" rel="noopener nofollow">BBC Sport &#8599;</a></span></div></div>
+<div class="item"><div class="when">Aug 19</div><div class="what"><b>Éderson</b><span class="pos">CM</span> <span class="meta">Éderson, CM, age 27, from Atalanta to Man Utd for a reported £34.9m. Status: Collapsed. Credibility 0 out of 100, based on Ornstein. <a class="srclink" href="https://www.mirror.co.uk/sport/football/transfer-news/man-utd-ederson-medical-failed-37571309" target="_blank" rel="noopener nofollow">The Mirror &#8599;</a></span></div></div>
+<div class="item"><div class="when">Sep 1</div><div class="what"><b>Bradley Barcola</b><span class="pos">LW</span> <span class="meta">Bradley Barcola, LW, age 23, from PSG to Liverpool for a reported £123m. Status: Confirmed pending announcement. Credibility 76 out of 100, based on Football365. <a class="srclink" href="https://www.bbc.co.uk/sport/football/articles/ceqewejnpr3o" target="_blank" rel="noopener nofollow">BBC Sport &#8599;</a></span></div></div>
+<div class="item"><div class="when">Aug 29</div><div class="what"><b>Bruno Guimarães</b><span class="pos">CM</span> <span class="meta">Bruno Guimarães, CM, age 28, from Newcastle to Arsenal for a reported £75m. Status: Confirmed pending announcement. Credibility 76 out of 100, based on Football365. <a class="srclink" href="https://www.bbc.co.uk/sport/football/articles/c1719r079rjo" target="_blank" rel="noopener nofollow">BBC Sport &#8599;</a></span></div></div>
+<div class="item"><div class="when">Aug 2</div><div class="what"><b>Johan Manzambi</b><span class="pos">AM</span> <span class="meta">Johan Manzambi, AM, age 20, from Freiburg to Aston Villa for a reported £59.5m. Status: Confirmed pending announcement. Credibility 76 out of 100, based on Romano. <a class="srclink" href="https://www.skysports.com/football/news/12875/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></span></div></div>
+<div class="item"><div class="when">Jul 31</div><div class="what"><b>Maxence Lacroix</b><span class="pos">CB</span> <span class="meta">Maxence Lacroix, CB, age 26, from Crystal Palace to Chelsea for a reported £52m. Status: Confirmed pending announcement. Credibility 76 out of 100, based on Football365. <a class="srclink" href="https://www.bbc.co.uk/sport/football/articles/cg4d11g46lpo" target="_blank" rel="noopener nofollow">BBC Sport &#8599;</a></span></div></div>
+<div class="item"><div class="when">Jul 22</div><div class="what"><b>Luka Vusković</b><span class="pos">CB</span> <span class="meta">Luka Vusković, CB, age 19, from Tottenham to Brighton for a reported £46m. Status: Confirmed pending announcement. Credibility 60 out of 100, based on Football365. <a class="srclink" href="https://www.transfermarkt.us/" target="_blank" rel="noopener nofollow">Transfermarkt &#8599;</a></span></div></div></div>
+  </section>
+
+  <section id="rumors" class="tab">
+    <h2>Rumor Credibility Index</h2>
+    <p class="sub">Each rumor scored 0-100 from source reliability (Tier 1 = Romano, Ornstein, Sky Sports · Tier 2 = established outlets · Tier 3 = tabloid/foreign paper talk), deal stage, and corroboration across outlets. Stop wasting emotion on 20-point rumors.</p>
+    <div class="controls">
+      <select id="f-club"><option value="">All clubs</option></select>
+      <select id="f-sort">
+        <option value="cred">Sort: credibility ↓</option>
+        <option value="fee">Sort: fee ↓</option>
+        <option value="quiet">Sort: longest quiet ↓</option>
+      </select>
+      <select id="f-quiet">
+        <option value="">All rumours</option>
+        <option value="stale">Gone quiet only</option>
+        <option value="live">Moving only</option>
+      </select>
+      <input type="text" id="f-search" placeholder="Search player…">
+    </div>
+    <div id="rumorlist"><article class="rumor" id="deal-anderson-nott-m-forest-man-city"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/anderson-nott-m-forest-man-city/">Elliot Anderson</a><span class="pos">CM</span></h3><p>Elliot Anderson, CM, age 23, from Nott&#x27;m Forest to Man City for a reported £116m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £116m · Sky Sports · updated Jul 23 <a class="srclink" href="https://www.manchestereveningnews.co.uk/sport/football/transfer-news/man-city-confirm-elliot-anderson-34341357" target="_blank" rel="noopener nofollow">manchestereveningnews.co.uk &#8599;</a></p><p class="note">Club-record buy; medical done while at the World Cup with England.</p></div></article>
+<article class="rumor" id="deal-tonali-newcastle-tottenham"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/tonali-newcastle-tottenham/">Sandro Tonali</a><span class="pos">CM</span></h3><p>Sandro Tonali, CM, age 26, from Newcastle to Tottenham for a reported £100m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £100m · Sky Sports · updated Aug 29 <a class="srclink" href="https://www.bbc.co.uk/sport/football/articles/cz7dlyq1qnwo" target="_blank" rel="noopener nofollow">BBC Sport &#8599;</a></p><p class="note">Tottenham paid a British record fee for a midfielder to reshape their midfield depth after years of relying on Sarr and Bissouma.</p></div></article>
+<article class="rumor" id="deal-fernandes-west-ham-tottenham"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/fernandes-west-ham-tottenham/">Mateus Fernandes</a><span class="pos">CM</span></h3><p>Mateus Fernandes, CM, age 21, from West Ham to Tottenham for a reported £85m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £85m · Sky Sports · updated Aug 2 <a class="srclink" href="https://www.manchestereveningnews.co.uk/sport/football/football-news/mateus-fernandes-tottenham-man-utd-34392675" target="_blank" rel="noopener nofollow">manchestereveningnews.co.uk &#8599;</a></p><p class="note">Spurs beat Man Utd to the 21-year-old. Club-record fee.</p></div></article>
+<article class="rumor" id="deal-gordon-newcastle-barcelona"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/gordon-newcastle-barcelona/">Anthony Gordon</a><span class="pos">LW</span></h3><p>Anthony Gordon, LW, age 25, from Newcastle to Barcelona for a reported £69.3m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £69.3m · Sky Sports · updated Aug 28 <a class="srclink" href="https://www.chroniclelive.co.uk/sport/football/football-news/anthony-gordon-barcelona-spanish-media-34531181" target="_blank" rel="noopener nofollow">chroniclelive.co.uk &#8599;</a></p><p class="note">Second big Newcastle sale of the window.</p></div></article>
+<article class="rumor" id="deal-jacquet-rennes-liverpool"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/jacquet-rennes-liverpool/">Jeremy Jacquet</a><span class="pos">CB</span></h3><p>Jeremy Jacquet, CB, age 20, from Rennes to Liverpool for a reported £60m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £60m · Sky Sports · updated Jul 9</p><p class="note">Konaté&#x27;s long-term replacement after his free move to Madrid.</p></div></article>
+<article class="rumor" id="deal-hecke-brighton-tottenham"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/hecke-brighton-tottenham/">Jan Paul van Hecke</a><span class="pos">CB</span></h3><p>Jan Paul van Hecke, CB, age 26, from Brighton to Tottenham for a reported £52m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £52m · Sky Sports · updated Jul 2</p><p class="note">Third major Spurs buy.</p></div></article>
+<article class="rumor" id="deal-cucurella-chelsea-real-madrid"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/cucurella-chelsea-real-madrid/">Marc Cucurella</a><span class="pos">LB</span></h3><p>Marc Cucurella, LB, age 27, from Chelsea to Real Madrid for a reported £51.8m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £51.8m · Sky Sports · updated Jul 1</p><p class="note">Chelsea now shopping for a left-back (see Chavarría).</p></div></article>
+<article class="rumor" id="deal-santos-chelsea-man-utd"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/santos-chelsea-man-utd/">Andrey Santos</a><span class="pos">CM</span></h3><p>Andrey Santos, CM, age 22, from Chelsea to Man Utd for a reported £48m. Status: Completed. Credibility 100 out of 100, based on Ornstein.</p><p class="meta">Completed · £48m · Ornstein · updated Jul 16 <a class="srclink" href="https://www.espn.com/soccer/story/_/id/49318443/manchester-united-announce-signing-andrey-santos-chelsea-premier-league-transfer-news" target="_blank" rel="noopener nofollow">ESPN &#8599;</a></p><p class="note">Confirmed (auto-updated 2026-07-16). Medical completed Thursday; all done bar the unveiling.</p></div></article>
+<article class="rumor" id="deal-quenda-sporting-cp-chelsea"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/quenda-sporting-cp-chelsea/">Geovany Quenda</a><span class="pos">RW</span></h3><p>Geovany Quenda, RW, age 19, from Sporting CP to Chelsea for a reported £44m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £44m · Sky Sports · updated Jun 20</p><p class="note">Pre-agreed 2025 deal now completed.</p></div></article>
+<article class="rumor" id="deal-palestra-atalanta-chelsea"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/palestra-atalanta-chelsea/">Marco Palestra</a><span class="pos">RB</span></h3><p>Marco Palestra, RB, age 21, from Atalanta to Chelsea for a reported £43m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £43m · Sky Sports · updated Aug 7 <a class="srclink" href="https://www.dailymail.com/sport/football/article-16035921/Why-Marco-Palestra-snubbed-Inter-Chelsea-dream.html" target="_blank" rel="noopener nofollow">dailymail.com &#8599;</a></p><p class="note">Young full-back for the project.</p></div></article>
+<article class="rumor" id="deal-toure-hoffenheim-newcastle"><div class="cred mid" aria-label="Credibility 60 of 100"><span>60</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/toure-hoffenheim-newcastle/">Bazoumana Touré</a><span class="pos">LW</span></h3><p>Bazoumana Touré, LW, age 20, from Hoffenheim to Newcastle for a reported £42m. Status: Confirmed pending announcement. Credibility 60 out of 100, based on FootballTransfers.</p><p class="meta">Confirmed pending announcement · £42m · FootballTransfers · updated Jul 11</p><p class="note">Gordon&#x27;s replacement on the left.</p></div></article>
+<article class="rumor" id="deal-hojlund-man-utd-napoli"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/hojlund-man-utd-napoli/">Rasmus Højlund</a><span class="pos">ST</span></h3><p>Rasmus Højlund, ST, age 23, from Man Utd to Napoli for a reported £38m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £38m · Sky Sports · updated Jun 26</p><p class="note">United recoup a chunk of the 2023 fee.</p></div></article>
+<article class="rumor" id="deal-tielemans-aston-villa-man-utd"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/tielemans-aston-villa-man-utd/">Youri Tielemans</a><span class="pos">CM</span></h3><p>Youri Tielemans, CM, age 29, from Aston Villa to Man Utd for a reported £35m. Status: Completed. Credibility 100 out of 100, based on Romano + Ornstein.</p><p class="meta">Completed · £35m · Romano + Ornstein · updated Jul 16 <a class="srclink" href="https://www.manutd.com/en/news/manchester-united-announce-signing-of-youri-tielemans" target="_blank" rel="noopener nofollow">Man Utd &#8599;</a></p><p class="note">Confirmed (auto-updated 2026-07-16). Release clause triggered (€41m). Villa didn&#x27;t want to sell. Announcement expected this week.</p></div></article>
+<article class="rumor" id="deal-hincapie-leverkusen-arsenal"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/hincapie-leverkusen-arsenal/">Piero Hincapié</a><span class="pos">CB</span></h3><p>Piero Hincapié, CB, age 24, from Leverkusen to Arsenal for a reported £34.5m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £34.5m · Sky Sports · updated Jun 18</p><p class="note">Kiwior sold to Porto to make room.</p></div></article>
+<article class="rumor" id="deal-munoz-osasuna-liverpool"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/munoz-osasuna-liverpool/">Victor Muñoz</a><span class="pos">RW</span></h3><p>Victor Muñoz, RW, age 22, from Osasuna to Liverpool for a reported £34.5m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £34.5m · Sky Sports · updated Jul 3</p><p class="note">Wide depth after Salah&#x27;s release.</p></div></article>
+<article class="rumor" id="deal-hackney-middlesbrough-everton"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/hackney-middlesbrough-everton/">Hayden Hackney</a><span class="pos">CM</span></h3><p>Hayden Hackney, CM, age 23, from Middlesbrough to Everton for a reported £24m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £24m · Sky Sports · updated Jul 6</p><p class="note">Long-tracked; finally done.</p></div></article>
+<article class="rumor" id="deal-rohl-freiburg-everton"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/rohl-freiburg-everton/">Merlin Röhl</a><span class="pos">CM</span></h3><p>Merlin Röhl, CM, age 23, from Freiburg to Everton for a reported £21.7m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £21.7m · Sky Sports · updated Jul 4</p><p class="note">Midfield rebuild continues.</p></div></article>
+<article class="rumor" id="deal-yohanna-aik-brighton"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/yohanna-aik-brighton/">Zadok Yohanna</a><span class="pos">ST</span></h3><p>Zadok Yohanna, ST, age 19, from AIK to Brighton for a reported £21.5m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £21.5m · Sky Sports · updated Jun 30</p><p class="note">Classic Brighton: buy them before you&#x27;ve heard of them.</p></div></article>
+<article class="rumor" id="deal-malen-aston-villa-roma"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/malen-aston-villa-roma/">Donyell Malen</a><span class="pos">RW</span></h3><p>Donyell Malen, RW, age 27, from Aston Villa to Roma for a reported £21.7m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £21.7m · Sky Sports · updated Jun 25</p><p class="note">Villa trim the wage bill.</p></div></article>
+<article class="rumor" id="deal-jaouen-reims-newcastle"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/jaouen-reims-newcastle/">Ewen Jaouen</a><span class="pos">GK</span></h3><p>Ewen Jaouen, GK, age 21, from Reims to Newcastle for a reported £18.5m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £18.5m · Sky Sports · updated Jun 22</p><p class="note">Goalkeeper succession plan.</p></div></article>
+<article class="rumor" id="deal-schuster-rb-salzburg-brentford"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/schuster-rb-salzburg-brentford/">Jannik Schuster</a><span class="pos">CM</span></h3><p>Jannik Schuster, CM, age 20, from RB Salzburg to Brentford for a reported £16.5m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £16.5m · Sky Sports · updated Jun 19</p><p class="note">The Brentford model rolls on.</p></div></article>
+<article class="rumor" id="deal-vuskovic-tottenham-brighton"><div class="cred mid" aria-label="Credibility 60 of 100"><span>60</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/vuskovic-tottenham-brighton/">Luka Vusković</a><span class="pos">CB</span></h3><p>Luka Vusković, CB, age 19, from Tottenham to Brighton for a reported £46m. Status: Confirmed pending announcement. Credibility 60 out of 100, based on Football365.</p><p class="meta">Confirmed pending announcement · £46m · Football365 · updated Jul 22 <a class="srclink" href="https://www.transfermarkt.us/" target="_blank" rel="noopener nofollow">Transfermarkt &#8599;</a></p><p class="note">Confirmed (auto-updated 2026-07-16). £46m + £4m agreed; Croatia defender&#x27;s World Cup over, announcement imminent.</p></div></article>
+<article class="rumor" id="deal-manzambi-freiburg-aston-villa"><div class="cred high" aria-label="Credibility 76 of 100"><span>76</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/manzambi-freiburg-aston-villa/">Johan Manzambi</a><span class="pos">AM</span></h3><p>Johan Manzambi, AM, age 20, from Freiburg to Aston Villa for a reported £59.5m. Status: Confirmed pending announcement. Credibility 76 out of 100, based on Romano.</p><p class="meta">Confirmed pending announcement · £59.5m · Romano · updated Aug 2 <a class="srclink" href="https://www.skysports.com/football/news/12875/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></p><p class="note">Villa&#x27;s Champions League ambitions justify the gamble on a 20-year-old with one elite tournament behind him rather than proven Bundesliga consistency.</p></div></article>
+<article class="rumor" id="deal-greenwood-marseille-fenerbahce"><div class="cred low" aria-label="Credibility 28 of 100"><span>28</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/greenwood-marseille-fenerbahce/">Mason Greenwood</a><span class="pos">RW</span></h3><p>Mason Greenwood, RW, age 24, from Marseille to Fenerbahçe. Status: Fee agreed. Credibility 28 out of 100, based on Romano.</p><p class="meta">Fee agreed · Romano · updated Jul 12</p><p class="note">Utd declined buy-back; get &gt;£10m via sell-on clause.</p></div></article>
+<article class="rumor" id="deal-trossard-arsenal-besiktas"><div class="cred high" aria-label="Credibility 76 of 100"><span>76</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/trossard-arsenal-besiktas/">Leandro Trossard</a><span class="pos">LW</span></h3><p>Leandro Trossard, LW, age 31, from Arsenal to Beşiktaş for a reported £17m. Status: Confirmed pending announcement. Credibility 76 out of 100, based on Football365 / Romano.</p><p class="meta">Confirmed pending announcement · £17m · Football365 / Romano · updated Jul 22 <a class="srclink" href="https://www.skysports.com/football/news/12875/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></p><p class="note">Confirmed (auto-updated 2026-07-16). Fee agreed (£17-20m reported); personal terms being discussed mid-World Cup.</p></div></article>
+<article class="rumor" id="deal-chavarria-rayo-vallecano-chelsea"><div class="cred low" aria-label="Credibility 28 of 100"><span>28</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/chavarria-rayo-vallecano-chelsea/">Pep Chavarría</a><span class="pos">LB</span></h3><p>Pep Chavarría, LB, age 28, from Rayo Vallecano to Chelsea for a reported £16m. Status: Fee agreed. Credibility 28 out of 100, based on Romano.</p><p class="meta">Fee agreed · £16m · Romano · updated Aug 12 <a class="srclink" href="https://www.bbc.co.uk/sport/football/articles/cvg0rw84xk9o" target="_blank" rel="noopener nofollow">BBC Sport &#8599;</a></p><p class="note">Chelsea&#x27;s pursuit has stalled since agreement, suggesting either structural hold-ups or a shift in priority at left-back.</p></div></article>
+<article class="rumor" id="deal-savinho-man-city-tottenham"><div class="cred vlow" aria-label="Credibility 22 of 100"><span>22</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/savinho-man-city-tottenham/">Savinho</a><span class="pos">RW</span></h3><p>Savinho, RW, age 22, from Man City to Tottenham for a reported £75m. Status: In talks. Credibility 22 out of 100, based on Romano.</p><p class="meta">In talks · £75m · Romano · updated Aug 25 <a class="srclink" href="https://www.bbc.co.uk/sport/football/articles/cy7z637nj8jo" target="_blank" rel="noopener nofollow">BBC Sport &#8599;</a></p><p class="note">Tottenham&#x27;s pursuit has stalled at the valuation stage, leaving City&#x27;s asking price and Spurs&#x27; spending appetite at an impasse.</p></div></article>
+<article class="rumor" id="deal-kroupi-bournemouth-tottenham"><div class="cred vlow" aria-label="Credibility 0 of 100"><span>0</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/kroupi-bournemouth-tottenham/">Eli Junior Kroupi</a><span class="pos">ST</span></h3><p>Eli Junior Kroupi, ST, age 20, from Bournemouth to Tottenham for a reported £75m. Status: Collapsed. Credibility 0 out of 100, based on Football365.</p><p class="meta">Collapsed · £75m · Football365 · updated Aug 31 <a class="srclink" href="https://www.standard.co.uk/sport/football/junior-kroupi-arsenal-fc-tottenham-transfer-latest-injury-surgery-b1291750.html" target="_blank" rel="noopener nofollow">Evening Standard &#8599;</a></p><p class="note">Spurs&#x27; willingness to spend seventy-five million on an unproven twenty-year-old reveals more about their striker desperation than Kroupi&#x27;s readiness for the role.</p></div></article>
+<article class="rumor" id="deal-lacroix-crystal-palace-chelsea"><div class="cred high" aria-label="Credibility 76 of 100"><span>76</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/lacroix-crystal-palace-chelsea/">Maxence Lacroix</a><span class="pos">CB</span></h3><p>Maxence Lacroix, CB, age 26, from Crystal Palace to Chelsea for a reported £52m. Status: Confirmed pending announcement. Credibility 76 out of 100, based on Football365.</p><p class="meta">Confirmed pending announcement · £52m · Football365 · updated Jul 31 <a class="srclink" href="https://www.bbc.co.uk/sport/football/articles/cg4d11g46lpo" target="_blank" rel="noopener nofollow">BBC Sport &#8599;</a></p><p class="note">Lacroix represents Chelsea&#x27;s third center-back signing in eighteen months, suggesting internal confusion about their defensive blueprint rather than genuine progress.</p></div></article>
+<article class="rumor" id="deal-rogers-aston-villa-arsenal"><div class="cred vlow" aria-label="Credibility 0 of 100"><span>0</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/rogers-aston-villa-arsenal/">Morgan Rogers</a><span class="pos">AM</span></h3><p>Morgan Rogers, AM, age 24, from Aston Villa to Arsenal for a reported £130m. Status: Collapsed. Credibility 0 out of 100, based on Telegraph / F365.</p><p class="meta">Collapsed · £130m · Telegraph / F365 · updated Jul 22 <a class="srclink" href="https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/02/premier-league-2026-summer-transfers-done-deals-all-completed-confirmed-signings-official" target="_blank" rel="noopener nofollow">FootballTransfers &#8599;</a></p><p class="note">Arsenal had personal terms reportedly agreed but lost the player to Chelsea.</p></div></article>
+<article class="rumor" id="deal-rodriguez-elche-bournemouth"><div class="cred low" aria-label="Credibility 42 of 100"><span>42</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/rodriguez-elche-bournemouth/">Álvaro Rodríguez</a><span class="pos">ST</span></h3><p>Álvaro Rodríguez, ST, age 21, from Elche to Bournemouth for a reported £25.7m. Status: Confirmed pending announcement. Credibility 42 out of 100, based on Spanish press.</p><p class="meta">Confirmed pending announcement · £25.7m · Spanish press · updated Jul 16</p><p class="note">Confirmed (auto-updated 2026-07-16). &#x27;Deal agreed&#x27; a week ago, then silence. No collapse reported either.</p></div></article>
+<article class="rumor" id="deal-alvarez-atletico-madrid-arsenal"><div class="cred vlow" aria-label="Credibility 0 of 100"><span>0</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/alvarez-atletico-madrid-arsenal/">Julián Álvarez</a><span class="pos">ST</span></h3><p>Julián Álvarez, ST, age 26, from Atlético Madrid to Arsenal for a reported £128m. Status: Collapsed. Credibility 0 out of 100, based on FootballTransfers.</p><p class="meta">Collapsed · £128m · FootballTransfers · updated Sep 1 <a class="srclink" href="https://www.skysports.com/football/news/12040/13579965/arsenal-fail-to-sign-julian-alvarez-and-with-no-elite-attacker-in-are-mikel-artetas-team-short-in-the-forward-options" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></p><p class="note">Arsenal&#x27;s unwillingness to meet Atlético&#x27;s valuation exposed the limits of their summer spending power despite the 120m Saka investment.</p></div></article>
+<article class="rumor" id="deal-tzolis-club-brugge-arsenal"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/tzolis-club-brugge-arsenal/">Christos Tzolis</a><span class="pos">LW</span></h3><p>Christos Tzolis, LW, age 24, from Club Brugge to Arsenal for a reported £34m. Status: Completed. Credibility 100 out of 100, based on Romano.</p><p class="meta">Completed · £34m · Romano · updated Aug 16 <a class="srclink" href="https://www.skysports.com/football/news/12040/13564283/arsenal-transfer-news-christos-tzolis-signs-in-34m-deal-from-club-brugge-as-replacement-for-leandro-trossard" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></p><p class="note">Player &#x27;wants&#x27; the move; depends on Trossard/Martinelli exits.</p></div></article>
+<article class="rumor" id="deal-guimaraes-newcastle-arsenal"><div class="cred high" aria-label="Credibility 76 of 100"><span>76</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/guimaraes-newcastle-arsenal/">Bruno Guimarães</a><span class="pos">CM</span></h3><p>Bruno Guimarães, CM, age 28, from Newcastle to Arsenal for a reported £75m. Status: Confirmed pending announcement. Credibility 76 out of 100, based on Football365.</p><p class="meta">Confirmed pending announcement · £75m · Football365 · updated Aug 29 <a class="srclink" href="https://www.bbc.co.uk/sport/football/articles/c1719r079rjo" target="_blank" rel="noopener nofollow">BBC Sport &#8599;</a></p><p class="note">Arsenal paid 75m for a midfielder Newcastle bought for 40m, completing a window defined by desperation over strategy.</p></div></article>
+<article class="rumor" id="deal-gomes-wolves-man-utd"><div class="cred vlow" aria-label="Credibility 0 of 100"><span>0</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/gomes-wolves-man-utd/">João Gomes</a><span class="pos">CM</span></h3><p>João Gomes, CM, age 25, from Wolves to Man Utd for a reported £45m. Status: Collapsed. Credibility 0 out of 100, based on Football365.</p><p class="meta">Collapsed · £45m · Football365 · updated Jul 11</p><p class="note">United interest never became a bid; Villa signed him instead.</p></div></article>
+<article class="rumor" id="deal-barcola-psg-liverpool"><div class="cred high" aria-label="Credibility 76 of 100"><span>76</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/barcola-psg-liverpool/">Bradley Barcola</a><span class="pos">LW</span></h3><p>Bradley Barcola, LW, age 23, from PSG to Liverpool for a reported £123m. Status: Confirmed pending announcement. Credibility 76 out of 100, based on Football365.</p><p class="meta">Confirmed pending announcement · £123m · Football365 · updated Sep 1 <a class="srclink" href="https://www.bbc.co.uk/sport/football/articles/ceqewejnpr3o" target="_blank" rel="noopener nofollow">BBC Sport &#8599;</a></p><p class="note">Liverpool&#x27;s record outlay on a 23-year-old winger represents their biggest statement since Salah, betting Barcola can replicate his Paris form in the Premier League.</p></div></article>
+<article class="rumor" id="deal-bouaddi-lille-man-city"><div class="cred low" aria-label="Credibility 28 of 100"><span>28</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/bouaddi-lille-man-city/">Ayyoub Bouaddi</a><span class="pos">CM</span></h3><p>Ayyoub Bouaddi, CM, age 18, from Lille to Man City for a reported £84m. Status: Fee agreed. Credibility 28 out of 100, based on Football365.</p><p class="meta">Fee agreed · £84m · Football365 · updated Aug 23 <a class="srclink" href="https://www.skysports.com/football/news/12040/13571742/man-city-transfer-news-talks-ongoing-with-lilles-ayyoub-bouaddi-but-rodri-to-barcelona-talks-inactive-with-enzo-fernandez-also-an-option" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></p><p class="note">City&#x27;s bet on an eighteen-year-old midfielder at Rodri&#x27;s replacement price reveals how serious the Rodri injury threat has become.</p></div></article>
+<article class="rumor" id="deal-muani-psg-crystal-palace"><div class="cred vlow" aria-label="Credibility 2 of 100"><span>2</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/muani-psg-crystal-palace/">Randal Kolo Muani</a><span class="pos">ST</span></h3><p>Randal Kolo Muani, ST, age 27, from PSG to Crystal Palace for a reported £30m. Status: Rumour. Credibility 2 out of 100, based on French press.</p><p class="meta">Rumour · £30m · French press · updated Jul 12</p><p class="note">Palace &#x27;strongly interested&#x27; after Juventus stalled. Spurs re-signing him also mooted, oddly.</p></div></article>
+<article class="rumor" id="deal-watkins-aston-villa-fenerbahce"><div class="cred vlow" aria-label="Credibility 0 of 100"><span>0</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/watkins-aston-villa-fenerbahce/">Ollie Watkins</a><span class="pos">ST</span></h3><p>Ollie Watkins, ST, age 30, from Aston Villa to Fenerbahçe for a reported £35m. Status: Collapsed. Credibility 0 out of 100, based on Turkish press.</p><p class="meta">Collapsed · £35m · Turkish press · updated Aug 28 <a class="srclink" href="https://www.bbc.co.uk/sport/football/articles/cq63ry9q6jzo" target="_blank" rel="noopener nofollow">BBC Sport &#8599;</a></p><p class="note">A collapsed move for an injury-prone striker at 30 suggests Fenerbahçe overestimated both Villa&#x27;s willingness to sell and Watkins&#x27; fitness profile.</p></div></article>
+<article class="rumor" id="deal-williams-nott-m-forest-man-utd"><div class="cred vlow" aria-label="Credibility 2 of 100"><span>2</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/williams-nott-m-forest-man-utd/">Neco Williams</a><span class="pos">RB</span></h3><p>Neco Williams, RB, age 25, from Nott&#x27;m Forest to Man Utd for a reported £25m. Status: Rumour. Credibility 2 out of 100, based on Paper talk.</p><p class="meta">Rumour · £25m · Paper talk · updated Jul 12</p><p class="note">He&#x27;s mid-contract-renewal talks at Forest. Filed under &#x27;agent noise&#x27;.</p></div></article>
+<article class="rumor" id="deal-ederson-atalanta-man-utd"><div class="cred vlow" aria-label="Credibility 0 of 100"><span>0</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/ederson-atalanta-man-utd/">Éderson</a><span class="pos">CM</span></h3><p>Éderson, CM, age 27, from Atalanta to Man Utd for a reported £34.9m. Status: Collapsed. Credibility 0 out of 100, based on Ornstein.</p><p class="meta">Collapsed · £34.9m · Ornstein · updated Aug 19 <a class="srclink" href="https://www.mirror.co.uk/sport/football/transfer-news/man-utd-ederson-medical-failed-37571309" target="_blank" rel="noopener nofollow">The Mirror &#8599;</a></p><p class="note">Deal OFF after the medical; United pivoted to Tielemans within 72 hours, as Ornstein first called.</p></div></article>
+<article class="rumor" id="deal-robertson-liverpool-tottenham"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/robertson-liverpool-tottenham/">Andy Robertson</a><span class="pos">LB</span></h3><p>Andy Robertson, LB, age 32, from Liverpool to Tottenham. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · Sky Sports · updated Jun 17</p><p class="note">Free. Experience for De Zerbi.</p></div></article>
+<article class="rumor" id="deal-senesi-bournemouth-tottenham"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/senesi-bournemouth-tottenham/">Marcos Senesi</a><span class="pos">CB</span></h3><p>Marcos Senesi, CB, age 29, from Bournemouth to Tottenham. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · Sky Sports · updated Jul 30 <a class="srclink" href="https://www.standard.co.uk/sport/football/senesi-tottenham-sarr-bentancur-b1291894.html" target="_blank" rel="noopener nofollow">Evening Standard &#8599;</a></p><p class="note">Free transfer.</p></div></article>
+<article class="rumor" id="deal-dubravka-burnley-tottenham"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/dubravka-burnley-tottenham/">Martín Dúbravka</a><span class="pos">GK</span></h3><p>Martín Dúbravka, GK, age 37, from Burnley to Tottenham. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · Sky Sports · updated Jun 16</p><p class="note">Free. Backup keeper.</p></div></article>
+<article class="rumor" id="deal-konate-liverpool-real-madrid"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/konate-liverpool-real-madrid/">Ibrahima Konaté</a><span class="pos">CB</span></h3><p>Ibrahima Konaté, CB, age 27, from Liverpool to Real Madrid. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · Sky Sports · updated Jun 16</p><p class="note">Free. The one Liverpool couldn&#x27;t keep.</p></div></article>
+<article class="rumor" id="deal-silva-man-city-real-madrid"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/silva-man-city-real-madrid/">Bernardo Silva</a><span class="pos">AM</span></h3><p>Bernardo Silva, AM, age 31, from Man City to Real Madrid. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · Sky Sports · updated Aug 9 <a class="srclink" href="https://www.dailymail.com/sport/football/article-16039467/Jose-Mourinho-lays-Bernardo-Silvas-fitness-Real-Madrid-debut-tells-Man-City-legend-improve.html" target="_blank" rel="noopener nofollow">dailymail.com &#8599;</a></p><p class="note">Free. The Mourinho-era Madrid rebuild continues.</p></div></article>
+<article class="rumor" id="deal-trippier-newcastle-wolves"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/trippier-newcastle-wolves/">Kieran Trippier</a><span class="pos">RB</span></h3><p>Kieran Trippier, RB, age 35, from Newcastle to Wolves. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · Sky Sports · updated Jun 20</p><p class="note">Free.</p></div></article>
+<article class="rumor" id="deal-rogers-aston-villa-chelsea"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/rogers-aston-villa-chelsea/">Morgan Rogers</a><span class="pos">AM</span></h3><p>Morgan Rogers, AM, age 24, from Aston Villa to Chelsea for a reported £117m. Status: Completed. Credibility 100 out of 100, based on ESPN.</p><p class="meta">Completed · £117m · ESPN · updated Aug 8 <a class="srclink" href="https://www.espn.co.uk/football/story/_/id/49330001/rogers-completes-chelsea-switch-aston-villa" target="_blank" rel="noopener nofollow">ESPN &#8599;</a></p><p class="note">British record fee. Chelsea beat Arsenal to the signature after personal terms were reported agreed at the Emirates.</p></div></article>
+<article class="rumor" id="deal-gomes-wolves-aston-villa"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/gomes-wolves-aston-villa/">Joao Gomes</a><span class="pos">CM</span></h3><p>Joao Gomes, CM, age 25, from Wolves to Aston Villa for a reported £38m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £38m · Sky Sports · updated Jul 22 <a class="srclink" href="https://www.skysports.com/football/news/12875/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></p><p class="note">Villa reinvest the Tielemans money in midfield within a week of losing him.</p></div></article>
+<article class="rumor" id="deal-vinicius-real-madrid-arsenal"><div class="cred vlow" aria-label="Credibility 0 of 100"><span>0</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/vinicius-real-madrid-arsenal/">Vinicius Junior</a><span class="pos">LW</span></h3><p>Vinicius Junior, LW, age 26, from Real Madrid to Arsenal for a reported £128m. Status: Collapsed. Credibility 0 out of 100, based on Sky Sports.</p><p class="meta">Collapsed · £128m · Sky Sports · updated Aug 19 <a class="srclink" href="https://www.bbc.co.uk/sport/football/articles/ckge3g8dl95o" target="_blank" rel="noopener nofollow">BBC Sport &#8599;</a></p><p class="note">Arsenal&#x27;s pursuit collapsed after Real Madrid made clear they would not entertain any offer for their first-choice left winger.</p></div></article>
+<article class="rumor" id="deal-garnacho-chelsea-aston-villa"><div class="cred mid" aria-label="Credibility 60 of 100"><span>60</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/garnacho-chelsea-aston-villa/">Alejandro Garnacho</a><span class="pos">LW</span></h3><p>Alejandro Garnacho, LW, age 22, from Chelsea to Aston Villa for a reported £43m. Status: Confirmed pending announcement. Credibility 60 out of 100, based on FootballTransfers.</p><p class="meta">Confirmed pending announcement · £43m · FootballTransfers · updated Aug 25 <a class="srclink" href="https://www.birminghammail.co.uk/sport/football/transfer-news/alejandro-garnacho-sent-last-chance-34512163" target="_blank" rel="noopener nofollow">birminghammail.co.uk &#8599;</a></p><p class="note">Villa have secured their third left-sided attacker in two years, suggesting either previous recruitment missteps or a systematic philosophy shift.</p></div></article>
+<article class="rumor" id="deal-meslier-leeds-arsenal"><div class="cred mid" aria-label="Credibility 60 of 100"><span>60</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/meslier-leeds-arsenal/">Illan Meslier</a><span class="pos">GK</span></h3><p>Illan Meslier, GK, age 26, from Leeds to Arsenal. Status: Confirmed pending announcement. Credibility 60 out of 100, based on FootballTransfers.</p><p class="meta">Confirmed pending announcement · FootballTransfers · updated Jul 29 <a class="srclink" href="https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026" target="_blank" rel="noopener nofollow">FootballTransfers &#8599;</a></p><p class="note">Meslier arrives as a genuine number one option, ending Arsenal&#x27;s years of cycling through stopgap keepers behind Ramsdale.</p></div></article>
+<article class="rumor" id="deal-darlow-leeds-man-utd"><div class="cred mid" aria-label="Credibility 60 of 100"><span>60</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/darlow-leeds-man-utd/">Karl Darlow</a><span class="pos">GK</span></h3><p>Karl Darlow, GK, age 35, from Leeds to Man Utd. Status: Confirmed pending announcement. Credibility 60 out of 100, based on FootballTransfers.</p><p class="meta">Confirmed pending announcement · FootballTransfers · updated Jul 29 <a class="srclink" href="https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026" target="_blank" rel="noopener nofollow">FootballTransfers &#8599;</a></p><p class="note">Darlow arrives as experienced backup cover while United continue hunting a long-term number one solution.</p></div></article>
+<article class="rumor" id="deal-george-chelsea-everton"><div class="cred mid" aria-label="Credibility 60 of 100"><span>60</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/george-chelsea-everton/">Tyrique George</a><span class="pos">LW</span></h3><p>Tyrique George, LW, age 20, from Chelsea to Everton. Status: Confirmed pending announcement. Credibility 60 out of 100, based on FootballTransfers.</p><p class="meta">Confirmed pending announcement · FootballTransfers · updated Jul 29 <a class="srclink" href="https://www.footballtransfers.com/en/transfer-news/uk-premier-league/every-done-deal-official-confirmed-completed-signing-europe-today-29-july-2026" target="_blank" rel="noopener nofollow">FootballTransfers &#8599;</a></p><p class="note">George departs Chelsea after limited opportunity, leaving a winger slot unfilled as the Blues reset their wide attack.</p></div></article>
+<article class="rumor" id="deal-salah-liverpool-besiktas"><div class="cred vlow" aria-label="Credibility 10 of 100"><span>10</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/salah-liverpool-besiktas/">Mohamed Salah</a><span class="pos">RW</span></h3><p>Mohamed Salah, RW, age 34, from Liverpool to Besiktas. Status: Rumour. Credibility 10 out of 100, based on FootballTransfers.</p><p class="meta">Rumour · FootballTransfers · updated Jul 28 <a class="srclink" href="https://www.footballtransfers.com/en/transfer-news/uk-premier-league/2026/07/mohamed-salah-to-besiktas-official-transfer-statement-made" target="_blank" rel="noopener nofollow">FootballTransfers &#8599;</a></p><p class="note">A 34-year-old free transfer rumor with no recent traction suggests Liverpool&#x27;s contract talks remain private while Besiktas waits to see if Europe&#x27;s bigger clubs move first.</p></div></article>
+<article class="rumor" id="deal-fernandez-chelsea-man-city"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/fernandez-chelsea-man-city/">Enzo Fernández</a><span class="pos">CM</span></h3><p>Enzo Fernández, CM, age 25, from Chelsea to Man City for a reported £125m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £125m · Sky Sports · updated Sep 3 <a class="srclink" href="https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></p><p class="note">Deadline-day signing for £125m, matching the British transfer record.</p></div></article>
+<article class="rumor" id="deal-mudryk-chelsea-tottenham"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/mudryk-chelsea-tottenham/">Mykhailo Mudryk</a><span class="pos">LW</span></h3><p>Mykhailo Mudryk, LW, age 25, from Chelsea to Tottenham on loan. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · Loan · Sky Sports · updated Sep 3 <a class="srclink" href="https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></p><p class="note">Season loan. Sky&#x27;s list does not disclose a loan fee.</p></div></article>
+<article class="rumor" id="deal-fofana-lyon-sunderland"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/fofana-lyon-sunderland/">Malick Fofana</a><span class="pos">LW</span></h3><p>Malick Fofana, LW, age 21, from Lyon to Sunderland for a reported £31m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £31m · Sky Sports · updated Sep 3 <a class="srclink" href="https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></p><p class="note">Completed move. Sky&#x27;s reported fee includes potential add-ons.</p></div></article>
+<article class="rumor" id="deal-woltemade-newcastle-juventus"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/woltemade-newcastle-juventus/">Nick Woltemade</a><span class="pos">ST</span></h3><p>Nick Woltemade, ST, age 24, from Newcastle to Juventus on loan. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · Loan · Sky Sports · updated Sep 3 <a class="srclink" href="https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></p><p class="note">Season loan. Sky&#x27;s list does not disclose a loan fee.</p></div></article>
+<article class="rumor" id="deal-fernandez-pardo-lille-newcastle"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/fernandez-pardo-lille-newcastle/">Matias Fernandez-Pardo</a><span class="pos">LW</span></h3><p>Matias Fernandez-Pardo, LW, age 21, from Lille to Newcastle for a reported £51m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £51m · Sky Sports · updated Sep 3 <a class="srclink" href="https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></p><p class="note">Completed move. Sky&#x27;s reported fee includes potential add-ons.</p></div></article>
+<article class="rumor" id="deal-harwood-bellis-southampton-aston-villa"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/harwood-bellis-southampton-aston-villa/">Taylor Harwood-Bellis</a><span class="pos">CB</span></h3><p>Taylor Harwood-Bellis, CB, age 24, from Southampton to Aston Villa for a reported £30m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £30m · Sky Sports · updated Sep 3 <a class="srclink" href="https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></p><p class="note">Completed move. Sky&#x27;s reported fee includes potential add-ons.</p></div></article>
+<article class="rumor" id="deal-ndiaye-everton-man-city"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/ndiaye-everton-man-city/">Iliman Ndiaye</a><span class="pos">AM</span></h3><p>Iliman Ndiaye, AM, age 26, from Everton to Man City for a reported £65m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £65m · Sky Sports · updated Sep 3 <a class="srclink" href="https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></p><p class="note">Completed move. Sky&#x27;s reported fee includes potential add-ons.</p></div></article>
+<article class="rumor" id="deal-danso-tottenham-sunderland"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/danso-tottenham-sunderland/">Kevin Danso</a><span class="pos">CB</span></h3><p>Kevin Danso, CB, age 27, from Tottenham to Sunderland on loan. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · Loan · Sky Sports · updated Sep 3 <a class="srclink" href="https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></p><p class="note">Season loan. Sky&#x27;s list does not disclose a loan fee.</p></div></article>
+<article class="rumor" id="deal-sanchez-chelsea-como"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/sanchez-chelsea-como/">Robert Sánchez</a><span class="pos">GK</span></h3><p>Robert Sánchez, GK, age 28, from Chelsea to Como on loan. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · Loan · Sky Sports · updated Sep 3 <a class="srclink" href="https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></p><p class="note">Season loan. Sky&#x27;s list does not disclose a loan fee.</p></div></article>
+<article class="rumor" id="deal-adarabioyo-chelsea-tottenham"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/adarabioyo-chelsea-tottenham/">Tosin Adarabioyo</a><span class="pos">CB</span></h3><p>Tosin Adarabioyo, CB, age 28, from Chelsea to Tottenham for a reported £10m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £10m · Sky Sports · updated Sep 3 <a class="srclink" href="https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></p><p class="note">Completed move. Sky&#x27;s reported fee includes potential add-ons.</p></div></article>
+<article class="rumor" id="deal-mbaye-psg-aston-villa"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/mbaye-psg-aston-villa/">Ibrahim Mbaye</a><span class="pos">RW</span></h3><p>Ibrahim Mbaye, RW, age 18, from Paris St-Germain to Aston Villa for a reported £47m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £47m · Sky Sports · updated Sep 3 <a class="srclink" href="https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></p><p class="note">Completed move. Sky&#x27;s reported fee includes potential add-ons.</p></div></article>
+<article class="rumor" id="deal-nwaneri-arsenal-dortmund"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/nwaneri-arsenal-dortmund/">Ethan Nwaneri</a><span class="pos">AM</span></h3><p>Ethan Nwaneri, AM, age 19, from Arsenal to Dortmund on loan. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · Loan · Sky Sports · updated Sep 3 <a class="srclink" href="https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></p><p class="note">Season loan. Sky&#x27;s list does not disclose a loan fee.</p></div></article>
+<article class="rumor" id="deal-jesus-arsenal-barcelona"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/jesus-arsenal-barcelona/">Gabriel Jesus</a><span class="pos">ST</span></h3><p>Gabriel Jesus, ST, age 29, from Arsenal to Barcelona for a reported £8.6m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £8.6m · Sky Sports · updated Sep 3 <a class="srclink" href="https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></p><p class="note">Completed move. Sky&#x27;s reported fee includes potential add-ons.</p></div></article>
+<article class="rumor" id="deal-beto-everton-fiorentina"><div class="cred high" aria-label="Credibility 100 of 100"><span>100</span></div><div><h3><a href="/transfer-intel/windows/2026-summer/deals/beto-everton-fiorentina/">Beto</a><span class="pos">ST</span></h3><p>Beto, ST, age 28, from Everton to Fiorentina for a reported £15.4m. Status: Completed. Credibility 100 out of 100, based on Sky Sports.</p><p class="meta">Completed · £15.4m · Sky Sports · updated Sep 3 <a class="srclink" href="https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs" target="_blank" rel="noopener nofollow">Sky Sports &#8599;</a></p><p class="note">Completed move. Sky&#x27;s reported fee includes potential add-ons.</p></div></article></div>
+  </section>
+
+  <section id="sources" class="tab">
+    <h2>Source Credibility Index</h2>
+    <p class="sub">The window is closed. Now the reporters get scored: which
+      pre-resolution transfer links became completed moves, and which collapsed?</p>
+    <div class="cards" id="source-kpis"><div class="kpi"><div class="v">16</div><div class="l">Sources with resolved calls</div></div><div class="kpi"><div class="v">20</div><div class="l">Resolved source calls</div></div><div class="kpi"><div class="v">3</div><div class="l">Calls that became transfers</div></div><div class="kpi"><div class="v">54</div><div class="l">Unresolved calls, not penalised</div></div></div>
+    <div class="panel source-method">
+      <strong>How the credibility score works</strong>
+      <p>One source, one transfer, one call. Repeat articles do not inflate the
+        sample. A hit is a link published before resolution that became a
+        completed transfer; a miss is one that later collapsed. Unresolved
+        calls are shown but never penalised.</p>
+      <p>Ranking uses a transparent confidence adjustment:
+        <code>(hits + 2) ÷ (resolved calls + 4)</code>. In plain English, every
+        source begins with two hypothetical hits and two hypothetical misses.
+        That stops a lucky 1-for-1 record outranking a large, proven sample.</p>
+    </div>
+    <div class="panel">
+      <div class="source-panel-head">
+        <strong>Named journalists</strong>
+        <p>Only calls explicitly credited to a writer are included.</p>
+      </div>
+      <div style="overflow-x:auto">
+        <table id="journalist-table" class="source-table">
+          <thead><tr>
+            <th data-sort="name" aria-sort="none"><button type="button">Journalist</button></th>
+            <th data-sort="score" aria-sort="descending"><button type="button">Credibility</button></th>
+            <th data-sort="rate" aria-sort="none"><button type="button">Hit rate</button></th>
+            <th data-sort="hits" aria-sort="none"><button type="button">Hits</button></th>
+            <th data-sort="misses" aria-sort="none"><button type="button">Misses</button></th>
+            <th data-sort="resolved" aria-sort="none"><button type="button">Resolved</button></th>
+            <th data-sort="unresolved" aria-sort="none"><button type="button">Unresolved</button></th>
+          </tr></thead>
+          <tbody id="journalist-table-body"><tr><td><b>Fabrizio Romano</b></td><td><span class="source-score source-mid">60</span></td><td>100%</td><td>1</td><td>0</td><td>1</td><td>3</td></tr></tbody>
+        </table>
+      </div>
+      <p class="source-caveat">Most RSS evidence identifies a publication rather
+        than a bylined writer. The journalist table therefore has a smaller
+        sample than the publication table; it will expand as named bylines are
+        captured in future windows.</p>
+    </div>
+    <div class="panel">
+      <div class="source-panel-head">
+        <strong>Publications</strong>
+        <p>Sort any column. Credibility is confidence-adjusted; hit rate is raw.</p>
+      </div>
+      <div style="overflow-x:auto">
+        <table id="publication-table" class="source-table">
+          <thead><tr>
+            <th data-sort="name" aria-sort="none"><button type="button">Publication</button></th>
+            <th data-sort="score" aria-sort="descending"><button type="button">Credibility</button></th>
+            <th data-sort="rate" aria-sort="none"><button type="button">Hit rate</button></th>
+            <th data-sort="hits" aria-sort="none"><button type="button">Hits</button></th>
+            <th data-sort="misses" aria-sort="none"><button type="button">Misses</button></th>
+            <th data-sort="resolved" aria-sort="none"><button type="button">Resolved</button></th>
+            <th data-sort="unresolved" aria-sort="none"><button type="button">Unresolved</button></th>
+          </tr></thead>
+          <tbody id="publication-table-body"><tr><td><b>FootballTransfers</b></td><td><span class="source-score source-mid">50</span></td><td>50%</td><td>1</td><td>1</td><td>2</td><td>4</td></tr>
+<tr><td><b>The Guardian</b></td><td><span class="source-score source-mid">50</span></td><td>50%</td><td>1</td><td>1</td><td>2</td><td>3</td></tr>
+<tr><td><b>Daily Mail</b></td><td><span class="source-score source-low">40</span></td><td>0%</td><td>0</td><td>1</td><td>1</td><td>5</td></tr>
+<tr><td><b>Evening Standard</b></td><td><span class="source-score source-low">40</span></td><td>0%</td><td>0</td><td>1</td><td>1</td><td>5</td></tr>
+<tr><td><b>CaughtOffside</b></td><td><span class="source-score source-low">40</span></td><td>0%</td><td>0</td><td>1</td><td>1</td><td>4</td></tr>
+<tr><td><b>football.london</b></td><td><span class="source-score source-low">40</span></td><td>0%</td><td>0</td><td>1</td><td>1</td><td>4</td></tr>
+<tr><td><b>Sky Sports</b></td><td><span class="source-score source-low">40</span></td><td>0%</td><td>0</td><td>1</td><td>1</td><td>4</td></tr>
+<tr><td><b>BBC Sport</b></td><td><span class="source-score source-low">40</span></td><td>0%</td><td>0</td><td>1</td><td>1</td><td>3</td></tr>
+<tr><td><b>talkSPORT</b></td><td><span class="source-score source-low">40</span></td><td>0%</td><td>0</td><td>1</td><td>1</td><td>3</td></tr>
+<tr><td><b>The Mirror</b></td><td><span class="source-score source-low">40</span></td><td>0%</td><td>0</td><td>1</td><td>1</td><td>3</td></tr>
+<tr><td><b>Metro</b></td><td><span class="source-score source-low">40</span></td><td>0%</td><td>0</td><td>1</td><td>1</td><td>1</td></tr>
+<tr><td><b>Birmingham Mail</b></td><td><span class="source-score source-low">40</span></td><td>0%</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+<tr><td><b>The Telegraph</b></td><td><span class="source-score source-low">40</span></td><td>0%</td><td>0</td><td>1</td><td>1</td><td>0</td></tr>
+<tr><td><b>Football365</b></td><td><span class="source-score source-low">33</span></td><td>0%</td><td>0</td><td>2</td><td>2</td><td>4</td></tr>
+<tr><td><b>The Independent</b></td><td><span class="source-score source-low">33</span></td><td>0%</td><td>0</td><td>2</td><td>2</td><td>4</td></tr>
+<tr><td><b>Chronicle Live</b></td><td><span class="source-score source-unrated">—</span></td><td>—</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+<tr><td><b>FOX Sports</b></td><td><span class="source-score source-unrated">—</span></td><td>—</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+<tr><td><b>Liverpool Echo</b></td><td><span class="source-score source-unrated">—</span></td><td>—</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+<tr><td><b>TEAMtalk</b></td><td><span class="source-score source-unrated">—</span></td><td>—</td><td>0</td><td>0</td><td>0</td><td>1</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section id="value" class="tab">
+    <h2>Value-for-Money Analytics</h2>
+    <p class="sub">Confirmed fees vs. our transparent Value Score (age curve + position premium + league-proven minutes + resale horizon). Not a black box: click any deal for the breakdown.</p>
+    <div class="panel">
+      <strong style="font-size:14px">Fee vs. Value Score: this window's paid deals</strong>
+      <div class="legend">
+        <span><i style="background:var(--green)"></i>Bargain</span>
+        <span><i style="background:var(--accent)"></i>Fair</span>
+        <span><i style="background:var(--amber)"></i>Premium</span>
+        <span><i style="background:var(--red)"></i>Overpay risk</span>
+      </div>
+      <svg id="scatter" viewBox="0 0 760 400"></svg>
+      <div class="note">Value Score (0-100): 25 y/o peak-age curve, +premium for MF/attackers under 24, +league-proven bonus, -decline discount past 28. Verdict = fee per value point. Free transfers are excluded: dividing a fee of zero by any score makes every free signing look infinitely good, which is true in a way that helps nobody.</div>
+    </div>
+    <div class="panel">
+      <strong style="font-size:14px">Deal-by-deal verdicts</strong>
+      <div style="overflow-x:auto;margin-top:8px">
+      <table id="valtable">
+        <thead><tr>
+          <th data-sort="player" aria-sort="none"><button type="button">Player</button></th>
+          <th data-sort="move" aria-sort="none"><button type="button">Move</button></th>
+          <th data-sort="age" aria-sort="none"><button type="button">Age</button></th>
+          <th data-sort="fee" aria-sort="descending"><button type="button">Fee</button></th>
+          <th data-sort="score" aria-sort="none"><button type="button">Value score</button></th>
+          <th data-sort="verdict" aria-sort="none"><button type="button">Verdict</button></th>
+        </tr></thead>
+        <tbody id="valtable-body"><tr class="clickable" data-id="fernandez-chelsea-man-city"><td><b>Enzo Fernández</b></td><td class="move">Chelsea to Man City</td><td>25</td><td>£125m</td><td>62</td><td><span class="verdict v-overpay">Overpay risk</span></td></tr>
+<tr class="clickable" data-id="barcola-psg-liverpool"><td><b>Bradley Barcola</b></td><td class="move">PSG to Liverpool</td><td>23</td><td>£123m</td><td>58</td><td><span class="verdict v-overpay">Overpay risk</span></td></tr>
+<tr class="clickable" data-id="rogers-aston-villa-chelsea"><td><b>Morgan Rogers</b></td><td class="move">Aston Villa to Chelsea</td><td>24</td><td>£117m</td><td>64</td><td><span class="verdict v-overpay">Overpay risk</span></td></tr>
+<tr class="clickable" data-id="anderson-nott-m-forest-man-city"><td><b>Elliot Anderson</b></td><td class="move">Nott&#x27;m Forest to Man City</td><td>23</td><td>£116m</td><td>64</td><td><span class="verdict v-overpay">Overpay risk</span></td></tr>
+<tr class="clickable" data-id="tonali-newcastle-tottenham"><td><b>Sandro Tonali</b></td><td class="move">Newcastle to Tottenham</td><td>26</td><td>£100m</td><td>59</td><td><span class="verdict v-overpay">Overpay risk</span></td></tr>
+<tr class="clickable" data-id="fernandes-west-ham-tottenham"><td><b>Mateus Fernandes</b></td><td class="move">West Ham to Tottenham</td><td>21</td><td>£85m</td><td>69</td><td><span class="verdict v-premium">Premium</span></td></tr>
+<tr class="clickable" data-id="bouaddi-lille-man-city"><td><b>Ayyoub Bouaddi</b></td><td class="move">Lille to Man City</td><td>18</td><td>£84m</td><td>67</td><td><span class="verdict v-premium">Premium</span></td></tr>
+<tr class="clickable" data-id="guimaraes-newcastle-arsenal"><td><b>Bruno Guimarães</b></td><td class="move">Newcastle to Arsenal</td><td>28</td><td>£75m</td><td>52</td><td><span class="verdict v-overpay">Overpay risk</span></td></tr>
+<tr class="clickable" data-id="gordon-newcastle-barcelona"><td><b>Anthony Gordon</b></td><td class="move">Newcastle to Barcelona</td><td>25</td><td>£69.3m</td><td>64</td><td><span class="verdict v-premium">Premium</span></td></tr>
+<tr class="clickable" data-id="ndiaye-everton-man-city"><td><b>Iliman Ndiaye</b></td><td class="move">Everton to Man City</td><td>26</td><td>£65m</td><td>53</td><td><span class="verdict v-premium">Premium</span></td></tr>
+<tr class="clickable" data-id="jacquet-rennes-liverpool"><td><b>Jeremy Jacquet</b></td><td class="move">Rennes to Liverpool</td><td>20</td><td>£60m</td><td>59</td><td><span class="verdict v-premium">Premium</span></td></tr>
+<tr class="clickable" data-id="manzambi-freiburg-aston-villa"><td><b>Johan Manzambi</b></td><td class="move">Freiburg to Aston Villa</td><td>20</td><td>£59.5m</td><td>65</td><td><span class="verdict v-fair">Fair</span></td></tr>
+<tr class="clickable" data-id="hecke-brighton-tottenham"><td><b>Jan Paul van Hecke</b></td><td class="move">Brighton to Tottenham</td><td>26</td><td>£52m</td><td>55</td><td><span class="verdict v-fair">Fair</span></td></tr>
+<tr class="clickable" data-id="lacroix-crystal-palace-chelsea"><td><b>Maxence Lacroix</b></td><td class="move">Crystal Palace to Chelsea</td><td>26</td><td>£52m</td><td>47</td><td><span class="verdict v-premium">Premium</span></td></tr>
+<tr class="clickable" data-id="cucurella-chelsea-real-madrid"><td><b>Marc Cucurella</b></td><td class="move">Chelsea to Real Madrid</td><td>27</td><td>£51.8m</td><td>52</td><td><span class="verdict v-premium">Premium</span></td></tr>
+<tr class="clickable" data-id="fernandez-pardo-lille-newcastle"><td><b>Matias Fernandez-Pardo</b></td><td class="move">Lille to Newcastle</td><td>21</td><td>£51m</td><td>63</td><td><span class="verdict v-fair">Fair</span></td></tr>
+<tr class="clickable" data-id="santos-chelsea-man-utd"><td><b>Andrey Santos</b></td><td class="move">Chelsea to Man Utd</td><td>22</td><td>£48m</td><td>66</td><td><span class="verdict v-fair">Fair</span></td></tr>
+<tr class="clickable" data-id="mbaye-psg-aston-villa"><td><b>Ibrahim Mbaye</b></td><td class="move">Paris St-Germain to Aston Villa</td><td>18</td><td>£47m</td><td>69</td><td><span class="verdict v-fair">Fair</span></td></tr>
+<tr class="clickable" data-id="vuskovic-tottenham-brighton"><td><b>Luka Vusković</b></td><td class="move">Tottenham to Brighton</td><td>19</td><td>£46m</td><td>69</td><td><span class="verdict v-fair">Fair</span></td></tr>
+<tr class="clickable" data-id="quenda-sporting-cp-chelsea"><td><b>Geovany Quenda</b></td><td class="move">Sporting CP to Chelsea</td><td>19</td><td>£44m</td><td>67</td><td><span class="verdict v-fair">Fair</span></td></tr>
+<tr class="clickable" data-id="garnacho-chelsea-aston-villa"><td><b>Alejandro Garnacho</b></td><td class="move">Chelsea to Aston Villa</td><td>22</td><td>£43m</td><td>68</td><td><span class="verdict v-fair">Fair</span></td></tr>
+<tr class="clickable" data-id="palestra-atalanta-chelsea"><td><b>Marco Palestra</b></td><td class="move">Atalanta to Chelsea</td><td>21</td><td>£43m</td><td>57</td><td><span class="verdict v-fair">Fair</span></td></tr>
+<tr class="clickable" data-id="toure-hoffenheim-newcastle"><td><b>Bazoumana Touré</b></td><td class="move">Hoffenheim to Newcastle</td><td>20</td><td>£42m</td><td>65</td><td><span class="verdict v-fair">Fair</span></td></tr>
+<tr class="clickable" data-id="gomes-wolves-aston-villa"><td><b>Joao Gomes</b></td><td class="move">Wolves to Aston Villa</td><td>25</td><td>£38m</td><td>54</td><td><span class="verdict v-fair">Fair</span></td></tr>
+<tr class="clickable" data-id="hojlund-man-utd-napoli"><td><b>Rasmus Højlund</b></td><td class="move">Man Utd to Napoli</td><td>23</td><td>£38m</td><td>66</td><td><span class="verdict v-fair">Fair</span></td></tr>
+<tr class="clickable" data-id="tielemans-aston-villa-man-utd"><td><b>Youri Tielemans</b></td><td class="move">Aston Villa to Man Utd</td><td>29</td><td>£35m</td><td>49</td><td><span class="verdict v-fair">Fair</span></td></tr>
+<tr class="clickable" data-id="hincapie-leverkusen-arsenal"><td><b>Piero Hincapié</b></td><td class="move">Leverkusen to Arsenal</td><td>24</td><td>£34.5m</td><td>50</td><td><span class="verdict v-fair">Fair</span></td></tr>
+<tr class="clickable" data-id="munoz-osasuna-liverpool"><td><b>Victor Muñoz</b></td><td class="move">Osasuna to Liverpool</td><td>22</td><td>£34.5m</td><td>60</td><td><span class="verdict v-fair">Fair</span></td></tr>
+<tr class="clickable" data-id="tzolis-club-brugge-arsenal"><td><b>Christos Tzolis</b></td><td class="move">Club Brugge to Arsenal</td><td>24</td><td>£34m</td><td>56</td><td><span class="verdict v-fair">Fair</span></td></tr>
+<tr class="clickable" data-id="fofana-lyon-sunderland"><td><b>Malick Fofana</b></td><td class="move">Lyon to Sunderland</td><td>21</td><td>£31m</td><td>63</td><td><span class="verdict v-bargain">Bargain</span></td></tr>
+<tr class="clickable" data-id="harwood-bellis-southampton-aston-villa"><td><b>Taylor Harwood-Bellis</b></td><td class="move">Southampton to Aston Villa</td><td>24</td><td>£30m</td><td>50</td><td><span class="verdict v-fair">Fair</span></td></tr>
+<tr class="clickable" data-id="rodriguez-elche-bournemouth"><td><b>Álvaro Rodríguez</b></td><td class="move">Elche to Bournemouth</td><td>21</td><td>£25.7m</td><td>63</td><td><span class="verdict v-bargain">Bargain</span></td></tr>
+<tr class="clickable" data-id="hackney-middlesbrough-everton"><td><b>Hayden Hackney</b></td><td class="move">Middlesbrough to Everton</td><td>23</td><td>£24m</td><td>64</td><td><span class="verdict v-bargain">Bargain</span></td></tr>
+<tr class="clickable" data-id="malen-aston-villa-roma"><td><b>Donyell Malen</b></td><td class="move">Aston Villa to Roma</td><td>27</td><td>£21.7m</td><td>58</td><td><span class="verdict v-bargain">Bargain</span></td></tr>
+<tr class="clickable" data-id="rohl-freiburg-everton"><td><b>Merlin Röhl</b></td><td class="move">Freiburg to Everton</td><td>23</td><td>£21.7m</td><td>56</td><td><span class="verdict v-bargain">Bargain</span></td></tr>
+<tr class="clickable" data-id="yohanna-aik-brighton"><td><b>Zadok Yohanna</b></td><td class="move">AIK to Brighton</td><td>19</td><td>£21.5m</td><td>67</td><td><span class="verdict v-bargain">Bargain</span></td></tr>
+<tr class="clickable" data-id="jaouen-reims-newcastle"><td><b>Ewen Jaouen</b></td><td class="move">Reims to Newcastle</td><td>21</td><td>£18.5m</td><td>57</td><td><span class="verdict v-bargain">Bargain</span></td></tr>
+<tr class="clickable" data-id="trossard-arsenal-besiktas"><td><b>Leandro Trossard</b></td><td class="move">Arsenal to Beşiktaş</td><td>31</td><td>£17m</td><td>29</td><td><span class="verdict v-fair">Fair</span></td></tr>
+<tr class="clickable" data-id="schuster-rb-salzburg-brentford"><td><b>Jannik Schuster</b></td><td class="move">RB Salzburg to Brentford</td><td>20</td><td>£16.5m</td><td>63</td><td><span class="verdict v-bargain">Bargain</span></td></tr>
+<tr class="clickable" data-id="chavarria-rayo-vallecano-chelsea"><td><b>Pep Chavarría</b></td><td class="move">Rayo Vallecano to Chelsea</td><td>28</td><td>£16m</td><td>40</td><td><span class="verdict v-bargain">Bargain</span></td></tr>
+<tr class="clickable" data-id="beto-everton-fiorentina"><td><b>Beto</b></td><td class="move">Everton to Fiorentina</td><td>28</td><td>£15.4m</td><td>46</td><td><span class="verdict v-bargain">Bargain</span></td></tr>
+<tr class="clickable" data-id="adarabioyo-chelsea-tottenham"><td><b>Tosin Adarabioyo</b></td><td class="move">Chelsea to Tottenham</td><td>28</td><td>£10m</td><td>48</td><td><span class="verdict v-bargain">Bargain</span></td></tr>
+<tr class="clickable" data-id="jesus-arsenal-barcelona"><td><b>Gabriel Jesus</b></td><td class="move">Arsenal to Barcelona</td><td>29</td><td>£8.6m</td><td>43</td><td><span class="verdict v-bargain">Bargain</span></td></tr></tbody>
+      </table>
+      </div>
+      <div id="valdetail" class="needbox" style="display:none"></div>
+    </div>
+  </section>
+
+  <section id="clubs" class="tab">
+    <h2>Club Dashboards</h2>
+    <p class="sub">Spend, sales, net position, squad needs, and the current financial rules context.</p>
+    <div class="sortbar">
+      <span>Order</span>
+      <select id="f-clubsort">
+        <option value="active">Most active</option>
+        <option value="spend">Highest spend</option>
+        <option value="az">A to Z</option>
+      </select>
+    </div>
+    <div class="clubgrid" id="clubgrid"><article class="clubcard"><h3><a href="/transfer-intel/windows/2026-summer/clubs/arsenal/">Arsenal</a></h3><p>7 tracked deals, £68.5m committed this window.</p></article>
+<article class="clubcard"><h3><a href="/transfer-intel/windows/2026-summer/clubs/aston-villa/">Aston Villa</a></h3><p>5 tracked deals, £115m committed this window.</p></article>
+<article class="clubcard"><h3><a href="/transfer-intel/windows/2026-summer/clubs/bournemouth/">Bournemouth</a></h3><p>1 tracked deals, £0m committed this window.</p></article>
+<article class="clubcard"><h3><a href="/transfer-intel/windows/2026-summer/clubs/brighton/">Brighton</a></h3><p>2 tracked deals, £21.5m committed this window.</p></article>
+<article class="clubcard"><h3><a href="/transfer-intel/windows/2026-summer/clubs/chelsea/">Chelsea</a></h3><p>5 tracked deals, £204m committed this window.</p></article>
+<article class="clubcard"><h3><a href="/transfer-intel/windows/2026-summer/clubs/crystal-palace/">Crystal Palace</a></h3><p>1 tracked deals, £0m committed this window.</p></article>
+<article class="clubcard"><h3><a href="/transfer-intel/windows/2026-summer/clubs/everton/">Everton</a></h3><p>3 tracked deals, £45.7m committed this window.</p></article>
+<article class="clubcard"><h3><a href="/transfer-intel/windows/2026-summer/clubs/liverpool/">Liverpool</a></h3><p>3 tracked deals, £94.5m committed this window.</p></article>
+<article class="clubcard"><h3><a href="/transfer-intel/windows/2026-summer/clubs/man-city/">Man City</a></h3><p>4 tracked deals, £306m committed this window.</p></article>
+<article class="clubcard"><h3><a href="/transfer-intel/windows/2026-summer/clubs/man-utd/">Man Utd</a></h3><p>6 tracked deals, £83m committed this window.</p></article>
+<article class="clubcard"><h3><a href="/transfer-intel/windows/2026-summer/clubs/newcastle/">Newcastle</a></h3><p>3 tracked deals, £69.5m committed this window.</p></article>
+<article class="clubcard"><h3><a href="/transfer-intel/windows/2026-summer/clubs/nott-m-forest/">Nott&#x27;m Forest</a></h3><p>0 tracked deals, £0m committed this window.</p></article>
+<article class="clubcard"><h3><a href="/transfer-intel/windows/2026-summer/clubs/sunderland/">Sunderland</a></h3><p>2 tracked deals, £31m committed this window.</p></article>
+<article class="clubcard"><h3><a href="/transfer-intel/windows/2026-summer/clubs/tottenham/">Tottenham</a></h3><p>10 tracked deals, £247m committed this window.</p></article>
+<article class="clubcard"><h3><a href="/transfer-intel/windows/2026-summer/clubs/west-ham/">West Ham</a></h3><p>0 tracked deals, £0m committed this window.</p></article></div>
+    <div id="clubdetail"></div>
+  </section>
+  <footer id="footer"><p>TransferIntel · updated Sep 24, 2026 · <a href="/transfer-intel/windows/2026-summer/feed.xml">RSS</a></p></footer>
+</main>
+
+<script src="data.js"></script>
+<script>
+const DATA = window.TRANSFER_DATA;
+const CFG = DATA.config, DEALS = DATA.deals, CLUBS = DATA.clubs;
+
+const STAGES = {rumor:{l:"Rumor",c:"#8a94ab"},talks:{l:"Talks",c:"#ffb454"},agreed:{l:"Agreed",c:"#b98aff"},medical:{l:"Medical",c:"#4f9cff"},confirmed:{l:"Confirmed",c:"#7ee0ff"},done:{l:"Done",c:"#3ddc84"},collapsed:{l:"Collapsed",c:"#ff5d5d"}};
+const STAGE_ORDER = ["rumor","talks","agreed","medical","confirmed","done","collapsed"];
+const fmt = n => n===0 ? "Free" : "£"+(n%1?n.toFixed(1):n)+"m";
+const fmtDeal = d => d.loan ? "Loan" : fmt(d.fee);
+const $ = s => document.querySelector(s);
+const stage = d => STAGES[d.status] || {l:d.status,c:"#8a94ab"};
+
+/* Each section runs inside this. Previously the four render blocks were bare
+   IIFEs in one script tag, so a throw anywhere killed every block after it
+   and the page kept whatever the build had pre-rendered. That is exactly what
+   an empty verdicts table under a working chart looks like from the outside,
+   and it is why TI-002 was so hard to pin down. Now a section that fails
+   fails alone, says so in the console, and leaves the server-rendered
+   content in place, which is correct content rather than no content. */
+function section(name, fn){
+  try{ fn(); }
+  catch(err){
+    console.error("[TransferIntel] section \""+name+"\" failed:", err);
+    if(window.tiTrack) window.tiTrack("render_error", name);
+  }
+}
+
+/* TI-020. Days since a source last reasserted the deal, and what the decay
+   curve does to the score. The numbers come from the pipeline; this only
+   presents them. */
+const DECAY = {grace:3, stale:14, mid:0.60, floor:0.40};
+function updateISO(d){
+  return d.last_verified_at || (d.evidence && d.evidence.length
+    ? d.evidence.map(e=>e.date).filter(Boolean).sort().slice(-1)[0] : null);
+}
+function displayUpdateDate(d){
+  const iso=updateISO(d);
+  if(!iso) return d.date || "";
+  const parsed=new Date(iso+"T00:00:00Z");
+  return Number.isNaN(parsed.getTime()) ? (d.date || iso)
+    : parsed.toLocaleDateString("en-US",{day:"numeric",month:"short",timeZone:"UTC"});
+}
+function updateDateKey(d){
+  const iso=updateISO(d);
+  const parsed=iso ? Date.parse(iso+"T00:00:00Z") : NaN;
+  return Number.isNaN(parsed) ? dateKey(d.date) : parsed;
+}
+function daysQuiet(d){
+  const anchor=updateISO(d);
+  if(!anchor) return null;
+  const ms = Date.now() - new Date(anchor+"T00:00:00Z").getTime();
+  return Math.max(0, Math.floor(ms/864e5));
+}
+function isStale(d){
+  if(d.status==="done"||d.status==="collapsed") return false;
+  const q = daysQuiet(d);
+  return q===null || q > DECAY.stale;
+}
+/* The best source a reader can actually open. Tier 1 first, then most
+   recent. Migrated records carry `urn:` evidence rather than a link, so a
+   large part of the dataset has none and simply shows no link, which is
+   honest: there is nothing to send them to. */
+function sourceLink(d){
+  const live=(d.evidence||[]).filter(e=>/^https?:\/\//.test(e.url||""));
+  if(!live.length) return null;
+  live.sort((a,b)=>(a.tier-b.tier)||String(b.date).localeCompare(String(a.date)));
+  return live[0];
+}
+function sourceTag(d){
+  const e=sourceLink(d);
+  if(!e) return "";
+  return ` <a class="srclink" href="${e.url}" target="_blank" rel="noopener nofollow">`
+    + `${e.source} ↗</a>`;
+}
+function posTag(d){
+  return d.pos ? `<span class="pos">${d.pos}</span>` : "";
+}
+
+function decayLine(d){
+  if(d.status==="done"||d.status==="collapsed") return "";
+  const q = daysQuiet(d);
+  if(q===null || q<=DECAY.grace) return "";
+  const base = (d.base_cred===null||d.base_cred===undefined) ? d.cred : d.base_cred;
+  if(base===d.cred) return "";
+  return "Base "+base+", currently "+d.cred+" after "+q+" days without movement.";
+}
+
+/* config-driven chrome */
+$("#window-tag").textContent = CFG.windowName + " · " + CFG.tagline;
+$("#deadline-lbl").textContent = CFG.deadlineLabel;
+$("#updated-pulse").textContent = "Updated to " + CFG.updated + ".";
+$("#footer").textContent = "Data compiled " + CFG.updated + ". " + CFG.sourcesNote;
+
+/* TI-010. Three placements, no modal, no interstitial. Rendered from config
+   so a provider change is one line in data.json rather than three edits here.
+   The build also writes these server-side, so they work with JS disabled;
+   this only re-renders them when the config has moved on. */
+section("capture", function(){
+  const news = CFG.newsletter || {};
+  if(!news.action) return;
+  const clubs = Object.keys(CLUBS).sort();
+  function form(placement, withPrefs){
+    const prefs = withPrefs ? `
+      <details class="capture-more">
+        <summary>Only want certain clubs?</summary>
+        <div class="capture-prefs">
+        <label>Clubs
+          <select name="fields[clubs]" multiple size="4">
+            <option value="all" selected>All clubs</option>
+            ${clubs.map(c=>`<option value="${c}">${c}</option>`).join("")}
+          </select>
+        </label>
+        <label>Minimum credibility
+          <select name="fields[threshold]">
+            <option value="0" selected>Anything tracked</option>
+            <option value="40">40 and above</option>
+            <option value="60">60 and above</option>
+            <option value="80">80 and above</option>
+            <option value="confirmed">Confirmed only</option>
+          </select>
+          </label>
+        </div>
+      </details>` : "";
+    return `<details class="capture-shell">
+      <summary><strong>The daily transfer digest</strong><span>Get the email</span></summary>
+      <form class="capture" method="post" action="${news.action}"
+        data-placement="${placement}">
+      <h3>The daily transfer digest</h3>
+      <p>Every morning: what actually moved, and what was noise. One email a
+      day while the window is open, and it stops when it closes.</p>
+      <div class="capture-row">
+        <label class="visually-hidden" for="email-${placement}">Email address</label>
+        <input id="email-${placement}" type="email" name="email_address" required
+               autocomplete="email" placeholder="you@example.com">
+        <button type="submit">Get the digest</button>
+      </div>${prefs}
+      <input type="hidden" name="redirect" value="${(CFG.site&&CFG.site.baseUrl||"")}/thanks/">
+      <p class="capture-small">Double opt-in. One click to unsubscribe. No ads,
+      no list sharing.</p>
+      </form>
+    </details>`;
+  }
+  const top = $("#capture-top");
+  if(top) top.innerHTML = form("top", true);
+});
+
+/* Source accountability: one pre-resolution link per source and transfer. */
+const SOURCE_WRITERS={Romano:"Fabrizio Romano",Ornstein:"David Ornstein"};
+const SOURCE_PUBLICATIONS={
+  "dailymail.com":"Daily Mail","mirror.co.uk":"The Mirror","The Mirror":"The Mirror",
+  "liverpoolecho.co.uk":"Liverpool Echo","Evening Standard":"Evening Standard",
+  "chroniclelive.co.uk":"Chronicle Live","talksport.com":"talkSPORT",
+  "metro.co.uk":"Metro","birminghammail.co.uk":"Birmingham Mail",
+  "manchestereveningnews.co.uk":"Manchester Evening News",
+  "football.london":"football.london","CaughtOffside":"CaughtOffside",
+  "The Independent":"The Independent",Football365:"Football365",F365:"Football365",
+  Telegraph:"The Telegraph","BBC Sport":"BBC Sport","Sky Sports":"Sky Sports",
+  "The Guardian":"The Guardian",FootballTransfers:"FootballTransfers",
+  ESPN:"ESPN",Transfermarkt:"Transfermarkt",RTE:"RTÉ",
+  "FOX Sports":"FOX Sports",TEAMtalk:"TEAMtalk"
+};
+const SOURCE_IGNORED=new Set(["Spanish press","French press","Turkish press",
+  "Paper talk","Man Utd"]);
+const POSITIVE_CLAIMS=new Set(["interest","talks","agreed","medical"]);
+
+function splitAttribution(label){
+  return String(label||"").split(/\s+(?:\+|\/)\s+/).map(x=>x.trim()).filter(Boolean);
+}
+function sourceAttributions(label){
+  return splitAttribution(label).flatMap(raw=>{
+    if(SOURCE_WRITERS[raw]) return [["journalist",SOURCE_WRITERS[raw]]];
+    if(SOURCE_IGNORED.has(raw)) return [];
+    return [["publication",SOURCE_PUBLICATIONS[raw]||raw]];
+  });
+}
+function sourceResolution(d){
+  if(d.status==="done") return d.completed_date||d.last_verified_at||null;
+  if(d.status==="collapsed"){
+    const dates=(d.evidence||[]).filter(e=>e.claim==="collapsed")
+      .map(e=>e.date).filter(Boolean).sort();
+    return dates[0]||d.last_verified_at||null;
+  }
+  return null;
+}
+function buildSourceRecords(){
+  const buckets={publication:new Map(),journalist:new Map()};
+  DEALS.forEach(d=>{
+    const cutoff=sourceResolution(d), credited=new Map();
+    (d.evidence||[]).forEach(ev=>{
+      if(!POSITIVE_CLAIMS.has(ev.claim)) return;
+      if(cutoff && ev.date>=cutoff) return;
+      sourceAttributions(ev.source).forEach(([kind,name])=>{
+        credited.set(kind+"\u0000"+name,[kind,name]);
+      });
+    });
+    credited.forEach(([kind,name])=>{
+      if(!buckets[kind].has(name)) buckets[kind].set(name,new Map());
+      buckets[kind].get(name).set(d.id,d.status);
+    });
+  });
+  const finish=kind=>[...buckets[kind]].map(([name,calls])=>{
+    const statuses=[...calls.values()];
+    const hits=statuses.filter(x=>x==="done").length;
+    const misses=statuses.filter(x=>x==="collapsed").length;
+    const unresolved=statuses.length-hits-misses;
+    const resolved=hits+misses;
+    return {name,hits,misses,unresolved,resolved,calls:statuses.length,
+      rate:resolved?Math.round(hits/resolved*100):null,
+      score:resolved?Math.round((hits+2)/(resolved+4)*100):null};
+  }).sort((a,b)=>(b.score??-1)-(a.score??-1)||b.resolved-a.resolved||
+                  b.calls-a.calls||a.name.localeCompare(b.name));
+  return {publication:finish("publication"),journalist:finish("journalist")};
+}
+function safeText(value){
+  return String(value).replace(/[&<>"']/g,ch=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  })[ch]);
+}
+function sourceScoreClass(score){
+  return score===null?"source-unrated":
+    score>=70?"source-high":score>=50?"source-mid":"source-low";
+}
+function sourceRow(row){
+  return `<tr><td><b>${safeText(row.name)}</b></td>
+    <td><span class="source-score ${sourceScoreClass(row.score)}">${row.score??"—"}</span></td>
+    <td>${row.rate===null?"—":row.rate+"%"}</td><td>${row.hits}</td>
+    <td>${row.misses}</td><td>${row.resolved}</td><td>${row.unresolved}</td></tr>`;
+}
+function initSourceTable(tableId,bodyId,records){
+  const table=$("#"+tableId), body=$("#"+bodyId); if(!table||!body) return;
+  const getters={name:r=>r.name,score:r=>r.score??-1,rate:r=>r.rate??-1,
+    hits:r=>r.hits,misses:r=>r.misses,resolved:r=>r.resolved,
+    unresolved:r=>r.unresolved};
+  const first={name:1,score:-1,rate:-1,hits:-1,misses:-1,resolved:-1,unresolved:-1};
+  let key="score",dir=-1;
+  function render(){
+    const get=getters[key];
+    const rows=[...records].sort((a,b)=>{
+      const x=get(a),y=get(b);
+      const cmp=typeof x==="string"?x.localeCompare(y):x-y;
+      return cmp*dir||b.resolved-a.resolved||b.calls-a.calls||
+             a.name.localeCompare(b.name);
+    });
+    body.innerHTML=rows.length?rows.map(sourceRow).join(""):
+      '<tr class="empty"><td colspan="7">No attributable calls yet.</td></tr>';
+    table.querySelectorAll("th[data-sort]").forEach(th=>{
+      th.setAttribute("aria-sort",th.dataset.sort!==key?"none":
+        (dir===1?"ascending":"descending"));
+    });
+  }
+  table.querySelectorAll("th[data-sort] button").forEach(button=>{
+    button.addEventListener("click",()=>{
+      const next=button.closest("th").dataset.sort;
+      dir=next===key?-dir:first[next]; key=next; render();
+      if(window.tiTrack) window.tiTrack("source_sorted",tableId+":"+key);
+    });
+  });
+  render();
+}
+
+section("source-index",function(){
+  const records=buildSourceRecords();
+  const all=[...records.publication,...records.journalist];
+  const measured=all.filter(row=>row.resolved>0).length;
+  const resolved=all.reduce((sum,row)=>sum+row.resolved,0);
+  const hits=all.reduce((sum,row)=>sum+row.hits,0);
+  const unresolved=all.reduce((sum,row)=>sum+row.unresolved,0);
+  const kpis=$("#source-kpis");
+  if(kpis) kpis.innerHTML=[
+    [measured,"Sources with resolved calls"],
+    [resolved,"Resolved source calls"],
+    [hits,"Calls that became transfers"],
+    [unresolved,"Unresolved calls, not penalised"]
+  ].map(([value,label])=>`<div class="kpi"><div class="v">${value}</div>
+      <div class="l">${label}</div></div>`).join("");
+  initSourceTable("journalist-table","journalist-table-body",records.journalist);
+  initSourceTable("publication-table","publication-table-body",records.publication);
+});
+
+/* Value model: transparent, deterministic */
+function valueScore(d){
+  let s = 50;
+  const peak = 25, dist = Math.abs(d.age-peak);
+  s += d.age<=24 ? (24-d.age)*2.2 : -(dist*3.2);
+  if(["AM","ST","LW","RW"].includes(d.pos)) s += 6;
+  if(d.pos==="CM") s += 4;
+  if(CFG.provenClubs.includes(d.from)) s += 8;
+  if(d.age>=30) s -= 8;
+  return Math.max(5,Math.min(98,Math.round(s)));
+}
+function verdict(d){
+  if(d.fee===0) return {t:"Bargain",cls:"v-bargain"};
+  const s = valueScore(d);
+  const ratio = d.fee / s;
+  if(ratio < 0.55) return {t:"Bargain",cls:"v-bargain"};
+  if(ratio < 0.95) return {t:"Fair",cls:"v-fair"};
+  if(ratio < 1.35) return {t:"Premium",cls:"v-premium"};
+  return {t:"Overpay risk",cls:"v-overpay"};
+}
+function verdictColor(cls){return {"v-bargain":"#3ddc84","v-fair":"#4f9cff","v-premium":"#ffb454","v-overpay":"#ff5d5d"}[cls];}
+
+/* TI-003. Below 860px every section is already on the page, so the nav is
+   navigation: it scrolls. Above it, the tabs behave as tabs. The breakpoint
+   is read at click time rather than cached, so rotating a phone does the
+   right thing without a reload. */
+const WIDE = () => window.matchMedia("(min-width:861px)").matches;
+function setActive(tab){
+  document.querySelectorAll("nav button").forEach(x=>{
+    const on = x.dataset.tab===tab;
+    x.classList.toggle("active", on);
+    x.setAttribute("aria-selected", on ? "true" : "false");
+  });
+}
+document.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{
+  const target = document.getElementById(b.dataset.tab);
+  if(!target) return;
+  setActive(b.dataset.tab);
+  if(WIDE()){
+    document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+    target.classList.add("active");
+  }else{
+    target.scrollIntoView({behavior:"smooth", block:"start"});
+  }
+  if(window.tiTrack) window.tiTrack("tab_opened", b.dataset.tab);
+});
+
+/* Keep the nav honest as the reader scrolls past sections on mobile. */
+if("IntersectionObserver" in window){
+  const spy = new IntersectionObserver(entries=>{
+    if(WIDE()) return;
+    entries.forEach(en=>{
+      if(!en.isIntersecting) return;
+      setActive(en.target.id);
+    });
+  /* The bar is at the bottom now, so the "current section" band sits in the
+     upper half of the viewport rather than just under a top nav. */
+  }, {rootMargin:"0px 0px -55% 0px"});
+  document.querySelectorAll(".tab").forEach(t=>spy.observe(t));
+}
+
+/* countdown */
+const DEADLINE = new Date(CFG.deadline);
+setInterval(()=>{
+  let ms = DEADLINE - new Date();
+  if(ms<0){$("#clock").textContent="WINDOW CLOSED";return;}
+  const d=Math.floor(ms/864e5), h=Math.floor(ms%864e5/36e5), m=Math.floor(ms%36e5/6e4), s=Math.floor(ms%6e4/1e3);
+  $("#clock").textContent=`${d}d ${h}h ${m}m ${s}s`;
+},1000);
+
+/* pulse */
+section("pulse", function(){
+  const paid = DEALS.filter(d=>d.status==="done"&&d.fee>0);
+  const spend = paid.reduce((a,d)=>a+d.fee,0);
+  const live = DEALS.filter(d=>["talks","agreed","medical"].includes(d.status)).length;
+  const biggest = paid.reduce((a,d)=>d.fee>a.fee?d:a,{fee:0,p:"",to:""});
+  $("#pulse-kpis").innerHTML = [
+    ["£"+Math.round(spend)+"m+","PL-involved confirmed fees"],
+    [DEALS.filter(d=>d.status==="done").length,"Deals completed"],
+    [live,"Deals in motion right now"],
+    ["£"+biggest.fee+"m",`Biggest deal (${biggest.p.split(" ").pop()} → ${biggest.to})`],
+  ].map(([v,l])=>`<div class="kpi"><div class="v">${v}</div><div class="l">${l}</div></div>`).join("");
+
+  const order=STAGE_ORDER;
+  $("#funnel").innerHTML = order.map(st=>{
+    const n = DEALS.filter(d=>d.status===st).length;
+    return `<div class="stagechip"><div class="n" style="color:${STAGES[st].c}">${n}</div><div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.6px">${STAGES[st].l}</div></div>`;
+  }).join("");
+
+  /* Feed ordering. Mirrors site.FEED_RANK and site.feed_order exactly: the
+     build pre-renders this list and the browser re-renders it, so if the two
+     disagree the feed visibly reshuffles the moment the script runs. It used
+     to, because the server sorted by credibility and name while the browser
+     sorted by stage and fee. A test now asserts the default orders match. */
+  const RANK={collapsed:0,medical:1,confirmed:2,agreed:3,talks:4,done:5,rumor:6};
+  const MONTHS={jan:1,feb:2,mar:3,apr:4,may:5,jun:6,
+                jul:7,aug:8,sep:9,oct:10,nov:11,dec:12};
+  function dateKey(label){
+    const parts=String(label||"").replace(/,/g," ").split(/\s+/).filter(Boolean);
+    if(parts.length<2) return 0;
+    const m=MONTHS[parts[0].slice(0,3).toLowerCase()];
+    if(!m) return 0;
+    return m*100 + (parseInt(parts[1],10)||0);
+  }
+  const FEED_SORTS={
+    active: (a,b)=>RANK[a.status]-RANK[b.status]||b.fee-a.fee||a.p.localeCompare(b.p),
+    recent: (a,b)=>updateDateKey(b)-updateDateKey(a)||b.fee-a.fee,
+    fee:    (a,b)=>b.fee-a.fee||a.p.localeCompare(b.p),
+    cred:   (a,b)=>b.cred-a.cred||a.p.localeCompare(b.p),
+    quiet:  (a,b)=>(daysQuiet(b)??-1)-(daysQuiet(a)??-1)||a.p.localeCompare(b.p)
+  };
+  const feedSel=$("#f-feedsort");
+  const feedStore={
+    get(){ try{ return sessionStorage.getItem("ti.feedsort"); }catch(e){ return null; } },
+    set(v){ try{ sessionStorage.setItem("ti.feedsort", v); }catch(e){} }
+  };
+  const savedFeed=feedStore.get();
+  if(feedSel && savedFeed && FEED_SORTS[savedFeed]) feedSel.value=savedFeed;
+
+  function renderFeed(){
+  const mode=(feedSel && feedSel.value) || "active";
+  const feed=[...DEALS].sort(FEED_SORTS[mode]||FEED_SORTS.active);
+  $("#feed").innerHTML = feed.map(d=>`
+    <div class="item">
+      <span class="dot" style="background:${stage(d).c}"></span>
+      <span class="when">${displayUpdateDate(d)}</span>
+      <div class="what">
+        <b>${d.p}</b>${posTag(d)} · ${d.from} → ${d.to} · ${fmtDeal(d)}
+        <span class="pill" style="background:${stage(d).c}22;color:${stage(d).c}">${stage(d).l}</span>
+        ${isStale(d)?'<span class="stale">Stale</span>':""}
+        <div class="meta">${d.note}${sourceTag(d)}</div>
+      </div>
+    </div>`).join("");
+  }
+  if(feedSel) feedSel.addEventListener("change", ()=>{
+    feedStore.set(feedSel.value); renderFeed();
+    if(window.tiTrack) window.tiTrack("feed_sorted", feedSel.value);
+  });
+  renderFeed();
+});
+
+/* rumors */
+section("rumors", function(){
+  const rumors = DEALS.filter(d=>["rumor","talks","agreed","medical","confirmed","collapsed"].includes(d.status));
+  const clubs=[...new Set(rumors.flatMap(d=>[d.from,d.to]))].sort();
+  $("#f-club").innerHTML += clubs.map(c=>`<option>${c}</option>`).join("");
+  function credColor(c){return c>=75?"#3ddc84":c>=50?"#ffb454":"#ff5d5d";}
+  function render(){
+    const club=$("#f-club").value, q=$("#f-search").value.toLowerCase(),
+          sort=$("#f-sort").value, quiet=$("#f-quiet").value;
+    let list=rumors.filter(d=>
+      (!club||d.from===club||d.to===club) &&
+      (!q||d.p.toLowerCase().includes(q)) &&
+      (!quiet || (quiet==="stale" ? isStale(d) : !isStale(d))));
+    /* TI-020. "Longest quiet" is the sort that makes silence legible: it puts
+       the deals nobody has mentioned in a fortnight at the top, which is
+       where a reader deciding what to still believe wants them. */
+    list.sort((a,b)=>{
+      if(sort==="fee") return b.fee-a.fee;
+      if(sort==="quiet") return (daysQuiet(b)??999)-(daysQuiet(a)??999);
+      return b.cred-a.cred;
+    });
+    $("#rumorlist").innerHTML = list.map(d=>{
+      const dec = decayLine(d);
+      return `
+      <div class="rumor">
+        <div class="cred" style="border-color:${credColor(d.cred)};color:${credColor(d.cred)}">${d.cred}<small>/100</small></div>
+        <div>
+          <h3>${d.p}${posTag(d)} · ${d.from} → ${d.to} <span style="color:var(--muted);font-weight:400">· ${fmtDeal(d)}${d.status==="rumor"?" (reported)":""}</span>
+            <span class="pill" style="background:${stage(d).c}22;color:${stage(d).c}">${stage(d).l}</span>${isStale(d)?'<span class="stale">Stale</span>':""}</h3>
+          <div class="why">${d.note}</div>
+          ${dec?`<div class="decayline">${dec}</div>`:""}
+          <div class="srcline"><span class="tier t${d.tier}">TIER ${d.tier}</span><span style="color:var(--muted)">Primary source: ${d.src}</span>${sourceTag(d)}</div>
+        </div>
+      </div>`;}).join("") || `<div class="panel">No rumours match those filters.</div>`;
+    if(window.tiTrack && (club||q||quiet||sort!=="cred")) window.tiTrack("index_filtered", sort);
+  }
+  ["f-club","f-sort","f-search","f-quiet"].forEach(id=>{
+    const el=$("#"+id); if(el) el.addEventListener("input",render);
+  });
+  render();
+});
+
+/* value */
+/* TI-002. VALUED is the single definition of "a deal worth assessing", and
+   both the scatter chart and the verdicts table read it. They used to filter
+   independently, which meant a table showing nothing under a chart showing
+   points was a legitimate state of the code rather than an obvious bug.
+   The build renders the same collection server-side and a test asserts the
+   three counts agree, so they cannot drift apart again in silence. */
+const VALUE_STATUSES = ["agreed","medical","confirmed","done"];
+const VALUED = DEALS
+  .filter(d => d.fee > 0 && VALUE_STATUSES.includes(d.status))
+  .sort((a,b) => b.fee - a.fee || a.p.localeCompare(b.p));
+
+section("value-chart", function(){
+  const svgEl = $("#scatter"); if(!svgEl) return;
+  const W=760,H=400,P={l:52,r:16,t:16,b:40};
+  if(!VALUED.length){
+    svgEl.innerHTML = `<text x="${W/2}" y="${H/2}" text-anchor="middle"
+      style="fill:var(--muted)" font-size="13">No confirmed fees yet this window.</text>`;
+    return;
+  }
+  const maxF=Math.max(130,Math.ceil(Math.max(...VALUED.map(d=>d.fee))/10)*10);
+  const x=s=>P.l+(s/100)*(W-P.l-P.r);
+  const y=f=>H-P.b-(f/maxF)*(H-P.t-P.b);
+  let svg="";
+  const step=Math.ceil(maxF/4/10)*10;
+  for(let f=0;f<=maxF-step/2;f+=step) svg+=`<line x1="${P.l}" y1="${y(f)}" x2="${W-P.r}" y2="${y(f)}" style="stroke:var(--border)"/><text x="${P.l-8}" y="${y(f)+4}" style="fill:var(--muted)" font-size="11" text-anchor="end">£${f}m</text>`;
+  for(let sc=0;sc<=100;sc+=25) svg+=`<text x="${x(sc)}" y="${H-P.b+18}" style="fill:var(--muted)" font-size="11" text-anchor="middle">${sc}</text>`;
+  svg+=`<text x="${(P.l+W-P.r)/2}" y="${H-6}" style="fill:var(--muted)" font-size="11" text-anchor="middle">Value Score →</text>`;
+  VALUED.forEach(d=>{
+    const v=verdict(d), sc=valueScore(d);
+    svg+=`<circle cx="${x(sc)}" cy="${y(d.fee)}" r="7" style="fill:${verdictColor(v.cls)}" opacity=".85"><title>${d.p} (${d.from} → ${d.to}): ${fmt(d.fee)}, score ${sc}, ${v.t}</title></circle>`;
+    if(d.fee>=42) svg+=`<text x="${x(sc)}" y="${y(d.fee)-11}" style="fill:var(--text)" font-size="10.5" text-anchor="middle">${d.p.split(" ").pop()}</text>`;
+  });
+  svgEl.innerHTML=svg;
+});
+
+section("value-table", function(){
+  const tb=$("#valtable-body"); if(!tb) return;
+  /* Never bare headers. An empty state is information; an empty tbody under a
+     header row is a broken page. */
+  if(!VALUED.length){
+    tb.innerHTML = `<tr class="empty"><td colspan="6">No confirmed fees yet
+      this window. Free transfers are excluded from value scoring.</td></tr>`;
+    return;
+  }
+
+  /* Column sorting. Rows are keyed by deal id rather than by position,
+     because sorting reorders the array and an index would then open the
+     wrong deal: the reader clicks Anderson and gets Tonali. */
+  const VERDICT_RANK={"Bargain":0,"Fair":1,"Premium":2,"Overpay risk":3};
+  const COLS={
+    player:  d=>d.p,
+    move:    d=>d.to+" "+d.from,
+    age:     d=>d.age,
+    fee:     d=>d.fee,
+    score:   d=>valueScore(d),
+    verdict: d=>VERDICT_RANK[verdict(d).t] ?? 9
+  };
+  /* Which way a column should run on its first click. Nobody wants the
+     cheapest signing first, or the worst value first, so numeric columns
+     that mean "more" start descending and names start ascending. */
+  const FIRST_DIR={player:1, move:1, age:1, fee:-1, score:-1, verdict:1};
+  let sortKey="fee", sortDir=-1;
+
+  const store={
+    get(){ try{ return JSON.parse(sessionStorage.getItem("ti.valsort")||"null"); }
+           catch(e){ return null; } },
+    set(v){ try{ sessionStorage.setItem("ti.valsort", JSON.stringify(v)); }catch(e){} }
+  };
+  const saved=store.get();
+  if(saved && COLS[saved.key]){ sortKey=saved.key; sortDir=saved.dir; }
+
+  function sorted(){
+    const get=COLS[sortKey]||COLS.fee;
+    return [...VALUED].sort((a,b)=>{
+      const x=get(a), y=get(b);
+      const cmp = typeof x==="string" ? x.localeCompare(y) : (x-y);
+      /* Ties fall back to fee then name so the order is total: an unstable
+         tail makes a table look like it is shuffling at random. */
+      return cmp*sortDir || (b.fee-a.fee) || a.p.localeCompare(b.p);
+    });
+  }
+
+  function paintHeaders(){
+    document.querySelectorAll("#valtable th[data-sort]").forEach(th=>{
+      th.setAttribute("aria-sort",
+        th.dataset.sort!==sortKey ? "none"
+          : (sortDir===1 ? "ascending" : "descending"));
+    });
+  }
+
+  function render(){
+    tb.innerHTML=sorted().map(d=>{
+      const v=verdict(d);
+      return `<tr class="clickable" data-id="${d.id}"><td><b>${d.p}</b></td><td class="move">${d.from} → ${d.to}</td><td>${d.age}</td><td>${fmt(d.fee)}</td><td>${valueScore(d)}</td><td><span class="verdict ${v.cls}">${v.t}</span></td></tr>`;
+    }).join("");
+    paintHeaders();
+  }
+
+  document.querySelectorAll("#valtable th[data-sort]").forEach(th=>{
+    th.querySelector("button").addEventListener("click", ()=>{
+      const key=th.dataset.sort;
+      sortDir = key===sortKey ? -sortDir : (FIRST_DIR[key]||1);
+      sortKey = key;
+      store.set({key:sortKey, dir:sortDir});
+      render();
+      if(window.tiTrack) window.tiTrack("value_sorted", sortKey);
+    });
+  });
+
+  tb.onclick=e=>{
+    const tr=e.target.closest("tr.clickable"); if(!tr)return;
+    const d=VALUED.find(x=>x.id===tr.dataset.id); if(!d) return;
+    const sc=valueScore(d), r=(d.fee/sc).toFixed(2);
+    $("#valdetail").style.display="block";
+    $("#valdetail").innerHTML=`<b>${d.p}</b>, score breakdown: base 50, age ${d.age} ${d.age<=24?`(+${((24-d.age)*2.2).toFixed(1)} youth/resale)`:`(-${(Math.abs(d.age-25)*3.2).toFixed(1)} age curve)`}${["AM","ST","LW","RW"].includes(d.pos)?", +6 attacking premium":d.pos==="CM"?", +4 midfield premium":""}${d.age>=30?", -8 aged-30+ discount":""}. <b>Score ${sc}</b> at ${fmt(d.fee)} = £${r}m per value point → <b>${verdict(d).t}</b>. ${d.note}`;
+    if(window.tiTrack) window.tiTrack("value_row_opened", d.id||d.p);
+  };
+
+  render();
+});
+
+/* clubs */
+section("clubs", function(){
+  /* TI-013. Alphabetical was the least informative order available: it put
+     the two clubs with nothing tracked in the middle of the grid and
+     scattered the busy ones around them. Default is now activity, zero
+     activity is grouped out of the way, and every card shows in, out and net
+     rather than spend alone. £229.5m spent against £150m sold is a different
+     window from £229.5m spent against nothing. */
+  const COUNTED = ["agreed","medical","confirmed","done"];
+  const agg={};
+  Object.keys(CLUBS).forEach(c=>agg[c]={in:[],out:[]});
+  DEALS.filter(d=>COUNTED.includes(d.status)).forEach(d=>{
+    if(agg[d.to]) agg[d.to].in.push(d);
+    if(agg[d.from]) agg[d.from].out.push(d);
+  });
+  const sum = rows => rows.reduce((x,d)=>x+(d.fee||0),0);
+  const stat = c => {
+    const a=agg[c]||{in:[],out:[]};
+    const spent=sum(a.in), sold=sum(a.out);
+    return {spent, sold, net:spent-sold, count:a.in.length+a.out.length, a};
+  };
+
+  /* sessionStorage is a convenience, never a dependency: a browser that
+     refuses it still sorts, it just forgets between pages. */
+  const store = {
+    get(){ try{ return sessionStorage.getItem("ti.clubsort"); }catch(e){ return null; } },
+    set(v){ try{ sessionStorage.setItem("ti.clubsort", v); }catch(e){} }
+  };
+  const sel = $("#f-clubsort");
+  const saved = store.get();
+  if(sel && saved) sel.value = saved;
+
+  const SORTS = {
+    active: (a,b)=> stat(b).count-stat(a).count || stat(b).spent-stat(a).spent || a.localeCompare(b),
+    spend:  (a,b)=> stat(b).spent-stat(a).spent || stat(b).count-stat(a).count || a.localeCompare(b),
+    az:     (a,b)=> a.localeCompare(b)
+  };
+
+  function card(c){
+    const st=stat(c);
+    const netColor = st.net>0?"var(--red)":"var(--green)";
+    return `<div class="club" data-c="${c}">
+      <h3>${c} <span class="net" style="color:${netColor}">${st.net>0?"−":"+"}£${Math.abs(st.net).toFixed(0)}m</span></h3>
+      <div class="row"><span>Spent</span><b>£${st.spent.toFixed(0)}m</b></div>
+      <div class="row"><span>Sold</span><b>£${st.sold.toFixed(0)}m</b></div>
+      <div class="row"><span>Net</span><b>${st.net>0?"−":"+"}£${Math.abs(st.net).toFixed(0)}m</b></div>
+      <div class="row"><span>In / Out</span><b>${st.a.in.length} / ${st.a.out.length}</b></div>
+    </div>`;
+  }
+
+  function render(){
+    const mode = (sel && sel.value) || "active";
+    const all = Object.keys(CLUBS);
+    const active = all.filter(c=>stat(c).count>0).sort(SORTS[mode]||SORTS.active);
+    const quiet  = all.filter(c=>stat(c).count===0).sort((a,b)=>a.localeCompare(b));
+    let html = active.map(card).join("");
+    if(quiet.length){
+      html += `<details class="quiet-group" style="grid-column:1/-1">
+        <summary>No tracked activity (${quiet.length})</summary>
+        <div class="clubgrid" style="margin-top:12px">${quiet.map(card).join("")}</div>
+      </details>`;
+    }
+    $("#clubgrid").innerHTML = html;
+  }
+
+  if(sel) sel.addEventListener("change", ()=>{
+    store.set(sel.value); render();
+    if(window.tiTrack) window.tiTrack("clubs_sorted", sel.value);
+  });
+  render();
+
+  $("#clubgrid").onclick=e=>{
+    const card=e.target.closest(".club"); if(!card)return;
+    const c=card.dataset.c, a=(agg[c]||{in:[],out:[]}), info=CLUBS[c]||{};
+    const li=d=>`<li><span>${d.p} <span style="color:var(--muted)">(${d.pos}${["medical","agreed","confirmed"].includes(d.status)?" · "+stage(d).l.toLowerCase():""})</span></span><span class="fee">${fmtDeal(d)}</span></li>`;
+    const dead = DEALS.filter(d=>d.status==="collapsed"&&(d.to===c||d.from===c));
+    $("#clubgrid").style.display="none";
+    $("#clubdetail").style.display="block";
+    $("#clubdetail").innerHTML=`
+      <button class="back">← All clubs</button>
+      <div class="panel">
+        <h2>${c}</h2>
+        <p style="font-size:13.5px;color:var(--muted);margin:6px 0 14px">${info.ctx||""}</p>
+        <div class="twocol">
+          <div><strong style="font-size:13px;color:var(--green)">IN (${a.in.length})</strong><ul class="deal-list">${a.in.map(li).join("")||"<li>None yet</li>"}</ul></div>
+          <div><strong style="font-size:13px;color:var(--red)">OUT (${a.out.length})</strong><ul class="deal-list">${a.out.map(li).join("")||"<li>None yet</li>"}</ul></div>
+        </div>
+        ${dead.length?`<div class="note">Collapsed this window: ${dead.length}. ${dead.map(d=>d.p).join(", ")}.</div>`:""}
+        <div class="needbox"><b>What they still need:</b> ${info.needs||"Not assessed."}</div>
+        <div class="note">${CFG.finNote}</div>
+      </div>`;
+    $("#clubdetail .back").onclick=()=>{$("#clubdetail").style.display="none";$("#clubgrid").style.display="grid";};
+    if(window.tiTrack) window.tiTrack("club_opened", c);
+  };
+});
+</script>
+<!-- ti:analytics -->
+<script data-goatcounter="https://transferintel.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<script>
+/* TI-012. Six events, one helper, no library. */
+(function(){
+  function send(name, detail){
+    try{
+      if(window.goatcounter && window.goatcounter.count){
+        window.goatcounter.count({path:name+(detail?":"+detail:""),
+                                  title:name, event:true});
+      }
+      if(window.__cfBeacon){ /* Cloudflare records pageviews only */ }
+      window.dispatchEvent(new CustomEvent("ti:event",
+        {detail:{name:name, detail:detail}}));
+    }catch(err){ /* analytics must never break the page */ }
+  }
+  window.tiTrack = send;
+  document.addEventListener("click", function(ev){
+    var form = ev.target.closest && ev.target.closest("form.capture");
+    if(form){ send("newsletter_submit", form.dataset.placement); return; }
+    var link = ev.target.closest && ev.target.closest("a");
+    if(!link) return;
+    var href = link.getAttribute("href") || "";
+    if(/^https?:\/\//.test(href) && link.hostname !== location.hostname){
+      send("outbound_source", link.hostname);
+    }else if(href.indexOf("/deals/") !== -1){
+      send("deal_opened", href.split("/deals/")[1].replace(/\/$/,""));
+    }else if(href.indexOf("/clubs/") !== -1){
+      send("club_opened", href.split("/clubs/")[1].replace(/\/$/,""));
+    }
+  }, true);
+  if(location.pathname.indexOf("/thanks") !== -1){ send("newsletter_confirmed"); }
+})();
+</script>
+<!-- /ti:analytics -->
+</body>
+</html>

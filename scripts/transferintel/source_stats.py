@@ -40,6 +40,7 @@ PUBLICATION_ALIASES = {
     "F365": "Football365",
     "Telegraph": "The Telegraph",
     "BBC Sport": "BBC Sport",
+    "Reuters": "Reuters",
     "Sky Sports": "Sky Sports",
     "The Guardian": "The Guardian",
     "FootballTransfers": "FootballTransfers",
@@ -56,7 +57,10 @@ IGNORED_ATTRIBUTIONS = {
     "Man Utd",  # official club confirmation, not a transfer-news source
 }
 
-POSITIVE_CLAIMS = {"interest", "talks", "agreed", "medical", "completed"}
+# Completion-day coverage proves that a transfer happened; it does not prove
+# that an outlet called it before the market knew. Credibility therefore uses
+# only genuinely predictive stages and requires them to pre-date resolution.
+POSITIVE_CLAIMS = {"interest", "talks", "agreed", "medical"}
 
 
 def _value(item: object) -> str:
@@ -148,7 +152,7 @@ def source_records(deals: Iterable[object]) -> dict[str, list[SourceRecord]]:
         for evidence in getattr(deal, "evidence", []):
             if _value(getattr(evidence, "claim", "")) not in POSITIVE_CLAIMS:
                 continue
-            if cutoff is not None and evidence.date > cutoff:
+            if cutoff is not None and evidence.date >= cutoff:
                 continue
             credited.update(canonical_attributions(evidence.source))
 
@@ -184,4 +188,3 @@ def source_records(deals: Iterable[object]) -> dict[str, list[SourceRecord]]:
     for records in output.values():
         records.sort(key=order)
     return output
-
