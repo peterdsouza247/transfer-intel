@@ -31,9 +31,15 @@
       "action": "https://app.kit.com/forms/9707763/subscriptions"
     },
     "analytics": {
-      "cloudflareToken": "57f3c03a35404d2fb51baadd48f1693d",
       "goatcounter": "https://transferintel.goatcounter.com/count"
-    }
+    },
+    "windowSlug": "2026-summer",
+    "archives": [
+      {
+        "slug": "2026-summer",
+        "name": "Summer 2026 archive"
+      }
+    ]
   },
   "deals": [
     {
@@ -6925,6 +6931,520 @@
       "collapse_narrative": "",
       "pivot_from": null,
       "pivot_to": null
+    },
+    {
+      "id": "fernandez-chelsea-man-city",
+      "p": "Enzo Fernández",
+      "from": "Chelsea",
+      "to": "Man City",
+      "fee": 125,
+      "age": 25,
+      "pos": "CM",
+      "status": "done",
+      "date": "Sep 1",
+      "tier": 1,
+      "src": "Sky Sports",
+      "cred": 100,
+      "note": "Deadline-day signing for £125m, matching the British transfer record.",
+      "evidence": [
+        {
+          "url": "https://www.theguardian.com/football/2026/aug/12/manchester-city-chelsea-enzo-fernandez",
+          "source": "The Guardian",
+          "tier": 2,
+          "date": "2026-08-12",
+          "claim": "interest",
+          "official": false
+        },
+        {
+          "url": "https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-09-03",
+          "claim": "completed",
+          "marker": "Enzo Fernandez - Chelsea, £125m",
+          "official": false,
+          "fee_gbp_m": 125
+        },
+        {
+          "url": "https://www.skysports.com/football/news/13579972/enzo-fernandez-transfer-news-man-city-sign-midfielder-from-chelsea-in-british-record-equalling-125m-deal",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-09-02",
+          "claim": "completed",
+          "marker": "Manchester City have signed Enzo Fernandez from Chelsea",
+          "fee_gbp_m": 125,
+          "official": false
+        }
+      ],
+      "last_verified_at": "2026-09-03",
+      "completion_marker": "Manchester City have signed Enzo Fernandez from Chelsea",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-09-01",
+      "base_cred": 100,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
+    },
+    {
+      "id": "mudryk-chelsea-tottenham",
+      "p": "Mykhailo Mudryk",
+      "from": "Chelsea",
+      "to": "Tottenham",
+      "fee": 0,
+      "age": 25,
+      "pos": "LW",
+      "status": "done",
+      "date": "Sep 3",
+      "tier": 1,
+      "src": "Sky Sports",
+      "cred": 100,
+      "note": "Season loan. Sky's list does not disclose a loan fee.",
+      "evidence": [
+        {
+          "url": "https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-09-03",
+          "claim": "completed",
+          "marker": "Mykhaylo Mudryk - Spurs, loan",
+          "official": false
+        }
+      ],
+      "last_verified_at": "2026-09-03",
+      "completion_marker": "Mykhaylo Mudryk - Spurs, loan",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-09-03",
+      "base_cred": 100,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null,
+      "loan": true
+    },
+    {
+      "id": "fofana-lyon-sunderland",
+      "p": "Malick Fofana",
+      "from": "Lyon",
+      "to": "Sunderland",
+      "fee": 31,
+      "age": 21,
+      "pos": "LW",
+      "status": "done",
+      "date": "Sep 3",
+      "tier": 1,
+      "src": "Sky Sports",
+      "cred": 100,
+      "note": "Completed move. Sky's reported fee includes potential add-ons.",
+      "evidence": [
+        {
+          "url": "https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-09-03",
+          "claim": "completed",
+          "marker": "Malick Fofana - Lyon, £31m",
+          "official": false,
+          "fee_gbp_m": 31
+        }
+      ],
+      "last_verified_at": "2026-09-03",
+      "completion_marker": "Malick Fofana - Lyon, £31m",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-09-03",
+      "base_cred": 100,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
+    },
+    {
+      "id": "woltemade-newcastle-juventus",
+      "p": "Nick Woltemade",
+      "from": "Newcastle",
+      "to": "Juventus",
+      "fee": 0,
+      "age": 24,
+      "pos": "ST",
+      "status": "done",
+      "date": "Sep 3",
+      "tier": 1,
+      "src": "Sky Sports",
+      "cred": 100,
+      "note": "Season loan. Sky's list does not disclose a loan fee.",
+      "evidence": [
+        {
+          "url": "https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-09-03",
+          "claim": "completed",
+          "marker": "Nick Woltemade - Juventus, loan",
+          "official": false
+        }
+      ],
+      "last_verified_at": "2026-09-03",
+      "completion_marker": "Nick Woltemade - Juventus, loan",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-09-03",
+      "base_cred": 100,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null,
+      "loan": true
+    },
+    {
+      "id": "fernandez-pardo-lille-newcastle",
+      "p": "Matias Fernandez-Pardo",
+      "from": "Lille",
+      "to": "Newcastle",
+      "fee": 51,
+      "age": 21,
+      "pos": "LW",
+      "status": "done",
+      "date": "Sep 3",
+      "tier": 1,
+      "src": "Sky Sports",
+      "cred": 100,
+      "note": "Completed move. Sky's reported fee includes potential add-ons.",
+      "evidence": [
+        {
+          "url": "https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-09-03",
+          "claim": "completed",
+          "marker": "Matias Fernandez-Pardo - Lille, £51m",
+          "official": false,
+          "fee_gbp_m": 51
+        }
+      ],
+      "last_verified_at": "2026-09-03",
+      "completion_marker": "Matias Fernandez-Pardo - Lille, £51m",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-09-03",
+      "base_cred": 100,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
+    },
+    {
+      "id": "harwood-bellis-southampton-aston-villa",
+      "p": "Taylor Harwood-Bellis",
+      "from": "Southampton",
+      "to": "Aston Villa",
+      "fee": 30,
+      "age": 24,
+      "pos": "CB",
+      "status": "done",
+      "date": "Sep 3",
+      "tier": 1,
+      "src": "Sky Sports",
+      "cred": 100,
+      "note": "Completed move. Sky's reported fee includes potential add-ons.",
+      "evidence": [
+        {
+          "url": "https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-09-03",
+          "claim": "completed",
+          "marker": "Taylor Harwood-Bellis - Southampton, £30m",
+          "official": false,
+          "fee_gbp_m": 30
+        }
+      ],
+      "last_verified_at": "2026-09-03",
+      "completion_marker": "Taylor Harwood-Bellis - Southampton, £30m",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-09-03",
+      "base_cred": 100,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
+    },
+    {
+      "id": "ndiaye-everton-man-city",
+      "p": "Iliman Ndiaye",
+      "from": "Everton",
+      "to": "Man City",
+      "fee": 65,
+      "age": 26,
+      "pos": "AM",
+      "status": "done",
+      "date": "Sep 3",
+      "tier": 1,
+      "src": "Sky Sports",
+      "cred": 100,
+      "note": "Completed move. Sky's reported fee includes potential add-ons.",
+      "evidence": [
+        {
+          "url": "https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-09-03",
+          "claim": "completed",
+          "marker": "Iliman Ndiaye - Manchester City, £65m",
+          "official": false,
+          "fee_gbp_m": 65
+        }
+      ],
+      "last_verified_at": "2026-09-03",
+      "completion_marker": "Iliman Ndiaye - Manchester City, £65m",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-09-03",
+      "base_cred": 100,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
+    },
+    {
+      "id": "danso-tottenham-sunderland",
+      "p": "Kevin Danso",
+      "from": "Tottenham",
+      "to": "Sunderland",
+      "fee": 0,
+      "age": 27,
+      "pos": "CB",
+      "status": "done",
+      "date": "Sep 3",
+      "tier": 1,
+      "src": "Sky Sports",
+      "cred": 100,
+      "note": "Season loan. Sky's list does not disclose a loan fee.",
+      "evidence": [
+        {
+          "url": "https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-09-03",
+          "claim": "completed",
+          "marker": "Kevin Danso - Tottenham, loan",
+          "official": false
+        }
+      ],
+      "last_verified_at": "2026-09-03",
+      "completion_marker": "Kevin Danso - Tottenham, loan",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-09-03",
+      "base_cred": 100,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null,
+      "loan": true
+    },
+    {
+      "id": "sanchez-chelsea-como",
+      "p": "Robert Sánchez",
+      "from": "Chelsea",
+      "to": "Como",
+      "fee": 0,
+      "age": 28,
+      "pos": "GK",
+      "status": "done",
+      "date": "Sep 3",
+      "tier": 1,
+      "src": "Sky Sports",
+      "cred": 100,
+      "note": "Season loan. Sky's list does not disclose a loan fee.",
+      "evidence": [
+        {
+          "url": "https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-09-03",
+          "claim": "completed",
+          "marker": "Robert Sanchez - Como, loan",
+          "official": false
+        }
+      ],
+      "last_verified_at": "2026-09-03",
+      "completion_marker": "Robert Sanchez - Como, loan",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-09-03",
+      "base_cred": 100,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null,
+      "loan": true
+    },
+    {
+      "id": "adarabioyo-chelsea-tottenham",
+      "p": "Tosin Adarabioyo",
+      "from": "Chelsea",
+      "to": "Tottenham",
+      "fee": 10,
+      "age": 28,
+      "pos": "CB",
+      "status": "done",
+      "date": "Sep 3",
+      "tier": 1,
+      "src": "Sky Sports",
+      "cred": 100,
+      "note": "Completed move. Sky's reported fee includes potential add-ons.",
+      "evidence": [
+        {
+          "url": "https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-09-03",
+          "claim": "completed",
+          "marker": "Tosin Adarabioyo - Chelsea, £10m",
+          "official": false,
+          "fee_gbp_m": 10
+        }
+      ],
+      "last_verified_at": "2026-09-03",
+      "completion_marker": "Tosin Adarabioyo - Chelsea, £10m",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-09-03",
+      "base_cred": 100,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
+    },
+    {
+      "id": "mbaye-psg-aston-villa",
+      "p": "Ibrahim Mbaye",
+      "from": "Paris St-Germain",
+      "to": "Aston Villa",
+      "fee": 47,
+      "age": 18,
+      "pos": "RW",
+      "status": "done",
+      "date": "Sep 3",
+      "tier": 1,
+      "src": "Sky Sports",
+      "cred": 100,
+      "note": "Completed move. Sky's reported fee includes potential add-ons.",
+      "evidence": [
+        {
+          "url": "https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-09-03",
+          "claim": "completed",
+          "marker": "Ibrahim Mbaye - Paris St-Germain, £47m",
+          "official": false,
+          "fee_gbp_m": 47
+        }
+      ],
+      "last_verified_at": "2026-09-03",
+      "completion_marker": "Ibrahim Mbaye - Paris St-Germain, £47m",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-09-03",
+      "base_cred": 100,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null
+    },
+    {
+      "id": "nwaneri-arsenal-dortmund",
+      "p": "Ethan Nwaneri",
+      "from": "Arsenal",
+      "to": "Dortmund",
+      "fee": 0,
+      "age": 19,
+      "pos": "AM",
+      "status": "done",
+      "date": "Sep 3",
+      "tier": 1,
+      "src": "Sky Sports",
+      "cred": 100,
+      "note": "Season loan. Sky's list does not disclose a loan fee.",
+      "evidence": [
+        {
+          "url": "https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-09-03",
+          "claim": "completed",
+          "marker": "Ethan Nwaneri - Borussia Dortmund, loan",
+          "official": false
+        }
+      ],
+      "last_verified_at": "2026-09-03",
+      "completion_marker": "Ethan Nwaneri - Borussia Dortmund, loan",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-09-03",
+      "base_cred": 100,
+      "collapse_reason": null,
+      "collapse_narrative": "",
+      "pivot_from": null,
+      "pivot_to": null,
+      "loan": true
+    },
+    {
+      "id": "jesus-arsenal-barcelona",
+      "p": "Gabriel Jesus",
+      "from": "Arsenal",
+      "to": "Barcelona",
+      "fee": 8.6,
+      "age": 29,
+      "pos": "ST",
+      "status": "done",
+      "date": "Sep 3",
+      "tier": 1,
+      "src": "Sky Sports",
+      "cred": 100,
+      "base_cred": 100,
+      "note": "Completed move. Sky's reported fee includes potential add-ons.",
+      "evidence": [
+        {
+          "url": "https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-09-03",
+          "claim": "completed",
+          "marker": "Gabriel Jesus - Barcelona, £8.6m",
+          "fee_gbp_m": 8.6,
+          "official": false
+        }
+      ],
+      "last_verified_at": "2026-09-03",
+      "completion_marker": "Gabriel Jesus - Barcelona, £8.6m",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-09-03"
+    },
+    {
+      "id": "beto-everton-fiorentina",
+      "p": "Beto",
+      "from": "Everton",
+      "to": "Fiorentina",
+      "fee": 15.4,
+      "age": 28,
+      "pos": "ST",
+      "status": "done",
+      "date": "Sep 3",
+      "tier": 1,
+      "src": "Sky Sports",
+      "cred": 100,
+      "base_cred": 100,
+      "note": "Completed move. Sky's reported fee includes potential add-ons.",
+      "evidence": [
+        {
+          "url": "https://www.skysports.com/football/news/13546618/transfer-news-summer-transfer-window-2026-premier-league-deals-ins-and-outs",
+          "source": "Sky Sports",
+          "tier": 1,
+          "date": "2026-09-03",
+          "claim": "completed",
+          "marker": "Beto - Fiorentina, £15.4m",
+          "fee_gbp_m": 15.4,
+          "official": false
+        }
+      ],
+      "last_verified_at": "2026-09-03",
+      "completion_marker": "Beto - Fiorentina, £15.4m",
+      "completion_source": "Sky Sports",
+      "completed_date": "2026-09-03"
     }
   ],
   "clubs": {
@@ -6983,6 +7503,7 @@
     "West Ham": {
       "needs": "Midfield creativity after cashing £85m for Fernandes.",
       "ctx": "One big sale, quiet on arrivals so far."
-    }
+    },
+    "Sunderland": {}
   }
 }

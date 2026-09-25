@@ -347,4 +347,26 @@ evidence. Demotion target is `confirmed`, credibility capped at 90.
 Run the report form after any manual edit to `data.json`. It costs two seconds
 and it is the same check the build gate applies, so a clean report means the
 next run will not abort.
+# Window rollover
+
+The published Summer 2026 data is frozen at
+`windows/2026-summer/`. Visitors can reach it from the window links under
+the site header, including its source rankings, deal pages, club pages and RSS.
+The root page stays on Summer 2026 until the next window is ready.
+
+To open a new window, run one command from the repository root:
+
+```bash
+python scripts/open_window.py --slug 2027-winter \
+  --name "Premier League · Winter Window 2027" \
+  --deadline 2027-02-01T23:00:00Z \
+  --deadline-label "Window closes 1 Feb, 23:00 GMT"
+```
+
+Use the officially confirmed closing time when you run it. The command
+archives the outgoing dataset if needed, resets the live deal list and old
+club commentary, and renders both windows. Review and commit the generated
+files, then publish via the usual PR. Old snapshots are never overwritten.
+Continue reviewing new candidates with `scripts/add_candidates.py`; the
+editorial job does not automatically add newly discovered players.
 

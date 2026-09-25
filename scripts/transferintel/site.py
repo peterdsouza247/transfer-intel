@@ -269,7 +269,8 @@ def cred_class(cred: int) -> str:
 def deal_sentence(deal: Deal) -> str:
     """One plain sentence per deal, the thing a crawler and a screen reader
     both actually read."""
-    fee = f" for a reported £{deal.fee:g}m" if deal.fee else ""
+    fee = (" on loan" if deal.loan else
+           f" for a reported £{deal.fee:g}m" if deal.fee else "")
     status = STATUS_LABEL.get(
         deal.status.value if hasattr(deal.status, "value") else str(deal.status),
         str(deal.status),
@@ -419,7 +420,9 @@ def render_capture_form(
       </div>
   </details>"""
 
-    return f"""<form class="capture" method="post"
+    return f"""<details class="capture-shell">
+  <summary><strong>The daily transfer digest</strong><span>Get the email</span></summary>
+  <form class="capture" method="post"
       action="{e(cfg.newsletter_action)}"
       data-placement="{e(placement)}" data-ti-event="newsletter_submit">
   <h3>The daily transfer digest</h3>
@@ -433,7 +436,8 @@ def render_capture_form(
   <input type="hidden" name="redirect" value="{e(cfg.url('thanks/'))}">
   <p class="capture-small">Double opt-in. One click to unsubscribe. No ads,
   no list sharing.</p>
-</form>"""
+</form>
+</details>"""
 
 
 def render_thanks_page(cfg: SiteConfig, updated_iso: str) -> str:
@@ -565,7 +569,7 @@ def render_deal_list(deals: Iterable[Deal], cfg: SiteConfig) -> str:
             f"{pos_badge(d)}</h3>"
             f"<p>{e(deal_sentence(d))}</p>"
             f'<p class="meta">{e(STATUS_LABEL.get(status, status))}'
-            f"{f' · £{d.fee:g}m' if d.fee else ''}"
+            f"{' · Loan' if d.loan else f' · £{d.fee:g}m' if d.fee else ''}"
             f"{f' · {e(d.src)}' if d.src else ''}"
             f"{f' · updated {e(updated)}' if updated else ''}"
             f"{source_anchor(d)}</p>"
@@ -1007,7 +1011,7 @@ def render_deal_page(cfg: SiteConfig, deal: Deal, updated_iso: str, updated: str
   <div class="n {cred_class(deal.cred)}">{deal.cred}</div>
   <div><strong>Credibility, out of 100</strong><br>
   <span class="lede">{e(STATUS_LABEL.get(status, status))}
-  {f"· reported fee £{deal.fee:g}m" if deal.fee else ""}</span></div>
+  {"· loan" if deal.loan else f"· reported fee £{deal.fee:g}m" if deal.fee else ""}</span></div>
 </div>
 {f'<div class="panel"><p>{e(deal.note)}</p></div>' if deal.note else ''}
 <h2>Deal facts</h2>
@@ -1017,7 +1021,7 @@ def render_deal_page(cfg: SiteConfig, deal: Deal, updated_iso: str, updated: str
 <tr><th>Age</th><td>{e(deal.age or "Not stated")}</td></tr>
 <tr><th>From</th><td>{e(deal.from_club)}</td></tr>
 <tr><th>To</th><td>{e(deal.to)}</td></tr>
-<tr><th>Reported fee</th><td>{f"£{deal.fee:g}m" if deal.fee else "Undisclosed"}</td></tr>
+<tr><th>Reported fee</th><td>{"Loan fee undisclosed" if deal.loan else f"£{deal.fee:g}m" if deal.fee else "Undisclosed"}</td></tr>
 <tr><th>Status</th><td>{e(STATUS_LABEL.get(status, status))}</td></tr>
 <tr><th>Credibility</th><td>{deal.cred} / 100</td></tr>
 <tr><th>Last updated</th><td>{e(display_update_date(deal) or updated)}</td></tr>
@@ -1068,7 +1072,7 @@ def render_club_page(
         cells = "".join(
             f"<tr><td><a href=\"{e(cfg.href(deal_path(d)))}\">{e(d.p)}</a></td>"
             f"<td>{e(d.from_club if other == 'from' else d.to)}</td>"
-            f"<td>{f'£{d.fee:g}m' if d.fee else 'Free'}</td>"
+            f"<td>{'Loan' if d.loan else f'£{d.fee:g}m' if d.fee else 'Free'}</td>"
             f"<td>{e(STATUS_LABEL.get(str(getattr(d.status,'value',d.status)), ''))}</td>"
             f"<td>{d.cred}</td></tr>"
             for d in sorted(rows, key=lambda x: -x.cred)
