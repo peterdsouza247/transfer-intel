@@ -24,4 +24,10 @@ Attribution labels are normalized by the site’s `source_stats.py`. A publicati
 
 These exports are derived from the public transfer dataset under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); credit TransferIntel and link to https://peterdsouza247.github.io/transfer-intel/. Third-party articles remain with their publishers. Existing public data can be reused commercially with attribution. For commissioned research, expanded coverage, tailored exports or regular delivery, contact **peterbrendanwrites@gmail.com**. No exclusive rights to this public snapshot are implied.
 
-Available on enquiry: a window report with methodology and source receipts; a custom audit of selected sources or clubs; or scheduled CSV delivery across new windows. Send the desired scope, format and deadline to **peterbrendanwrites@gmail.com**. Coverage and fees are agreed for each project.
+Available on enquiry:
+
+- **Window report:** a dated editorial brief on the tracked calls, outcomes and patterns for one window, plus methodology, sample-size limits and linked summary and call-level CSVs.
+- **Custom source or club audit:** agree sources, clubs and dates; check the recorded claims against retrievable original articles and outcomes; receive an evidence log, any corrections, and a written assessment of what the sample supports.
+- **Scheduled data delivery:** documented CSV snapshots on an agreed schedule, with window IDs, source calls, outcomes, evidence links and a change log. Agree cadence and coverage in advance.
+
+Send your desired scope, format and deadline to **peterbrendanwrites@gmail.com**. Fees depend on the work. Payment covers research, verification, tailoring or delivery, not exclusive rights to the public data.

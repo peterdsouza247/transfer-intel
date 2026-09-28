@@ -154,7 +154,13 @@ Attribution labels are normalized by the site’s `source_stats.py`. A publicati
 
 These exports are derived from the public transfer dataset under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/); credit TransferIntel and link to {site}/. Third-party articles remain with their publishers. Existing public data can be reused commercially with attribution. For commissioned research, expanded coverage, tailored exports or regular delivery, contact **{cfg.get('contactEmail', 'peterbrendanwrites@gmail.com')}**. No exclusive rights to this public snapshot are implied.
 
-Available on enquiry: a window report with methodology and source receipts; a custom audit of selected sources or clubs; or scheduled CSV delivery across new windows. Send the desired scope, format and deadline to **peterbrendanwrites@gmail.com**. Coverage and fees are agreed for each project.
+Available on enquiry:
+
+- **Window report:** a dated editorial brief on the tracked calls, outcomes and patterns for one window, plus methodology, sample-size limits and linked summary and call-level CSVs.
+- **Custom source or club audit:** agree sources, clubs and dates; check the recorded claims against retrievable original articles and outcomes; receive an evidence log, any corrections, and a written assessment of what the sample supports.
+- **Scheduled data delivery:** documented CSV snapshots on an agreed schedule, with window IDs, source calls, outcomes, evidence links and a change log. Agree cadence and coverage in advance.
+
+Send your desired scope, format and deadline to **peterbrendanwrites@gmail.com**. Fees depend on the work. Payment covers research, verification, tailoring or delivery, not exclusive rights to the public data.
 """
     (out / "README.md").write_text(report, encoding="utf-8")
     table_rows = "\n".join(
@@ -181,7 +187,11 @@ small{{color:#b8c3d3}}code{{color:#c7f7d4}}</style></head><body>
 <div class="scroll"><table id="sources"><thead><tr>{''.join(f'<th><button type="button" data-col="{i}">{heading}</button></th>' for i,heading in enumerate(['Type','Source','Score','Raw hit rate %','Hits','Misses','Resolved','Unresolved','Sample']))}</tr></thead><tbody>{table_rows}</tbody></table></div>
 <h2>Method and reuse</h2><p>One source gets one call per transfer for an interest, talks, agreed or medical claim dated before resolution. Completed = hit; collapsed = miss; pending = excluded from the rate. Score = <code>round(100 × (hits + 2) / (resolved + 4))</code>. Multiple sources may call the same deal. The call CSV shows the earliest qualifying evidence for each source/deal pair.</p>
 <p>Dataset: <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Credit TransferIntel and link to <a href="{html.escape(site)}/">the original data</a>. Third-party article rights remain with their publishers. For expanded coverage, tailored research or ongoing delivery: <a href="mailto:peterbrendanwrites@gmail.com">peterbrendanwrites@gmail.com</a>.</p>
-<h2>Commissioned research</h2><p>Ask for a window report with methodology and receipts, an audit of selected sources or clubs, or scheduled CSV delivery for future windows. Scope, coverage and fees are agreed per project; the public CC BY dataset remains reusable. <a href="mailto:peterbrendanwrites@gmail.com?subject=TransferIntel%20research%20enquiry">Email Peter with your windows, sources, format and deadline</a>.</p>
+<h2>Commissioned research</h2><ul>
+<li><strong>Window report:</strong> a dated brief on tracked calls, outcomes and patterns, with methodology, sample limits and linked summary and call-level CSVs.</li>
+<li><strong>Custom source or club audit:</strong> agree sources, clubs and dates; check recorded claims against original articles and outcomes; receive an evidence log, corrections and a written assessment.</li>
+<li><strong>Scheduled data delivery:</strong> documented CSV snapshots on an agreed schedule, with window IDs, calls, outcomes, evidence links and a change log.</li></ul>
+<p>Scope, coverage and fees are agreed per project. Payment covers research, verification, tailoring or delivery; the public CC BY dataset remains reusable. <a href="mailto:peterbrendanwrites@gmail.com?subject=TransferIntel%20research%20enquiry">Email Peter with your windows, sources, format and deadline</a>.</p>
 <script>document.querySelectorAll('th button').forEach(b=>b.addEventListener('click',()=>{{const t=document.querySelector('tbody'),i=Number(b.dataset.col),numeric=[2,3,4,5,6,7].includes(i),descending=b.dataset.desc!=='true';b.dataset.desc=descending?'true':'false';[...t.rows].sort((a,c)=>{{const x=a.cells[i].textContent,y=c.cells[i].textContent;return (numeric?(Number(x)||-1)-(Number(y)||-1):x.localeCompare(y))*(descending?-1:1)}}).forEach(row=>t.append(row))}}))</script>
 </body></html>"""
     (out / "index.html").write_text(page, encoding="utf-8")
