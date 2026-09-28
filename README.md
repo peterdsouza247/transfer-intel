@@ -190,6 +190,31 @@ This rewrites `index.html` in place. It is idempotent: generated head tags are
 delimited at both ends and rebuilt, container contents are replaced rather
 than appended, and running it twice produces a byte-identical file.
 
+To refresh the public Summer 2026 source research package after editing its
+archived data (and inspect the evidence CSV before publishing):
+
+```bash
+python scripts/build_source_report.py --data windows/2026-summer/data.json --out reports/2026-summer
+```
+
+For a contiguous range of archived windows, or a hand-picked set:
+
+```bash
+python scripts/build_source_report.py --from-window 2026-summer --to-window 2027-winter --out reports/2026-summer-to-2027-winter
+python scripts/build_source_report.py --data windows/2026-summer/data.json windows/2027-winter/data.json --out reports/selected-windows
+```
+
+Use a separate output directory for each package. The script rejects a
+duplicate window, such as including both `data.json` and its archived copy.
+Calls are keyed by both window and deal, so a repeated transfer route across
+windows counts independently. A range requires both archived endpoints.
+
+The report documents the small sample and includes a source summary and
+one-call-per-source-per-deal evidence export. All three files are CC BY 4.0
+under the dataset terms in `LICENSE`. A paid offering can cover regular
+delivery, expanded coverage or commissioned analysis, but cannot revoke
+reuse rights already granted to this public snapshot.
+
 To see what the pipeline would change without changing anything:
 
 ```bash
